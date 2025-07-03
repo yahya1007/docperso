@@ -1,0 +1,89 @@
+
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{dlds}
+
+ 
+\begin{document}
+
+\devoir[sem=2,prv=true,ds=false,num=5 ,niv=2 ,date=17/04/2023,Rdate=24/04/2023]
+
+\begin{exo}
+\begin{minipage}{.6\linewidth}
+On considère la figure ci-contre tel que $BD=8$ ,$AD=4$ et $BC=4$
+\begin{enumerate}
+\item Calculer $CD$ et $AB$.
+\item Calculer $\cos(\widehat{BAD})$ et $\cos(\widehat{BDC})$.
+\item Calculer $HD$
+\end{enumerate}
+\end{minipage}
+\begin{minipage}{.4\linewidth}
+\begin{tikzpicture}
+\tkzDefPoints{0/0/C,4/0/D}
+\tkzDefTriangle[pythagore](D,C)
+\tkzGetPoint{B}
+\tkzDefTriangle[school](B,D)
+\tkzGetPoint{A}
+\tkzDefPointBy[projection=onto B--D](C)
+\tkzGetPoint{H}
+\tkzDrawSegments(C,D D,B B,C D,A A,B C,H)
+\tkzLabelPoints(D,C,A)
+\tkzLabelPoint[left](B){B}
+\tkzLabelPoint[above](H){H}
+\tkzMarkRightAngle(B,C,D)
+\tkzMarkRightAngle(B,D,A)
+\end{tikzpicture}
+\end{minipage}
+\end{exo}
+
+
+\begin{exo}
+Soient $a$ , $b$ et $c$ des nombres rationnels, tels que $12\leq a \leq15$ et $-8\leq b \leq -1$.
+\begin{enumerate}
+\item Encadrer ce qui suit :
+\begin{tasks}[style=itemize](3)
+\task $a+b$
+\task $2a+3$
+\task $5a+3b$
+\task $\dfrac{3a}{2}$
+\task $\dfrac{5a+2b}{7}$
+\task $\dfrac{2a}{5}+\dfrac{3b}{3}$
+\end{tasks}
+\item Sachant que  $-2 \leq 3c+8 \leq 3$. Encadrer $c$.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}
+Soit $(C)$ un cercle de centre $O$ et de rayon $r=5cm$.$[BC]$ est un diamètre de $(C)$ et $A$ un point du cercle $(C)$ tel que $AB=6cm$ .
+\begin{enumerate}
+\item Trace la figure .
+\item Prouver que $ABC$ est un triangle rectangle.
+\item Soit $H$ la projeté orthogonale de $A$ sue $[BC]$.
+\begin{enumerate}
+\item Calculer $\cos(\widehat{C})$ et  $\cos(\widehat{B})$.
+\item Déduire $BH$ et $CH$.
+\end{enumerate}
+\end{enumerate}
+\end{exo}
+
+\begin{exo}
+\begin{enumerate}
+\item Simplifier :
+\end{enumerate}
+\begin{tasks}[style=itemize](2)
+\task $\vv{EF}+\vv{GE}+\vv{FG} $
+\task $\vv{AB}-\vv{BD}+\vv{CA}-\vv{CB}$
+\task $\vv{FE}-\vv{GE}-\vv{GF}+\vv{GH}+\vv{GF}$
+\end{tasks}
+\end{exo}
+
+\begin{exo}
+On considère le triangle $ABC$.
+\begin{enumerate}
+\item Construis $C$ et $F$ les images de $B$ et $A$ respectivement par la translation de vecteur $\vv{EA}$.
+\item Monter que $ABCF$ et $EBCA$ sont des parallélogrammes.
+\item Déduire que: $\vv{EF}=\vv{EA}+\vv{BC}$
+\end{enumerate}
+\end{exo}
+
+\end{document}

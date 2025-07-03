@@ -1,0 +1,57 @@
+\documentclass{book}
+\usepackage[utf8]{inputenc}
+\usepackage[left=1cm,right=1cm,top=.5cm,bottom=1cm]{geometry}
+\usepackage[french]{babel}
+\usepackage{xcolor}
+\usepackage[explicit]{titlesec}
+\titleformat{\chapter}[display]
+{\bfseries\Large}
+{\filright\MakeUppercase{\chaptertitlename} \Huge\thechapter}
+{1ex}
+{\titlerule\vspace{1ex}\filcenter {\Large #1}}
+[\vspace{1ex}\titlerule]
+ \titlespacing{\chapter}{0pt}{-5ex}{10ex}
+\titleformat{\section}{\normalfont\large\bfseries}{\color{red!55!yellow}{\thesection}}{0.6em}{#1:}
+\titleformat{\subsection}{\normalfont\large\bfseries}{\color{red!55!yellow}{\thesubsection}}{0.6em}{#1:}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[most]{tcolorbox}
+\tcbuselibrary{listings,theorems}
+\newtcbtheorem[number within=section]{theoreme}{Théorème}
+{enhanced,
+ lower separated=false,
+ sharp corners,
+ before upper={\parindent28mm},
+ attach boxed title to top left={
+ xshift=1mm,
+ yshift=-5mm,
+ yshifttext=5mm
+ },
+ top=1.5em,
+ coltitle=red!60!yellow,
+ colback=gray!10,
+ colframe=red!60!yellow, 
+ rightrule=0pt,
+ titlerule=0pt, 
+ toprule=0pt,
+ colbacktitle=gray!10,
+ fonttitle=\bfseries,
+ boxed title style={
+ sharp corners=all,
+ leftrule=0pt,
+ rightrule=0pt,
+ bottomrule=0pt, 
+ toprule=0pt,
+ pad after break=0pt
+} }{th}
+\begin{document}
+\chapter{Distributions}
+\section{Introduction}
+Il y a plusieurs raisons pour introduire la notion de distribution. 
+Certaines sont d'ordre purement physique (exp expérimental même ) 
+alors que d’autres sont des raisons plus mathématiques.
+\subsection{Unité pour la convolution} 
+\begin{theoreme}{}{}Comme nous l'avons remarqué lors de l'étude de la convolution des fonctions intégrables, il n'y a pas de fonction intégrable 
+$\Delta$ qui puisse servir d'unité pour le produit de convolution de ces fonctions. Dans l'espace des distributions, il y a effectivement une telle distribution unité pour le produit de convolution : c'est la distribution de Dirac, qui satisfait à
+$$\delta\times T=T\times\delta=T$$
+\end{theoreme}
+\end{document}

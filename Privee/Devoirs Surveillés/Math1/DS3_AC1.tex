@@ -1,0 +1,61 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{dlds}
+
+ 
+\begin{document}
+
+\devoir[ds=true,num=3 ,niv=1 , date=10/01/2023,prv=true ]
+\begin{exo}[12]
+\begin{enumerate}
+\item Calculer les expressions suivantes :
+
+$A= \dfrac{-42\times (-63)\times 7}{49\times (-21)\times 9}=$\anserline[2]
+
+$B=-17+(-41)-(-29)+7+(-48)\times (-3)\div (-4)-(-6)=$\anserline[3]
+\item Compléter par le nombre qui convient :
+\begin{tasks}[style=itemize](2)
+\task $(-9)\times \cdots = -63$
+\task $ \cdots \times (-4) = 48$
+\task $(-3+ \cdots )\times (-54)= -108$
+\task $\dfrac{\cdots}{-7}=-6$
+\end{tasks} 
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[8]
+\begin{minipage}{.65\linewidth}
+On considère la figure ci-contre 
+\begin{enumerate}
+\item Calculer la mesure des angles $\widehat{ACB}$ et $\widehat{BAD}$ \newline\anserline[3]
+\end{enumerate}
+\end{minipage}
+\begin{minipage}{.35\linewidth}
+\begin{tikzpicture}
+\tkzDefPoints{-2/0/C,3/0/B}
+\tkzDefMidPoint(B,C)
+\tkzGetPoint{D}
+\tkzDefPointOnCircle[through= center D angle 60 point B]
+\tkzGetPoint{A}
+\tkzDrawSegments(A,B B,C C,A A,D)
+\tkzLabelPoints(B,C,D)
+\tkzLabelPoint[above](A){A}
+\tkzMarkSegments[mark=s|](A,B B,D D,A D,C)
+\tkzDrawPoints(A,B,C,D)
+\end{tikzpicture}
+\end{minipage}
+\begin{enumerate}[start=2]
+\item Déduire la nature de triangle ABC
+\anserline[4] 
+\end{enumerate}
+\end{exo}
+
+
+
+
+
+
+
+
+
+\end{document}

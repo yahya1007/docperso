@@ -1,0 +1,115 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{ProfModels}
+ 
+\begin{document}
+
+\begin{Maquette}[DM]{Niveau=2, Numero=3, Date=06/01/2025, FinDate=09/01/2025, Semestre=1}
+
+%\begin{exercice}
+%\begin{enumerate}
+%\item Calculer : 
+%\[ 2022^{0} \quad; \quad (-1)^{101} \quad; \quad 0^{89} \quad; \quad (\dfrac{1}{5})^{-3}\]
+%\item Déterminer le signe des puissances suivantes :
+%\[ (\dfrac{-1}{13})^{-12} \quad; \quad 
+%	(-7)^{2007}
+%\] 
+%\item Écrire sous forme $a^{n}$ les expressions suivantes :
+%\[\dfrac{11^{-6}}{11^{-8}}\quad; \quad
+%	\dfrac{3^{5}\times (-3)^{8}}{9^{9}}\quad; \quad
+%	\dfrac{10^{5}\times 10^{-8}\times 10^{4}}{2^{6}\times 2^{-7}\times 2^{2}}\quad; \quad
+%\dfrac{a^{-9}\times a^{5}\times (-a)^{18}}{a^{-4}}
+%\]
+%\item Simplifier : 
+%\[
+%\dfrac{ab^{-4}\times (a^{2}b^{-1})^{3}\times a^{-2}b^{3}}{a^{-5}\times (ab^{-1})^{2}\times (ab)^{-3}}
+%\]
+%\item Donner l'écriture scientifique des nombres suivants :
+%\[
+%	A=0.0000000025\times 0.00000000042 \quad; \quad
+%	B=\dfrac{540\times 10^{-9}}{6\times 10^{-22}}\quad; \quad
+%\]
+%\end{enumerate}
+%\end{exercice}
+\begin{exercice}
+$ABCD$ est un parallélogramme et  $I$ le milieu de  $[AD]$ et $J$ milieu de $[DC]$. Les droites$(IJ)$ et $(BD)$ se coupent en  $M$ .
+\begin{enumerate}
+\item Construire une figure.
+\item Démontrer que $M$ est le milieu de $[IJ]$.
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+\begin{minipage}{0.6\linewidth}
+
+On considère la figure ci-contre tel que $AD=4$ et $BD=6$ et $DE=3$. 
+\begin{enumerate}
+\item Sachant que $(DE)//(BC)$ , calculer $BC$
+\item Construire le centre de gravité du triangle $ABC$ et $I$ le milieu de $[BC]$.
+\item Sachant que  $IG=3$ calculer $AG$.
+\end{enumerate}
+\end{minipage}
+\begin{minipage}{0.4\linewidth}
+\begin{tikzpicture}
+\tkzDefPoints{1/2/A,5/0/B,2/4/C}
+\tkzDefPointOnLine[pos=.3](A,B)\tkzGetPoint{D}
+\tkzDefPointOnLine[pos=.3](A,C)\tkzGetPoint{E}
+\tkzDrawLines(A,B A,C B,C)
+\tkzDrawSegment(D,E)
+\tkzLabelPoints(A,D,B)
+\tkzLabelPoints[above,left ](E,C)
+\end{tikzpicture}
+\end{minipage}
+\end{exercice}
+
+\begin{exercice}
+$a$ et $b$ deux nombres rationnels non nuls .
+\begin{enumerate}
+\item Simplifier ce qui suit :
+
+\begin{tasks}[style=itemize](4)
+\task $A=a^{2}\times a \times a^{-4} $ 
+\task $B=\dfrac{a^{2}\times a^{3}}{a^{-4}}$
+\task* $C=\dfrac{ab^{-4}\times (a^{2}b^{-1})^{3}\times a^{-2}b^{3}}{a^{-5}\times (ab^{-1})^{2}\times (ab)^{3}}$
+\end{tasks}
+\item Déterminer l'écriture scientifique : 
+
+\begin{tasks}[style=itemize](3)
+\task $x=0.000000000000114$
+\task $y=32100000000000000$
+\task $z=\dfrac{14\times 10^{14}\times 10^{-8}}{5\times 10^{-12}\times 10^{20}}$
+\end{tasks}
+
+\end{enumerate}
+\end{exercice}
+\begin{exercice}
+$EFGH$ est un carré de centre $I$ et $O$ le milieu de $\lrc{HG}$; la droite $\lrp{FO}$ coupe $\lrp{EG}$ en $K$.
+\begin{minipage}{0.55\linewidth}
+\begin{enumerate}
+\item Que représente le point $K$ pour le triangle $FGH$?
+\item Calculer $GK$ sachant que $GI=6$.
+\item Montrer que $\lrp{OI}$ est la médiatrice de $\lrc{HG}$.
+\item Que représente le point $I$ pour le triangle $FGH$?
+\end{enumerate}
+\end{minipage}%
+\begin{minipage}{0.45\linewidth}
+\begin{center}
+\begin{tikzpicture}[scale=0.8]
+\tkzDefPoints{0/0/E,4/0/F}
+\tkzDefSquare(E,F)\tkzGetPoints{G}{H}
+\tkzDefPointOnLine[pos=0.5](H,G)\tkzGetPoint{O}
+\tkzInterLL(E,G)(F,H)\tkzGetPoint{I}
+\tkzInterLL(F,O)(E,G)\tkzGetPoint{K}
+\tkzDrawPolygon(E,F,G,H)
+\tkzDrawSegments(E,G F,H F,O)
+\tkzLabelPoints(E,F,I)
+\tkzLabelPoints[above](H,G,O)
+\tkzLabelPoint[right](K){K}
+\tkzMarkSegments[mark=||](H,O O,G)
+\end{tikzpicture}
+\end{center}
+\end{minipage}
+\end{exercice}
+
+\end{Maquette}
+\end{document}

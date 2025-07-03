@@ -1,0 +1,117 @@
+\documentclass[12pt,a4paper]{report}
+\usepackage[top=1cm,bottom=1cm,right=1cm,left=1cm]{geometry}
+\usepackage{tikz,contour}
+\usepackage[most]{tcolorbox}
+\usepackage{amsmath,amssymb}
+\usepackage{multicol}
+\usepackage{pgf,tikz,pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+\definecolor{candyapplered}{rgb}{1.0, 0.03, 0.0}
+\definecolor{lime(colorwheel)}{rgb}{0.75, 1.0, 0.0}
+\usetikzlibrary{shapes.geometric}
+
+\renewcommand{\labelenumi}{%
+	\begin{tikzpicture}[baseline=(1.base)]
+	\node[draw,regular polygon,regular polygon sides=6,inner sep=.5mm,fill=yellow!70!black!30,font=\bfseries](1){\arabic{enumi}};
+	\end{tikzpicture}}
+\renewcommand{\labelenumii}{%
+	\begin{tikzpicture}[baseline=(1.base)]
+	\node[draw,circle,inner sep=.5mm,fill=green!70!gray!50,font=\bfseries\footnotesize,minimum size=5mm](1){\alph{enumii}};
+	\end{tikzpicture}}
+
+
+\pagestyle{empty}
+%\usepackage{polyglossia,lipsum}
+
+\def\sknn#1{\tcbsubskin{sknn}{empty}{frame code={\fill[#1!5](interior.north east)rectangle(interior.south west);\draw[#1!90!green,line width=3pt] (interior.north west)--(interior.south west);},interior code={}}}
+\def\skn#1{\tcbsubskin{skn}{empty}{frame code={\fill[#1!5](interior.north east)rectangle(interior.south west);\draw[#1!90!green,line width=3pt] (interior.north west)--(interior.south west);},interior code={},}}
+%\setmainlanguage{french}
+%\newfontfamily\frenchfont{Times New Roman}
+\usetikzlibrary{backgrounds,positioning,shadings}
+\newtcolorbox{mybox}[2]{title={#1},enhanced,attach boxed title to top left={xshift=2mm},skin=skn,coltitle=white,skin first=skn,skin last=sknn,skin middle=sknn,breakable,boxed title style={
+opacityback=0,frame code={
+\draw[double,double distance=1mm] ([xshift=-2mm]frame.north west)--(frame.north east)to[bend left=45](frame.south east)--([xshift=-4.5mm]frame.south west);
+\path[fill=#2!90!green] ([xshift=-2mm]frame.north west)--(frame.north east)to[bend left=45](frame.south east)--([xshift=-5mm]frame.south west);
+\path[double,right color=#2!90!green,left color=gray,shading angle=70,middle color=#2!90!green!80!black]([xshift=-2mm]frame.north west)--([xshift=-5mm]frame.south west)--++(10mm,0)--([xshift=5mm]frame.north west)--cycle;
+\path [fill=#2!80!black,transform canvas={shift={(-.2mm,-.5mm)}}]([xshift=-5mm]frame.south west)--++(.18,0)--++(-.4,-.4)--cycle;
+\path [fill=#2!80!black,transform canvas={shift={(-.05mm,.5mm)}}]([xshift=-2mm]frame.north west)--++(.1,0)--++(0,.25)--cycle;}}}
+\newenvironment{mebox}[2]{\sknn{#2}\skn{#2}\begin{mybox}{\contour{gray}{#1}}{#2}}{\end{mybox}}
+\pagestyle{empty}
+
+\usepackage{multirow}
+\NewTColorBox[auto counter]{exercise}{+!O{}}{%
+	enhanced,breakable,frame style={left color=green,right color=yellow},colback=yellow!10!white,coltitle=green!40!black,
+	fonttitle=\bfseries,
+	underlay={\begin{tcbclipinterior}
+			\shade[inner color=green!80!yellow!50,outer color=yellow!10!white]
+			(interior.north west) circle (2cm);
+			\draw[help lines,step=5mm,yellow!80!black!50,shift={(interior.north west)}]
+			(interior.south west) grid (interior.north east);
+	\end{tcbclipinterior}},
+	title={Exercise~\thetcbcounter:},
+	label={exercise@\thetcbcounter},
+	attach title to upper=\quad,
+	lowerbox=ignored,
+	savelowerto=solutions/exercise-\thetcbcounter.tex,
+	record={\string\solution{\thetcbcounter}{solutions/exercise-\thetcbcounter.tex}},
+	#1
+}
+\begin{document}
+	
+		\begin{tcolorbox}[enhanced,frame style={left color=yellow,right color=green},interior style={fill=none,
+			top color=green!30!white,
+			bottom color=yellow!20!white}]
+		\begin{center}
+			\begin{tabular}{c c  c}
+				$2019/2020$ 	\hspace*{2cm}   & \multirow{2}{6cm} {\textbf{{\Large Série d'exercices}}} & 	\hspace*{2cm} $1$BAC SC			\\
+				Pr: S.BASSY\hspace*{2cm} &  & \hspace*{1cm}lycée: IBN ALHAITAM
+			\end{tabular}
+		\end{center}
+	\end{tcolorbox}
+	\vspace*{0.5cm}
+	
+%	\tcbstartrecording\relax
+	\begin{exercise}
+	\\	Énoncée de votre exercice 
+		
+		\begin{enumerate}
+			\item  QST1
+			\item \begin{enumerate}
+				\item text
+				\item  text $\mathbb{R}$
+				   
+			\end{enumerate}
+			
+			\item \begin{enumerate}
+				
+				\item text
+				\item text
+			\end{enumerate}
+		\end{enumerate}
+%	
+	\end{exercise}
+	
+	
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\vspace*{0.5cm}
+\begin{exercise}
+	\\	Énoncée de votre exercice 
+
+\begin{enumerate}
+	\item  QST1
+	\item \begin{enumerate}
+		\item text
+		\item  text $\mathbb{R}$
+		
+	\end{enumerate}
+	
+	\item
+	\end{enumerate}
+
+%	
+\end{exercise}
+\end{document}

@@ -1,0 +1,115 @@
+\documentclass[a4paper,12pt]{article}
+\input{preambule.tex}
+\cadre[x=0.5,y=0.5,doubleline]
+
+\pagestyle{empty}
+\begin{document}
+\devoir[niv=3, date=06/01/2015, num=3,ds=true]
+
+\question[1] Soient $a$ et $b$ deux réels. Rappeler le développement de $\sin(a-b)$.
+	\begin{solution}
+		\begin{equation*}
+			\sin\left(a-b\right)=\sin a \cos b-\cos a \sin b
+		\end{equation*}
+	\end{solution}
+
+\exercice{
+\begin{arabtext}
+$ABC$ m_tl_t qA'im AlzAwyT fy $A$ .hy_t $AC=3$ w $BC=6$
+\end{arabtext}
+\question{'an^sY' Al^skl }
+\question{'u.hsb $AB$}
+\question{'u.hsb $sinB$ w $cosB$ w $tanB$}
+\begin{arabtext}
+ltkn $H$ Almsq.t Al`mwdy lilnq.tT $A$ `lY $(BC) $
+\end{arabtext}
+\question{'u.hsb $BH$ w $AH$ w $HC$}
+}
+
+\exercice{
+\begin{arabtext}
+ltkn $x$ qyAs zAwyT .hAdt .hy_t $sinx=\dfrac{1}{2}$
+\end{arabtext}
+\question{'u.hsb $cosx$ w $tanx$ }
+\question{'u.hsb qymT Al`dad $A$ .hy_t :\hspace{2cm}$A=cos^{2}70^{\circ}+cos^{2}20^{\circ}$}
+}
+
+\exercice{
+\begin{minipage}{0.4\linewidth}
+\definecolor{qqwuqq}{rgb}{0,0.39,0}
+\definecolor{xdxdff}{rgb}{0.49,0.49,1}
+\definecolor{qqqqff}{rgb}{0,0,1}
+\definecolor{cqcqcq}{rgb}{0.75,0.75,0.75}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\draw [color=cqcqcq,dash pattern=on 2pt off 2pt, xstep=1.0cm,ystep=1.0cm] (-3.16,-1.3) grid (3.4,5.4);
+\clip(-3.16,-1.3) rectangle (3.4,5.4);
+\draw(0,2) circle (2.83cm);
+\draw (-2,0)-- (0,2);
+\draw (0,2)-- (2,0);
+\draw (-2,0)-- (-0.06,4.83);
+\draw (-0.06,4.83)-- (2,0);
+\draw [dash pattern=on 5pt off 5pt] (-2,0)-- (2.76,2.62);
+\draw [dash pattern=on 5pt off 5pt] (2.76,2.62)-- (2,0);
+\begin{scriptsize}
+\fill [color=qqqqff] (0,2) circle (1.5pt);
+\draw[color=qqqqff] (0.16,2.28) node {$O$};
+\fill [color=qqqqff] (2,0) circle (1.5pt);
+\draw[color=qqqqff] (2.28,-0.04) node {$B$};
+\fill [color=xdxdff] (-2,0) circle (1.5pt);
+\draw[color=xdxdff] (-2.2,-0.1) node {$A$};
+\fill [color=xdxdff] (-0.06,4.83) circle (1.5pt);
+\draw[color=xdxdff] (0.1,5.1) node {$M$};
+\fill [color=xdxdff] (2.76,2.62) circle (1.5pt);
+\draw[color=xdxdff] (2.92,2.9) node {$N$};
+\draw[color=qqwuqq] (-0.1,4) node {$45^{\circ}$};
+\end{scriptsize}
+\end{tikzpicture}
+\end{minipage}
+\begin{minipage}[b]{0.6\linewidth}
+\begin{arabtext}
+n`tbr Al^skl jAnbh .hy_t $\widehat{AMB}=45^{\circ}$
+\end{arabtext}
+\question{.hdid qyAs $\widehat{ANB}$}
+\question{.hdid qyAs $\widehat{AOB}$}
+\question{mA .tby`T Alm_tl_t $AOB$}
+\end{minipage}
+}
+
+\exercice{
+\begin{minipage}{0.4\linewidth}
+
+\definecolor{uuuuuu}{rgb}{0.27,0.27,0.27}
+\definecolor{xdxdff}{rgb}{0.49,0.49,1}
+\definecolor{qqqqff}{rgb}{0,0,1}
+\definecolor{cqcqcq}{rgb}{0.75,0.75,0.75}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\draw [color=cqcqcq,dash pattern=on 3pt off 3pt, xstep=1.0cm,ystep=1.0cm] (-3.48,-0.16) grid (2.6,4.48);
+\clip(-3.48,-0.16) rectangle (2.6,4.48);
+\draw (-1,4)-- (-3,0);
+\draw (-3,0)-- (2,0);
+\draw (2,0)-- (-1,4);
+\draw [domain=-3.48:2.6] plot(\x,{(--7.84-0*\x)/5});
+\begin{scriptsize}
+\fill [color=qqqqff] (-1,4) circle (1.5pt);
+\draw[color=qqqqff] (-0.86,4.28) node {$A$};
+\fill [color=qqqqff] (-3,0) circle (1.5pt);
+\draw[color=qqqqff] (-3.2,0.32) node {$B$};
+\fill [color=qqqqff] (2,0) circle (1.5pt);
+\draw[color=qqqqff] (2.16,0.28) node {$C$};
+\fill [color=xdxdff] (-2.22,1.57) circle (1.5pt);
+\draw[color=xdxdff] (-2.48,1.92) node {$M$};
+\fill [color=uuuuuu] (0.82,1.57) circle (1.5pt);
+\draw[color=uuuuuu] (0.98,1.84) node {$N$};
+\end{scriptsize}
+\end{tikzpicture}
+\end{minipage}
+\begin{minipage}[b]{0.6\linewidth}
+\begin{arabtext}
+n`tbr Al^skl jAnbh .hy_t 'an $(BC)//(MN)$
+\end{arabtext}
+\question{byn 'an $AMN$ w $ABC$ mt^sAbhAn}
+\question{'istntj `lAqT AltnAsb byn mxtlf Al'a_dlA` AlmtnA.zrT}
+\end{minipage}
+}
+
+\end{document}

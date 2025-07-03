@@ -1,0 +1,53 @@
+\documentclass[12pt,a4paper]{book}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb,amsfonts,tikz}
+\usepackage[explicit]{titlesec}
+\usepackage[most]{tcolorbox}
+\usepackage[left=1.5cm,right=1.5cm,top=1.5cm,bottom=1cm]{geometry}
+\usetikzlibrary{calc}
+\everymath{\displaystyle}
+\definecolor{col1}{RGB}{243,111,36}
+\definecolor{col2}{RGB}{0,182,187}
+\definecolor{col3}{RGB}{240,225,225}
+\definecolor{col4}{RGB}{221,10,138}
+\definecolor{col5}{RGB}{0,182,189}
+\usepackage{eso-pic} 
+\usepackage{anyfontsize}
+\AddToShipoutPicture{\setlength{\unitlength}{1cm}
+ \put(-0.5,28){
+ \begin{tikzpicture}
+  \fill[col1](current page.north west)rectangle([xshift=0.5cm,yshift=-1.8cm]current page.north east);
+ \end{tikzpicture}
+}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand\chaptername{COURS}
+\newcommand{\chaptitle}[1]{%
+ \begin{tikzpicture}[overlay]
+ \node[fill=col2 , minimum width=3.5cm, minimum height=4.5cm,xshift=2cm,yshift=3.1cm ] {} ;
+ \node[xshift=2cm,yshift=2.3cm,scale=3 ] {\textbf{\textcolor{white}{{\sf \thechapter}}}} ;
+ \node[ xshift=6.2cm,yshift=3.34cm,scale=1.2 ] {\textbf{\textcolor{white}{{\Huge\sf\bfseries \chaptername}}}} ;
+ \node[xshift=4cm,yshift=1.8cm ,text width=\dimexpr14.5cm,anchor=west,align=flush left ] {{\Huge \textbf{#1}}};
+ \fill[top color =black!35,bottom  color =black](0.24,0.85)--++(0,1)--++(-1,0)--cycle;
+ \end{tikzpicture}
+}
+\titleformat{\chapter}[block]
+{ }{ }{10pt}{ 
+\Huge \chaptitle{#1} }
+\titlespacing*{\chapter} {0pt}{50pt}{0pt} 
+\newcommand\SecTitle[1]{%
+ \begin{tikzpicture}
+ \node (A) [rectangle,fill=col5,minimum height=1cm,anchor=west,text width=\dimexpr12.5cm,anchor=west,align=flush left ] {\qquad {\Large \textbf{\textcolor{white}{\sffamily#1}}}};
+ \node [color=col5,line width=2pt, circle,draw=col5,fill=white](a) at ($ (A.north west)!0.5!(A.south west) $) {\Huge {\sffamily{\textbf{\textcolor{col5}{\arabic{section}}}}}};
+ \fill[col5]([ xshift=-0.09mm]A.north east)--([xshift=0.5cm]A.north east)--++(0,-0.2)to[out=-90,in=5]([xshift=-0.1mm]A.south east)--cycle;
+ \end{tikzpicture}
+}
+\titleformat{\section}
+{\normalfont}{}{0em}
+{\SecTitle{#1}}
+\begin{document}  
+ \chapter{Puissance et exponentielle de matrices} 
+ \begin{tcolorbox}[colback=col3,colframe=col4,leftrule=5pt,toprule=0pt,rightrule=0pt,bottomrule=0pt,arc=0pt,outer arc=0pt,top=12pt]
+        Cette fiche présente les applications de la diagonalisation et de la trigonalisation au calcul des puissances et de l'exponentielle d'une matrices carrée et aux suites linéaires définies par récurrence. Il n'y a pas démonstration dans cette fiche, elle expose uniquement les techniques.
+ \end{tcolorbox}
+ \section{Le principe formel du calcul formel de $A^m$}
+\end{document}

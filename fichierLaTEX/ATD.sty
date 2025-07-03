@@ -1,0 +1,265 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{pas-correction}[2020/07/14]
+\RequirePackage[T1]{fontenc}                
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[french]{babel}
+\RequirePackage{fancybox}
+\RequirePackage{amssymb}
+\RequirePackage{ mathrsfs }
+\RequirePackage{sectsty}
+\RequirePackage{stmaryrd}
+  \RequirePackage{diagbox}
+\RequirePackage{multicol}
+\RequirePackage{amsmath}
+\RequirePackage{amsthm}
+\RequirePackage{ eurosym}
+\RequirePackage{stmaryrd}
+\RequirePackage{pstricks-add}
+\RequirePackage{pstricks, pst-plot}
+\RequirePackage{pstricks-add, pst-all}
+\RequirePackage{pstricks-add}
+\RequirePackage{pst-eucl, auto-pst-pdf}
+\RequirePackage{etex}
+\RequirePackage{pst-eucl}
+\RequirePackage{comment}
+\RequirePackage{gensymb}
+\RequirePackage{lipsum}
+\RequirePackage{pgfplots}
+\RequirePackage{lscape}
+\RequirePackage{makeidx}
+\RequirePackage{tikz} 
+\RequirePackage{tkz-tab}
+\usetikzlibrary{decorations.pathreplacing,shapes, backgrounds, patterns, arrows,positioning,automata,shadows,fit,shapes,trees} 
+\RequirePackage{tikz-qtree,tikz-qtree-compat}
+\RequirePackage{graphicx} 
+\RequirePackage{amsfonts}
+\RequirePackage{wrapfig}
+\RequirePackage{enumitem}
+\RequirePackage{pict2e}
+\RequirePackage{graphicx}
+\RequirePackage{tabularx}
+\RequirePackage{array,cellspace}
+\RequirePackage{systeme}
+\RequirePackage{etex}
+\RequirePackage{tikz}
+\usetikzlibrary{shapes}
+\RequirePackage[left=2cm, right =2cm, top = 2cm, bottom =2cm]{geometry}
+\RequirePackage{fullpage}
+\RequirePackage{eso-pic}
+\RequirePackage{ hyperref}
+\RequirePackage{biblatex}
+\RequirePackage{xcolor} 
+\frenchbsetup{StandardLists=true}
+\RequirePackage{mdframed}
+\RequirePackage{lipsum}
+
+
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+\newcommand{\blap}[1]{\vbox to 0pt{#1\vss}}
+
+
+
+
+
+%%----------------------------------------------
+%Commande de raccourcis pour les ensembles
+%%------------------------------------------------------
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\K}{\mathbb{K}}
+\newcommand{\Mn}{\mathcal{M}_n}
+\newcommand{\Dn}{\mathcal{D}_n}
+\newcommand{\Sn}{\mathcal{S}_n}
+\newcommand{\An}{\mathcal{A}_n}
+\newcommand{\D}{\mathscr{D}}
+
+
+\newcommand{\dz}{\, \mathrm{d}z} 
+\newcommand{\du}{\, \mathrm{d}u} 
+\newcommand{\ds}{\, \mathrm{d}s} 
+\newcommand{\dx}{\, \mathrm{d}x} 
+\newcommand{\dt}{\, \mathrm{d}t} 
+\newcommand{\dzeta}{\, \mathrm{d}\zeta}
+\newcommand{\dtheta}{\, \mathrm{d}\theta}
+
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+
+%%----------------------------------------------
+%Commande pour les vecteurs
+%%------------------------------------------------------
+
+
+\renewcommand{\vec}[1]{\overrightarrow{#1}}
+
+\newcommand{\cvec}[2]{\begin{pmatrix}
+                        {#1} \\ {#2} 
+                        \end{pmatrix}}
+
+
+%%--------------------------------------------------------
+% Définition classique d'une fonction
+%%--------------------------------------------------------
+\newcommand{\fonc}[5]{  \begin{array}{ccccc}
+                        {#1} & : & {#2} & \to & {#3} \\
+                         & & {#4} & \mapsto & {#5} \\
+                        \end{array}}
+
+%%---------------------------------------------------------
+% Commande définition, théorème,...
+%%---------------------------------------------------------
+\theoremstyle{definition}
+\newtheorem{exo}{Exercice}
+
+%%-----------------------------
+% en-tête et pied de page
+%%-------------------------------------
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{lastpage}
+\renewcommand\headrulewidth{0pt}
+
+
+
+
+
+\renewcommand\footrulewidth{1pt}
+\fancyfoot[C]{\textbf{Page \thepage/\pageref{LastPage}}}
+\fancyfoot[R]{$2^{nde} 1$ Lycée Agora 2022-2023}
+\fancyfoot[L]{M. Gressier}
+
+\RequirePackage{xcolor}
+\RequirePackage{tcolorbox}
+\newcommand{\titre}[1]{
+\begin{center}
+    \Large{\textbf{#1}}
+\end{center}}
+%%------------------------------------------------------------------
+% Page début de base
+%%-------------------------------------------------------------------
+\makeindex
+
+
+
+
+\newif\if@correction
+\newif\if@sujet
+\DeclareOption{correction}{\@correctiontrue}
+\DeclareOption{sujet}{\@sujettrue}
+\ProcessOptions
+
+% Styles par défaut
+
+\tcbset{correction/.style={%
+	skin=enhanced,%
+	before skip=1em,%
+	after skip=1em,%
+	boxrule=0pt,%
+	colback=gray!10,%
+	borderline west={3pt}{0pt}{gray!80!black},%
+	left=5mm,%
+	bottom=2mm,%
+	top=2mm,%
+	breakable
+	}
+}
+\tcbset{vierge/.style={%
+	blanker,%
+	boxrule=0pt,%
+	colback=white,%
+	borderline={0pt}{0pt}{white},%
+	left=0mm,%
+	right=0mm,%
+	bottom=0mm,%
+	top=0mm,%
+	breakable,%
+	reset box array,%
+	store to box array
+	}
+}
+
+\tcbset{title/.style={
+	enhanced,
+	hbox,
+	tikznode,
+	left=8mm,
+	right=8mm,
+	boxrule=0.4pt,
+  colback=white,
+  colframe=gray,
+  drop lifted shadow=black!50!yellow,
+  before=\par\vspace*{5mm},
+  after=\par\bigskip,
+  fontupper=\sffamily\bfseries\Huge,
+  interior style={
+		draw=white,
+		top color=white,
+		bottom color=white}
+	}
+}
+
+\newcount\@visibility
+\@visibility\z@
+
+%----------> Portion de code due à Christian Tellechea (alias "un bon petit")
+\newwrite\sav@body
+\newcount\sav@cnt
+\def\grab@body{\begingroup\sav@cnt\z@\loop
+   \ifnum\sav@cnt<\@cclvi\catcode\sav@cnt12 \advance\sav@cnt\@ne\repeat
+   \newlinechar`\^^M \grab@body@i}
+\begingroup\edef\tmp@namedef{\endgroup\long\def\noexpand\grab@body@i##1\expandafter\@gobble\string\\\detokenize{end{document}}}
+\tmp@namedef{%
+   \immediate\openout\sav@body\jobname.sav
+   \immediate\write\sav@body{#1}\immediate\closeout\sav@body
+   \endgroup\if@sujet\maketitlesubject\input\jobname.sav\fi\if@correction\advance\@visibility\@ne\if@sujet\newpage\fi\maketitlecorrection\input\jobname.sav\fi
+   \end{document}
+   \ingnorespaces}
+\g@addto@macro\document\grab@body
+%----------> Fin du code
+
+
+% Environnnement "correction"
+
+\newsavebox{\@correc@box}
+\newenvironment{rep}
+{%
+	\ifnum\@visibility=1
+		\begin{tcolorbox}[correction]
+	\else
+		\begin{lrbox}{\@correc@box}
+		\begin{minipage}{\linewidth}
+	\fi
+}
+{%
+	\ifnum\@visibility=1
+		\end{tcolorbox}
+	\else
+		\end{minipage}
+		\end{lrbox}
+	\fi
+}
+
+% macros  pour les titres
+
+\def\@newtitlesubject{}
+\newcommand\newtitlesubject[1]{\def\@newtitlesubject{#1}}
+\def\@newtitlecorrection{}
+\newcommand\newtitlecorrection[1]{\def\@newtitlecorrection{#1}}
+
+\newcommand\titlesubject[1]{\edef\@title@subject@name{#1}}
+\newcommand\maketitlesubject{\ifx\@newtitlesubject\@empty\begin{center}\HRule\\ \Large  \textbf{\@title@subject@name}\\ \HRule \end{center}\else\@newtitlesubject\fi}
+\newcommand\titlecorrection[1]{\edef\@title@correction@name{#1}}
+\newcommand\maketitlecorrection{\ifx\@newtitlesubject\@empty\begin{center}\HRule\\ \Large \textbf{\@title@correction@name}\\
+\HRule\end{center}\else\@newtitlecorrection\fi}
+\newcommand\newpageforsubject{\ifnum\@visibility=0\newpage\fi}
+\newcommand\newpageforcorrection{\ifnum\@visibility=1\newpage\fi}
+\newcommand{\dottedlinesubject}{\ifnum\@visibility=0\dotfill\fi}
+
+% suppression du fichier auxiliaire
+
+\AtEndDocument{\immediate\write18{erase \jobname.sav}}

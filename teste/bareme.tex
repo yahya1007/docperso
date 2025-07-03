@@ -1,0 +1,38 @@
+\documentclass[french]{article}
+\usepackage[marginparsep=3pt, top=2cm, bottom=1.5cm, left=1.5cm, right=1.5cm]{geometry}
+\setlength{\parindent}{0pt}
+\setlength{\headsep}{1em}
+\usepackage{tikz,lipsum}
+\usepackage{multicol}
+
+\newlength{\test}
+
+\def\Note#1{%
+\begin{tikzpicture}[remember picture,overlay]
+\coordinate (here) at (0,0.15\baselineskip);
+%compute horizontal offset from origin to center
+\pgfextractx{\test}{\pgfpointdiff{\pgfpointorigin}
+  {\pgfpointanchor{current page}{center}}}%
+\ifdim\test < 0pt%
+  \draw (current page.east |- here)+(-1.5cm,0pt) node[right]{\strut #1};
+\else
+  \draw (current page.west |- here)+(1.5cm,0pt) node[left]{\strut #1};
+\fi%
+\end{tikzpicture}%
+\ignorespaces%
+}%
+
+\begin{document}
+\begin{multicols}{2}
+
+\lipsum[1]
+
+Un essai de note dans la colonne de gauche.\hfill\Note{3pts}
+
+\lipsum[2-3]
+
+\Note{1pt} Un essai de note dans la colonne de droite.
+\lipsum[4-5]
+\end{multicols}
+
+\end{document}

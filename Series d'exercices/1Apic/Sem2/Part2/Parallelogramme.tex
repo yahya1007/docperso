@@ -1,0 +1,112 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{ProfModels}
+
+
+\begin{document}
+\begin{Maquette}[Fiche]{Theme=Le parallélogramme,Niveau=1}
+
+\begin{exercice}
+$ABC$ un triangle et $O$ le milieu de $\lrc{AC}$.
+\begin{enumerate}
+\item Construire $D$ le symétrique de $B$ par rapport à $O$.
+\item Montrer que $ABCD$ est un parallélogramme.
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+$ABCD$ est un parallélogramme de centre $O$ et $E$ un point de $\lrc{DO}$.
+\begin{enumerate}
+\item Construire $F$ le symétrique de $E$ par rapport à $O$.
+\item Montrer que le quadrilatère $AFCE$ est un parallélogramme.
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+$ABC$ est un triangle tel que $\widehat{BAC}=70^{\circ}$;la droite parallèle à $\lrp{AC}$ passant par $B$ coupe la parallèle à $\lrp{AB}$passant par $C$ en $D$.
+\begin{enumerate}
+\item Construire une figure convenable.
+\item Montrer que $ABCD$ est un parallélogramme.
+\item Calculer $\widehat{BDC}$ et $\widehat{ABD}$.
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+$(\mathcal{C}1)$ et $(\mathcal{C}2)$ sont deux cercles de même centre et pas de même rayon.$\lrc{AC}$ est un diamètre de $(\mathcal{C}1)$ et $\lrp{BD}$ est diamètre de $(\mathcal{C}2)$
+\begin{enumerate}
+\item Trace une figure.
+\item Prouver que $ABCD$ est un parallélogramme.
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+\begin{minipage}{0.5\linewidth}
+On considère la figure ci-contre tel que $ABCD$ et $EFCD$ sont des parallélogrammes.
+\begin{enumerate}
+\item Montrer que $AE=BF$
+\end{enumerate}
+\end{minipage}%
+\begin{minipage}{0.5\linewidth}
+\begin{tikzpicture}
+\tkzDefPoints{0/0/A,-1/-2/B,3/-1/C,5/-2/F}
+\tkzDefParallelogram(A,B,C)\tkzGetPoint{D}
+\tkzDefParallelogram(D,C,F)\tkzGetPoint{E}
+\tkzDrawPolygon(A,B,C,D)
+\tkzDrawPolygon(D,C,F,E)
+\tkzDrawSegments[dashed](A,E B,F)
+\tkzLabelPoints(B,C,F)
+\tkzLabelPoints[above](A,D,E)
+\end{tikzpicture}
+\end{minipage}
+\end{exercice}
+
+\begin{exercice}
+\begin{minipage}{0.6\linewidth}
+On considère la figure ci-contre, tel que $\lrp{D}//\lrp{D'}$ et $\lrp{K}//\lrp{K'}$.On suppose que $\widehat{DAB}=130^{\circ}$ et $AB=5$ et $AD=3$ et que $E$ le milieu de $\lrc{BD}$.
+\begin{enumerate}
+\item Montrer que $ABCD$ est un parallélogramme.
+\item Calculer $BC$ et $DC$.
+\item Calculer $\widehat{BCD}$ et $\widehat{ABC}$.
+\item Montrer que $E$ est le milieu de $\lrc{AC}$.
+\end{enumerate}
+\end{minipage}%
+\begin{minipage}{0.4\linewidth}
+\begin{tikzpicture}
+\tkzDefPoints{0/0/A,4/0/B,3/-2/C}
+\tkzDefParallelogram(A,B,C)
+\tkzGetPoint{D}
+\tkzDefMidPoint(B,D)\tkzGetPoint{E}
+\tkzDrawLines(A,B D,C B,C A,D)
+\tkzDrawSegment(B,D)
+\tkzDrawPoint(E)
+\tkzLabelLine[pos=1.3](A,B){(D)}
+\tkzLabelLine[pos=1.3](D,C){(D')}
+\tkzLabelLine[pos=1.4](A,D){(K)}
+\tkzLabelLine[pos=1.4](B,C){(K')}
+\tkzLabelPoints[above left](A,B,C,D,E)
+\end{tikzpicture}
+\end{minipage}
+
+\end{exercice}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{Maquette}
+\end{document}

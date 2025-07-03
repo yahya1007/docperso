@@ -1,0 +1,53 @@
+\documentclass[11pt]{standalone}
+% TikZ
+    \usepackage{tikz, pgfornament, tikzrput}
+    \usetikzlibrary{decorations, decorations.text}
+% font size
+    \usepackage{fix-cm}
+% cryillic font
+    \usepackage[OT1]{fontenc}
+    
+    
+\begin{document}
+    \begin{tikzpicture}
+        % outer circle
+ \draw[line width=2 mm] circle[x radius=7.4 cm,y radius=5.18 cm];
+        % inner circles
+\draw[ultra thick] circle[x radius=5.6 cm, y radius=3.92 cm] circle[x radius=7 cm, y radius=4.9 cm]  ;
+        % outer text
+            \path[
+                %rotate=-15.2,
+                postaction={
+                    decoration={
+                        text along path,
+                        text format delimiters={|}{|},
+                        text={%
+                            |\Huge|                            
+                            {\pgfornament[scale=.4,opacity=0.5, color=gray,ydelta=-9 pt]{15}}
+                           Direction provinciale Laayoune
+                            {\pgfornament[scale=.4,opacity=0.5, color=gray,ydelta=-9 pt]{16}}
+                        },
+                        text align=center,
+                    },
+                    decorate
+                }
+            ]
+             (-6,0) arc (180:0:6cm and 4.2 cm);   
+        % top ornamentation
+            \rput{-30}(3, 2.5){\pgfornament[scale=.3,opacity=1,color=gray]{87}}
+            \rput{30}(-3, 2.5){\pgfornament[scale=.3,opacity=1,color=gray]{87}}
+        % bottom ornamentation
+            \rput(0, -2){\pgfornament[scale=.6]{75}}
+        % right ornamentation
+            \rput{-90}(5, 0.5){\pgfornament[scale=.2]{72}}
+        % left ornamentation
+            \rput{90}(-5, 0.5){\pgfornament[scale=.2, symmetry=v]{72}}
+        % central text
+        \node[font=\fontsize{30}{30}\selectfont] at (0, 3.2){Lycée};
+            \node[font=\fontsize{40}{40}\selectfont] at (0, 1.9){Collègial};
+            \node[font=\fontsize{58}{58}\selectfont] at (0, 0.2){{ERRAZI}};
+            \node[font=\huge] at (0,-4.4){ M A T H};
+    \end{tikzpicture}
+    
+    
+    \end{document}

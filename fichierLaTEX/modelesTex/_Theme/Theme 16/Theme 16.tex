@@ -1,0 +1,129 @@
+\documentclass[12pt,a4paper]{report}
+\usepackage[top=1cm,bottom=1cm,right=1cm,left=1cm]{geometry}
+\usepackage{tikz,contour}
+\usepackage[most]{tcolorbox}
+\usepackage{amsmath,amssymb}
+\usepackage{multicol}
+\usepackage{pgf,tikz,pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+\definecolor{candyapplered}{rgb}{1.0, 0.03, 0.0}
+\definecolor{lime(colorwheel)}{rgb}{0.75, 1.0, 0.0}
+\usetikzlibrary{shapes.geometric}
+
+\renewcommand{\labelenumi}{%
+	\begin{tikzpicture}[baseline=(1.base)]
+	\node[draw,regular polygon,regular polygon sides=6,inner sep=.5mm,fill=yellow!70!black!30,font=\bfseries](1){\arabic{enumi}};
+	\end{tikzpicture}}
+\renewcommand{\labelenumii}{%
+	\begin{tikzpicture}[baseline=(1.base)]
+	\node[draw,circle,inner sep=.5mm,fill=red!70!gray!50,font=\bfseries\footnotesize,minimum size=5mm](1){\alph{enumii}};
+	\end{tikzpicture}}
+
+
+\pagestyle{empty}
+%\usepackage{polyglossia,lipsum}
+
+\def\sknn#1{\tcbsubskin{sknn}{empty}{frame code={\fill[#1!5](interior.north east)rectangle(interior.south west);\draw[#1!90!green,line width=3pt] (interior.north west)--(interior.south west);},interior code={}}}
+\def\skn#1{\tcbsubskin{skn}{empty}{frame code={\fill[#1!5](interior.north east)rectangle(interior.south west);\draw[#1!90!green,line width=3pt] (interior.north west)--(interior.south west);},interior code={},}}
+%\setmainlanguage{french}
+%\newfontfamily\frenchfont{Times New Roman}
+\usetikzlibrary{backgrounds,positioning,shadings}
+\newtcolorbox{mybox}[2]{title={#1},enhanced,attach boxed title to top left={xshift=2mm},skin=skn,coltitle=white,skin first=skn,skin last=sknn,skin middle=sknn,breakable,boxed title style={
+opacityback=0,frame code={
+\draw[double,double distance=1mm] ([xshift=-2mm]frame.north west)--(frame.north east)to[bend left=45](frame.south east)--([xshift=-4.5mm]frame.south west);
+\path[fill=#2!90!green] ([xshift=-2mm]frame.north west)--(frame.north east)to[bend left=45](frame.south east)--([xshift=-5mm]frame.south west);
+\path[double,right color=#2!90!green,left color=gray,shading angle=70,middle color=#2!90!green!80!black]([xshift=-2mm]frame.north west)--([xshift=-5mm]frame.south west)--++(10mm,0)--([xshift=5mm]frame.north west)--cycle;
+\path [fill=#2!80!black,transform canvas={shift={(-.2mm,-.5mm)}}]([xshift=-5mm]frame.south west)--++(.18,0)--++(-.4,-.4)--cycle;
+\path [fill=#2!80!black,transform canvas={shift={(-.05mm,.5mm)}}]([xshift=-2mm]frame.north west)--++(.1,0)--++(0,.25)--cycle;}}}
+\newenvironment{mebox}[2]{\sknn{#2}\skn{#2}\begin{mybox}{\contour{gray}{#1}}{#2}}{\end{mybox}}
+\pagestyle{empty}
+
+\usepackage{multirow}
+\NewTColorBox[auto counter]{exercise}{+!O{}}{enhanced,colframe=red!20!black,colback=yellow!10!white,coltitle=red!40!black,
+	fonttitle=\bfseries,
+	underlay={\begin{tcbclipinterior}
+			\shade[inner color=red!50!yellow!50,outer color=yellow!10!white]
+			(interior.north west) circle (2cm);
+			\draw[help lines,step=5mm,yellow!80!black!50,shift={(interior.north west)}]
+			(interior.south west) grid (interior.north east);
+	\end{tcbclipinterior}},
+	title={Exercise:},
+	label={exercise@\thetcbcounter},
+	attach title to upper=\quad,
+	lowerbox=ignored,
+	savelowerto=solutions/exercise-\thetcbcounter.tex,
+	record={\string\solution{\thetcbcounter}{solutions/exercise-\thetcbcounter.tex}},
+	#1
+}
+\begin{document}
+	
+		\begin{tcolorbox}[enhanced,frame style={left color=red!50!black,right color=yellow!50!black},interior style={fill=none,
+			top color=red!30!white,
+			bottom color=yellow!20!white}]
+		\begin{center}
+			\begin{tabular}{c c  c}
+				$2019/2020$ 	\hspace*{2cm}   & \multirow{2}{7cm} {\textbf{{\Large  Fonction exponentielle }}} & 	\hspace*{2cm} $2$BAC SC			\\
+				Pr: S.BASSY\hspace*{2cm} &  & \hspace*{1cm}lycée: IBN ALHAITAM
+			\end{tabular}
+		\end{center}
+	\end{tcolorbox}
+	\vspace*{0.5cm}
+	
+%	\tcbstartrecording\relax
+%\begin{tcolorbox}[enhanced,skin=enhancedmiddle,
+%	frame hidden,interior hidden,top=0mm,bottom=0mm,boxsep=0mm,
+%	borderline={0.75mm}{0mm}{red},
+%	borderline={0.75mm}{0.75mm}{red!50!yellow},
+%	borderline={0.75mm}{1.5mm}{yellow}, ]
+
+%\end{tcolorbox}
+	\begin{exercise}
+	\\
+	On Considère  la fonction numérique  $f$  définie  sur $\mathbb{R} $ par: $ f(x) =e^{\left| x-1\right| }-x $
+	
+	
+	Soit  $\left( C_f\right) $  sa courbe représentative dans un repère orthonormé $(O; \overrightarrow{i};\overrightarrow{j})$ 
+	tel que $\|\overrightarrow{i}\|=2cm$
+
+
+\begin{enumerate}
+\item Étudier la continuité de $f$ en $1$
+	\item Étudier la dérivabilité de $f$ à droite et  à gauche en $1$ et  interpréter graphiquement les résultats
+\item 
+\begin{enumerate}
+\item  Montrer que:	$ \begin{cases} f'(x)=e^{x-1 }-1 & , \ \ x>1 \\
+	f'\left( x\right) =-e^{x-1 }-1 & , \ \ x<1 \end{cases} $
+	
+	
+	\item  En déduire  que $f$ est croissante sur $\left]1;+\infty\right[ $ et et qu'elle est décroissante sur  $\left]-\infty;1\right[ $ 
+	\item  Dresser le  tableau de variations de $f$
+	\item  En déduire  que $\forall x \in \mathbb{R} \ \ ; \ \ f(x)\geq0 $
+	
+\end{enumerate} 
+\item  Étudier la concavité de $\left( C_f\right) $
+\item 
+\begin{enumerate} 
+	\item Montrer que  $\displaystyle{\lim_{x \to +\infty} f(x)}=+\infty $  
+	\item Montrer que $\left( C_f\right) $ admet une branche parabolique de direction l'axe des ordonnées au voisinage de $+\infty$
+\end{enumerate} 
+\item 
+\begin{enumerate} 
+	\item Calculer   $\displaystyle{\lim_{x \to -\infty} f(x)} $  
+	\item Vérifier  que $\dfrac{f(x)}{x}=\dfrac{e}{xe^x}-1 \ \ \ \forall x \in \left]-\infty;1\right] $ 
+\item Montrer que $\displaystyle{\lim_{x \to +\infty} \dfrac{f(x)}{x}}=-\infty $  et  interpréter  graphiquement le résultat
+\end{enumerate}
+
+\item Construire  $(C_f)$ 
+\item Calculer l'aire de la surface du domaine délimité par la courbe  $\left( C_f\right) $ , les axes du repère  et la droites d'équation  $x=2$
+%\item Discuter selon les valeurs du paramètre réel $m$ le nombre de solution de l'équation $f(x)=m$ 
+\end{enumerate}
+	\end{exercise}
+	
+	
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}

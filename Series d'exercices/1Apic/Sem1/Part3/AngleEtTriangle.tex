@@ -1,0 +1,280 @@
+\documentclass[a4paper,12pt]{article}
+
+
+\usepackage{ProfModels}
+
+ 
+\begin{document}
+
+\begin{Maquette}[Fiche]{Theme=Les angles et le triangle,Niveau=1}
+
+\begin{exercice}
+\begin{enumerate}
+\item Construire le triangle $ABC$ tel que $\widehat{ABC}=78^{\circ}$ et $\widehat{ACB}=54^{\circ}$.
+\item Calculer la mesure de $\widehat{BAC}$.
+\item $GHI$ est un triangle tel que $\widehat{GHI}=34^{\circ}$ et $\widehat{HGI}=47^{\circ}$. Calculer la mesure de $\widehat{GIH}$.
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+\begin{minipage}{.5\linewidth}
+Calculer la mesure des angles $\widehat{ADC}$ et $\widehat{ABC}$ de la figure ci-dessous.
+\end{minipage}%
+\begin{minipage}{.5\linewidth}
+\begin{tikzpicture}
+\tkzDefPoints{0/0/B,4/1/C}
+\tkzDefTriangle[two angles=86 and 40](B,C)
+\tkzGetPoint{A}
+\tkzDefLine[bisector](B,A,C) \tkzGetPoint{x}
+\tkzInterLL(A,x)(B,C)
+\tkzGetPoint{D}
+\tkzDrawPolygon(A,B,C)
+\tkzDrawLine(A,D)
+\tkzLabelPoint[left](B){B}
+\tkzLabelPoint[above](A){A}
+\tkzLabelPoint[right](C){C}
+\tkzLabelPoint[below left](D){D}
+\tkzMarkAngle[arc=l , size=0.5 , mark=|](A,C,B)
+\tkzMarkAngle[arc=ll , size=0.5 , mark=|](C,B,A)
+\tkzMarkAngle[arc=l , size=0.5 , mark=|](C,D,A)
+\tkzMarkAngles[size=0.5,mark=s|](D,A,C B,A,D)
+\tkzLabelAngle(A,C,B){$40^{\circ}$}
+\tkzLabelAngle(D,A,C){$28^{\circ}$}
+\end{tikzpicture}
+\end{minipage}
+\end{exercice}
+
+\begin{exercice}
+\begin{minipage}{.6\linewidth}
+On considère la figure ci-dessous
+\begin{enumerate}
+\item Calculer la mesure de $\widehat{TMR}$.
+\item Construire la figure.
+\item Calculer les mesures des angles $\widehat{MTH}$ et $\widehat{HTR}$.
+\end{enumerate}
+\end{minipage}%
+\begin{minipage}{.4\linewidth}
+\begin{tikzpicture}
+\tkzDefPoints{0/0/M,5/1/R}
+\tkzDefTriangle[two angles=36 and 54](M,R)
+\tkzGetPoint{T}
+\tkzDefPointBy[projection=onto M--R](T)\tkzGetPoint{H}
+\tkzDrawPolygon(M,T,R)
+\tkzDrawLine[add=0.1 and 0.1](T,H)
+\tkzMarkAngle[arc=l , size=0.5 , mark=|](T,R,M)
+\tkzMarkRightAngles(T,H,M M,T,R)
+\tkzLabelSegment[above](M,T){5}
+\tkzLabelPoints(M,H,R)
+\tkzLabelPoint[above](T){T}
+\tkzLabelAngle(T,R,M){$54^{\circ}$}
+\end{tikzpicture}
+\end{minipage}
+\end{exercice}
+
+\begin{exercice}
+\begin{enumerate}
+\item $ABC$ est un triangle isocèle de sommet principal $A$ tel que $\widehat{ABC}=55.8^{\circ}$.\newline
+Calculer la mesure des angles $\widehat{BCA}$ et $\widehat{BAC}$.
+\item $DEF$ est un triangle isocèle en $D$ tel que $\widehat{EDF}=42.6^{\circ}$.\newline
+Calculer la mesure des angles $\widehat{DEF}$ et $\widehat{DFE}$.
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+\begin{minipage}{0.5\linewidth}
+Le quadrilatère $ABCD$ est un rectangle; le point $E$ appartient au côté $\lrc{AB}$.
+Le triangle $CDE$ est-il rectangle en $E$? Justifier la réponse.
+\end{minipage}\hfill%
+\begin{minipage}{0.4\linewidth}
+\begin{tikzpicture}
+\tkzDefPoints{0/0/A,5/-2/C}
+\tkzDefRectangle(A,C)
+\tkzGetPoints{B}{D}
+\tkzDefPointOnLine[pos=0.3](A,B)
+\tkzGetPoint{E}
+\tkzDrawPolygon(A,B,C,D)
+\tkzDrawSegments(D,E E,C)
+\tkzLabelPoints[above](A,B,E)
+\tkzLabelPoints(D,C)
+\tkzLabelAngle(E,C,D){$36^{\circ}$}
+\tkzLabelAngle(A,E,D){$54^{\circ}$}
+\tkzMarkAngle[arc=l , size=0.5](E,C,D)
+\tkzMarkAngle[arc=l , size=0.5 , mark=|](A,E,D)
+\end{tikzpicture}
+\end{minipage}
+\end{exercice}
+
+\begin{exercice}
+\begin{minipage}{0.6\linewidth}
+\begin{enumerate}
+\item Calculer la mesure de $\widehat{MNP}$.
+\item Calculer la mesure de $\widehat{ANM}$.
+\end{enumerate}
+\end{minipage}%
+\begin{minipage}{0.4\linewidth}
+\begin{tikzpicture}[scale=0.8]
+\tkzDefPoints{0/0/N,4/1/P}
+\tkzDefTriangle[two angles=45 and 45](N,P)
+\tkzGetPoint{A}
+\tkzDefTriangle[two angles=120 and 30](N,P)
+\tkzGetPoint{M}
+\tkzDrawPolygon(A,N,P)
+\tkzDrawPolygon(M,N,P)
+\tkzLabelPoints[left](N,M)
+\tkzLabelPoints[right](A,P)
+\tkzMarkAngle[arc=l , size=0.5 , mark=|](M,P,N)
+\tkzMarkAngle[arc=l , size=0.5 , mark=||](N,M,P)
+\tkzLabelAngle(M,P,N){$30^{\circ}$}
+\tkzLabelAngle(N,M,P){$50^{\circ}$}
+\tkzMarkSegments[mark=||](A,P A,N)
+\tkzMarkRightAngle(N,A,P)
+\end{tikzpicture}
+\end{minipage}
+\end{exercice}
+
+\begin{exercice}
+\begin{minipage}{0.6\linewidth}
+On considère la figure ci-contre.
+\begin{enumerate}
+\item Calculer la mesure de $\widehat{BCD}$.
+\item Déduire que $ACD$ est rectangle en $C$.
+\end{enumerate}
+\end{minipage}%
+\begin{minipage}{0.4\linewidth}
+\begin{tikzpicture}
+\tkzDefPoints{0/0/A,3/0/B}
+\tkzDefTriangle[equilateral](A,B)\tkzGetPoint{C}
+\tkzDefTriangle[two angles=30 and 103](C,B)\tkzGetPoint{D}
+\tkzDrawPolygon(A,B,D,C)
+\tkzDrawSegment(C,B)
+\tkzLabelPoints(A,B,D)
+\tkzLabelPoint[left](C){C}
+\tkzMarkAngle[arc=l , size=0.5 , mark=|](D,B,C)
+\tkzMarkAngle[arc=ll , size=0.5 , mark=x](C,D,B)
+\tkzLabelAngle[left](D,B,C){$125^{\circ}$}
+\tkzLabelAngle(C,D,B){$25^{\circ}$}
+\tkzMarkSegments[mark=||](A,C A,B B,C)
+\end{tikzpicture}
+\end{minipage}
+\end{exercice}
+
+\begin{exercice}
+\begin{minipage}{0.6\linewidth}
+Les points $H$, $A$ et $P$ sont alignés. Avec les informations codées sur cette figure :
+\begin{enumerate}
+\item Calculer la mesure de $\widehat{CAH}$.
+\item Calculer la mesure de $\widehat{TAP}$.
+\item Le triangle $CAT$ est-il rectangle en $A$.
+\end{enumerate}
+\end{minipage}%
+\begin{minipage}{0.4\linewidth}
+\begin{tikzpicture}
+\tkzDefPoints{0/0/A,3/0/P,-2/0/H}
+\tkzDefPoint(-2,2){C}
+\tkzDefTriangle[two angles=47 and 90](A,P)\tkzGetPoint{T}
+\tkzDrawPolygon(C,H,A)
+\tkzDrawPolygon(T,A,P)
+\tkzLabelPoints(H,A,P)
+\tkzLabelPoints[above](C,T)
+\tkzMarkRightAngles(C,H,A T,P,A)
+\tkzLabelAngle(H,C,A){$45$}
+\tkzLabelAngle(A,T,P){$43$}
+\tkzMarkAngle[arc=l , size=0.5 , mark=|](H,C,A)
+\tkzMarkAngle[arc=ll , size=0.5 , mark=|](A,T,P)
+\end{tikzpicture}
+\end{minipage}
+\end{exercice}
+
+\begin{exercice}
+\begin{minipage}{0.6\linewidth}
+On considère la figure ci-contre.
+\begin{enumerate}
+\item Calculer la mesure de $\widehat{AOC}$.
+\item Déduire la mesure de $\widehat{BCO}$ et $COB$.
+\end{enumerate}
+\end{minipage}%
+\begin{minipage}{0.4\linewidth}
+\begin{tikzpicture}
+\tkzDefPoints{0/0/A,5/1/B}
+\tkzDefTriangle[two angles=64 and 26](A,B)
+\tkzGetPoint{O}
+%\tkzDefCircle[R](O,A)
+\tkzInterLC(A,B)(O,A)
+\tkzGetSecondPoint{C}
+\tkzDrawPolygon(A,B,O)
+\tkzDrawSegment(O,C)
+\tkzLabelPoints(A,C,B)
+\tkzLabelPoint[above](O){O}
+\tkzMarkSegments[mark=||](O,A O,C)
+\tkzMarkAngle[arc=l , size=0.5 , mark=|](O,B,A)
+\tkzLabelAngle(O,B,A){$26^{\circ}$}
+\tkzMarkRightAngle(A,O,B)
+\tkzFillAngle[opacity=.5,size=0.5](O,C,A)
+\tkzFillAngle[opacity=.5,size=0.5](C,A,O)
+\end{tikzpicture}
+\end{minipage}
+\end{exercice}
+
+\begin{exercice}
+\begin{minipage}{0.6\linewidth}
+On considère la figure ci-contre.
+\begin{enumerate}
+\item Calculer les mesures des angles de triangle $ABE$.
+\item Calculer les mesures des angles de triangle $BED$.
+\item Calculer les mesures des angles de triangle $DBC$.
+\end{enumerate}
+\end{minipage}%
+\begin{minipage}{0.4\linewidth}
+\begin{tikzpicture}[scale=0.8]
+\tkzDefPoints{0/0/A,3/0/B}
+\tkzDefTriangle[equilateral](A,B)
+\tkzGetPoint{E}
+\tkzDefTriangle[two angles=90 and 45](E,B)
+\tkzGetPoint{D}
+\tkzInterLC(A,B)(D,B)\tkzGetSecondPoint{C}
+\tkzDrawPolygon(A,C,D,E)
+\tkzDrawSegments(B,E B,D)
+\tkzMarkSegments[mark=|](A,B B,E E,A E,D)
+\tkzMarkSegments[mark=||](D,B D,C)
+\tkzLabelPoints(A,B,C)
+\tkzLabelPoints[left](E,D)
+\tkzMarkRightAngle(B,E,D)
+\end{tikzpicture}
+\end{minipage}
+\end{exercice}
+
+\begin{exercice}
+\begin{minipage}{0.6\linewidth}
+On considère la figure ci-contre.
+\begin{enumerate}
+\item Calculer les mesures des angles du triangle $ACD$.
+\item Calculer les mesures des angles du triangle $ABE$.
+\item Calculer les mesures des angles du triangle $ACB$.
+\end{enumerate}
+\end{minipage}\hfill%
+\begin{minipage}{0.4\linewidth}
+\begin{tikzpicture}[scale=0.8]
+\tkzDefPoints{0/0/D,3/0/C,4.5/0/B}
+\tkzDefTriangle[two angles=65 and 50](D,C)
+\tkzGetPoint{A}
+\tkzInterLC(D,B)(B,A)
+\tkzGetSecondPoint{E}
+\tkzDrawPolygon(A,D,E)
+\tkzDrawSegments(A,C A,B)
+\tkzLabelPoints(D,C,B,E)
+\tkzLabelPoint[above](A){A}
+\tkzMarkSegments[mark=||](C,D C,A)
+\tkzMarkSegments[mark=|||](B,A B,E)
+\tkzLabelAngle(A,C,D){$50^{\circ}$}
+\tkzMarkAngle[arc=l , size=0.5 , mark=|](A,C,D)
+\tkzLabelAngle[left](A,E,B){$20^{\circ}$}
+\tkzMarkAngle[arc=l , size=0.5 , mark=||](A,E,B)
+\end{tikzpicture}
+\end{minipage}
+\end{exercice}
+
+
+
+
+\end{Maquette}
+\end{document}

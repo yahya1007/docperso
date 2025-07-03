@@ -1,0 +1,108 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{dlds}
+ 
+\begin{document}
+\begin{tcolorbox}[enhanced,colback=white,colframe=black] 
+{\begin{center}\Large \textbf{ Préparation d'Examen Local  }\end{center}}
+\end{tcolorbox}
+\begin{exo}
+\begin{enumerate}
+\item Calculer ce qui suit :
+$$
+A=\left(\left(2025-2023\right)^{3}-9\right)^{1444}  
+\hspace{0.5cm};\hspace{0.5cm}
+B=\dfrac{\sqrt{162}+\sqrt{32}}{\sqrt{75}-2\sqrt{108}+9\sqrt{3}}
+\hspace{0.5cm};\hspace{0.5cm}
+C=\sqrt{4+2\sqrt{3}}
+$$
+\item Rendre rationnel les dénominateurs des nombres suivants : 
+$$
+D=\dfrac{2}{\sqrt{11}-\dfrac{\sqrt{2}}{\sqrt{11}}}
+\hspace{0.5cm};\hspace{0.5cm}
+E=\dfrac{1}{\sqrt{7}+\sqrt{5}-1}
+$$
+\item Donner l'écriture scientifique : $F=\dfrac{48\times (10^{-2})^{3}\times 10^{19}}{3\times 10^{4}}$
+\item Développer : $4\left(6x-5\right)^{2}-3x\left(x-2\right)^{2}$ 
+\item Factoriser : $5x^{2}-5+\left(x+1\right)\left(3x-4\right)-x^{2}-2x-1$
+\end{enumerate}
+\end{exo}
+
+\begin{exo}
+\begin{enumerate}
+\item Comparer les deux nombres : $-3\sqrt{5}$ et $-4\sqrt{3}$.\newline
+Soient $a$ , $b$ et $c$ des nombres réels tel que  : $2\leq a \leq 7$ et $-3\leq b \leq -1$. 
+\item Encadrer $\dfrac{2a+5b}{3}$ et $\dfrac{3a-2b}{4}$ et $a\times b^{2}$ et $\dfrac{5a}{6b}$
+
+\end{enumerate}
+\end{exo}
+
+\begin{exo}
+\begin{minipage}{0.6\linewidth}
+ On considère la figure ci-contre tel que : $AC=5$  et $HC=4$.
+\begin{enumerate}
+\item Calculer : $AH$.
+\item Calculer les rapports trigonométriques d'angle $\widehat{ACH}$
+\item Calculer $AB$ et $BH$.
+\end{enumerate}
+\end{minipage}
+\begin{minipage}{0.4\linewidth}
+\begin{tikzpicture}
+\tkzDefPoints{-1/0/B,5/-1/C}
+\tkzDefTriangle[two angles=50 and 40](B,C)\tkzGetPoint{A}
+\tkzDefPointBy[projection=onto C--B](A)\tkzGetPoint{H}
+\tkzDrawSegments(A,B B,C C,A A,H)
+\tkzLabelPoints(B,C,H)
+\tkzLabelPoint[above](A){A}
+\tkzMarkRightAngle(C,H,A)
+\tkzMarkRightAngle(B,A,C)
+\end{tikzpicture}
+\end{minipage}
+\end{exo}
+
+\begin{exo}
+\begin{minipage}{.6\linewidth}
+On considère la figure ci-contre tel que $(AB)//(EF)$ et $AB=24$ et $OB=21$ et $OE=12$ et $OF=14$ et $BC=7$ et $BD=8$.
+\begin{enumerate}
+\item Calculer $OA$ et $EF$.
+\item Montrer que $(OA)//(DC)$.
+\item Calculer $DC$.
+\end{enumerate}
+\end{minipage}%
+\begin{minipage}{.4\linewidth}
+\begin{tikzpicture}
+\tkzDefPoints{0/0/A,5/1/B,2/3/O}
+\tkzDefPointOnLine[pos=1.2](B,O)\tkzGetPoint{F}
+\tkzDefPointOnLine[pos=1.2](A,O)\tkzGetPoint{E}
+\tkzDefPointOnLine[pos=0.4](B,O)\tkzGetPoint{C}
+\tkzDefPointOnLine[pos=0.4](B,A)\tkzGetPoint{D}
+\tkzDrawSegments(A,B B,F F,E E,A)
+\tkzDrawPoints(C,D)
+\tkzDrawLine[dashed,add=0.2 and 0.3](C,D)
+
+\tkzLabelPoints(A,D,B)
+\tkzLabelPoints[right](O,C)
+\tkzLabelPoints[above](F,E)
+\end{tikzpicture}
+\end{minipage}
+\end{exo}
+
+\begin{exo}
+\begin{enumerate}
+\item Simplifier :
+$$A=cos a(sin a + cos a )-sin a(cos a -sin a) $$
+$$B=\dfrac{1}{1+sin a}+\dfrac{1}{1-sin a}-\dfrac{2}{cos^{2}a} $$
+$$C=(cosa + sina)^{2}+(cosa-sina)^{2} $$
+$$D=cos^{4}a-sin^{4}a-cos^{2}a+3sin^{2}a$$
+$$E=sina\times \sqrt{1-cosa}\times \sqrt{1+cosa}+cos^{2}a$$
+$$F=\sqrt{2}sin^{2}a+\sqrt{2}cos^{2}a$$
+\item Montrer que :
+$$\dfrac{cos^{4}a-sin^{4}a}{cos^{2}a-sin^{2}a}=1$$
+$$\dfrac{1-cosx}{sinx}=\dfrac{sinx}{1+cosx}$$
+\item Calculer 
+$$ X= 2cos75^{\circ}+6cos^{2}86^{\circ}-2sin15^{\circ}+6cos^{2}4^{\circ}$$
+$$ Y=cos^{2}48^{\circ}-sin^{2}50^{\circ}+cos^{2}42^{\circ}+cos^{2}40^{\circ}$$
+$$ Z=2tan73^{\circ}\times tan17^{\circ}-sin^{2}40^{\circ}-sin^{2}50^{\circ}$$
+\end{enumerate}
+\end{exo}
+\end{document}

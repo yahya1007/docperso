@@ -1,0 +1,37 @@
+%https://tex.stackexchange.com/questions/680021/how-to-create-a-tcolorbox-with-fancy-title-box-and-with-left-and-bottom-borderli
+\documentclass[12pt,a4paper]{article} 
+\usepackage{tcolorbox} 
+\usepackage{amsmath,amssymb}
+\xdefinecolor{myblue}{RGB}{102, 53, 153} 
+\tcbuselibrary{skins} 
+
+\newtcolorbox[auto counter]{myfan}{% empty,
+    sharp corners, enhanced, attach boxed title to top left, 
+    boxed title style={% 
+        empty, left=0pt, right=0pt, 
+        frame code ={
+            \foreach \i [evaluate=\i as \ni using \i+2,
+                count=\xi from 0, evaluate=\xi as \op using 1-2*\xi/10] in {10,11,12,13}{ 
+                \draw[line width=.5mm,myblue, opacity=\op]([xshift=\i mm]frame.north east)--([xshift=\ni mm]frame.east)
+                --([xshift=\i mm]frame.south east);}
+        }
+    }, 
+    underlay boxed title={%
+        \path([xshift=2.25ex]title.east) node[inner sep=0pt,text=black, font=\Large\fontfamily{bch}] (number) {\thetcbcounter};
+        \fill[fill=myblue](title.south west)--(title.north west)--(title.north east)--(title.south east); 
+        \draw[myblue, rounded corners=1mm] ([yshift=-.5\pgflinewidth]title.north east) -| ([xshift=2mm]number.east) [sharp corners]|- (title.south west);
+},
+    frame hidden,
+    borderline west={1.5pt}{0pt}{myblue}, 
+    borderline south={1.5pt}{0pt}{myblue}, colback=white, coltitle=white, title={Exercise}, 
+    overlay={\draw[line width=1.5pt, myblue] (frame.south east)--++(90:5mm);}
+    } 
+
+\begin{document}
+\begin{myfan}
+ \begin{enumerate} 
+\item Competition at the workplace can be a double-edged sword. \item It definitely keeps us motivated to perform better and to achieve our goals.
+    \item However, it can also lead to several negative consequences if not managed correctly. 
+\end{enumerate} 
+\end{myfan} 
+\end{document}

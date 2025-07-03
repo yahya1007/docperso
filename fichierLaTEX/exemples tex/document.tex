@@ -1,0 +1,81 @@
+\documentclass[12pt,a4paper,x11names,usenames,dvipsnames,svgnames,oneside]{book}
+\usepackage[table]{xcolor}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[left=1.cm,right=1cm,top=1.5cm,bottom=1.8cm]{geometry}
+\usepackage{amsmath,amssymb,amsfonts,mathrsfs}
+\usepackage{mathpazo,tikz,mathtools}
+\usepackage{,fontawesome,float,lmodern,multirow,bidicontour,contour}
+\usepackage{fancybox,lipsum,graphics,graphicx,multicol,fancyhdr,ulem,url}
+\usepackage{pgf,eso-pic,lastpage,diagbox,fourier,frcursive,pgfplots,tkz-tab}
+\usepackage[most]{tcolorbox}
+\usepackage[]{bclogo}
+\usetikzlibrary{patterns,shapes,shapes.geometric,arrows,arrows.meta,shadings}
+\usetikzlibrary{calc,scopes,backgrounds,fadings,shadows}
+\usetikzlibrary{shapes.arrows,decorations, decorations.text}
+\usetikzlibrary{decorations.pathmorphing,shadows.blur}
+\tcbuselibrary{skins,breakable}
+\tcbuselibrary{skins,theorems,breakable}
+\usepackage{fontspec,color,pifont,bbding,tablists,pstricks-add,esvect,sectsty}
+\usepackage{pdfpages,array,colortbl,varwidth} 
+\usepackage[explicit]{ titlesec} 
+\usepackage{titletoc}
+\usepackage{hyperref}
+\usepackage{mdframed}
+\usepackage{polyglossia}
+\setdefaultlanguage{french}
+\newfontfamily\frenchfont[Scale=1.2]{Amiri}%
+\newfontfamily{\Ar}[Scale=2]{Arial}
+\newfontfamily\frenchfontm[Scale=1.5]{Mistral}
+\newfontfamily\frenchfonts[Scale=1.7]{Mistral}
+\newtcolorbox{df}{breakable,enhanced,detach title,blanker,title={Définition},coltitle=black,
+	boxsep=3mm,top=2mm,left=2mm,right=2mm
+	,before skip=1cm,
+	after skip=1cm,
+	overlay={
+		\scoped[on background layer]{
+			\draw([xshift=0.3cm]interior.north west)|-
+			(interior.south east)--([yshift=1cm]interior.south east);}
+		\node[anchor=west,font=\large\bfseries, scale=1.2,above right] (1) at (interior.north west){\tcbtitle};
+		\scoped[on background layer]{
+			\draw([yshift=-0.5mm]1.north west)|-(1.south east);
+			\fill(1.south east) circle(2pt);
+			\fill[black](interior.north west)--+(0.3cm,-0.3cm)|-cycle;
+	}},overlay first={
+		\node[anchor=west,font=\large\bfseries, scale=1.2,above right] (1) at (interior.north west){\tcbtitle};
+		\scoped[on background layer]{
+			\draw([xshift=0.3cm]interior.north west)--
+			([xshift=0.3cm]interior.south west);
+		%	\draw(interior.north east)--(interior.south east);
+			\draw([yshift=-0.5mm]1.north west)|-(1.south east);
+			\fill[black](interior.north west)--+(0.3cm,-0.3cm)|-cycle;}
+	},overlay middle={
+		\draw([xshift=0.3cm]interior.north west)--
+		([xshift=0.3cm]interior.south west);
+	%	\draw(interior.north east)--(interior.south east);
+	},overlay last={
+		\draw([xshift=0.3cm]interior.north west)|-
+		(interior.south east)--([yshift=1cm]interior.south east);}
+}
+\begin{document}
+	\begin{df}
+		text text text text text text text text text text text text text text
+		
+		 text text text text text text text text text text text text text text
+		 
+		  text text text text text text text text text text text text text text
+		  
+		   text text text text text text text text text text text text text text 
+		   
+		   text text text text text text text text text text text text text text 
+		   
+		   text text text text text text text text text text text text text text 
+		   
+		   text text text text text text text text text text text text text text 
+		   
+		   text text text text text text text text text text text text text text 
+		   
+		   text text text text
+	\end{df}
+	
+\end{document}

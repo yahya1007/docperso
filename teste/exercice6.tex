@@ -1,0 +1,147 @@
+\documentclass[12pt,a4paper]{report}
+\usepackage{amsmath,amsfonts,amssymb,amsthm }
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm]{geometry}
+\usepackage[most]{tcolorbox}
+\usepackage{tikz}
+\usetikzlibrary{calc,shadows,shapes,shadows.blur}
+\usepackage{eso-pic}
+\usepackage{tikzpagenodes}
+%==========================================================
+\definecolor{myblue}{HTML}{1D2A6E}
+\definecolor{myred}{HTML}{A97E77}
+\definecolor{mybrown}{HTML}{B35823}
+\definecolor{gold}{HTML}{B48920}
+\definecolor{myorange}{HTML}{ED8C2B}
+\definecolor{col}{RGB}{45, 136, 119}
+%==========================================================
+%========================================
+%color===========================================
+\colorlet{colexam}{red!75!black}
+\definecolor{WarmGray}{RGB}{222,214,204}
+\definecolor{DarkGreen}{HTML}{006400}
+\definecolor{mygray}{HTML}{eeeee4}
+%===========================================
+%===========================================
+\definecolor{doc}{RGB}{0,60,110}
+\definecolor{winered}{rgb}{0.5,0,0}
+\definecolor{denim}{rgb}{0.08, 0.38, 0.74}
+\definecolor{ufla_blue}{HTML}{224271} 
+\definecolor{chaptercolor}{rgb}{0.36,0.73,0.82}
+\definecolor{MainRed}{rgb}{.8, .1, .1}
+\definecolor{col1}{RGB}{12, 102, 98}
+%===========================================
+\newtcolorbox{exercise}[2]{
+enhanced,
+breakable,
+before skip=1cm,
+after skip=1cm,
+arc=0mm,outer arc=0mm,
+top=1cm,
+bottom=1cm,
+  frame code app={
+  	\fill[myblue] ([shift={(-0.2,-0.2)}]frame.north west)--([shift={(-0.2,0.2)}]frame.north east)--([shift={(0.2,0.2)}]frame.south east)--([shift={(0.2,-0.2)}]frame.south west)--cycle;},
+overlay={
+	\begin{scope}[
+		minimum height=.7cm,
+		%inner sep=2pt, 
+		]
+		\node[
+		right,
+		xshift=-.15cm,yshift=-.6cm,  
+		draw,
+		rectangle split,
+		rectangle split parts=3,
+		rectangle split horizontal,
+		rectangle split part fill={gold, mybrown, myblue},
+		rounded corners=2pt,
+		draw=none,  
+		text=white,
+		] 
+		at ([xshift=2mm]frame.north west)
+		{
+			\nodepart[text centered, text width=0.12\linewidth]{one}{\large\bfseries{Exercice} }
+			\nodepart[text centered,text width=0.05\linewidth]{two} {\large\bfseries{#1}}
+			\nodepart[text centered,text width=2pt+0.77\linewidth]{three} {\large\bfseries{#2}}
+		};
+	\end{scope}
+}
+  }
+%===========================================
+\tikzset{
+	page/.style={
+		color  = white ,
+		fill   = MainRed ,
+		font   = \normalfont\sffamily\Huge\bfseries ,
+		minimum size = .5in ,
+		yshift = 0.5in
+	}
+}
+%---------------------------------------------
+%===========================================
+%===============================================
+\newcommand{\SideBarNew}{\AddToShipoutPicture{
+		\begin{tikzpicture}[remember picture,overlay]
+		\fill[cyan!10] (current page.north west)rectangle ([shift={(0,-2.5)}]current page.north east);
+		\fill[cyan!10] (current page.north west)rectangle ([shift={(2.5,0)}]current page.south west);
+		\fill[mybrown] (current page.north west)--([shift={(1.5,0)}]current page.north west){[rounded corners=5pt]--++(0,-15)--++(-120:2)}
+		|-(current page.south west)--cycle;
+		\fill[gold] (current page.north west)--([shift={(1.5,0)}]current page.north west){[rounded corners=5pt]--++(0,-14)--++(-120:2)}
+		|-(current page.south west)--cycle;
+		\fill[myblue] (current page.north west)--([shift={(1.5,0)}]current page.north west){[rounded corners=5pt]--++(0,-13)--++(-120:2)}
+		|-(current page.south west)--cycle;
+		\fill [winered,blur shadow={shadow blur steps=5},opacity=0.5]
+		($(current page.north west)+(2.7,-.25)$){[rounded corners=10pt]--++(10,0)--++(0,-2)} --++(-10,0)--cycle;
+		\fill [gold]
+		($(current page.north west)+(1.79,-.5)$){[rounded corners=10pt]--++(6,0)--++(0,-1.5)} --++(-6,0)--cycle;	
+		\node[white] at([shift={(4,-1.25)}]current page.north west){\centering\fontsize{25}{25}\scshape\bfseries\selectfont{Exercices}};
+		\fill[gold] (current page.north east)--++(-0.9,0)--++(0,-7.5)to[out=-60,in=180]++(0.9,-0.5)--cycle;
+		\fill[MainRed]([yshift=1.25cm]current page.south west) rectangle ([yshift=1.15cm]current page.south east);
+		\node[white,rotate=90] at([shift={(-0.45,-4.7)}]current page.north east){{\Large\bfseries{Exercices}}};
+		\node[right,page] at (current page.south west)
+		{\thepage} ;
+		\fill[myblue](current page.south east) rectangle ++(-6,.88);
+		\node[white] at([shift={(-3,.5)}]current page.south east){{\Large\bfseries{Rezak Souilah}}};
+		
+		\end{tikzpicture}
+}}
+\newcommand{\SideBarNewCurrent}{\AddToShipoutPicture*{%
+}}
+
+%start label for new stuff
+\newcommand{\NEW}{\SideBarNew}
+%=================================================
+\begin{document}
+\pagestyle{empty}
+\NEW
+
+\begin{exercise}{1.1}{Séries numériques}
+ Étudier la convergence des séries numériques de termes généraux suivants: 
+
+\[ 
+\begin{array}{lllll}
+\displaystyle \mathbf 1.\ u_n=\frac{n}{3^n}&&\displaystyle \mathbf 2.\ u_n=\frac{(-1)^n }{n^{2}}&&\displaystyle \mathbf 3.\  \ u_n=\frac{e^n}{2^{n}+1}\\
+\end{array}
+\]
+\end{exercise}
+
+\begin{exercise}{1.1}{Suites des fonctions}
+	Soit $f_{n}(x)=\frac{\sin\left(nx\right)}{1+n^{2}\,x^{2}}$ pour $x\in\mathbb{R}$. 
+\begin{enumerate}
+	\item Montrer que $(f_{n})$ converge simplement sur $\mathbb{R}$ vers la fonction $f\equiv 0$.
+	\item La suite de fonctions $(f_{n})$ converge-t-elle uniformément vers $f$? 
+\end{enumerate}	
+\end{exercise}
+
+\begin{exercise}{1.1}{Equations différentielles ordinaires}
+	Résoudre les équations différentielles suivantes:
+\begin{enumerate}
+	\item $\displaystyle{y'-3 y = \textrm{e}^{x}} $
+	\item $\displaystyle{y''+2 y' - 3y = \textrm{e}^{-x}}$
+\end{enumerate}
+\end{exercise}
+
+
+\end{document}

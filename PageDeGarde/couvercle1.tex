@@ -1,0 +1,73 @@
+\documentclass{article}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usetikzlibrary{shadows,shadows.blur}
+\usepackage{anyfontsize}
+\usepackage{pdfrender}
+%============================================
+\definecolor{myblue3}{RGB}{36, 57, 126}
+\definecolor{YankeesBlue}{RGB}{28,40,65}
+%=================================================
+
+
+\begin{document}
+
+\pagestyle{empty}
+
+\begin{tikzpicture}[remember picture,overlay]
+\path 
+(current page.north west) coordinate (A) 
+(current page.north east) coordinate (B)
+(current page.south east) coordinate (C)
+(current page.south west) coordinate (D)
+(current page.east) coordinate (E)
+(current page.west) coordinate (W)
+(current page.north) coordinate (N)
+(current page.south) coordinate (S);
+%===================Background====================
+\fill[white] (A) rectangle (C);
+%============================================
+\fill[red!60!black] ($(A)!0.8!(D)$)--($($(D)!0.25!(C)$)+(0,0)$)--
+($($(E)!0.75!(W)$)+(0,-2.5)$)--cycle;
+
+\fill[red!80!black] ($($(D)!0.25!(C)$)+(0,0)$)--($(N)!0.8!(S)$)--
+($($(E)!0.75!(W)$)+(0,-2.5)$)--cycle;
+%========================================
+\filldraw[draw=red,fill=red,blur shadow=%
+{
+	shadow blur steps=5,
+	shadow xshift=-0.8mm,
+	shadow yshift=-2mm}] ($($(E)!0.75!(W)$)+(0,-2.5)$)--($(C)+(-5.65,0)$)--($(E)+(0,-2.5)$)--cycle;
+%========================================================
+%===================================
+%======================================
+\filldraw[draw=YankeesBlue,fill=YankeesBlue,blur shadow=%
+{
+	shadow blur steps=5,
+	shadow xshift=-0.8mm,
+	shadow yshift=-2mm}] (A)--($(A)!0.8!(D)$)--($($(E)!0.75!(W)$)+(0,-2.5)$)--($($(E)!0.75!(W)$)+(0,4.5)$)
+--(B)--cycle;
+%===========================================
+\fill[red!60!black]
+($($(E)!0.75!(W)$)+(2,4.5)$)rectangle +(0.4,-5);
+\fill[YankeesBlue!30!white] ($($(E)!0.75!(W)$)+(2.5,4.5)$)rectangle +(15,-5);
+\fill[red!60!black]
+($($(E)!0.75!(W)$)+(-4,12)$)rectangle +(0.4,-3);
+%==============================================
+\node[anchor=west] at ([shift={(-19.5,11.5)}]E) {\LARGE\sffamily\bfseries\color{white} Rezak Souilah };
+\node[anchor=west] at ([shift={(-19.5,10)}]E) {\LARGE\sffamily\bfseries\color{white} Email: rezazsouilah@gmail.com};
+%==============================================
+\node[anchor=west] at ([shift={(-13.5,2)}]E){
+	\textpdfrender{ 
+		TextRenderingMode=FillStroke, StrokeColor=myblue3, LineWidth=1.5pt, FillColor=white
+	}{\fontsize{120}{120}\sffamily\bfseries
+		Title
+		
+}};
+%=====================================================
+\fill [white] ($(C)+(-6.5,7.5)$) circle (2.5cm);
+ \fill [YankeesBlue] ($(C)+(-6.5,7.5)$) circle (2cm) node[white]{\Huge{logo}};
+\end{tikzpicture}
+
+\end{document}

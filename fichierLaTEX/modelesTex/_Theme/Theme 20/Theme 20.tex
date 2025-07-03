@@ -1,0 +1,110 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[left=2cm,top=1cm,right=1cm,bottom=60pt]{geometry}
+\usepackage[utf8]{inputenc}    
+\usepackage{amsmath,amssymb ,amsfonts,xcolor,tikz,enumitem} 
+ \definecolor{col3}{RGB}{46, 92, 6} 
+\newcommand{\lexa}[1]{{\fontfamily{calligra}\fontsize{30}{1}
+ \selectfont{#1}}\normalfont}
+\usepackage{eso-pic}
+\AddToShipoutPictureBG{
+ \ifnum\value{page}=1
+\begin{tikzpicture}[remember picture,overlay]
+ \draw[line width=3pt,violet!50] ([shift={(1.2,-5)}]current page.north west)to[out=40,in=180]++(3,2)--([shift={(1,-3)}]current page.north east);
+  \fill[left color=violet ,right color=violet!50] ([shift={(1,0)}]current page.north west)--++(2,0)--++(0,-3.4)to[out=-140,in=50]++(-2,-2);
+   \fill[violet] ([shift={(0.9,0)}]current page.north west)rectangle([shift={(1.2,0)}]current page.south west);
+   \node[anchor=north,rotate=90]at([shift={(1.6,-2)}]current page.north west){\color{white}{\Large \textbf{BAC Math}}};
+\end{tikzpicture}
+\else
+\begin{tikzpicture}[remember picture,overlay] 
+\fill[violet] ([shift={(0.9,0)}]current page.north west)rectangle([shift={(1.2,0)}]current page.south west); 
+\end{tikzpicture}
+\fi
+}
+%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[most,breakable]{tcolorbox}
+\newtcolorbox[auto counter ]{Exercice}[1][]{enhanced,left=0pt,top=8pt ,frame hidden,bottom=0pt,before upper={\hspace*{1cm}} ,colback=white, interior code app={\node[fill=col3,anchor=west,text width=0.5cm,text badly centered]at ([shift={(0.1,-0.5)}]frame.north west){{\large\color{white} \textbf{\centering\thetcbcounter}}};}, breakable}\begin{document}
+ \begin{center}
+\hfill \begin{minipage}{16cm}\color{red!55!black}
+{\large  {{\fontfamily{calligra}\fontsize{30}{1}
+ \selectfont{P}}\normalfont \textbf{rof :}  
+  ...............}}
+  \hfill 
+{\large  {{\fontfamily{calligra}\fontsize{30}{1}
+ \selectfont{A}}\normalfont \textbf{nnée scolaire : 2020-2019}}}
+\end{minipage}
+ \end{center} 
+\vskip2.3cm
+\begin{Exercice}
+ math math math math math math math math math math math math math math math 
+ \begin{enumerate}[label=\textbf{\color{col3}\arabic*.}]
+ \item math math math math 
+ \item math math math math 
+ \item math math math math 
+ \item math math math math 
+ \item math math math math 
+ \item math math math math 
+ \item math math math math 
+ \end{enumerate}
+\end{Exercice}
+\begin{Exercice}
+math math math math math math math math math math math math math math math 
+\begin{enumerate}[label=\textbf{\color{col3}\arabic*.}]
+ \item math math math math 
+ \item math math math math 
+ \item math math math math 
+ \item math math math math 
+ \item math math math math 
+ \item math math math math 
+ \item math math math math 
+\end{enumerate}
+\end{Exercice}
+\begin{Exercice}
+math math math math math math math math math math math math math math math 
+\begin{enumerate}[label=\textbf{\color{col3}\arabic*.}]
+ \item math math math math 
+ \item math math math math 
+ \item math math math math 
+ \item math math math math 
+ \item math math math math 
+ \item math math math math 
+ \item math math math math 
+\end{enumerate}
+\end{Exercice}
+\newpage
+\begin{Exercice}
+math math math math math math math math math math math math math math math 
+\begin{enumerate}[label=\textbf{\color{col3}\arabic*.}]
+ \item math math math math 
+ \item math math math math 
+ \item math math math math 
+ \item math math math math 
+ \item math math math math 
+ \item math math math math 
+ \item math math math math 
+\end{enumerate}
+\end{Exercice}
+\begin{Exercice}
+math math math math math math math math math math math math math math math 
+\begin{enumerate}[label=\textbf{\color{col3}\arabic*.}]
+ \item math math math math 
+ \item math math math math 
+ \item math math math math 
+ \item math math math math 
+ \item math math math math 
+ \item math math math math 
+ \item math math math math 
+\end{enumerate}
+\end{Exercice}
+\begin{Exercice}
+math math math math math math math math math math math math math math math 
+\begin{enumerate}[label=\textbf{\color{col3}\arabic*.}]
+ \item math math math math 
+ \item math math math math 
+ \item math math math math 
+ \item math math math math 
+ \item math math math math 
+ \item math math math math 
+ \item math math math math 
+\end{enumerate}
+\end{Exercice}
+\end{document}

@@ -1,0 +1,22 @@
+\documentclass{article}
+\usepackage{background}
+\usetikzlibrary{calc}
+\usepackage{lipsum}
+
+\backgroundsetup{
+color=black,
+scale=1,
+opacity=1,
+angle=0,
+contents={\tikz[line width=3pt,rounded corners,gray!80!black]\draw
+  ([xshift=(1cm),yshift=(-1cm)]current page.north west)rectangle
+         ([xshift=(-1cm),yshift=(1cm)]current page.south east);}
+}
+ 
+\begin{document}
+\NoBgThispage
+\lipsum[1-5]
+\newpage
+
+yahya
+\end{document}

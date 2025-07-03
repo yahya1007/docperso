@@ -1,0 +1,132 @@
+\documentclass[a4paper,addpoints,12pt]{exam}
+
+\usepackage{dlds}
+\pointsdroppedatright
+\marginpointname{ \points}
+\setlength{\rightpointsmargin}{25mm}
+\pointformat{\bfseries\boldmath[\themarginpoints]}
+\settasks{
+% label = \theexercise.\arabic* ,
+ item-indent = 0em ,
+ label-width = 0em ,
+ label-offset = 0pt ,
+ column-sep = {10pt} 
+ }
+
+\begin{document}
+
+\examen[prv=true,date= 2024]
+
+\begin{exo}[7]
+\begin{questions}
+\question[2]Calculer :\droppoints
+\begin{tasks}(2)
+\task[] $\left(\dfrac{1}{\sqrt{2}}\right)^{-2}=$\anserline[1]
+\task[] $\left(\dfrac{-2\sqrt{3}}{2}\right)^{2}=$\anserline[2]
+\task*[] $\sqrt{\sqrt{81}}\times \sqrt{\sqrt{25}}\times\sqrt{5}=$\anserline[3]
+\end{tasks}
+\question[1]Simplifier \droppoints
+$A=\sqrt{75}+\sqrt{48}-\sqrt{27}=$\anserline[3]
+\question[1]Développer et simplifier\droppoints
+\begin{tasks}(2)
+\task[] $\left(\sqrt{17}-\sqrt{3}\right)^{2}=$\anserline[2]
+\task[] $\left(\sqrt{3}-\sqrt{2}\right)\left(\sqrt{3}+\sqrt{2}\right)=$\anserline[2]
+\end{tasks}
+\question[1]Factoriser :\droppoints
+$x^{2}+4x+3=$\anserline[2]
+\question[1]Donner l'écriture scientifique\droppoints
+$\dfrac{3000000\times 10^{-26}}{0.000003\times 10^{13}}=$\anserline[2]
+\question[1]Ecrire le dénominateur sans radicale :\droppoints
+$\dfrac{\sqrt{3}}{1-\sqrt{3}}=$\anserline[2]
+\end{questions}
+\end{exo}
+
+\begin{exo}[4]
+\begin{questions}
+\question[1]Comparer $2\sqrt{5}$ et $\sqrt{21}$\droppoints
+\anserline[2]
+\question[1]Déduire la comparaison des nombres : 
+$\dfrac{3}{1+2\sqrt{5}}$ et $\dfrac{3}{1+\sqrt{21}}$\droppoints
+\anserline[4]
+\question[2]Soient $2\leq a\leq 5$ et $3\leq b\leq 4$ . Encadrer :\droppoints
+\begin{tasks}(4)
+\task[] $a+b$\newline\notes[10pt]{6}{\linewidth}
+\task[] $a-b$\newline\notes[10pt]{6}{\linewidth}
+\task[] $ab$\newline\notes[10pt]{6}{\linewidth}
+\task[] $\dfrac{a}{b}$\newline \notes[10pt]{6}{\linewidth}
+\end{tasks}
+\end{questions}
+\end{exo}
+
+\begin{exo}[6]
+I. On considère la figure ci-contre tel que : $AC=8$ , $BA=6$ et $BC=10$ et $H$ le projeté orthogonal de $A$ sur $(BC)$.
+\begin{questions}
+\question[1] Montrer que $ABC$ est un triangle rectangle .\droppoints
+\begin{minipage}{0.6\linewidth}
+\anserline[7]
+\end{minipage}%
+\begin{minipage}{0.4\linewidth}
+\begin{tikzpicture}
+\tkzDefPoints{-1/0/B,5/-1/C}
+\tkzDefTriangle[two angles=50 and 40](B,C)\tkzGetPoint{A}
+\tkzDefPointBy[projection=onto C--B](A)\tkzGetPoint{H}
+\tkzDrawSegments(A,B B,C C,A A,H)
+\tkzLabelPoints(B,C,H)
+\tkzLabelPoint[above](A){A}
+\tkzMarkRightAngle(C,H,A)
+\end{tikzpicture}
+\end{minipage}
+\question[1] Calculer les rapports trigonométriques d'angle $\widehat{ABC}$\droppoints
+\anserline[5]
+\question[1] Calculer $AH$\droppoints
+\anserline[6]
+\end{questions}
+II. Soit $x$ la mesure d'un angle aigu tel que : $\cos x =\dfrac{\sqrt{3}}{2}$
+\begin{questions}
+\setcounter{question}{3}
+\question[1] Calculer : $\sin x$ et $\tan x$\droppoints
+\anserline[4]
+\question[1] Simplifier  :\droppoints
+$A = 4\sin^{2}20^{\circ} +\cos50^{\circ} +4\sin^{2}70^{\circ}-\sin40^{\circ} =$\anserline[5]
+\question[1] Montrer que : $1+\tan^{2}x = \dfrac{1}{\cos^{2}x}$\droppoints
+\anserline[5]
+\end{questions}
+\end{exo}
+\newpage
+\begin{exo}[3]
+On considère la figure ci-contre tel que $(MN)//(BC)$ , $AB=4$ , $AC=3$ , $BM=1$ ,$AE=2$ et $AF=1.5$.
+\begin{questions}
+\question[1] Montrer que $AN=2.25$ \droppoints
+\begin{minipage}{0.6\linewidth}
+\anserline[6]
+\end{minipage}
+\begin{minipage}{0.4\linewidth}
+\begin{tikzpicture}[scale=0.8]
+\tkzDefPoint(0,0){A}
+\tkzDefPoint(1,-3){C}
+\tkzDefPoint(-3,-2){B}
+\tkzDefPointOnLine[pos=0.75](A,B)\tkzGetPoint{M}
+\tkzDefPointOnLine[pos=0.75](A,C)\tkzGetPoint{N}
+\tkzDefPointOnLine[pos=-0.5](A,B)\tkzGetPoint{E}
+\tkzDefPointOnLine[pos=-0.5](A,C)\tkzGetPoint{F}
+\tkzLabelPoint[left=3pt](A){A}
+\tkzLabelPoint[above left](B){B}
+\tkzLabelPoint[above right](C){C}
+\tkzLabelPoint[above left=5pt](M){M}
+\tkzLabelPoint[above right](N){N}
+\tkzLabelPoint[below right](E){E}
+\tkzLabelPoint[below left](F){F}
+\tkzDrawLines(E,B F,C M,N B,C E,F)
+\end{tikzpicture}
+\end{minipage}
+\anserline[2]
+\question[1]  Calculer $NC$.\droppoints
+\anserline[9]
+\question[1] Prouver que $(BC)//(EF)$.\droppoints
+\anserline[10]
+\end{questions}
+\end{exo}
+
+
+\end{document}
+

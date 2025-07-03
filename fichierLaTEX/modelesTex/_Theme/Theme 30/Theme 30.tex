@@ -1,0 +1,76 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb,amsfonts,tikz,enumitem}
+\usepackage[left=1.7cm,right=1.5cm,top=1cm,bottom=2.5cm]{geometry}
+\usepackage[most]{tcolorbox}
+\definecolor{col1}{RGB}{253, 181, 192}
+\definecolor{col2}{RGB}{166, 72, 124}
+\definecolor{col3}{RGB}{246, 66, 153}
+\usepackage{pgfornament}
+\tcbuselibrary{skins,hooks}
+\usetikzlibrary{shapes.arrows,calc,decorations.pathmorphing} 
+\usepackage{eso-pic}
+\AddToShipoutPictureBG{
+ \begin{tikzpicture}[remember picture,overlay]
+ \fill[col1] (current page.north west)rectangle([xshift=1cm ]current page.south west);
+ \node[anchor=west,rotate=90] at ([xshift=0.5cm]current page.west){\large \bfseries \color{col3}Mathématiques };
+ \end{tikzpicture}
+}
+\newtcolorbox{Entete}[1][]{enhanced,colframe=col2!80!black,colback=white, 
+ underlay={\begin{tcbclipinterior}
+ \shade[inner color=col3 ,outer color=red!25!white]
+ (interior.north west) circle (2cm);
+ \draw[ step=0.7cm,col2!10!white,shift={(interior.north west)}]
+ (interior.south west) grid (interior.north east);
+ \end{tcbclipinterior}}, }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[tikz]{bclogo}% 
+\definecolor{col}{RGB}{0, 1, 226}
+\newtcolorbox[auto counter ]{exe}[2][]{
+ enhanced,colback=white ,colframe=col2,bottom=0.5cm,left=1cm,top=1cm,arc=10pt,outer arc=10pt,  ,breakable,rounded corners,
+ ,coltitle=black,colbacktitle=white,,before=\vskip0.5cm,
+ attach boxed title to top left={xshift=0.6cm,yshift=-2mm-\tcboxedtitleheight},boxed title style={frame hidden},
+ ,overlay app={  
+ \node at ( [xshift= 0.5cm,yshift=-0.5cm]frame.north west){\bccrayon}; 
+ \draw[line width=1.2pt,red!55!black,decorate,
+ decoration={snake,amplitude=.4mm,segment length=2mm,post length=1mm}] ([xshift=0.4cm,yshift=-0.9cm]frame.north west)-- ([xshift=0.5cm,yshift=0.3cm]frame.south west);} ,
+ title= \textbf{Exercice \thetcbcounter :/ (#2)}}  
+\begin{document}
+\begin{Entete} 
+ \begin{center}
+ \large \bfseries Devoir surveillé n$^\circ$3 semestre 1\\
+ \scalebox{3}[2]{\pgfornament[width=2cm,color=violet]{85}} 
+ \end{center}
+ \begin{tcolorbox}[width=8cm, colframe=col2, colback=white,top=2pt,bottom=0pt, arc=3mm, sharp corners=northeast, sharp corners= southwest,nobeforeafter]
+ \bfseries \raisebox{-.7ex}{\bchorloge} Durée : 2h
+ \end{tcolorbox}\hfill
+\begin{tcolorbox}[width=8cm, colframe=col2, colback=white, arc=3mm,top=2pt,bottom=0pt, sharp corners=northeast, sharp corners= southwest,nobeforeafter]
+ \bfseries \raisebox{-.7ex}{\bcoctaedre} Calculatrice non autorisée
+\end{tcolorbox}
+\end{Entete}
+\begin{exe}{3 points} 
+ On considère un triangle $ABC$ et on désigne par $A'$ , $B'$ et $C'$ les milieux \\respectifs des segments $[BC]$,$[AC]$ et $[AB]$ .\\
+ Pour tout point $M$ du plan distinct des sommets $A$,$B$ et $C$ on désigne par :
+ \begin{itemize}
+ \item[ $\bullet$] $\Delta_A$ la droite passant par $ A$ et parallèle à $[MA'$ .   
+ \item[ $\bullet$]$\Delta_B$ la droite passant par $B $ et parallèle à $[MB']$ .     \item[$\bullet$] $\Delta_C$ la droite passant par $C $ et parallèle à $[MC']$ .   
+ \end{itemize}
+ Montrer que les droites $\Delta_A$,$\Delta_B$ et $\Delta_C$ sont concourantes .\\
+ \begin{tikzpicture}[scale=1]
+ \coordinate[label= below:$A$,label=center:$ \bullet $ ](A) at (-7,0.5);
+ \coordinate[label= right:$B$,label=center:$ \bullet $ ](B) at (3,0);
+ \coordinate[label= above right :$C$,label=center:$ \bullet$ ](C) at (1,4);
+ \coordinate[label= 60:$A'$,label=center:$ \bullet $ ](A') at ($(B)!.5!(C)$);
+ \coordinate[label= 120:$B'$,label=center:$ \bullet $ ](B') at ($(A)!.5!(C)$);
+ \coordinate[label= 60:$C'$,label=center:$ \bullet $ ](C') at ($(A)!.5!(B)$);
+ \coordinate[label= 60:$M$,label=center:$ \bullet $ ](M) at (-3,3);
+ \draw[line width=.6pt] (A)--(B)--(C)--cycle;
+ \draw[red,line width=.6pt] ($(M)!-4cm!(A')$)--($(M)!1.6!(A')$); `
+ \draw[red,line width=.6pt] ($(M)!-2cm!(B')$)--($(M)!6cm!(B')$);
+ \draw[red,line width=.6pt] ($(M)!-2cm!(C')$)--($(M)!2!(C')$);
+ \draw[blue,line width=.6pt] ($(M)!0.5!(C)!-1!(C')!1cm!(C)$)--($ (M)!0.5!(C)!-1!(C')!4!(C) $)node[above right]{$\Delta_C$};    
+ \draw[blue,line width=.6pt] ($(M)!0.5!(A)!-1!(A')!3cm!(A)$)--($ (M)!0.5!(A)!-1!(A')!3.5!(A) $)node[above]{$\Delta_A$};    
+ \draw[blue,line width=.6pt] ($(M)!0.5!(B)!-1!(B')!-4cm!(B)$)--($ (M)!0.5!(B)!-1!(B')!6.6!(B) $)node[left]{$\Delta_B$};    
+ \end{tikzpicture} 
+\end{exe} 
+\end{document}

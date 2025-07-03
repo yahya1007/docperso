@@ -1,0 +1,139 @@
+
+%compiler with xelatex
+\documentclass[12pt,a4paper,dvipsnames,svgnames,x11names,table]{article}
+\usepackage[top=1cm,bottom=1cm,right=1.2cm,left=2.2cm]{geometry}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+\usepackage{amsmath,amsfonts,amssymb,fancyhdr,txfonts,pxfonts}
+%\usepackage[table]{xcolor}
+\usepackage{tikz,xcolor,tcolorbox}
+%\usepackage{amsmath}
+\usetikzlibrary{calc}
+\usepackage[object=vectorian]{pgfornament}
+\tcbuselibrary{skins,xparse,hooks,vignette}
+\usepackage{tikzrput}
+\usepackage[tikz]{bclogo}
+\usepackage{varwidth}
+\usetikzlibrary{shapes}
+\pagestyle{empty}
+\renewcommand{\headrulewidth}{0pt}
+\pagecolor{white}
+\usepackage{polyglossia}
+\setotherlanguage{french}
+\newfontfamily\frenchfont[Scale=1.2]{Times New Roman}
+\newfontfamily\frenchfontt[Scale=1.2]{Algerian}
+\newfontfamily\frenchfonts[Scale=1.2]{Andalus}
+\usepackage{eso-pic}
+\AddToShipoutPicture{%
+\begin{tikzpicture}[remember picture,overlay]
+\fill[black,rounded corners=4mm]([shift={(-0.2,-0.2)}]current page.north east)rectangle([shift={(.25,.2)}]current page.south west);
+\fill[white]([shift={(-.4,-.4)}]current page.north east)rectangle([shift={(.45,.4)}]current page.south west);
+\foreach \i in {1,3,5}{
+\path (current page.north west)--
+node[right=0mm,pos=\i/6]{%
+\tikzpicture
+\foreach \j in {0,1,2,3}{
+\node[circle,inner color=black,outer color=black,inner sep=1.2mm,outer sep=0mm,anchor=center](\j) at (0,-\j*.4){};
+\path[rounded corners=1mm,inner color=white,outer color=black] (-1,-.08-\j*.4)rectangle(0,.08-\j*.4);}
+\endtikzpicture
+}
+(current page.south west);
+\fill[black]($(current page.north west)+(1.6cm,-1cm)$)rectangle($(current page.south west)+(1.7cm,1cm)$);
+}
+\node[black,rotate=90]at([xshift=1cm,yshift=9.9cm]current page.south west){\textit{{ {\color{black}{\frenchfontt{2022/2023}}}}}};
+\node[black,rotate=90]at([xshift=1cm,yshift=19.6cm]current page.south west){\textit{{ {\color{black}{\frenchfontt{1BACSEG}}}}}};
+\node[black,rotate=90]at([xshift=1cm,yshift=2.2cm]current page.south west){\textit{{ {\color{black}{\frenchfonts{}}}}}};
+\node[black,rotate=90]at([xshift=1cm,yshift=27.2cm]current page.south west){\textit{{ {\color{black}{\frenchfonts{}}}}}};
+\end{tikzpicture}}
+%%%%%%%%%%%%%%%%%%%%%%%%%    myboxe1    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newtcolorbox{myboxe1}[2][]{skin=enhancedlast jigsaw,interior hidden,
+boxsep=0pt,top=0pt,colframe=black,coltitle=black,
+fonttitle=\bfseries\sffamily,
+attach boxed title to bottom center,
+boxed title style={empty,boxrule=0.5mm},
+varwidth boxed title=0.5\linewidth,
+underlay boxed title={
+\draw[white,line width=0.5mm]
+([xshift=0.3mm-\tcboxedtitleheight*2,yshift=0.3mm]title.north west)
+--([xshift=-0.3mm+\tcboxedtitleheight*2,yshift=0.3mm]title.north east);
+\path[draw=black,top color=white,bottom color=white,line width=0.5mm]
+([xshift=0.25mm-\tcboxedtitleheight*2,yshift=0.25mm]title.north west)
+cos +(\tcboxedtitleheight,-\tcboxedtitleheight/2)
+sin +(\tcboxedtitleheight,-\tcboxedtitleheight/2)
+-- ([xshift=0.25mm,yshift=0.25mm]title.south west)
+-- ([yshift=0.25mm]title.south east)
+cos +(\tcboxedtitleheight,\tcboxedtitleheight/2)
+sin +(\tcboxedtitleheight,\tcboxedtitleheight/2); },
+title={#2},#1}
+%%%%%%%%%%%%%%%%%%%%%%%%%    myboxe11    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newtcolorbox{myboxe11}[2][]{skin=enhancedlast jigsaw,interior hidden,
+boxsep=0pt,top=0pt,colframe=black,coltitle=black,
+fonttitle=\bfseries\sffamily,
+attach boxed title to top center,
+boxed title style={empty,boxrule=0.5mm},
+varwidth boxed title=0.5\linewidth,
+underlay boxed title={
+\draw[black,line width=0.5mm]
+([xshift=0.3mm-\tcboxedtitleheight*2,yshift=0.3mm]title.north west)
+--([xshift=-0.3mm+\tcboxedtitleheight*2,yshift=0.3mm]title.north east);
+\path[draw=black,top color=white,bottom color=white,line width=0.5mm]
+([xshift=0.25mm-\tcboxedtitleheight*2,yshift=0.25mm]title.north west)
+cos +(\tcboxedtitleheight,-\tcboxedtitleheight/2)
+sin +(\tcboxedtitleheight,-\tcboxedtitleheight/2)
+-- ([xshift=0.25mm,yshift=0.25mm]title.south west)
+-- ([yshift=0.25mm]title.south east)
+cos +(\tcboxedtitleheight,\tcboxedtitleheight/2)
+sin +(\tcboxedtitleheight,\tcboxedtitleheight/2); },
+title={#2},#1}
+%%%%%%%%%%%%%%%tableau%%%%%%%%%%%%%%%%%%%
+\setlength{\arrayrulewidth}{1pt}
+%\setlength{\tabcolsep}{8pt}
+%\renewcommand{\arraystretch}{2.5}
+\newcolumntype{s}{>{\columncolor{black!30}} p{2cm}}
+\arrayrulecolor{black}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \begin{document}
+ \begin{myboxe1}{Devoir à la maison 3 S1 }
+\emph{\textbf{\frenchfontt{Pr: R. IBOURK}}} \hfill \emph{\textbf{\frenchfontt{Lycée Allal bn Abdallah}}}         
+\end{myboxe1}
+\begin{myboxe11}{\frenchfontt {\emph{\textbf{\bcplume Exercice 1}}}}
+       \bccrayon Soit $\left( U_n \right)$ la suite numérique définie par: $u_0=5$ et $u_{n+1}=\dfrac{4u_n-9}{u_n-2}$ pour tout $n$ de $\mathbb{N}$.
+\begin{enumerate}
+\item Calculer $u_1$ et $u_2$. 
+\item Montrer par récurrence que pour tout $n$ de $\mathbb{N}$: $u_n>3$
+\item \begin{enumerate}
+\item Montrer que pour tout $n$ de $\mathbb{N}$: $ u_{n+1}-u_n=\dfrac{\left(u_n-3 \right)^2}{u_n-2}$ 
+\item En déduire que la suite $\left( U_n \right)$ est une suite décroissante. 
+\end{enumerate}
+\item On pose pour tout $n\in \mathbb{N}$: $V_n=\dfrac{1}{u_n-3}$.
+\begin{enumerate}
+\item Calculer $V_0$.
+\item Montrer que la suite $\left( V_n \right)$ est arithmétique de raison $1$ 
+\item Montrer que $V_n=\dfrac{1}{2}+n$ pour tout $n$ de $\mathbb{N}$.
+\item Vérifier que pour tout $n$ de $\mathbb{N}$ $u_n=\dfrac{3V_n+1}{V_n}$
+\item En déduire que pour tout $n$ de $\mathbb{N}$: $u_n=\dfrac{6n+5}{2n+1}$
+\end{enumerate}
+\end{enumerate}
+\end{myboxe11}
+\begin{myboxe11}{\frenchfontt {\emph{\textbf{\bcplume Exercice 2}}}}
+\bccrayon Une urne contient $4$ boules rouges et une seule boule verte. On tire successivement et sans remise deux boules dans cette urne
+\begin{enumerate}
+\item Construire l'arbre des cas possibles.
+\item Montrer que le nombre des tirages possibles est $20$
+\item Déterminer le nombre des tirages possibles contenant exactement deux boules rouges
+%\item Déterminer le nombre des tirages possibles contenant exactement une boule verte
+\end{enumerate}
+\end{myboxe11} 
+ \begin{myboxe11}{\frenchfontt {\emph{\textbf{\bcplume Exercice 4}}}}
+  \bccrayon Un sac $A$ contient $7$ boules rouges, $4$ boules noires et $3$ boules vertes. On suppose que toutes les boules sont identiques.
+On tire simultanément $3$ boules de ce sac.
+\begin{enumerate}
+\item Quel est le nombre des tirages possibles ? 
+\item Quel est le nombre des tirages possibles contenant trois boules de  même couleurs ? 
+\item Quel est le nombre des tirages possibles contenant exactement deux boules rouges ? 
+\item Quel est le nombre des tirages possibles ne contenant aucune boule noire ?
+\end{enumerate}
+\end{myboxe11}
+ \end{document}

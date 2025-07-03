@@ -1,0 +1,111 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb,amsfonts,tikz}
+\usepackage[left=2cm,right=1cm,top=1.5cm,bottom=2.5cm]{geometry}
+\usepackage{varwidth}
+\definecolor{col1}{RGB}{72, 114, 198}
+\definecolor{col2}{RGB}{32, 58, 95 }
+\definecolor{col3}{RGB}{45, 85, 155}
+\everymath{\displaystyle}
+\pagestyle{empty}
+\usepackage{pifont,fourier}
+\usepackage[most,breakable]{tcolorbox}
+\usetikzlibrary{shapes.arrows,calc}
+\newtcolorbox{mybox}[1][]{%
+ enhanced,interior code app={\fill[line width=1pt,col1] ( [yshift=-1cm]frame.north east)to[out=140,in=60]( [xshift=-2cm]frame.south east)--++(2cm,0)--cycle;},width=15.7cm,arc=0pt,outer arc=0pt ,colback=white,colframe=blue,
+ frame code app={\fill[line width=0.2pt,col1]( frame.north west)rectangle (frame.south east);}
+}
+\linespread{1.3} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{eso-pic}
+\AddToShipoutPictureBG{\ifnum\value{page}=1\begin{tikzpicture}[remember picture,overlay]
+\fill[col1]([yshift=1cm]current page.south west)rectangle(current page.south east) ;
+\node[circle,draw=white,line width=2pt,minimum size=0.3cm,fill=col1]at([yshift=0.9cm]current page.south){{\thepage}};
+\node[anchor=north west,rectangle,fill=col1!85,rotate=90,inner sep=0.3cm,](A)at([yshift=1.5cm]current page.south west){{\large \textbf{\color{white}Mathématique}}};
+\node[anchor=west]at([yshift=.5cm]current page.south west){{ \textbf{\color{white}Lycée secondaire }}};
+\node[anchor=east]at([yshift=.5cm]current page.south east){{ \textbf{\color{white}Cette fiche contient 5 exercices}}};
+\end{tikzpicture}\else
+\begin{tikzpicture}[remember picture,overlay]
+\fill[col1]([yshift=-0.5cm]current page.north west)rectangle(current page.north east) ;
+\fill[col1]([yshift=1cm]current page.south west)rectangle(current page.south east) ;
+\node[circle,draw=white,line width=2pt,minimum size=0.3cm,fill=col1]at([yshift=0.9cm]current page.south){{\thepage}};
+\node[anchor=north west,rectangle,fill=col1!85,rotate=90,inner sep=0.3cm,](A)at([yshift=1.5cm]current page.south west){{\large \textbf{\color{white}Mathématique}}};
+\node[anchor=north east,rectangle,fill=col1!85,rotate=90,inner sep=0.3cm,](A)at([yshift=-0.5cm]current page.north west){{\large \textbf{\color{white}Les nombres complexes}}};
+\node[anchor=west]at([yshift=.5cm]current page.south west){{ \textbf{\color{white}Lycée secondaire }}};
+\node[anchor=east]at([yshift=.5cm]current page.south east){{ \textbf{\color{white}Cette fiche contient 5 exercices}}};
+\end{tikzpicture}
+\fi }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newtcolorbox[auto counter ]{Exercice}[2][N.supplémentaire]{
+ enhanced,top=0.5cm,bottom=0.5cm,
+ overlay app={\draw[col1,line width=0.5cm] (frame.south west)--(frame.north west);
+ \node[rectangle,fill=violet,inner xsep=0.3cm, anchor=south east] at([xshift=-0.3cm]frame.north east){\textbf{\color{white}#1}};},
+   colback=white,colbacktitle=white,breakable,after=\vskip1cm,
+ fonttitle=\bfseries,coltitle=col1,colframe=col1,
+ attach boxed title to top left={xshift=0.5cm,yshift=-0.25mm-\tcboxedtitleheight/2,yshifttext=2mm-\tcboxedtitleheight/2},
+ title={\textbf{Exercice n$^{\circ}$\thetcbcounter :}}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand*\cir[1]{\tikz[baseline=(char.base)]{%
+ \node[shape=circle,right color=col1, left color=red,draw=col1,minimum size=0.6cm,inner sep=2pt] (char) {\color{white}#1};}}
+\usepackage{enumitem}
+\begin{document} 
+ \begin{tikzpicture}[remember picture,overlay]
+\fill[col1]([xshift=2cm,yshift=-0.5cm]current page.north west)rectangle([xshift=-1cm,yshift=-3cm]current page.north east);
+\fill[col2]([xshift=-1cm,yshift=-3cm]current page.north east)--++(-0.5,0)--++(0,-0.5)--cycle;
+\fill[col2]([xshift=2cm,yshift=-3cm]current page.north west)--++(0.5,-0.5)coordinate(a)--++(-1.5,-0.5)coordinate(b)--++(2,-1.5)--++(0,2.5)--cycle;
+\fill[col3](b)--(a)--++(-0.5,0.5)--++(0,2)--++(-1,-0.5)--cycle;
+\node[white]at([yshift=-1.75cm]current page.north){{\huge \textbf{Série d'exercice n$^\circ $ 1}}};
+\node[white]at([yshift=-1.75cm]current page.north){{\huge \textbf{Série d'exercice n$^\circ $ 1}}};
+\node[anchor=north west,align=flush left,rectangle,fill=col1,inner sep=0.3cm,minimum height=1cm,text width=10.95cm ](B)at([xshift=-3cm,yshift=-6.66cm]current page.north){{\Large \textbf{\color{white} Les nombres complexes}}};
+\node[anchor=north west](A)at([xshift=3.2cm,yshift=-3.2cm]current page.north west){
+ \begin{mybox}
+ \vskip1mm
+\begin{minipage}{8cm}
+\begin{itemize}
+\renewcommand\labelitemi{ 
+ \begin{tikzpicture}
+ \node[minimum width=0.3cm,minimum height=0.3cm](a) {\qquad };
+ \fill[red]([yshift=-0.2cm]a.north)--([yshift=-0.2cm]a.west)--([yshift=-0.2cm]a.south)--([yshift=-0.2cm]a.east)--cycle;
+ \fill[col1]([xshift=0.1cm,yshift=-0.2cm]a.north)--([xshift=0.1cm,yshift=-0.2cm]a.west)--([xshift=0.1cm,yshift=-0.2cm]a.south)--([xshift=0.1cm,yshift=-0.2cm]a.east)--cycle;
+ \end{tikzpicture}
+}
+\item  \textbf{{\large \color{violet}Prof : ...}}
+\item  {\large \textbf{\color{violet}Classe : ...}}
+\item \textbf{{\large \color{violet} Année scolaire : ...}}
+\end{itemize}
+\end{minipage}
+\end{mybox}
+};
+ \end{tikzpicture}
+%%%%%%%%%%%%%%%%%%%%
+\vskip7cm
+\begin{Exercice}{}
+ math math math math math math math math math math math math math math math math math math math math math 
+ \begin{enumerate}[label=\protect\cir{\arabic*}]
+ \item math math math math math math math math math 
+ \item math math math math math math math math math 
+ \begin{enumerate}[label=\protect\cir{\alph*}]
+ \item math math math math math math math math math  
+ \item math math math math math math math math math 
+ \end{enumerate}
+ \item math math math math math math math math math 
+ \item math math math math math math math math math 
+ \item math math math math math math math math math 
+ \item math math math math math math math math math  
+ \end{enumerate}
+\end{Exercice}
+\begin{Exercice}
+math math math math math math math math math math math math math math math math math math math math math 
+\begin{enumerate}[label=\protect\cir{\arabic*}]
+ \item math math math math math math math math math 
+ \item math math math math math math math math math 
+ \item math math math math math math math math math 
+ \item math math math math math math math math math 
+ \item math math math math math math math math math 
+ \item math math math math math math math math math 
+ \item math math math math math math math math math 
+ \item math math math math math math math math math 
+ \item math math math math math math math math math 
+\end{enumerate}
+\end{Exercice}
+\end{document}

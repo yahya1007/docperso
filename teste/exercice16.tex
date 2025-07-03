@@ -1,0 +1,196 @@
+\documentclass[a4paper,12pt]{book}
+\usepackage{amsmath,amsfonts,amssymb,amsthm }
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[cmyk,table]{xcolor} 
+\usepackage[cmyk,table]{xcolor} 
+\usepackage{titlesec}
+\usepackage{multicol}
+\usepackage{fancyhdr}
+\usepackage{tikz}
+\usetikzlibrary{shadings}
+\usetikzlibrary{calc,decorations.pathmorphing,decorations.text,shadows}
+\usepackage[left=3cm,right=2.5cm,top=2.5cm,bottom=2.5cm]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,linkcolor=blue!30!black,citecolor=blue]{hyperref}
+\usepackage{enumitem}
+\usepackage{lipsum}
+\usepackage[framemethod=TikZ]{mdframed}
+\usetikzlibrary{shadings}
+\usepackage{varwidth}
+\usepackage[most]{tcolorbox}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{adjustbox}
+\usepackage{graphicx}
+\usepackage{eso-pic}
+\usepackage{tikzpagenodes}
+\usepackage{tabularx}
+\usepackage[adobe-utopia]{mathdesign} 
+%========================================
+%color===========================================
+\colorlet{colexam}{red!75!black}
+\definecolor{WarmGray}{RGB}{222,214,204}
+\definecolor{DarkGreen}{HTML}{006400}
+\definecolor{mygray}{HTML}{eeeee4}
+%===========================================
+%================================================================
+%spiral
+\tikzset{notebook background/.cd,
+	left/.initial=30pt,right/.initial=30pt,top/.initial=20pt,bottom/.initial=20pt,
+	angle/.initial=0,
+	spiral number/.initial=20,
+	spiral position/.is choice,
+	spiral position/left/.code={\edef\spiralpositioncase{0}},
+	spiral position/right/.code={\edef\spiralpositioncase{1}},
+	spiral position/top/.code={\edef\spiralpositioncase{2}},
+	spiral position=right,
+	spiral fill ratio/.is choice,
+	spiral fill ratio/text/.code={\edef\spiralfillratiocase{0}},
+	spiral fill ratio/paper/.code={\edef\spiralfillratiocase{1}},
+	spiral fill ratio/fraction of paperheight/.code={\edef\spiralfillratiocase{2}},
+	spiral fill fraction/.code={\edef\spiralfillratiocase{2}%
+		\edef\spiralfillratio{#1}},
+	spiral fill fraction=1,
+	spiral fill ratio=text,
+}
+\tikzset{spiral/.pic={
+		\draw[rotate=\RotateAngle,
+		draw=black,
+		left color=black!70,
+		right color=black!60,
+		middle color=gray!40
+		] 
+		(-1.1,-0.35) rectangle ++(10pt,10pt);
+		\draw[
+		rotate=\RotateAngle,
+		double=gray!80,
+		double distance=1pt,
+		]
+		(-1,-0.2) arc (40:-250:10pt and 2pt);
+		\draw[
+		rotate=\RotateAngle,
+		double=gray!80,
+		double distance=1pt,
+		]
+		(-1,-0.05) arc (40:-250:10pt and 2pt);
+	}
+}
+\newcommand\AddNotebookBG[1][]{\AddToShipoutPictureBG{%
+		\begin{tikzpicture}[overlay,remember picture]
+		\tikzset{notebook background/.cd,#1}%
+		\def\pv##1{\pgfkeysvalueof{/tikz/notebook background/##1}}%
+		\edef\ShadowXshift{0.5ex}
+		\edef\ShadowYshift{-0.5ex}
+		\ifcase\spiralfillratiocase
+		\def\fillheight{\textheight}
+		\or
+		\def\fillheight{\paperheight}
+		\or 
+		\def\fillheight{\spiralfillratio*\paperheight}
+		\fi
+		\ifcase\spiralpositioncase\relax % left,right,top
+		\def\SpiralPosition{
+			([xshift=-20pt,yshift={3pt-\Valor*\fillheight/(\pv{spiral number}-1)%
+				+0.5*\fillheight}]current page text area.west)
+		}
+		\edef\RotateAngle{0}
+		\or
+		\def\SpiralPosition{
+			([xshift=-9pt,yshift={-5pt-\Valor*\fillheight/(\pv{spiral number}-1)
+				+0.5*\fillheight}]current page text area.east)%the first number is to shift spirals to page edge
+		}
+		\edef\RotateAngle{180}
+		\edef\ShadowXshift{-0.5ex}
+		\edef\ShadowYshift{-0.5ex}
+		\or
+		\def\SpiralPosition{
+			([yshift=-19pt,xshift={5pt+\Valor*\fillheight/(\pv{spiral number}-1)
+				+0.5*\fillheight}]current page text area.north)
+		}
+		\edef\RotateAngle{270}
+		\fi
+		\draw[rounded corners=10pt,fill=mygray,drop shadow={shadow xshift=\ShadowXshift, shadow yshift=\ShadowYshift}]
+		([xshift=-\pv{left},yshift=\pv{top}]current page text area.north west) rectangle%Xshift = left line and Yshift = top line
+		([xshift=\pv{right},yshift=-\pv{bottom}]current page text area.south east);%Xshift = right line and Yshift = botton line
+	
+		\foreach \Valor in {0,1,...,\numexpr\pv{spiral number}-1\relax}
+		{\pic at \SpiralPosition {spiral};}
+		\end{tikzpicture}}}
+
+
+\AddNotebookBG[
+spiral position=left,
+left=2cm,
+right=2.2em,
+top=2cm,
+bottom=2cm,
+spiral fill fraction=0.78]
+%=================================================
+%=================================================
+%================================================================
+\newtcolorbox[auto counter]{exo}[2][]{
+enhanced,
+breakable,
+drop fuzzy shadow=gray,
+frame empty, 
+interior style={top color=white,middle color=white,bottom color=cyan!15!white},    
+title=\Large\bfseries\centering #2 ,
+attach boxed title to top left,
+coltitle=colexam,
+boxed title style={
+frame code={
+\draw[cyan!25, thick,line width=1pt, double]($(frame.south west)+(0mm,-10mm)$)to
+[out=90,in=180]($(frame.south west)+(10mm,0mm)$)--
+($(frame.south west)+(2.7cm,0cm)$)-|($(frame.north east)+(1pt,0)$)--($(frame.north west)+(-1pt,0)$)|-(frame.south west)--++(25pt,0);			
+},
+interior style={top color=cyan!5!white,bottom color=cyan!5!white,
+	middle color=cyan!25!white}
+},
+	#1}
+
+%===============================================
+%====================================================
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+\tcbset{tab2/.style={enhanced,fonttitle=\bfseries\large,fontupper=\normalsize\sffamily,
+		colback=cyan!5,colframe=red!50!black,
+		colbacktitle=gray!25,
+		coltitle=black,center title}}
+%===========================================
+\AddToShipoutPictureBG{
+	\begin{tikzpicture}[remember picture,overlay]
+	\fill[draw=none,
+	preaction={drop shadow={shadow scale=1.05,shadow xshift=0pt,shadow yshift=-1pt}},top color = black!25, bottom color = white
+	,inner xsep=2ex,inner ysep=1.6ex]([shift={(.9,.5)}]current page text area.south east){[rounded corners=10pt]--++(-4,0)--++(0,-1)}--++(4,0)--cycle;
+
+	%========================================
+	\fill[draw=none,top color = black!20!white, bottom color =black!25! white,middle color=white]([shift={(-2,-.5)}]current page text area.south west)--++(8,0)--++(-60:1)-|([shift={(.9,0)}]current page text area.south east)|-([shift={(-2,-1.5)}]current page text area.south west)--cycle;
+	%=============================
+	\end{tikzpicture}
+}
+%=================================================
+\begin{document}
+\pagestyle{empty}
+
+
+\begin{exo}{Exercice 1} Soient $\Omega$ un ouvert borné de $\mathbb{R}^{N}$, $f\in \mathcal{C}(\mathbb{R})\cap L^{\infty}(\Omega)$ et $a\,:\mathbb{R}\to \mathbb{R}$ une fonction continue telle que
+\[
+0<\alpha\leq a(s)\leq \beta,\quad \forall s\in \mathbb{R}.
+\]
+Soit $v\in H^{1}_{0}(\Omega)$. Montrer par la méthode de monotonie que le problem
+\[
+\left(\mathcal{P}\right)\quad\left\{
+\begin{array}{ll}
+-\operatorname{div}\left(a(v)\nabla u\right)+\frac{\partial u}{\partial x_{i}}=f(v)&\text{dans}\;\Omega,
+\\
+u=0& \text{sur}\;\partial\Omega.
+\end{array}
+\right.
+\]
+admet une unique solution faible.
+\end{exo}
+
+
+
+\end{document}

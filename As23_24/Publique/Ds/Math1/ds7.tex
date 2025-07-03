@@ -1,0 +1,80 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{ProfModels}
+\usepackage{diagrammes}
+
+\newcommand{\tr}[1][1cm]{
+\textcolor{gray}{\rule[-1pt]{#1}{0.5pt}}%
+}
+
+\begin{document}
+\begin{Maquette}[DevS]{Numero=2,Niveau=1,Date=28/05/2024}
+
+\begin{exercice}[BaremeTotale,BaremeDetaille]
+Répondre par vrai(V) ou faux(F)
+\begin{enumerate}
+\item\brm{2} Un losange peut avoir des côtés de longueurs différentes.\tr[2cm]
+\item\brm{2} Le carré est un losange.\tr[2cm]
+\item\brm{2} Le rectangle a forcément les diagonales de même longueurs.\tr[2cm]
+\item\brm{2} Un rectangle est forcément un parallélogramme.\tr[2cm]
+\item\brm{2} N'importe quel quadrilatère qui a un angle droit est un rectangle.\tr[2cm]
+\end{enumerate}
+\end{exercice}
+
+
+\begin{exercice}[BaremeTotale,BaremeDetaille]
+\begin{minipage}[c]{0.4\linewidth}
+\begin{enumerate}
+\item\brm{4} donner les coordonnées des points $A$,$B$,$C$ et $D$.\newline
+\lines[6]
+\item\brm{2} Placer les points $E(-4, 0.5)$, $F(-2.5, 2)$.
+\end{enumerate}
+\end{minipage}%
+\begin{minipage}[c]{0.6\linewidth}
+\begin{AffRepere}
+\coordpoints{1}{2}{A}
+\coordpoints{4}{0}{B}
+\coordpoints{0}{-2}{C}
+\coordpoints{-3}{-2}{D}
+\end{AffRepere}
+\end{minipage}
+\end{exercice}
+
+\begin{exercice}[BaremeTotale,BaremeDetaille]
+\begin{minipage}{0.62\linewidth}
+Voici un tableau de proportionnalité.
+\begin{enumerate}
+\item\brm{2} Remplir le tableau.
+\item\brm{2} Un pantalon d'une valeur de 160 Dhs est vendu avec une réduction de 20\%. Quel est le prix de ce pantalon ?
+\end{enumerate}
+\end{minipage}%
+\begin{minipage}{0.38\linewidth}
+\begin{tabular}{|Oc|Oc|Oc|Oc|}
+\hline 
+tours de pédalier & 2 & 5 &  $\cdots$ \\ 
+\hline 
+distance (m) & 64 & $\cdots$ & 12 \\ 
+\hline 
+\end{tabular} 
+\end{minipage}\bigskip
+\lines[2]
+\end{exercice}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{Maquette}
+
+\end{document}

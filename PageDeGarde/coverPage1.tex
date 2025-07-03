@@ -1,0 +1,90 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[margin=0pt,includefoot=false,marginpar=0mm,a4paper]{geometry}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{anyfontsize}
+\usepackage{pdfrender}
+
+%============================================
+\definecolor{myblue3}{RGB}{36, 57, 126}
+\definecolor{myblue4}{RGB}{81,91,199}
+\definecolor{YankeesBlue}{RGB}{28,40,65}
+\definecolor{mygray}{RGB}{112,121,139}
+\definecolor{gold}{RGB}{252, 200, 3}
+\definecolor{MainRed}{rgb}{.6, .1, .1}
+\definecolor{mygray2}{RGB}{150,150,150}
+\definecolor{mygreen}{RGB}{0,120,2}
+\definecolor{winered}{rgb}{0.5,0,0}
+%=================================================
+
+
+\begin{document}
+
+\pagestyle{empty}
+
+\begin{tikzpicture}[remember picture,overlay]
+\path 
+(current page.north west) coordinate (A) 
+(current page.north east) coordinate (B)
+(current page.south east) coordinate (C)
+(current page.south west) coordinate (D)
+(current page.south) coordinate (S)
+(current page.north) coordinate (A1)
+(current page.east) coordinate (E)
+(current page.west) coordinate (W);
+%==========================================
+\coordinate (W1) at ([shift={(0,1)}]W);
+\coordinate (W2) at ([shift={(0,-3)}]W);
+\coordinate (W3) at ([shift={(0,-8)}]W);
+\coordinate (B1) at ([shift={(-1,0)}]B);
+\coordinate (B3) at ([shift={(-5,0)}]B);
+\coordinate (B2) at ([shift={(0,-3)}]B);
+\coordinate (F1) at ($(W2)!0.5!(B2)$);
+\coordinate (F2) at ($(W2)!0.2!(B2)$);
+%========================================
+\fill[mygray!30](A)rectangle (C);
+\fill[YankeesBlue]([shift={(0,-4)}]A) -- ([shift={(0,2)}]C)--(C) --(D)
+-- ([shift={(0,2)}]D)--cycle;
+
+\fill[mygray] ([shift={(0,-4)}]A)--(A)--(B)--([shift={(0,1.5)}]E)
+--($($(W)!0.39!(E)$)+(0,1.5)$)--cycle;
+
+%========================================
+\fill[myblue3](A){[rounded corners=20pt]--($(W1)!0.422!(B3)$)}--($(W2)!0.34!(B1)$)--([shift={(0,-4)}]A)--cycle;
+\fill[myblue3!80]
+($(W1)!0.18!(B3)$)
+..controls +(60:1) and +(-55:1)..($($(W1)!0.42!(B3)$)+(-.25,.3)$)
+..controls +(-45:.8) and +(60:.8)..($($(W2)!0.340!(B1)$)+(0,-.75)$)
+..controls +(-120:2) and +(90:.8)..($($(W2)!0.1!(B1)$)+(0,.5)$)
+..controls +(90:.8) and +(-120:1)..($(W1)!0.18!(B3)$)
+;
+
+\fill[myblue3] ([shift={(0,1.5)}]E)--($($(W1)!0.18!(B3)$)+(3.39,-1.82)$)
+..controls +(-120:.2) and +(90:.8)..($($(W2)!0.1!(B1)$)+(0,0.5)$)
+..controls +(-60:1) and +(180:.5)..([shift={(0,-1.5)}]E);
+%==============================================
+\node[anchor=west] at ([shift={(-18,-8)}]E) {\LARGE\sffamily\bfseries\color{white} Rezak SOUILAH};
+\node[anchor=west] at ([shift={(-14,5)}]E){
+	\textpdfrender{ 
+		TextRenderingMode=FillStroke, StrokeColor=myblue3, LineWidth=1.5pt, FillColor=white
+	}{\fontsize{120}{120}\sffamily\bfseries
+\LaTeX
+
+}};
+
+\node[anchor=west] at ([shift={(-15,.5)}]E){
+	\textpdfrender{ 
+		TextRenderingMode=FillStroke, StrokeColor=YankeesBlue, LineWidth=1.5pt, FillColor=white
+	}{\fontsize{60}{60}\sffamily\bfseries
+	without tears
+		
+}};
+
+%========================================================
+\node[inner sep=0pt] at ([shift={(-5,-12.5)}]E) {\includegraphics[width=5cm]{Images/Springer.png}};
+\end{tikzpicture}
+
+
+
+\end{document}

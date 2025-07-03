@@ -1,0 +1,49 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[vmargin=3cm,hmargin=1.5cm]{geometry}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{tikz}
+\usepackage[most]{tcolorbox}
+\usetikzlibrary{calc,shadings,shadows,
+positioning}
+\usetikzlibrary{shadows.blur}
+\usepackage{eso-pic}
+\usepackage{fancyhdr}
+\newcounter{nacount}
+\definecolor{myblue}{RGB}{140,218,248}
+\newtcolorbox{mybox}{                                                   
+step=nacount,breakable,enhanced,                                                                    
+colback=white,frame hidden,before skip=4mm,after skip=4mm,                                                                                                                          
+top=10pt, left=0pt, right=0pt,                                                   
+overlay={%
+\tikzset{overlay=false, draw=none, anchor=west}
+\node[fill=myblue, text=red,                                                 
+minimum height=1.5em] at (frame.north west) (box1){\textbf{Exercise}}; 
+\node[fill=myblue, text=red,                                                 
+ right = 1mm of box1,                                                   
+minimum height=1.5em] (box2){\textbf{\thenacount}}; 
+}}      
+\definecolor{col1}{RGB}{125,154,170}
+\definecolor{col2}{RGB}{140,218,248}
+\definecolor{col3}{RGB}{140,218,248}
+\AddToShipoutPictureBG{\tikzpicture[overlay,remember picture]
+\fill[col1](current page.north west)rectangle([yshift=-2.5cm]current page.north east);
+\draw[col2]([yshift=-0.75cm,xshift=-5cm]current page.north east)--++(0cm,-1cm)--++(0,+0.5cm)--++(4cm,0)node[anchor=south east,scale=0.7,text=black,xshift=-0.7cm](a){NIVEAU: 3.A.C} node[anchor=north east,scale=0.7,text=black,xshift=-0.7cm](b){PROF: Yahya El};
+\fill[red]([xshift=-2mm]a.west)circle(1.2pt)
+([xshift=-1.5mm]b.west)circle(1.2pt);
+\draw[col2]([yshift=-2.3cm]current page.north east)--++(-0.5\textwidth-3cm ,0)node[anchor=south east,text=white,font=\Large\bf ,yshift=-2mm]{ FICHE N° 3};
+\fill[col3!70!black](current page.north west)--++(0.5cm,-2.5)--++(2.6cm,0.25cm)--++(-0.4cm,1.5cm)--cycle;
+\fill[col3!50!black](current page.north west)--++(0.75cm,-2.5)--++(2.6cm,0.5cm)--++(-0.5cm,1.5cm)--cycle;
+\fill[col3,blur shadow](current page.north west)--++(1cm,-2.5)--++(2.5cm,1cm)--++(-0.68cm,1.5cm)node[midway,sloped,text=black,
+rotate=90,yshift=6mm,xshift=-1.3cm](c){R\'{E}VISION};
+\node[rotate=23,black,yshift=-4mm] at (c.south){3.A.C};
+\node[rectangle,text=white,fill=col1,minimum height=1.25cm,anchor=north,text depth=0.5cm] at ([yshift=1.25cm]current page.south){\bf\large\thepage};
+\endtikzpicture}
+\parindent=0pt   
+\pagestyle{empty}                       
+\begin{document}
+
+\newpage
+%\thispagestyle{empty}
+\mbox{}
+\newpage
+\end{document}

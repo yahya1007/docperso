@@ -1,0 +1,108 @@
+\documentclass[a4paper,addpoints,12pt]{exam}
+
+\usepackage{pstyle}
+
+\usetikzlibrary{calc}
+\usetikzlibrary{shapes.geometric}
+\renewcommand{\labelenumi}{%
+	\begin{tikzpicture}[baseline=(1.base)]
+	\node[draw,regular polygon,regular polygon sides=4,inner sep=.5mm,fill=white,font=\bfseries](1){\arabic{enumi}};
+	\end{tikzpicture}}
+\renewcommand{\labelenumii}{%
+	\begin{tikzpicture}[baseline=(1.base)]
+	\node[draw,circle,inner sep=.5mm,fill=gray!20,font=\bfseries\footnotesize,minimum size=5mm](1){\alph{enumii}};
+	\end{tikzpicture}}
+	
+	
+\DeclareTColorBox[auto counter]{boxe}{ O{black}}{enhanced,breakable,
+	before skip=2mm,after skip=0.3cm,
+	bottom=0.5cm,colframe=#1,
+	colback=#1!2,boxrule=0.2mm,arc=2mm,drop midday shadow=#1,
+	attach boxed title to top left={xshift=0cm,yshift*=0mm-\tcboxedtitleheight},
+	boxed title style={frame code={
+			\path[fill=#1]
+			([xshift=+0.5cm]frame.north east)[rounded corners=2mm]--(frame.north west)[sharp corners]--(frame.south west) --(frame.south east)to[out=0,in=180]cycle;
+			\draw[#1]([yshift=-0.5mm]frame.south west)--([yshift=-0.5mm,xshift=+0.4mm]frame.south east)to[out=0,in=180]([yshift=0mm,xshift=+0.58cm]frame.north east);
+		},interior engine=empty,
+	},title={\large\bf Ex \thetcbcounter},pad at break*=4mm}
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newtcolorbox{box1}[2][]{enhanced,skin=enhancedlast jigsaw,
+attach boxed title to top left={xshift=-4mm,yshift=-0.5mm},
+fonttitle=\bfseries\sffamily,
+colbacktitle=blue!45!white,colframe=red!50!black,
+interior style={top color=blue!10!white,bottom color=red!10!white},
+boxed title style={empty,arc=0pt,outer arc=0pt,boxrule=0pt},
+underlay boxed title={
+\fill[blue!45!white] (title.north west) -- (title.north east)
+-- +(\tcboxedtitleheight-1mm,-\tcboxedtitleheight+1mm)
+-- ([xshift=4mm,yshift=0.5mm]frame.north east) -- +(0mm,-1mm)
+-- (title.south west) -- cycle;
+\fill[blue!45!white!50!black] ([yshift=-0.5mm]frame.north west)
+-- +(-0.4,0) -- +(0,-0.3) -- cycle;
+\fill[blue!45!white!50!black] ([yshift=-0.5mm]frame.north east)
+-- +(0,-0.3) -- +(0.4,0) -- cycle; },
+title={#2},#1}
+
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ 
+ \newtcolorbox{Mybox}[2][]{enhanced,
+before skip=2mm,after skip=2mm,
+colback=black!5,colframe=black!50,boxrule=0.2mm,
+attach boxed title to top left={xshift=1cm,yshift*=1mm-\tcboxedtitleheight},
+boxed title style={frame code={
+\path[fill=tcbcolback!30!black]
+([yshift=-1mm,xshift=-1mm]frame.north west)
+arc[start angle=0,end angle=180,radius=1mm]
+([yshift=-1mm,xshift=1mm]frame.north east)
+arc[start angle=180,end angle=0,radius=1mm];
+\path[left color=tcbcolback!60!black,right color=tcbcolback!60!black,
+middle color=tcbcolback!80!black]
+([xshift=-2mm]frame.north west) -- ([xshift=2mm]frame.north east)
+[rounded corners=1mm]-- ([xshift=1mm,yshift=-1mm]frame.north east)
+-- (frame.south east) -- (frame.south west)
+-- ([xshift=-1mm,yshift=-1mm]frame.north west)
+[sharp corners]-- cycle;
+},interior engine=empty,
+},
+fonttitle=\bfseries,
+title={#2},#1}
+
+ 
+ 
+ 
+ 
+ 
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\begin{exos}[style1]
+	
+	\begin{enumerate}
+		\item Déterminer 
+		\item On pose.
+		\begin{enumerate}
+			\item Déterminer 
+			\item Montrer 
+			\item En déduire 
+			
+		\end{enumerate}
+		
+	\end{enumerate}
+	\end{exos}
+	
+	\begin{exos}[style1]	
+	\begin{enumerate}
+		\item Déterminer 
+		\item On pose.
+		\begin{enumerate}
+			\item Déterminer 
+			\item Montrer 
+			\item En déduire 
+			
+		\end{enumerate}
+		
+	\end{enumerate}
+	\end{exos}
+	
+	
+\end{document}

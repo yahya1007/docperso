@@ -1,0 +1,209 @@
+\documentclass[12pt,a4paper]{book}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amsfonts,amssymb,amsthm}
+\usepackage[left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm]{geometry}
+\usepackage{lipsum} %for dummy text
+\usepackage[most]{tcolorbox}
+\usepackage{tikz}
+\usepackage[explicit]{titlesec}
+\usepackage{titletoc}
+\usepackage{lipsum}
+%===============
+\DeclareFixedFont{\chapternumberfont}{T1}{phv}{bx}{sc}{1in}
+%==================================
+\definecolor{mybluei}{RGB}{0,173,239}
+\definecolor{myblueii}{RGB}{63,200,244}
+\definecolor{myblueiii}{RGB}{199,234,253}
+\definecolor{RoyalRed}{RGB}{157,16, 45}
+%====================
+\definecolor{myblue}{HTML}{1D2A6E}
+\definecolor{myred}{HTML}{A97E77}
+\definecolor{mybrown}{HTML}{B35823}
+\definecolor{gold}{HTML}{B48920}
+\definecolor{myorange}{HTML}{ED8C2B}
+\definecolor{col}{RGB}{45, 136, 119}
+\definecolor{mygreen}{HTML}{07a56d}
+\definecolor{headercolourgreen}{rgb}{0,0.7019,0.7019}
+\definecolor{carmine}{rgb}{0.68, 0.0, 0.09}
+\definecolor{berry}{RGB}{235, 37, 129}
+\definecolor{MainRed}{rgb}{.6, .1, .1}
+%===============
+
+
+
+
+
+
+%===========================================
+\titleformat{\chapter}[display]
+{\startcontents\bfseries\color{red}}
+{\begin{tikzpicture}[overlay,remember picture]
+\draw[fill=teal,draw=none,xshift=5mm,yshift=5mm] ([shift={(2,-2)}]current page.north west) rectangle ([shift={(0,-5)}]current page.north east);
+    \draw[fill=teal!50,draw=none,opacity=0.5] ([shift={(1.5,-2.5)}]current page.north west) rectangle ([shift={(-2,-5)}]current page.north east);
+      \node[anchor=south west,text width=\textwidth,opacity=1,text=white] at ([shift={(2.5,-4)}]current page.north west){\huge #1};
+      \node[white] 
+    at ([shift={(-2,-2)}]current page.north east)
+{\normalsize\MakeUppercase{\chaptertitlename}\hspace{1ex}\chapternumberfont\color{RoyalRed}\thechapter}
+;
+  \end{tikzpicture}}
+{.5cm}
+{\begin{tcolorbox}[
+		valign=center,
+		width=\linewidth,
+		enhanced,
+		drop shadow,
+		top=10pt,
+		nobeforeafter,
+		outer arc=0pt,
+		arc=0pt,
+		boxrule=0.6pt,
+		colback=white,
+		toprule=1pt,
+		leftrule=1pt,
+		rightrule=1pt,
+		bottomrule=1pt,
+		titlerule=1pt,
+		coltext=myblue,
+		colframe=myblue,
+		overlay={
+			\begin{scope}
+				\node[anchor=west,fill=white,inner xsep=6pt,font=\bfseries\color{MainRed}] 
+				at ([xshift=10pt]frame.north west) 
+				{Sommaire};
+			\end{scope}		
+		}
+		]
+		\printcontents{}{1}{}
+\end{tcolorbox}}
+[]
+%===============================================================
+\def\chaptertitle@font{\fontfamily{ugq}\selectfont}
+\titleformat{name=\chapter,numberless}[display]
+{\Huge\color{teal}}
+{#1}
+{1ex}
+{ \hrule height 2pt \hrule height 4pt width 0.25\textwidth
+	\vspace*{1.5ex}}
+%=============================
+%================
+% sections heading===========================================
+%=================================================
+%defining subsection titles
+\newcommand\titlebar{%
+	\tikz[baseline,trim left=0cm,trim right=3cm] {
+		\node [
+		fill=myblue,
+		text = white,
+		anchor= base east,
+		minimum height=2.5ex] (a) at (3cm,0) {
+			\textbf{\arabic{chapter}.\thesection}
+		};   
+	}%
+}
+\titleformat{\section}{\large\sf\bfseries}{\titlebar}{0.25cm}{\textcolor{myblue}{#1}}      %% Change color if needed.
+\titlespacing*{\section}{-2cm}{3.5ex plus 1ex minus .2ex}{2.3ex plus .2ex}
+\renewcommand*{\thesection}{\arabic{section}}
+
+%defining subsection titles
+\newcommand\subtitlebar{%
+	\tikz[baseline,trim left=0cm,trim right=3cm] {
+		\node [
+		fill=berry,
+		text = white,
+		anchor= base east,
+		minimum height=3.5ex] (b) at (3cm,0) {
+			\textbf{\arabic{chapter}.\arabic{section}.\thesubsection}
+		};
+	}%
+}
+
+\titleformat{\subsection}{\large\normalfont\sf\bfseries}{\subtitlebar}{0.2cm}{\textcolor{berry}{#1}}  %% Change color if needed.
+\titlespacing*{\subsection}{-1cm}{3.5ex plus 1ex minus .2ex}{2.3ex plus .2ex}
+\renewcommand*{\thesubsection}{\arabic{subsection}}
+%=======================
+
+%===============================================
+%definition environment
+\newtcbtheorem[auto counter,number within=chapter]{definition}{DÉFINITION}{
+	enhanced,
+	breakable,
+	before skip=.5cm,
+	after skip=1.25cm,
+	sharp corners,
+	attach boxed title to top left={
+		xshift=0pt, 
+		yshift=-\tcboxedtitleheight, 
+		yshifttext=-\tcboxedtitleheight/2
+	},
+	colback=white,
+	colframe=mygreen,
+	fonttitle=\small\bfseries\sffamily,
+	coltitle=white,
+	boxed title style={
+		rounded corners,
+		arc=2pt,
+		size=small,
+		colback=mygreen,
+		colframe=mygreen,
+	},
+	top=20pt,
+	leftrule=0pt, 
+	rightrule=0pt, 
+}{def}
+%==============
+\newtcbtheorem{example}{Example}{
+    theorem style=plain,
+    arc=2mm,
+    boxrule=.2mm,
+    coltitle=black,
+    colframe=blue!50!black,
+    colback=blue!5!white,
+    fonttitle=\sffamily\bfseries,
+    coltitle=blue!50!black,
+    before lower={\textcolor{blue!50!black}{\textsf{\textbf{Solution:}}}\ },
+}{}
+
+\begin{document}
+\let\cleardoublepage\clearpage
+\chapter*{Introduction}
+\lipsum[1-3]
+\chapter{Préliminaires}
+				
+Dans ce chapitre, nous présentons quelques définitions et rappels des résultats nécessaires pour la suite de ce travail. nous introduisons quelques définitions, lemmes et  quelques théorèmes sur les espaces fonctionnels.
+				
+\section{Espaces de Lebesgue}
+
+\subsection{Notions générales}
+
+\begin{definition}{}{} On définit l'espace de Lebesgue $L^{p}(\Omega)$ par:\\	Pour $1\leq p <+\infty$ 
+\[
+L^{p}(\Omega)=\left\lbrace   u:\Omega\longrightarrow \mathbb{R}\quad \mbox{mesurable} , \quad \int_{\Omega} \lvert u(x)\rvert^{p} dx <+\infty \right\rbrace
+\]
+	mini de la norme 
+	$$ \lVert u\rVert_{L^{p}(\Omega)}=\left(   \int_{\Omega} \lvert u(x)\rvert^{p} dx \right)      ^{\frac{1}{p}}.$$
+	Pour $p=+\infty$ 
+	$$ L^{\infty}(\Omega)=\left\lbrace u:\Omega\longrightarrow{\mathbb{R}}\quad \mbox{mesurable},\quad \sup\limits_{x\in \Omega} \textit{ess} \lvert u(x) \rvert< +\infty\right\rbrace ,$$
+	muni de la norme
+	$$  \lVert u\rVert_{L^{\infty}(\Omega)}=\sup\limits_{x\in \Omega}\textit{ess}\lvert u(x) \rvert.$$
+	$L^{p}(\Omega)$ est un espace de Banach pour $ 1\leq p \leq \infty $ et de Hilbert Pour $p=2$ muni de produit scalaire
+	$$ ( f,g)=\int_{\Omega}f(x)g(x)   ~ dx.$$
+\end{definition}
+
+\begin{example*}{}
+The result (1.40) can be obtained by direct Taylor series expansion of \(1/\lvert\mathbf{x} - \mathbf{x}'\rvert\). Try to finish it by yourself.
+\tcblower
+From the Taylor series:
+\[
+\Phi(\mathbf{x}) = \Phi(0) + \mathbf{x} \cdot \nabla\Phi(0) + \frac{1}{2} \sum_{i=1}^3 \sum_{j=1}^3 x_i x_j \frac{\partial^2\Phi}{\partial x_i \partial x_j} + \cdots
+\]
+\end{example*}
+
+
+
+
+
+
+
+\end{document}

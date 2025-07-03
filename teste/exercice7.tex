@@ -1,0 +1,61 @@
+\documentclass[12pt,a4paper]{report}
+\usepackage[top=1cm,bottom=1.5cm,right=1.5cm,left=2.5cm]{geometry}
+\usepackage{eso-pic}
+\usepackage[most]{tcolorbox}
+\pagestyle{empty}
+\definecolor{fff}{RGB}{180,0,139}
+\definecolor{ccc}{RGB}{255,140,0}
+
+\definecolor{ggg}{RGB}{250,250,250}
+\tikzset{a/.style={anchor=west,line width=1.5pt,font=\bfseries\Large,rounded corners=2mm,draw=white,text=white,inner xsep=5mm,minimum height=1.3cm,rotate=-90}}
+\usetikzlibrary{calc}
+\renewcommand{\labelenumi}{%
+\begin{tikzpicture}[baseline=(1.base)]
+\node[circle,fill=fff,text=white,font=\bfseries,minimum size=5mm,inner sep=0mm](1){\arabic{enumi}};
+\end{tikzpicture}
+}
+\AddToShipoutPicture{%
+\begin{tikzpicture}[remember picture,overlay]
+\node [fill=fff,minimum width=\paperheight,minimum height=2cm,anchor=south east,rotate=-90](0)at ([xshift=0cm]current page.south west){};
+\node[a](1)at($(0.west)!.05!(0.east)$){series 1};
+\node[a](2)at($(0.west)!.25!(0.east)$){niveau:.......};
+\node[a](3)at($(0.west)!.5!(0.east)$){année:........};
+\node[a](4)at($(0.west)!.8!(0.east)$){........};
+\node [text=white,font=\bfseries,fill=fff,align=right,text width=3cm,anchor=south west,outer sep=0mm](5)at([yshift=5mm]0.north east){\thepage};
+\node [text=white,font=\bfseries,fill=fff,align=center,text width=5cm,anchor=south east](5)at([yshift=5mm]current page.south east){prof};
+\end{tikzpicture}
+}
+\newtcolorbox[auto counter]{boxx}{breakable,top=1cm,title={Exercice \thetcbcounter},enhanced,before skip=5mm,after skip=5mm,boxsep=3mm,coltitle=black,attach boxed title to top left={xshift=5mm,yshift=-\tcboxedtitleheight},boxrule=.5pt,boxed title style={interior empty,frame code={
+\fill([xshift=1mm]frame.north east)arc(180:0:1mm)([xshift=-1mm]frame.north west)arc(0:180:1mm);
+\path[right color=fff,left color=fff,middle color=fff!60] ([shift={(-.2,.1)}]frame.north west)--([shift={(.2,.1)}]frame.north east)[rounded corners=1mm]--([xshift=.1cm]frame.north east)--(frame.south east)--(frame.south west)--([xshift=-.1cm]frame.north west)[sharp corners]--cycle;
+}
+}}
+\newtcolorbox[auto counter]{boxxx}{breakable,top=1cm,title={Exercice \thetcbcounter},enhanced,before skip=5mm,after skip=5mm,boxsep=3mm,coltitle=black,attach boxed title to top left={xshift=5mm,yshift=-\tcboxedtitleheight},boxrule=.5pt,boxed title style={interior empty,frame code={
+\fill([xshift=1mm]frame.north east)arc(180:0:1mm)([xshift=-1mm]frame.north west)arc(0:180:1mm);
+\path[right color=ccc,left color=ccc,middle color=ccc!60] ([shift={(-.2,.1)}]frame.north west)--([shift={(.2,.1)}]frame.north east)[rounded corners=1mm]--([xshift=.1cm]frame.north east)--(frame.south east)--(frame.south west)--([xshift=-.1cm]frame.north west)[sharp corners]--cycle;
+}
+}}
+
+%\usepackage{polyglossia}
+%\setmainlanguage{french}
+%\newfontfamily\frenchfont{Times New Roman}
+\begin{document}
+\begin{boxx}
+text
+\begin{enumerate}
+\item text
+\item text
+\item text
+\item text
+\end{enumerate}
+\end{boxx}
+\begin{boxx}
+text
+\end{boxx}
+\begin{boxxx}
+text
+\end{boxxx}
+\begin{boxxx}
+text
+\end{boxxx}
+\end{document}

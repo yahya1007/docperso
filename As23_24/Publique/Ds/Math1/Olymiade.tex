@@ -1,0 +1,72 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{ProfModels}
+
+\begin{document}
+\begin{Maquette}[Olym]{Date=27/12/2024}
+
+\begin{exercice}
+\begin{minipage}{.3\linewidth}
+\begin{enumerate}
+\item\brm{4} Calculer le nombre A
+
+$A=1+\dfrac{2}{2-\dfrac{1}{3+\dfrac{1}{4}}} $
+\end{enumerate}
+\end{minipage}%
+\begin{minipage}{.7\linewidth}
+\anserline[10]
+\end{minipage}
+
+\end{exercice}
+
+\begin{exercice}
+\begin{enumerate}
+\item\brm{4} Sachant que $\dfrac{111111}{1001}=111$.
+ Calculer la somme $\dfrac{444444}{1001}+\dfrac{999999}{3003}$, en justifiant votre réponse.
+ \end{enumerate}
+ \anserline[11]
+\end{exercice}
+
+\begin{exercice}
+\begin{minipage}{0.7\linewidth}
+Le quadrilatère\brm{4} $ABCD$ est un rectangle; le point $E$ appartient au côté $\lrc{AB}$.
+Le triangle $CDE$ est-il rectangle en $E$ ? Justifier votre réponse.
+\end{minipage}%
+\begin{minipage}{0.3\linewidth}
+\begin{tikzpicture}
+\tkzDefPoints{0/0/A,5/-2/C}
+\tkzDefRectangle(A,C)
+\tkzGetPoints{B}{D}
+\tkzDefPointOnLine[pos=0.3](A,B)
+\tkzGetPoint{E}
+\tkzDrawPolygon(A,B,C,D)
+\tkzDrawSegments(D,E E,C)
+\tkzLabelPoints[above](A,B,E)
+\tkzLabelPoints(D,C)
+\tkzLabelAngle(E,C,D){$36^{\circ}$}
+\tkzLabelAngle(A,E,D){$54^{\circ}$}
+\tkzMarkAngle[arc=l , size=0.5](E,C,D)
+\tkzMarkAngle[arc=l , size=0.5 , mark=|](A,E,D)
+\end{tikzpicture}
+\end{minipage}
+\anserline[6]
+\end{exercice}
+
+\begin{exercice}
+Un théâtre reçoit 1700 personnes. 500 places sont situées devant la scène. Les autres sont un peu plus loin (les gradins).
+Lors d'un concert, la salle est pleine. Les billets des places devant la scène sont vendus à 240 DH. Sachant que la recette du concert est de 300000 DH.
+\begin{enumerate}
+\item Déterminer le montant d'un billet des places en gradins.
+
+\anserline[5]
+\item\brm{4} Lors d'un deuxième concert, les places devant la scène sont de nouveau pleines et la recette est de 262500 Dh.
+\begin{enumerate}
+\item\brm{4} Déterminer le nombre de spectateurs dans les gradins. 
+
+\anserline[9]
+\end{enumerate}
+\end{enumerate}
+\end{exercice}
+
+\end{Maquette}
+\end{document}

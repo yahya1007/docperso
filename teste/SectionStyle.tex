@@ -1,0 +1,61 @@
+\documentclass{report}
+\usepackage[utf8]{inputenc}
+\usepackage{xcolor}
+\usepackage[explicit]{titlesec}
+\usepackage{soul}
+
+\definecolor{titleblue}{HTML}{4a7aa4}
+
+\title{Sections and Chapters}
+\author{Educ}
+\date{\today}
+
+\newbox\TitleUnderlineTestBox
+\newcommand*\TitleUnderline[1]
+  {%
+    \bgroup
+    \setbox\TitleUnderlineTestBox\hbox{\colorbox{titleblue}\strut}%
+    \setul{\dimexpr\dp\TitleUnderlineTestBox-.3ex\relax}{.3ex}%
+    \ul{#1}%
+    \egroup
+  }
+\newcommand*\SectionNumberBox[1]
+  {%
+    \colorbox{titleblue}
+      {%
+        \makebox[2.5em][c]
+          {%
+            \color{white}%
+            \strut
+            \csname the#1\endcsname
+          }%
+      }%
+    \TitleUnderline{\ \ \ }%
+  }
+\titleformat{\section}
+  {\Large\bfseries\sffamily\color{titleblue}}
+  {\SectionNumberBox{section}}
+  {0pt}
+  {\TitleUnderline{#1}}
+\titleformat{\subsection}
+  {\large\bfseries\sffamily\color{titleblue}}
+  {\SectionNumberBox{subsection}}
+  {0pt}
+  {\TitleUnderline{#1}}
+
+\begin{document}
+
+\maketitle
+
+\chapter{yahya}
+\section{Plya's Problem-Solving Cycle}
+\subsection{Understand the problem}
+\subsection{Devise a Plan}
+\subsection{Carry Out the Plan}
+\subsection{Look Back}
+\section{Second Section}
+
+\section
+  {Really long section name that is really long, so long it takes two rows}
+
+\end{document}

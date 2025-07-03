@@ -1,0 +1,272 @@
+\usepackage{etex}
+\reserveinserts{28}
+
+\usepackage{xkeyval}[2005/11/25]
+\usepackage{eso-pic}
+\usepackage{graphicx}
+\usepackage{fp}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usetikzlibrary{decorations.pathmorphing}
+\usetikzlibrary{decorations.pathreplacing} 
+\usetikzlibrary{decorations.shapes} 
+\usetikzlibrary{shadows}
+\usetikzlibrary{arrows}
+\usetikzlibrary{shapes,snakes,shapes.geometric,shapes.misc}
+\usepackage{multicol}
+\usepackage{arabtex}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{float}
+\usepackage{array,booktabs ,tabularx,multirow}
+%\usepackage{euler}
+\usepackage[top=1cm,bottom=0cm,left=1cm,right=1cm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{xlop}
+%\usepackage[most]{tcolorbox}
+%----------------------------------------...les compteurs..... ----------------------------------------------------------------------%
+\newcounter{i}
+\setcounter{i}{1}
+\newcounter{k}
+\setcounter{k}{1}
+%----------------------------------------------------------\cadre[x=... ,y=.....,  ]------------------------------------------------------%
+
+% \cadre[			shadow (bool�en),
+%					lw = , (�paisseur du trait, en pt)
+%					style = , (dashed ou dotted)
+%					x = abscisse du sommet en bas � gauche,
+%					y = ordonn�e du sommet en bas � gauche,
+%					xshadow = d�calage selon x de l'ombre,
+%					yshadow = d�calage selon y de l'ombre,
+%					color = couleur du cadre,
+%					colorshadow = couleur de l'ombre,
+%					decoration = nom de la d�coration,
+%					doubleline (bool�en) pour pstricks
+%				  ]
+\makeatletter
+\define@cmdkey [PAS] {cadre} {x}{}
+\define@cmdkey [PAS] {cadre} {y}{}
+\define@cmdkey [PAS] {cadre} {decoration}{}
+\define@cmdkey [PAS] {cadre} {shape}{}
+\define@cmdkey [PAS] {cadre} {lw}{}
+\define@cmdkey [PAS] {cadre} {xshadow}{}
+\define@cmdkey [PAS] {cadre} {yshadow}{}
+\define@cmdkey [PAS] {cadre} {bordercolor}{}
+\define@cmdkey [PAS] {cadre} {incolor}{}
+\define@cmdkey [PAS] {cadre} {shadowcolor}{}
+\define@cmdkey [PAS] {cadre} {style}{}
+\define@boolkey[PAS] {cadre} {shadow}[true]{}
+\define@boolkey[PAS] {cadre} {doubleline}[true]{}
+
+\presetkeys    [PAS] {cadre} {	shadow = false,
+								lw = 2,
+								x = 0.2,
+								y = 0.2,
+								xshadow =- 0.35,
+								yshadow =0.2,
+								bordercolor = black,
+								incolor = white,
+								shadowcolor = gray,
+								style = ,
+								doubleline = false,
+								decoration = , 
+								shape = }{}
+
+\newcommand*{\cadre}[1][]{\pasCadre[#1]}
+
+\def\pasCadre[#1]{
+	\setkeys[PAS]{cadre}{#1}
+	
+	\AddToShipoutPicture
+	{
+		\put(\LenToUnit{\cmdPAS@cadre@x cm},\LenToUnit{\cmdPAS@cadre@y cm})
+		{
+				\ifPAS@cadre@doubleline
+					\edef\dl{double}
+				\else
+					\edef\dl{}
+				\fi
+				\begin{tikzpicture}[decoration={\cmdPAS@cadre@decoration,shape=\cmdPAS@cadre@shape}]
+					\pgfsetlinewidth{\cmdPAS@cadre@lw pt}
+					\ifPAS@cadre@shadow
+						\filldraw[
+						decorate,
+						fill=\cmdPAS@cadre@incolor,
+						draw=\cmdPAS@cadre@bordercolor,
+						style=\cmdPAS@cadre@style,
+						drop shadow={fill=\cmdPAS@cadre@shadowcolor,shadow xshift=\cmdPAS@cadre@xshadow cm,shadow yshift=-\cmdPAS@cadre@yshadow cm},
+						\dl] (0,0) -- (0,\paperheight-2*\cmdPAS@cadre@y cm) -- (\paperwidth-2*\cmdPAS@cadre@x cm,\paperheight-2*\cmdPAS@cadre@y cm) -- (\paperwidth-2*\cmdPAS@cadre@x cm,0) -- cycle;
+					\else
+						\filldraw[
+						decorate,
+						fill=\cmdPAS@cadre@incolor,
+						draw=\cmdPAS@cadre@bordercolor,
+						style=\cmdPAS@cadre@style,
+						\dl] (0,0) -- (0,\paperheight-2*\cmdPAS@cadre@y cm) -- (\paperwidth-2*\cmdPAS@cadre@x cm,\paperheight-2*\cmdPAS@cadre@y cm) -- (\paperwidth-2*\cmdPAS@cadre@x cm,0) -- cycle;
+					\fi
+				\end{tikzpicture}
+		}
+	}
+}
+
+\def\nocadre{\ClearShipoutPicture}
+%-----------------------------------------------\entete---------------------------------------------------------------------------%
+\newcommand{\entete}{
+\noindent
+\begin{tabularx}{\textwidth}{|r  ||||X|||| r |}
+\toprule
+\RL{AlmdT AlzmnyT : $1 H$}
+&
+\centering \RL{{\LARGE Altqwym Alt^sxy.sy }}
+&
+ \RL{Al-'ism : \hspace{4cm}}\\
+ \RL{AldwrT : $I$}& \centering   \RL{\Large{fy m|AdT AlryA.dyAt}}&\RL{Alnq.tT } \\
+ \RL{Alm`Aml : $3$} & \centering  \RL{AlsnT Al_tAl_tT 'i`dAdy} & \\
+ \bottomrule
+\end{tabularx}
+}
+%-----------------------------------------------
+\newcommand{\ExamEntete}{
+\noindent
+\begin{tabularx}{\textwidth}{||r  ||||X|||| c ||}
+\toprule \toprule
+\begin{minipage}{0.2\textwidth}
+\centering\includegraphics[scale=1]{../images/nourQamar.png}
+
+\begin{arabtext}
+AlmdT AlzmnyT : sA`T 
+
+dwrT : ynAyr $2019$
+
+Alm`Aml : $1$
+\end{arabtext}
+\end{minipage}&
+\begin{minipage}{0.4\textwidth}
+\begin{center}
+ \RL{{\LARGE Alfr.d Almnzly $1$ fy AlryA.ayAt  }}
+
+\RL{\Large{fy mAdT AlryA.dyAt}}
+
+ \RL{AlsnT Al_tAl_tT 'i`dAdy } 
+ \end{center}
+\end{minipage}&
+\begin{minipage}{0.3\textwidth}
+\centering\includegraphics[scale=0.5]{images/logo.jpg}
+\end{minipage}\\
+ \bottomrule  \bottomrule
+\end{tabularx}
+}
+%--\exercice[bareme,bar=...]{........}------------------------------%
+\define@cmdkey[EX]{exo}{bar}{}
+\define@boolkey[EX]{exo}{bareme}[true]{}
+\presetkeys[EX]{exo}{bar= ,bareme=false}{}
+\newcommand{\exercice}[2][]{
+\setkeys[EX]{exo}{#1}
+\setcounter{k}{1}
+\tikzstyle{mybox} = [ draw, very thick,rounded corners=3mm, inner sep=10pt, inner ysep=10pt]
+\tikzstyle{fancytitle} =[fill=white, text=black,inner ysep=0pt,inner xsep=2pt]
+\noindent
+\begin{tikzpicture}
+\node [mybox] (box){%
+    \begin{minipage}{0.88\linewidth}
+        #2 
+    \end{minipage}
+};
+\node[fancytitle, right=10pt] at (box.north west) {{\large \LR{Exercice}\arabic{i}}};
+\ifEX@exo@bareme
+\node[fancytitle] at (box.north){ \cmdEX@exo@bar \LR{pts}};
+\fi
+\end{tikzpicture}%
+\stepcounter{i}
+}
+%-----------\question[bareme,bar=...]{......}----------------------%
+\define@cmdkey[EX]{qst}{bar}{}
+\define@boolkey[EX]{qst}{bareme}[true]{}
+\presetkeys[EX]{qst}{bar= ,bareme=false}{}
+\newcommand{\question}[2][]{
+\setkeys[EX]{qst}{#1}
+\ifEX@qst@bareme
+	\ifdim \cmdEX@qst@bar pt  < 2 pt
+\begin{arabtext}
+$-\arabic{k}$ \marginpar{ \cmdEX@qst@bar{} pt} #2
+\end{arabtext}
+	\else
+\begin{arabtext}
+$-\arabic{k}$ \marginpar{ \cmdEX@qst@bar{} pts} #2
+\end{arabtext}
+	\fi
+\else
+\begin{arabtext}
+$-\arabic{k}$ #2
+\end{arabtext}
+\fi
+\stepcounter{k}
+}
+%----------\devoirp[niv=... , num=..., date=..., ds=...]----------%
+\define@cmdkey[EX]{devoir}{ds}{}
+\define@cmdkey[EX]{devoir}{niv}{}
+\define@cmdkey[EX]{devoir}{num}{}
+\define@cmdkey[EX]{devoir}{date}{}
+\presetkeys[EX]{devoir}{niv=$3$,num=$1$,ds=,date=}{}
+\newcommand{\devoir}[1][]{
+\setkeys[EX]{devoir}{#1}
+\begin{tikzpicture}
+\node [draw,shape=chamfered rectangle] (box1){%
+    \begin{minipage}{0.2\textwidth}
+    \vspace{0.5cm}
+  \center  NOM :.....................
+    
+   \center PRENOM:...................  
+    \end{minipage}
+};
+\end{tikzpicture}%
+\begin{tikzpicture}
+\node [draw,shape=chamfered rectangle] (box2){%
+    \begin{minipage}{0.4\textwidth}
+    \vspace{0.5cm}
+       \center Contrôle \cmdEX@devoir@ds {} num \cmdEX@devoir@num  
+           
+        \center MATHEMATIQUES
+    \end{minipage}
+};
+\end{tikzpicture}%
+\begin{tikzpicture}
+\node [draw,shape=chamfered rectangle] (box3){%
+    
+    \begin{minipage}{0.2\textwidth}
+    \vspace{0.5cm}
+    \center\LR{Niveau:{}\cmdEX@devoir@niv  } 
+    
+      \center  \LR{La date :{}\cmdEX@devoir@date }
+    \end{minipage}
+};
+\end{tikzpicture}%
+}
+%------------------------------------------------\serie[titre=..]-----------------------------------------------------------------------------%
+
+\define@cmdkey[EX]{serie}{titre}{}
+\presetkeys[EX]{serie}{titre=\RL{`nwAn Aldrs}}{}
+\newcommand{\serie}[1][]{
+\setkeys[EX]{serie}{#1}
+\begin{tikzpicture}
+\node [draw,shape=chamfered rectangle] (box1){%
+    \begin{minipage}{0.20\textwidth}
+       \center\RL{mAdT AlryA.dyAt}
+    \end{minipage}
+};
+\end{tikzpicture}%
+\begin{tikzpicture}
+\node [draw,shape=chamfered rectangle] (box2){%
+    \begin{minipage}{0.40\textwidth}
+      \center\cmdEX@serie@titre
+    \end{minipage}
+};
+\end{tikzpicture}%
+\begin{tikzpicture}
+\node [draw,shape=chamfered rectangle] (box3){%
+    \begin{minipage}{0.20\textwidth}
+   \center\RL{slslT AltmAryn}
+    \end{minipage}
+};
+\end{tikzpicture}%
+}
+\makeatother

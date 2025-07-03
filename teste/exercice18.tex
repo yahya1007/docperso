@@ -1,0 +1,149 @@
+\documentclass[11pt,a4paper]{report}
+\usepackage[T1]{fontenc}
+\usepackage[frenchb]{babel}
+\usepackage[explicit]{titlesec}
+\usepackage{amsmath,amsfonts,amssymb,mathrsfs}
+\usepackage[top=0.5cm,bottom=0.5cm,right=1cm,left=3cm]{geometry}
+\usepackage{contour}
+\usepackage[most]{tcolorbox}
+\usepackage{lipsum}
+\usetikzlibrary{calc}
+\usepackage{anyfontsize}
+\usepackage{multido}
+\usepackage{fancyhdr}
+\usetikzlibrary{fit}
+\usepackage{eso-pic}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{shadings,shadows}
+\usetikzlibrary{shapes.symbols}
+\usetikzlibrary{shapes, calc, decorations,decorations.footprints,decorations.markings}
+\usetikzlibrary{calc}
+\usepackage{fancyhdr}
+\usetikzlibrary{fit}
+\usepackage{eso-pic}
+\usetikzlibrary{arrows}
+\usepackage{multicol}
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{arrows}
+\usetikzlibrary{angles, quotes} %pose probl�me avec pstricks ->> package{etex}
+\usepackage{pifont}
+\usetikzlibrary{angles, quotes}
+%\usepackage[pstricks,blur]{bclogo}
+\usepackage{etoolbox}
+\usepackage{gensymb}
+\usepackage{lettrine}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{xkeyval}
+\usepackage{varwidth}
+%\usepackage{pstricks,pst-plot,pst-3dplot,pst-grad,pst-tree,pst-math,pst-eucl,pst-text}
+%\usepackage{pstricks-add}
+\usepackage{tkz-euclide}
+\usepackage{ fontawesome }
+\newcommand{\Pointilles}[2][3]{%
+\par\nobreak
+\noindent\rule{0pt}{1.5\baselineskip}% Provides a larger gap between the preceding paragraph and the dots
+\multido{}{#2}{\noindent\makebox[\linewidth]{\rule{0pt}{#1\baselineskip}\dotfill}\endgraf}% ... dotted lines ...
+\bigskip% Gap between dots and next paragraph
+}
+%%%%%%%ùùùùùcoleurs
+\definecolor{caribbeangreen}{rgb}{0.0, 0.8, 0.6}
+%​ ការកំណត់ពណ៌ស្រមោល
+\definecolor{shadecolor}{rgb}{0.95, 0.95, 0.96}
+%%%%%%%%%%FONTS
+\tcbuselibrary{skins,hooks}
+ \newcommand{\R}{\mathbb{R} }
+\newcommand{\N}{\mathbb{N} }
+\everymath{\displaystyle  }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Angles%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\tcbset{head/.style={
+ enhanced,
+ hbox,
+ tikznode,
+ left=8mm,
+ right=8mm,
+ boxrule=0.4pt,
+  colback=white,
+  colframe=gray,
+  drop lifted shadow=black!50!yellow,
+  before=\par\vspace*{5mm},
+  after=\par\bigskip,
+  interior style={
+ draw=red,
+ top color=white,
+ bottom color=white}
+ }
+}
+\pagestyle{empty}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+%%%%%%%%%%%%%%%%%%%%%%%BOX EXEMPLE%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newtcolorbox[auto counter ]{boxhacen}{breakable,enhanced,detach title,blanker,,title={  Exercice n$^{\circ}$\thetcbcounter },coltitle=black,
+boxsep=3mm,top=1cm,left=2mm,right=2mm
+,before skip=1cm,
+after skip=1cm,
+overlay={
+\scoped[on background layer]{
+\draw[fill=white,draw=none](interior.north west)rectangle
+(interior.south east);}
+\draw[line width=3pt,caribbeangreen](interior.south west)--($(interior.north west)+(0cm,-0.5cm)$);
+\draw[caribbeangreen,line width=3pt]([yshift=-0.5cm,xshift=-1cm]interior.north west)--
+([yshift=-0.5cm,xshift=1cm]interior.north west);
+%node[anchor= below,font=\bfseries] (1) {\color{red}{\tcbtitle}};
+\node[] at($(interior.north west)+(0cm,-0.2cm)$) {{\tcbtitle}};
+},}
+%%%%%%%%%%%%
+%\usepackage{polyglossia}
+%\setmainlanguage{french}
+%\newfontfamily\hhhhh[Script=Arabic,Scale=1]{Stanberry}
+%%%%%%%%%%
+\usepackage{enumitem}\newcommand{\fff}[1]{\tikz[baseline=-0.65ex]
+  \node[
+  inner sep=3pt,
+  draw=black!70,
+  fill=col,
+  text=black,
+  rounded corners=2pt]{#1};}
+\newcommand{\ttt}[1]{\tikz[baseline=(char.base)]{
+    \node[shape=circle,draw,inner sep=2pt,fill=lightgray,lightgray] (char) {\color{gray}\textbf#1};}}
+\renewcommand{\labelenumi}{\rotatebox{10}{\colorbox{caribbeangreen}{{\color{white}{\arabic{enumi}}}}}}
+\renewcommand{\labelenumii}{\rotatebox{10}{\colorbox{caribbeangreen}{{\color{white}{\alph{enumii}}}}}}
+\renewcommand{\labelenumiii}{\rotatebox{10}{\colorbox{caribbeangreen}{{\color{white}{\roman{enumiii}}}}}}
+%%%%%%%%%%%
+ %%%%%%%%%%%%%%%
+%%%%%%%%%%%
+ %%%%%
+\begin{document}
+\boldmath
+\begin{boxhacen}
+Soient les deux matrices $\mathcal{A}=
+\begin{pmatrix}
+1 & 1 & 1 \\ 
+1 & -1 & 1 \\ 
+4 & 2 & 1
+\end{pmatrix} $ et $\mathcal{I}=\begin{pmatrix}
+1 & 0 & 0 \\ 
+0 & 1 & 0 \\ 
+0 & 0 & 1
+\end{pmatrix}$
+\begin{enumerate}
+ \item En calculant le déterminant de la matrice $\mathcal{A}$, dire pourquoi $\mathcal{A}$ est inversible.
+ \item 
+ \begin{enumerate}
+ \item Donner $\mathcal{A}^2.$ \item On donne $\mathcal{A}^3=\begin{pmatrix}
+20 & 10 & 11 \\ 
+12 & 2 & 9 \\ 
+42 & 20 & 21
+\end{pmatrix} $. Vérifier que $\mathcal{A}^3 = \mathcal{A}^2 +8\mathcal{A} +6\mathcal{I}$. \item En déduire que $\mathcal{A}$ est inversible et donner sa matrice inverse $\mathcal{A}^{-1}$.
+
+ \end{enumerate}
+ 
+ \begin{enumerate}
+ \item Donner l'écriture matricielle de $\mathcal{S}$.
+ \item Résoudre $\mathcal{S}$ en utilisant 2.(c).
+ \item Retrouver les solutions de $\mathcal{S}$ avec la méthode de {\textsl{Cramer}}.
+ \end{enumerate}
+\end{enumerate}
+ \end{boxhacen}
+\end{document}

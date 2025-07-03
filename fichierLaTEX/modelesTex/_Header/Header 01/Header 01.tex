@@ -1,0 +1,16 @@
+\documentclass[12pt,a4paper]{book} 
+\usepackage[french]{babel}
+\usepackage{titlesec,pgfornament}
+%\titleformat{ commande }[ format ]{ format du texte}{ format du label }{ separation }{ avant }[ apres ]
+\titleformat
+ {\chapter}
+ [display]
+ {\centering\normalfont\large\scshape\bfseries}
+ {\textit{\chaptertitlename~\thechapter}}
+ {0.3\baselineskip}
+ {\rule{0.2\linewidth}{2pt} \pgfornament[scale=0.1]{7}\rule{0.2\linewidth}{2pt} \vspace{0.7\baselineskip}\break\Huge}
+ [\vspace{2\baselineskip}]
+\begin{document}
+\tableofcontents
+ \chapter{Méthode des différences finies} 
+\end{document}

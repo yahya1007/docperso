@@ -1,0 +1,50 @@
+\documentclass[12pt,a4paper]{report} 
+\usepackage[left=1.5cm,top=1cm,right=1.5cm,bottom=1.5cm]{geometry}
+\usepackage{amsmath,amssymb,amsfonts} 
+\usepackage{eso-pic} 
+\usepackage[most]{tcolorbox} 
+\pagestyle{empty} 
+\definecolor{col}{RGB}{24, 188, 156}  
+\definecolor{col1}{RGB}{131, 11, 22} 
+\definecolor{col2}{RGB}{129, 49, 247}
+\renewcommand{\labelenumi}{
+\begin{tikzpicture}[baseline=(1.base)] 
+\node[circle,fill=col,text=white,font=\bfseries,minimum size=5mm,inner sep=0mm](1){\arabic{enumi}};
+ \end{tikzpicture} }
+\AddToShipoutPicture{% 
+ \begin{tikzpicture}[remember picture,overlay] 
+  \node [fill=col](0)at ([xshift=0cm]current page.south west){};
+  \fill[col1] (current page.north west)--++(1,0)--++(0,-4)--++(-1,-1)--cycle;
+  \fill[col1] (current page.south west)--++(1,0)--++(0,5)--++(-1,-1)--cycle;
+  \fill[top color=col,bottom color=col!75] ([yshift=-5cm]current page.north west)--++(1,1)--([xshift=1cm,yshift=5cm]current page.south west)--++(-1,-1)--cycle;
+ \end{tikzpicture} }
+\newtcolorbox[auto counter]{exe}{breakable,top=1cm,title={\textbf{Exercice \thetcbcounter}},
+ enhanced,before skip=5mm,after skip=5mm,boxsep=3mm,coltitle=white,colframe=col1,
+ attach boxed title to top left={xshift=5mm,yshift=-\tcboxedtitleheight},
+boxrule=1.5pt,lifted shadow={3mm}{-2mm}{3mm}{0.1mm}%
+{col2},
+boxed title style={interior empty,
+ frame code={ 
+ \fill([xshift=1mm]frame.north east)arc(180:0:1mm)([xshift=-1mm]frame.north west)arc(0:180:1mm);
+     \path[right color=col1,left color=col1,middle color=col1!60] ([shift={(-.2,.1)}]frame.north west)--([shift={(.2,.1)}]frame.north east)[rounded corners=1mm]--([xshift=.1cm]frame.north east)--(frame.south east)--(frame.south west)--([xshift=-.1cm]frame.north west)[sharp corners]--cycle; } }
+}
+\begin{document}
+ \begin{tikzpicture}[remember picture,overlay]
+ `\fill[line width=2pt,rounded corners,col2]([xshift=1.5cm,yshift=-1.5cm]current page.north west)rectangle([xshift=-0.5cm,yshift=-3cm]current page.north east);
+ \fill[line width=2pt,right color=col1,left color=col1,middle color=col1!60,draw=white]([xshift=1.5cm,yshift=-3cm]current page.north west)--++(0.5,1)--([xshift=-1cm,yshift=-2cm]current page.north east)--++(0.5,-1)--++(-0.5,-1)--([xshift=2cm,yshift=-4cm]current page.north west)--cycle;
+  \node [white](0)at ([yshift=-3cm]current page.north){{\Large \textbf{Les séries de Fourier}}};  
+  \node [anchor=west,col!55!black](0)at ([xshift=1.5cm,yshift=-1cm]current page.north west){{\large \textbf{Institut de .......}}};  
+  \node [anchor=east,col!55!black](0)at ([xshift=-1cm,yshift=-1cm]current page.north east){{\large \textbf{2020/2021}}};
+ \end{tikzpicture}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vskip4cm
+\begin{exe}
+ \begin{enumerate}
+ \item 
+ \item 
+ \item 
+ \item 
+ \item 
+ \end{enumerate}
+\end{exe}
+\end{document}

@@ -1,0 +1,130 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{ProfModels}
+
+ 
+\begin{document}
+\begin{Maquette}[DM]{Niveau=2, Numero=5, Date=21/04/2025, FinDate=24/04/2025, Semestre=2}
+
+\begin{exercice}
+\begin{minipage}{.6\linewidth}
+On considère la figure ci-contre tel que $BD=8$ ,$AD=4$ et $BC=4$
+\begin{enumerate}
+\item Calculer $CD$ et $AB$.
+\item Calculer $\cos(\widehat{BAD})$ et $\cos(\widehat{BDC})$.
+\item Calculer $HD$
+\end{enumerate}
+\end{minipage}
+\begin{minipage}{.4\linewidth}
+\begin{tikzpicture}
+\tkzDefPoints{0/0/C,4/0/D}
+\tkzDefTriangle[pythagore](D,C)
+\tkzGetPoint{B}
+\tkzDefTriangle[school](B,D)
+\tkzGetPoint{A}
+\tkzDefPointBy[projection=onto B--D](C)
+\tkzGetPoint{H}
+\tkzDrawSegments(C,D D,B B,C D,A A,B C,H)
+\tkzLabelPoints(D,C,A)
+\tkzLabelPoint[left](B){B}
+\tkzLabelPoint[above](H){H}
+\tkzMarkRightAngle(B,C,D)
+\tkzMarkRightAngle(B,D,A)
+\end{tikzpicture}
+\end{minipage}
+\end{exercice}
+
+
+\begin{exercice}
+Soient $a$ , $b$ et $c$ des nombres rationnels, tels que $12\leq a \leq15$ et $-8\leq b \leq -1$.
+\begin{enumerate}
+\item Encadrer ce qui suit :
+\begin{tasks}[style=itemize](3)
+\task $a+b$
+\task $2a+3$
+\task $5a+3b$
+\task $\dfrac{3a}{2}$
+\task $\dfrac{5a+2b}{7}$
+\task $\dfrac{2a}{5}+\dfrac{3b}{3}$
+\end{tasks}
+%\item Sachant que  $-2 \leq 3c+8 \leq 3$. Encadrer $c$.
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+Soit $(C)$ un cercle de centre $O$ et de rayon $r=5cm$.$[BC]$ est un diamètre de $(C)$ et $A$ un point du cercle $(C)$ tel que $AB=6cm$ .
+\begin{enumerate}
+\item Trace la figure .
+\item Prouver que $ABC$ est un triangle rectangle.
+\item Soit $H$ la projeté orthogonale de $A$ sue $[BC]$.
+\begin{enumerate}
+\item Calculer $\cos(\widehat{C})$ et  $\cos(\widehat{B})$.
+\item Déduire $BH$ et $CH$.
+\end{enumerate}
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+\begin{enumerate}
+\item Réduire ce qui suit :
+\end{enumerate}
+\begin{tasks}
+\task $\vv{EF}+\vv{GE}+\vv{FG}$
+\task $\vv{AB}-\vv{BD}+\vv{CA}-\vv{CB}$
+\task $\vv{FE}-\vv{GE}+\vv{GF}+\vv{GH}+\vv{GF}+\vv{FG}$
+\task $\vv{ED}+\vv{BA}+\vv{DC}-\vv{EA}-\vv{BC}$
+\end{tasks}
+\begin{enumerate}[start=2]
+\item $ABCD$ un parallélogramme de centre $O$.
+ Calculer $\vv{OA}+\vv{OB}+\vv{OC}+\vv{OD}$
+ \item Calculer $\vv{AB}+\vv{AD}+\vv{CO}$
+\end{enumerate}
+
+\end{exercice}
+
+%\begin{exercice}
+%\begin{minipage}{0.65\linewidth}
+%On considère la figure ci-contre tel que $\lrp{\mathcal{C}}$ est un cercle de centre $O$ et de diamètre $\lrc{BC}$ et $\lrp{\mathcal{C'}}$ est un cercle de centre $O'$ et de diamètre $\lrc{CF}$.
+%\begin{enumerate}
+%\item Montrer que $\lrp{AB}//\lrp{EF}$
+%\end{enumerate}
+%\end{minipage}%
+%\begin{minipage}{0.35\linewidth}
+%\begin{tikzpicture}
+%\tkzDefPoints{0/0/O,2.5/0/B,-2.5/0/C,-1/0/O',0.5/0/F}
+%\tkzDefPointOnCircle[through= center O angle 60 point B]\tkzGetPoint{A}
+%\tkzDefPointOnCircle[through= center O' angle 60 point F]\tkzGetPoint{E}
+%\tkzDrawPoints(C,O',O,F,B,A,E)
+%\tkzDrawCircles(O',C O,C)
+%\tkzDrawSegments(C,B C,A E,F A,B)
+%\tkzLabelPoints(O,O')
+%\tkzLabelPoints[left](C)
+%\tkzLabelPoints[right](A,B)
+%\tkzLabelPoint[above](E){E}
+%\tkzLabelPoint[below right](F){F}
+%\tkzLabelCircle[below=4pt](O,B)(-40){$(\mathcal{C})$}
+%\tkzLabelCircle[below=4pt](O',F)(-40){$(\mathcal{C'})$}
+%\end{tikzpicture}
+%\end{minipage}
+%\end{exercice}
+%\begin{exercice}
+%\begin{enumerate}
+%\item Simplifier :
+%\end{enumerate}
+%\begin{tasks}[style=itemize](2)
+%\task $\vv{EF}+\vv{GE}+\vv{FG} $
+%\task $\vv{AB}-\vv{BD}+\vv{CA}-\vv{CB}$
+%\task $\vv{FE}-\vv{GE}-\vv{GF}+\vv{GH}+\vv{GF}$
+%\end{tasks}
+%\end{exercice}
+%
+%\begin{exercice}
+%On considère le triangle $ABC$.
+%\begin{enumerate}
+%\item Construis $C$ et $F$ les images de $B$ et $A$ respectivement par la translation de vecteur $\vv{EA}$.
+%\item Monter que $ABCF$ et $EBCA$ sont des parallélogrammes.
+%\item Déduire que: $\vv{EF}=\vv{EA}+\vv{BC}$
+%\end{enumerate}
+%\end{exercice}
+\end{Maquette}
+\end{document}

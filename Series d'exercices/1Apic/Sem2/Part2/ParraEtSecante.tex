@@ -1,0 +1,285 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{ProfModels}
+
+
+\begin{document}
+\begin{Maquette}[Fiche]{Theme=Droites parallèles et une sécante}
+
+\begin{exercice}%1
+\begin{minipage}{0.6\linewidth}
+Les droites $\lrp{AE}$ et $\lrp{BG}$ sont parallèles et $\widehat{ABG}=55^{\circ}$.
+\begin{enumerate}
+\item Déterminer la mesure de l'angle $\widehat{BAC}$.
+\item Montrer que les angles $\widehat{GBA}$ et $\widehat{BAE}$ sont supplémentaires.
+\end{enumerate}
+\end{minipage}%
+\begin{minipage}{0.4\linewidth}
+\begin{tikzpicture}
+\tkzDefPoints{0/0/C,4/1/E,4/-1/G}
+\tkzDefLine[parallel=through G](E,C)
+\tkzGetPoint{X}
+\tkzDefPointOnLine[pos=0.5](G,X)
+\tkzGetPoint{B}
+\tkzDefPointBy[rotation=center B angle 55](G)
+\tkzGetPoint{b}
+\tkzInterLL(E,C)(B,b)
+\tkzGetPoint{A}
+\tkzDrawPoints(C,E,G,X,B,A)
+\tkzDrawLines(E,C G,X A,B)
+\tkzLabelPoints[above left](C,A,E)
+\tkzLabelPoints[below right](G,B,X)
+\tkzMarkAngle[arc=l , size=0.5 , mark=|](G,B,A)
+\tkzLabelAngle(G,B,A){$55^{\circ}$}
+\end{tikzpicture}
+\end{minipage}
+\end{exercice}
+
+\begin{exercice}
+\begin{minipage}{0.65\linewidth}
+Dans la figure suivante les droites $\lrp{AE}$ et $\lrp{BG}$ sont parallèles et $\widehat{EAD}=50^{\circ}$.
+\begin{enumerate}
+\item Déterminer la mesure des angles suivants:
+\begin{enumerate}
+\item  $\widehat{DAC}$; $\widehat{CAB}$; $\widehat{BAE}$; $\widehat{ABG}$.
+\item  $\widehat{GBH}$; $\widehat{HBF}$; $\widehat{FBA}$.
+\end{enumerate}
+\end{enumerate}
+\end{minipage}%
+\begin{minipage}{0.35\linewidth}
+\begin{tikzpicture}
+\tkzDefPoints{0/0/C,4/1/E,4/-1/G}
+\tkzDefLine[parallel=through G](E,C)
+\tkzGetPoint{F}
+\tkzDefPointOnLine[pos=0.5](G,F)
+\tkzGetPoint{B}
+\tkzDefPointOnLine[pos=0.5](C,E)
+\tkzGetPoint{A}
+\tkzDefPointOnLine[pos=1.4](A,B)\tkzGetPoint{H}
+\tkzDefPointOnLine[pos=1.4](B,A)\tkzGetPoint{D}
+\tkzDrawPoints(C,E,G,F,B,A,H,D)
+\tkzDrawLines(E,C G,F)
+\tkzDrawLine[add=0.1 and 0.1]( H,D)
+\tkzLabelPoints[above left](C,A,E)
+\tkzLabelPoints[below right](G,B,F)
+\tkzLabelPoint[left](D){D}
+\tkzLabelPoint[left](H){H}
+\tkzMarkAngle[arc=l , size=0.5 , mark=|](E,A,D)
+\tkzLabelAngle(E,A,D){$50^{\circ}$}
+\end{tikzpicture}
+\end{minipage}
+\end{exercice}
+
+\begin{exercice}
+\begin{minipage}{0.6\linewidth}
+Dans la figure suivante $ABCD$ est un parallélogramme et $\widehat{ECB}=75^{\circ}$.
+\begin{enumerate}
+\item Déterminer les mesures des angles du parallélogramme $ABCD$.
+\end{enumerate}
+\end{minipage}%
+\begin{minipage}{0.4\linewidth}
+\begin{tikzpicture}
+\tkzDefPoints{0/0/A,3/1/B,3/-1/C}
+\tkzDefParallelogram(A,B,C)\tkzGetPoint{D}
+\tkzDefPointOnLine[pos=1.4](D,C)\tkzGetPoint{E}
+\tkzDrawPoint(E)
+\tkzDrawLines(A,B D,E A,D B,C)
+\tkzMarkAngle[arc=l , size=0.5 , mark=||](E,C,B)
+\tkzLabelAngle(E,C,B){$75^{\circ}$}
+\tkzLabelPoints[above left](A,B)
+\tkzLabelPoints[below right](C,D,E)
+\end{tikzpicture}
+\end{minipage}
+\end{exercice}
+
+\begin{exercice}
+\begin{minipage}{0.6\linewidth}
+On considère la figure ci-contre.
+\begin{enumerate}
+\item Déterminer les mesures des angles formés par les droites $\lrp{AD}$ et $\lrp{BC}$ et la sécante $\lrp{EF}$.
+\item les droites $\lrp{AD}$ et $\lrp{BC}$ sont-elles parallèles?
+\end{enumerate}
+\end{minipage}%
+\begin{minipage}{0.4\linewidth}
+\begin{tikzpicture}[rotate=25]
+\tkzDefPoints{3/1/A,2.5/-1/B,-1/-1/C}
+\tkzDefParallelogram(A,B,C)\tkzGetPoint{D}
+\tkzDefPointOnLine[pos=0.5](A,D)\tkzGetPoint{x}
+\tkzDefPointOnLine[pos=0.5](C,B)\tkzGetPoint{y}
+\tkzDefPointOnLine[pos=1.4](x,y) \tkzGetPoint{F}
+\tkzDefPointOnLine[pos=1.4](y,x) \tkzGetPoint{E}
+\tkzLabelPoints(A,B,C,D)
+\tkzLabelPoint[left](E){E}
+\tkzLabelPoint[right](F){F}
+\tkzLabelPoint[below right](x){X}
+\tkzLabelPoint[below right](y){Y}
+\tkzDrawPoints(A,D,C,B,E,F)
+\tkzDrawLines(A,D C,B E,F)
+\tkzMarkAngle[arc=l , size=0.5 , mark=|](A,x,E)
+\tkzMarkAngle[arc=l , size=0.5 , mark=||](C,y,F)
+\tkzLabelAngle(A,x,E){$72^{\circ}$}
+\tkzLabelAngle(C,y,F){$71^{\circ}$}
+\end{tikzpicture}
+\end{minipage}
+\end{exercice}
+
+\begin{exercice}
+\begin{minipage}{0.65\linewidth}
+On considère la figure suivante,
+\begin{enumerate}
+\item Calculer la mesure de l'angle $\widehat{ACB}$.
+\item Montrer que les droites $\lrp{AC}$ et $\lrp{DE}$ sont parallèles.
+\item En déduire que le triangle $BDE$ est rectangle.
+\end{enumerate}
+\end{minipage}%
+\begin{minipage}{0.35\linewidth}
+\begin{tikzpicture}
+\tkzDefPoints{0/0/A,5/0/B}
+\tkzDefTriangle[school,swap](B,A)
+\tkzGetPoint{C}
+\tkzDefPointOnLine[pos=0.6](B,A)\tkzGetPoint{D}
+\tkzDefLine[parallel=through D](A,C) \tkzGetPoint{x}
+\tkzInterLL(B,C)(D,x)\tkzGetPoint{E}
+\tkzDrawSegments(A,B)
+\tkzDrawSegments(A,C B,C E,D)
+\tkzMarkRightAngles(B,A,C)
+\tkzLabelPoint[above](C){$C$}
+\tkzDrawPoints(C)
+\tkzDrawPoints(A,B)
+\tkzLabelPoints(A,B,D)
+\tkzLabelPoint[above](E){E}
+\tkzMarkAngle[arc=ll , size=0.5 , mark=|](E,B,D)
+\tkzMarkAngle[arc=l , size=0.5 , mark=||](D,E,B)
+\tkzLabelAngle(E,B,D){$41^{\circ}$}
+\tkzLabelAngle(D,E,B){$49^{\circ}$}
+\end{tikzpicture}
+\end{minipage}
+\end{exercice}
+
+\begin{exercice}
+\begin{minipage}{0.6\linewidth}
+ABCD est un parallélogramme et un point tel que le triangle BCE est équilatéral.
+Montrer que les points A,B et E sont alignés.
+\end{minipage}%
+\begin{minipage}{0.4\linewidth}
+\begin{tikzpicture}
+\tkzDefPoints{0/0/A,4/0/B}
+\tkzDefTriangle[two angles = 60 and 40](A,B)
+\tkzGetPoint{D}
+\tkzDefParallelogram(B,A,D)
+\tkzGetPoint{C}
+\tkzDefTriangle[equilateral](C,B)
+\tkzGetPoint{E}
+\tkzDrawSegments(A,E E,C C,D D,A D,B B,C)
+\tkzDrawPoints(A,B,C,D,E)
+\tkzLabelPoints(A,B,E)
+\tkzLabelPoints[above](D,C)
+\tkzMarkAngle[arc=l , size=0.5 , mark=|](D,B,A)
+\tkzMarkAngle[arc=l , size=0.5 , mark=||](A,D,B)
+\tkzLabelAngle(D,B,A){40}
+\tkzLabelAngle(A,D,B){80}
+\tkzMarkSegments[mark=||](B,E E,C C,B)
+\end{tikzpicture}
+\end{minipage}
+\end{exercice}
+
+\begin{exercice}
+Dans la figure suivante les droites $\lrp{AB}$ et $\lrp{DC}$ sont parallèles, et le triangle $DCB$ est isocèle en $C$.
+\begin{minipage}{0.6\linewidth}
+\begin{enumerate}
+\item Calculer les mesures des angles du triangle $BCD$.
+\item Pourquoi a-t-on $\widehat{BDC}=\widehat{ABD}$?
+\item Déduire les angles des triangles $ABD$ et $BDE$.
+\item Quelle est la nature du triangle $BDE$?
+\item Construire la figure à la règle et au compas.
+\end{enumerate}
+\end{minipage}%
+\begin{minipage}{0.4\linewidth}
+\begin{tikzpicture}
+\tkzDefPoints{0/0/A,4/-1/B}
+\tkzDefTriangle[two angles= 50 and 70](A,B)
+\tkzGetPoint{E}
+\tkzDefLine[bisector](E,B,A) \tkzGetPoint{x}
+\tkzInterLL(A,E)(B,x)
+\tkzGetPoint{D}
+\tkzDefLine[parallel=through D](A,B)\tkzGetPoint{y}
+\tkzInterLL(E,B)(D,y)\tkzGetPoint{C}
+\tkzDrawSegments(A,B B,E E,A B,D D,C)
+\tkzLabelPoints[right](E,C,B)
+\tkzLabelPoints[left](A,D)
+\tkzMarkAngle[arc=l , size=0.5 , mark=|](B,A,E)
+\tkzMarkAngle[arc=l , size=0.2 , mark=||](D,C,B)
+\tkzLabelAngle(B,A,E){$50^{\circ}$}
+\tkzLabelAngle[pos=0.6,rotate=-45](D,C,B){$110^{\circ}$}
+\tkzMarkSegments[mark=|](D,C B,C)
+\end{tikzpicture}
+\end{minipage}
+\end{exercice}
+
+\begin{exercice}
+\begin{minipage}{0.6\linewidth}
+Dans la figure ci-contre les points A,C et E sont alignés.
+\begin{enumerate}
+\item Montrer que $\lrp{DE}//\lrp{BC}$
+\end{enumerate}%
+\end{minipage}
+\begin{minipage}{0.4\linewidth}
+\begin{tikzpicture}[scale=1.5]
+\tkzDefPoints{0/0/A,4/0/C}
+\tkzDefTriangle[two angles=40 and 65](A,C)
+\tkzGetPoint{B}
+\tkzDefPointBy[projection=onto A--C](B)
+\tkzGetPoint{E}
+\tkzDefLine[parallel=through E](B,C)\tkzGetPoint{x}
+\tkzInterLL(E,x)(A,B)\tkzGetPoint{D}
+\tkzDrawSegments(A,B B,C C,A E,D E,B)
+\tkzLabelPoints(A,E,C)
+\tkzLabelPoints[above](B,D)
+\tkzLabelAngle[pos=0.8](E,A,B){$40^{\circ}$}
+\tkzLabelAngle[pos=0.7](A,D,E){$75^{\circ}$}
+\tkzLabelAngle[pos=1](E,B,C){$25^{\circ}$}
+\tkzMarkRightAngle(C,E,B)
+\tkzMarkAngle[arc=l , size=0.5 , mark=|](E,A,D)
+\tkzMarkAngle[arc=ll , size=0.4 , mark=|](A,D,E)
+\tkzMarkAngle[arc=l , size=0.7 , mark=||](E,B,C)
+\end{tikzpicture}
+\end{minipage}
+\end{exercice}
+
+\begin{exercice}
+\begin{minipage}{0.5\linewidth}
+Sur la figure ci-contre, ABCD est un rectangle, les points A,B et E sont alignés d'une part et les points D,B et F sont alignés d'autre part.
+Quelle est la nature du quadrilatère $BCEF$?
+\end{minipage}%
+\begin{minipage}{0.5\linewidth}
+\begin{tikzpicture}
+\tkzDefPoints{0/0/A,3/0/B,6/0/E,0/-2/D,3/-2/C,6/2/F}
+\tkzDrawLines(A,E D,F E,F)
+\tkzDrawSegments(A,D D,C C,B C,E)
+\tkzMarkAngle[arc=l , size=0.5 , mark=|](B,D,A)
+\tkzMarkAngle[arc=l , size=0.5 , mark=||](B,E,C)
+\tkzMarkRightAngle(F,E,B)
+
+\tkzLabelPoints[above](A,B)
+\tkzLabelPoints(C,D)
+\tkzLabelPoint[left](F){F}
+\tkzLabelPoint[above right](E){E}
+\tkzLabelAngle(B,D,A){60}
+\tkzLabelAngle(B,E,C){30}
+
+
+\end{tikzpicture}
+\end{minipage}
+\end{exercice}
+
+
+
+
+
+
+
+
+
+
+\end{Maquette}
+\end{document}

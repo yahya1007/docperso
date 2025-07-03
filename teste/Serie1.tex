@@ -1,0 +1,52 @@
+\documentclass{article}
+   \usepackage{statistics}
+
+   \begin{document}
+
+   \StatsSortData \mydata = { 2, 11=8, 6=3, 2=2, 11=1 }
+ \def \rawdata { 2=2, 11=9, 6, 2, 6, 6, 11}
+ \StatsSortData \yourdata = \rawdata
+ mydata contains [\mydata]\\
+ yourdata contains [\yourdata]
+   
+ \StatsRangeData \facebook = { 0, 1, 1.5, 1.5, 2, 3, 2.4, 2, 2.4=5,
+ 3, 4=10, 5=6, 6=9, 6.5=5, 7, 7.1, 7.2,
+ 7.3, 7.4, 7.5, 7.6, 7.7, 7, 7, 8, 8, 8,
+ 9=5, 12=12}
+ (\IN[0;1;[, \IN[1;2;[, \IN[2;4;[,
+ \IN[4;7;[, \IN[7;10;[, \IN[10;14;[)
+%\detokenize\expandafter{\facebook}
+
+
+
+%\statisticssetup{table/values=Caractere}
+% \statisticssetup[table]{counts=Effets}
+% \StatsTable \facebook
+
+\statisticssetup{table/showonly/hidden=\color{white}#1}
+ 
+ 
+ \StatsTable \facebook[ values=Caractere,counts=Effet, frequencies, frame=full, showonly=2-4 ]
+ 
+ 
+ 
+ \def \combdata { 36=3, 37=8, 38=2, 39=6, 40=6, 41=3, 42=2, 45=2, 46=2 }
+ \StatsTable \combdata[ values=Caractere,counts=Effet, frame=full ]
+ 
+ \StatsGraph \combdata[ values=Caractere,counts=Effet]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

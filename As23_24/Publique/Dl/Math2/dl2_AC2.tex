@@ -1,0 +1,102 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{ProfModels}
+ 
+\begin{document}
+
+\begin{Maquette}[DM]{Prive=false, Numero=2, Niveau=2, Date=\today}
+
+\begin{exercice}
+\begin{enumerate}
+\item Calculer : 
+\[ 2022^{0} \quad; \quad (-1)^{101} \quad; \quad 0^{89} \quad; \quad (\dfrac{1}{5})^{-3}\]
+\item Déterminer le signe des puissances suivantes :
+\[ (\dfrac{-1}{13})^{-12} \quad; \quad 
+	(-7)^{2007}
+\] 
+\item Écrire sous forme $a^{n}$ les expressions suivantes :
+\[\dfrac{11^{-6}}{11^{-8}}\quad; \quad
+	\dfrac{3^{5}\times (-3)^{8}}{9^{9}}\quad; \quad
+	\dfrac{10^{5}\times 10^{-8}\times 10^{4}}{2^{6}\times 2^{-7}\times 2^{2}}\quad; \quad
+\dfrac{a^{-9}\times a^{5}\times (-a)^{18}}{a^{-4}}
+\]
+\item Simplifier : 
+\[
+\dfrac{ab^{-4}\times (a^{2}b^{-1})^{3}\times a^{-2}b^{3}}{a^{-5}\times (ab^{-1})^{2}\times (ab)^{-3}}
+\]
+\item Donner l'écriture scientifique des nombres suivants :
+\[
+	A=0.0000000025\times 0.00000000042 \quad; \quad
+	B=\dfrac{540\times 10^{-9}}{6\times 10^{-22}}\quad; \quad
+\]
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+\begin{minipage}{.5\textwidth}
+\begin{enumerate}
+\item Reproduire cette figure et construire $E$ et $F$ les symétriques de $A$ et $B$ par rapport à la droite  $(\Delta)$.
+\item Quel est le symétrique de $O$ par rapport à $(\Delta)$? En justifiant ta réponse .
+\item Montrer que $AB=EF$.
+\item Montrer que les points $O$ , $E$ et $F$ sont alignés.
+\item Montrer que $O$ est le milieu du segment $[EF]$.
+\end{enumerate}
+\end{minipage}
+\begin{minipage}{.5\textwidth}
+\begin{tikzpicture}
+\tkzDefPoints{-3/0/A,0/0/O,3/0/B}
+\tkzDefPoint(30:2){D}
+\tkzDrawSegment(A,B)
+\tkzDrawLine[add=2 and 1](O,D)
+\tkzDrawPoints(A,B,O)
+\tkzLabelPoints(A,O,B)
+\tkzLabelLine[pos=2,above](O,D){$(\Delta)$}
+\tkzMarkSegments[mark=||](A,O O,B)
+
+\end{tikzpicture}
+\end{minipage}
+\end{exercice}
+
+\begin{exercice}
+Soit $ABC$ un triangle tel que : $\widehat{BAC}=130^{\circ}$ et $\widehat{ACB}=30^{\circ}$
+\begin{enumerate}
+\item Construire la figure , puis le point $A'$ symétrique du point $A$ par rapport à la droite $(BC)$.
+\item
+	\begin{enumerate}
+	\item Montrer que $CA=CA'$
+	\item Donner la mesure de l'angle $\widehat{A'CA}$
+	\item En déduire la nature du triangle $AA'C$
+	\end{enumerate}
+\item Soit $I$ le point de $[BC]$ tel que $[AI)$est  la bissectrice de l'angle $\widehat{BAC}$
+		\begin{enumerate}
+		\item Quel est le symétrique de l'angle $\widehat{BAI}$ par rapport à la droite $(BC)$ ?
+		\item Montrer que $[A'I)$ est la bissectrice de l'angle $\widehat{BA'C}$.
+		\end{enumerate}	
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+Soit $OAB$ un triangle et $(d)$ une droite passant par le point $O$ et parallèle à la droite $(AB)$
+\begin{enumerate}
+\item Construire les points $A'$ et $B'$ symétriques respectifs des points $A$ et $B$ par rapport à $(d)$.
+\item Montrer que $(AB)//(A'B')$
+\item Montrer que $AB'=A'B$
+\item En déduire que le quadrilatère $ABB'A'$ est un rectangle.
+\item Quel est le symétrique du cercle $(C)$ de centre $O$ passant par le point $A$ par rapport à la droite $(d)$?
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+\begin{enumerate}
+\item Tracer un segment $[AB]$ puis sa médiatrice $(d)$.
+\item Quel est le symétrique de $A$ par rapport à $(d)$ ?
+\item Quel est le symétrique de $B$ par rapport à $(d)$ ?
+\item Placer un point $K$ sur $(d)$ avec $K\notin [AB]$.
+\item Quel est le symétrique de $K$ par rapport à $(d)$ ?
+\item Que peut-on dire des longueurs $KA$ et $KB$ ?
+\item Déduire la nature du triangle $BAK$.
+\end{enumerate}
+\end{exercice}
+\end{Maquette}
+
+\end{document}

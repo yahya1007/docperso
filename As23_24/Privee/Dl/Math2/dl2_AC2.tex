@@ -1,0 +1,72 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{ProfModels}
+ 
+\begin{document}
+\begin{Maquette}[DM]{Niveau=2, Numero=2, Date=19/10/2024, FinDate=31/12/2024, Semestre=1}
+
+\begin{exercice}
+\begin{enumerate}
+\item Calculer puis simplifier si possible
+
+\begin{minipage}{.5\linewidth}
+$$A=\dfrac{4-\dfrac{8}{-7}}{\dfrac{9}{7}+16} $$
+$$B=\dfrac{-4}{-(-7)}-\dfrac{9}{3.6}\times\dfrac{-9}{5}+1 $$
+\end{minipage}%
+\begin{minipage}{.5\linewidth}
+$$C=\dfrac{\dfrac{1+\dfrac{1}{-5}}{\dfrac{-9}{-7}}}{\dfrac{5}{-6+\dfrac{4}{-6}}} $$
+$$D=\dfrac{-(-9)}{-(-(5))}+\dfrac{-8}{-9}\times\dfrac{1+\dfrac{5}{-7}}{-9}\div\dfrac{5}{\dfrac{-9}{7}}$$
+\end{minipage}
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+\begin{enumerate}
+\item Reproduire cette figure et construire $E$ et $F$ les symétriques de $A$ et $B$ par rapport à la droite  $(\Delta)$.
+\end{enumerate}
+    \begin{minipage}{.6\textwidth}
+      \begin{enumerate}
+\item Quel est le symétrique de $O$ par rapport à $(\Delta)$? En justifiant ta réponse .
+\item Montrer que $AB=EF$.
+\item Montrer que les points $O$ , $E$ et $F$ sont alignés.
+\item Montrer que $O$ est le milieu du segment $[EF]$.
+\end{enumerate}
+\end{minipage}\hfill %
+\begin{minipage}{.38\textwidth}
+  \begin{tikzpicture}[scale=0.8]
+\tkzDefPoints{-3/0/A,0/0/O,3/0/B}
+\tkzDefPoint(30:2){D}
+\tkzDrawSegment(A,B)
+\tkzDrawLine[add=2 and 1](O,D)
+\tkzDrawPoints(A,B,O)
+\tkzLabelPoints(A,O,B)
+\tkzLabelLine[pos=2,above](O,D){$(\Delta)$}
+\tkzMarkSegments[mark=||](A,O O,B)
+
+\end{tikzpicture}
+\end{minipage}
+\end{exercice}
+
+\begin{exercice}
+Soit $ABC$ un triangle tel que : $\widehat{BAC}=130^{\circ}$ et $\widehat{ACB}=30^{\circ}$
+\begin{enumerate}
+\item Construire la figure , puis le point $A'$ symétrique du point $A$ par rapport à la droite $(BC)$.
+\item
+	\begin{enumerate}
+	\item Montrer que $CA=CA'$
+	\item Donner la mesure de l'angle $\widehat{A'CA}$
+	\item En déduire la nature du triangle $AA'C$
+	\end{enumerate}
+\item Soit $I$ le point de $[BC]$ tel que $[AI)$est  la bissectrice de l'angle $\widehat{BAC}$
+		\begin{enumerate}
+		\item Quel est le symétrique de l'angle $\widehat{BAI}$ par rapport à la droite $(BC)$ ?
+		\item Montrer que $[A'I)$ est la bissectrice de l'angle $\widehat{BA'C}$.
+		\end{enumerate}	
+\end{enumerate}
+\end{exercice}
+
+\end{Maquette}
+
+
+
+\end{document}

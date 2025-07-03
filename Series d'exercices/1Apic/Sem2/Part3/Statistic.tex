@@ -1,0 +1,165 @@
+\documentclass[a4paper,12pt]{article}
+
+
+\usepackage{ProfModels}
+\usepackage{diagrammes}
+ 
+\begin{document}
+
+\begin{Maquette}[Fiche]{Theme=Les statistiques,Niveau=1}
+
+\begin{exercice}
+Les notes obtenues lors d'un d'un contrôle de mathématiques par les élèves d'une classe sont :
+
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+7 & 9 & 10 & 15 & 10 & 17 & 16 & 9 & 9 & 9 \\ 
+\hline 
+10 & 10 & 13 & 16 & 16 & 10 & 10 & 15 & 13 & 9 \\ 
+\hline 
+7 & 7 & 9 & 10 & 16 & 17 & 17 & 10 & 13 & 13 \\ 
+\end{tabular} 
+\begin{enumerate}
+\item Quel est le caractère étudié ?
+\item Quelle est la population statistique ?
+\item Classer les notes dans un tableau d'effectif.
+\item Quel est l'effectif total de cette série statistique ?
+\item Quel est le nombre des élèves ayant une note supérieur à 10 ?
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+On a demandé aux élèves d'une classe la somme d'argent de poche que leurs parents donnent chaque jour.
+
+\begin{tabular}{|c|c|c|c|c|}
+ \hline 
+ Argent de poche & 0 & 5 & 10 & 20 \\ 
+ \hline 
+ Effectifs & 4 & 8 & 16 & 4 \\ 
+ \hline 
+ \end{tabular} 
+ \begin{enumerate}
+ \item Combien y a-t-il d'élèves dans cette classe ?
+ \item Calculer la fréquence de chaque valeur.
+ \item Calculer le pourcentage des élèves qui reçoivent 10 Dhs de leurs parents.
+ \item Représenter cette série sur un diagramme circulaire .
+ \end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+Le diagramme en bâtons ci-dessous représente les pointures des chaussures des élèves d'une classe de 1.AC.\newline
+\begin{minipage}{.55\linewidth}
+\begin{enumerate}
+\item Recopier et compléter.
+
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline 
+Pointure & 36 & 37 & 38 & 39 & 40 & 41 & 42 \\ 
+\hline 
+Effectif &  &  &  &  &  &  &  \\ 
+\hline 
+Fréquence &  &  &  &  &  &  &  \\ 
+\hline 
+Pourcentage &  &  &  &  &  &  &  \\ 
+\hline 
+\end{tabular} 
+\item Quel est l'effectif total des élèves ?
+\end{enumerate}
+\end{minipage}%
+\begin{minipage}{.45\linewidth}
+\Histogramme[Largeur=6,Hauteur=6,%
+ListeCouleurs={orange,gray,blue,pink,red,black,gray},%
+DebutOx=35,FinOx=42,GradX={35,36,...,42},GradY={0,2,...,10},%
+AffEffectifs=false,LabelX={},LabelY={}]%
+{35.8/36.2/4 36.8/37.2/8 37.8/38.2/4 38.8/39.2/2 39.8/40.2/10 40.8/41.2/8 41.8/42.2/6}
+%\begin{tikzpicture}[scale=0.8]
+%\tkzInit[xmin=35, xmax=43, ymin=0, ymax=13,xstep=1,ystep=2]
+%\tkzGrid
+%\tkzDrawX[label={}]
+%\tkzLabelX
+%\tkzDrawY[label={élèves}]
+%\tkzLabelY
+%\tkzDefSetOfPoints[prefix=A]%
+%{36/0,37/0,38/0,39/0,40/0,41/0,42/0}
+%\tkzDefSetOfPoints[prefix=P]%
+%{36/6,37/8,38/12,39/4,40/4,41/2,42/2}
+%\tkzDrawLines[add=-2pt and -2pt, line width=3pt](A1,P1 A2,P2 A3,P3 A4,P4 A5,P5 A6,P6 A7,P7)
+%\end{tikzpicture}
+\end{minipage}
+\end{exercice}
+
+\begin{exercice}
+\begin{minipage}{0.55\linewidth}
+le tableau suivant donne le nombre d'accident de la route durant 40 jours.
+Construire un diagramme circulaire représente cette série statistique.
+\end{minipage}%
+\begin{minipage}{0.45\linewidth}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline 
+Nombre d'accidents & 0 & 1 & 2 & 3 & 4 \\ 
+\hline 
+Nombre de jour & 14 & 5 & 16 & 3 & 2 \\ 
+\hline 
+\end{tabular} 
+\end{minipage}
+\end{exercice}
+
+
+
+\begin{exercice}
+\begin{minipage}{0.6\linewidth}
+Le diagramme circulaire représente la répartition des élèves d'un collège suivant leur niveau en classe.Compléter le tableau suivant sachant qu'on a 450 élèves.
+
+\begin{tabular}{|c|c|c|c|c|}
+\hline 
+Niveau & N1 & N2 & N3 & N4 \\ 
+\hline 
+les élèves &  &  &  &  \\ 
+\hline 
+Fréquence &  &  &  &  \\ 
+\hline 
+pourcentage &  &  &  &  \\ 
+\hline 
+Mesure d'angle & $90^{\circ}$ & $108^{\circ}$ & $63^{\circ}$ & $99^{\circ}$ \\ 
+\hline 
+\end{tabular} 
+\end{minipage}%
+\begin{minipage}{0.4\linewidth}
+\begin{tikzpicture}[scale=0.8]
+\pie[hide number]{25/N1, 30/N2, 17.5/N3, 27.5/N4}
+\end{tikzpicture}
+\end{minipage}
+\end{exercice}
+
+
+\begin{exercice}
+\begin{minipage}{0.6\linewidth}
+On considère une série statistique représentée par le diagramme en bâtons ci-contre.
+\begin{enumerate}
+\item Quelle est la valeur ayant le plus grand effectif ?
+\item Quelle est la valeur ayant le plus petit effectif ?
+\item Dresser le tableau des effectifs de la série.
+\item Calculer le pourcentage de chaque valeur.
+\item Représenter la série par un diagramme circulaire.
+\end{enumerate}
+\end{minipage}%
+\begin{minipage}{0.4\linewidth}
+\Histogramme[Largeur=6,Hauteur=6,%
+ListeCouleurs={orange,gray,blue,pink,red,black,gray,green},%
+DebutOx=0,FinOx=8,GradX={1,2,...,8},GradY={0,2,...,12},%
+AffEffectifs=false,LabelX={},LabelY={}]%
+{0.8/1.2/6 1.8/2.2/10 2.8/3.2/8 3.8/4.2/12 4.8/5.2/10 5.8/6.2/8 6.8/7.2/6 7.8/8.2/2}
+\end{minipage}
+\end{exercice}
+
+
+
+
+
+
+
+
+
+
+
+\end{Maquette}
+\end{document}

@@ -1,0 +1,190 @@
+\documentclass[a4paper,12pt]{book}
+\usepackage{amsmath,amsfonts,amssymb,amsthm }
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[left=3cm,right=2.5cm,top=3.5cm,bottom=2.5cm]{geometry}
+\usepackage[most]{tcolorbox}
+\tcbuselibrary{skins}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{shadows,shapes,shadows.blur,shapes.symbols,positioning}
+\usetikzlibrary{calc,shadows,shapes,shadows.blur}
+\usepackage{eso-pic}
+\usepackage{tikzpagenodes}
+\renewcommand*\sfdefault{ugq}
+%============================================
+%======================================
+\definecolor{pBlue}{RGB}{102, 53, 153}
+%==================================
+%==========================================================
+\definecolor{myblue}{HTML}{1D2A6E}
+\definecolor{myred}{HTML}{A97E77}
+\definecolor{mybrown}{HTML}{B35823}
+\definecolor{gold}{HTML}{B48920}
+\definecolor{myorange}{HTML}{ED8C2B}
+\definecolor{col}{RGB}{45, 136, 119}
+\definecolor{MainRed}{rgb}{.8, .1, .1}
+\definecolor{winered}{rgb}{0.5,0,0}
+%==========================================================
+\def\cola{pink!50!purple}
+\def\colb{cyan!80!blue}
+%==================================================
+\definecolor{titleboxcolor}{RGB}{199,232,250}
+\definecolor{darkblue}{RGB}{59,134,215}
+%===================================
+%=========================================
+%======================================
+\definecolor{pBlue}{RGB}{102, 53, 153}
+%==================================
+%==========================================================
+\definecolor{myblue}{HTML}{1D2A6E}
+\definecolor{myred}{HTML}{A97E77}
+\definecolor{mybrown}{HTML}{B35823}
+\definecolor{gold}{HTML}{B48920}
+\definecolor{myorange}{HTML}{ED8C2B}
+\definecolor{col}{RGB}{45, 136, 119}
+\definecolor{MainRed}{rgb}{.8, .1, .1}
+\definecolor{winered}{rgb}{0.5,0,0}
+%==========================================================
+%===========================================
+\makeatletter
+\newtcolorbox[auto counter]{exo}[2][]{%
+enhanced, 
+breakable,
+before skip=1.5cm ,
+after skip=1.5cm ,
+colback=white,
+frame hidden,
+top=.75cm,
+attach boxed title to top left, 
+boxed title style={empty},
+overlay={%
+\begin{scope}
+\node[circle,fill=\cola!90!black,minimum size=8mm] (circ) at (frame.north west) {};
+\node[fill=\cola,anchor=west,minimum height=8mm,minimum width=2.5cm,font=\large\bfseries\color{white}] at (circ) {Exercice};
+\node[fill=white,line width=2pt,circle,draw=\cola,minimum size=1cm,right=1.9cm of circ,font=\LARGE\sffamily\color{black!20!teal}] (num) {\thetcbcounter};
+\node[rounded rectangle, rounded rectangle west arc=0pt, minimum height=0.7cm,fill=black!20!teal,font=\large\bfseries\color{white}, drop shadow={opacity=.5,shadow xshift=0pt},right=.5cm of num]  {#2};
+%=====================
+\draw[line width=1.5pt, black!20!teal]
+([shift={(-20pt, 13pt)}]frame.north west) coordinate (iniPoint)
+-- (iniPoint|-frame.south west)
+-- ([xshift=-30pt]frame.south east)
+to[out=0, in=-90] ([yshift=30pt]frame.south east)
+-- (frame.north east) -- ++(-2.5, 0) coordinate (endPoint) -- ++(-3pt, 3pt) -- ++(-3pt, -3pt)
+-- ++(3pt, -3pt) -- (endPoint);
+\draw[line width=1.5pt, black!20!teal] ([xshift=4pt]iniPoint) -- ++(-8pt, 0);
+\draw [line width=1.5pt, black!20!teal] (iniPoint) ++(-6pt, -10pt) -- ++(12pt, 0);
+\draw[line width=1.5pt, black!20!teal] (iniPoint) ++(-6pt, -14pt)-- ++(12pt, 0);
+\end{scope}	
+}, 
+#1
+}
+\makeatother
+%===============================================
+%===========================================
+\tikzset{
+	page/.style={
+		color  = white ,
+		fill   = \cola ,
+		font   =\bfseries\fontsize{25}{25}\selectfont\sffamily ,
+		minimum size = .5in ,
+		yshift = 0.5in
+	}
+}
+%---------------------------------------------
+%===========================================
+%===============================================
+\newcommand{\SideBarNew}{\AddToShipoutPicture{
+		\begin{tikzpicture}[remember picture,overlay]
+		%\draw[pBlue] (current page.north west)--([shift={(1.5,0)}]current page.north west){[rounded corners=5pt]--++(0,-13)--++(-120:2)}
+		%|-(current page.south west)--cycle;
+		\fill [black!20!teal,blur shadow={shadow blur steps=5},opacity=0.5]
+		($(current page.north east)+(-3.2,-.25)$){[rounded corners=10pt]--++(-10,0)--++(0,-2)} --++(10,0)--cycle;
+		%=======================================================
+		\fill [\cola!90!black]
+		($(current page.north east)+(-2.2,-1.25)$) circle (21.5pt);
+		\fill [\cola]
+		($(current page.north east)+(-2.29,-.5)$){[rounded corners=10pt]--++(-6,0)--++(0,-1.5)} --++(6,0)--cycle;	
+		\node[white] at([shift={(-5.25,-1.25)}]current page.north east){\centering\fontsize{25}{25}\scshape\bfseries\selectfont{Exercices}};
+		%=========================================================
+		\draw[line width=1.5pt, black!20!teal]
+		([shift={(-.75, -.75)}]current page.north east) coordinate (A)|-([xshift=2cm,yshift=1cm]current page.south west)
+		to[out=180, in=-90] ([xshift=1cm,yshift=2cm]current page.south west)coordinate (B)
+		-- ([yshift=-1cm]B|-current page.north west)--++(1,0)coordinate (C);
+		\draw[black!20!teal,line width=4pt] (C)-- ++(10pt, 10pt) -- ++(10pt, -10pt)
+		-- ++(-10pt, -10pt)--cycle;
+		%=================================================
+		\draw[line width=3pt, black!20!teal] ([xshift=-12pt]A) -- ++(24pt, 0);
+		\draw [line width=1.5pt, black!20!teal] (A) ++(6pt, -10pt) -- ++(-12pt, 0);
+		\draw[line width=1.5pt, black!20!teal] (A) ++(6pt, -14pt)-- ++(-12pt, 0);
+		%================================================
+		\node[right,page] at ([yshift=-5pt]current page.south)
+		{\thepage} ;
+		%============================================
+		\fill[\cola] (current page.north west)--([shift={(.5,0)}]current page.north west){[rounded corners=5pt]--++(0,-14)--++(-120:.75)}
+		|-(current page.south west)--cycle;
+		%=====================================
+		\fill[col]([xshift=6pt]current page.south west) rectangle ++(6,.8);
+		\node[white] at([shift={(3,.4)}]current page.south west){{\Large\bfseries{Rezak Souilah}}};
+		\end{tikzpicture}
+}}
+\newcommand{\SideBarNewCurrent}{\AddToShipoutPicture*{%
+}}
+
+%start label for new stuff
+\newcommand{\NEW}{\SideBarNew}
+%=================================================
+\begin{document}
+\pagestyle{empty}
+\NEW
+	
+\begin{exo}{Séries numériques}
+Étudier la convergence des séries numériques de termes généraux suivants: 
+
+\[ 
+\begin{array}{lllll}
+\displaystyle \mathbf 1.\ u_n=\frac{n}{3^n}&&\displaystyle \mathbf 2.\ u_n=\frac{(-1)^n }{n^{2}}&&\displaystyle \mathbf 3.\  \ u_n=\frac{e^n}{2^{n}+1}\\
+\end{array}
+\]
+\end{exo}
+
+
+\begin{exo}{Suites de fonctions} 
+	Soit $f_{n}(x)=\frac{\sin\left(nx\right)}{1+n^{2}\,x^{2}}$ pour $x\in\mathbb{R}$. 
+	\begin{enumerate}
+		\item Montrer que $(f_{n})$ converge simplement sur $\mathbb{R}$ vers la fonction $f\equiv 0$.
+		\item La suite de fonctions $(f_{n})$ converge-t-elle uniformément vers $f$? 
+	\end{enumerate}
+	
+\end{exo}
+
+\begin{exo}{Equations différentielles}
+	Résoudre les équations différentielles suivantes:
+	\begin{enumerate}
+		\item $\displaystyle{y'-3 y = \textrm{e}^{x}} $
+		\item $\displaystyle{y''+2 y' - 3y = \textrm{e}^{-x}}$
+	\end{enumerate}
+\end{exo}
+
+\begin{exo}{Séries numériques}
+	Étudier la convergence des séries numériques de termes généraux suivants: 
+	
+	\[ 
+	\begin{array}{lllll}
+	\displaystyle \mathbf 1.\ u_n=\frac{n}{3^n}&&\displaystyle \mathbf 2.\ u_n=\frac{(-1)^n }{n^{2}}&&\displaystyle \mathbf 3.\  \ u_n=\frac{e^n}{2^{n}+1}\\
+	\end{array}
+	\]
+\end{exo}
+
+
+\begin{exo}{Suites de fonctions} 
+	Soit $f_{n}(x)=\frac{\sin\left(nx\right)}{1+n^{2}\,x^{2}}$ pour $x\in\mathbb{R}$. 
+	\begin{enumerate}
+		\item Montrer que $(f_{n})$ converge simplement sur $\mathbb{R}$ vers la fonction $f\equiv 0$.
+		\item La suite de fonctions $(f_{n})$ converge-t-elle uniformément vers $f$? 
+	\end{enumerate}
+	
+\end{exo}
+
+\end{document}

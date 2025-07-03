@@ -1,0 +1,136 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{ProfModels}
+
+ 
+\begin{document}
+
+
+\begin{Maquette}[Fiche]{Theme=La symétrie axiale ,Niveau=2}
+
+\begin{exercice}
+\begin{minipage}{.7\linewidth}
+On considère la figure ci-contre.
+\begin{enumerate}
+\item Construis $E$ le symétrique du point $M$ par rapport à $(BC)$.
+\item Construis $F$ le symétrique du point $M$ par rapport à $(AC)$.
+\item Construis $G$ le symétrique du point $M$ par rapport à $(AB)$.
+\item Que pouvez-vous dire des points $E$, $F$ et $G$.
+\end{enumerate}
+\end{minipage}%
+\begin{minipage}{.3\linewidth}
+\begin{tikzpicture}
+\tkzDefPoint(0,0){O}
+\tkzDefPoint(2,0){A}
+\tkzDrawCircle(O,A)
+
+\tkzDefPointOnCircle[through= center O angle 120 point A]
+\tkzGetPoint{B}
+\tkzDefPointOnCircle[through= center O angle -120 point A]
+\tkzGetPoint{C}
+
+\tkzDefPointOnCircle[through= center O angle 90 point A]
+\tkzGetPoint{M}
+
+\tkzDrawPoints(A,B,C,M)
+\tkzDrawSegments(A,B B,C C,A)
+\tkzLabelPoint[right](A){A}
+\tkzLabelPoint[above left](B){B}
+\tkzLabelPoint[above](M){M}
+\tkzLabelPoint[](C){C}
+\end{tikzpicture}
+\end{minipage}
+\end{exercice}
+
+\begin{exercice}
+On considère la figure ci-contre , tel que $(D_{1})//(D_{2})$ et $E$ le milieu de $[AB]$.
+\begin{enumerate}
+\item Construis $M$ le symétrique du point $E$ par rapport à $(D_{1})$.
+\item Construis $N$ le symétrique du point $E$ par rapport à $(D_{2})$.
+\item Montrer que $M$,$N$ et $E$ sont alignés.
+\item La droite $(MN)$ coupe $(D_{1}$ en $I$ et $(D_{2})$ en $J$. Montrer que $E$ est le milieu de $[IJ]$
+\end{enumerate}
+
+\begin{tikzpicture}
+\tkzDefPoint(3,3){A}
+\tkzDefPoint(-3,3){D}
+\tkzDefPoint(0,1){B}
+\tkzDefMidPoint(A,B)
+\tkzGetPoint{E}
+\tkzDefLine[parallel=through B](A,D)
+\tkzGetPoint{C}
+\tkzDrawLines(A,D B,C A,B)
+\tkzDrawPoints(A,B,E)
+\tkzLabelPoints(A,B,E)
+\tkzMarkSegments[mark=||](A,E E,B)
+\tkzLabelLine[pos=1.25,below left](A,D){$(D_1)$}
+\tkzLabelLine[pos=1.25,below left](B,C){$(D_2)$}
+\end{tikzpicture}
+\end{exercice}
+
+\begin{exercice}
+$ABC$ est un triangle isocèle en $A$.
+Soient $B'$ le symétrique de $B$ par rapport à $(AC)$ et $C'$ le symétrique de $C$ par rapport à $(AB)$.
+\begin{enumerate}
+\item Construis la figure.
+\item Montrer que $AC'=AB'$.
+\item En déduire que les points $B'$ , $C'$ , $C$ et $B$ appartiennent au même cercle.
+\item Montrer que $C'B=BC=CB'$.
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+$EFG$ est un triangle rectangle en $E$, tel que $EF=4$.
+\begin{enumerate}
+\item Construis le point $M$ le symétrique du point $E$ par rapport à la droite $(FG)$.
+\item Calculer la distance $FM$.
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+$ABC$ un triangle et $O$ le milieu du segment $[BC]$.
+\begin{enumerate}
+\item Construis les points $E$ et $F$ les symétriques de $B$ et $C$ respectivement par rapport à la droite $(AO)$.
+\item Déterminer le symétrique du segment $[BC]$ par rapport à la droite $(AO)$.
+\item Montrer que $O$ est le milieu du segment $[EF]$.
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+$ABC$ un triangle tel que $AB=3$ et $AC=5$ et $\widehat{ABC}=60^{\circ}$. Soit $M$ le milieu du segment $[AC]$.
+\begin{enumerate}
+\item Construire les points $E$ et $F$ les symétriques respectifs des points $A$ et $C$ par rapport à la droite $(BM)$.
+\item Calculer $EF$ et $BE$.
+\item Quelle est la mesure de l'angle $\widehat{BEF}$.
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+$ABCD$ un trapèze tel que $\widehat{ADC}=40^{\circ}$ et $I$ le milieu du segment $[CD]$.
+\begin{enumerate}
+\item Construire une figure convenable.
+\item Construire les points $D'$ , $C'$ et $I'$ les symétriques respectifs des points $D$ , $C$ et $I$ par rapport à $(AB)$.
+\item Montrer que les points $D'$ , $C'$ et $I'$ sont alignés.
+\item Montrer que $I'$ est le milieu du segment $[D'C']$.
+\item Quelle est la mesure de $\widehat{A'D'C'}$.
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+$C(O;r)$ et $C'(O';r)$ deux cercles de même rayon et ne sont pas sécantes.Soit $(\Delta)$ la médiatrice du segment $[OO']$.
+Soit $M$ un point de $(C)$ tel que la demi-droite $[OM)$ coupe $(\Delta)$ en $I$. Soit $M'$ le point d'intersection de la droite $(O'I)$ et le cercle $(C')$
+\begin{enumerate}
+\item Construire une figure convenable.
+\item Quel est le métrique du cercle $(C)$ par rapport à la droite  $(\Delta)$ .
+\item Montrer que $M'$ est le symétrique de $M$ par rapport à la droite  $(\Delta)$.
+\end{enumerate}
+\end{exercice}
+
+
+
+
+
+\end{Maquette}
+
+
+\end{document}

@@ -1,0 +1,131 @@
+\documentclass[a4paper,12pt]{article}
+
+
+\usepackage{ProfModels}
+\usepackage{diagrammes}
+ 
+\begin{document}
+
+\begin{Maquette}[Fiche]{Theme=Proportionnalité ,Niveau=2}
+\begin{exercice}
+Dans un immeuble, les charges payées sont proportionnelles à la surface au sol de la propriété pour
+chacun des propriétaires. Trouver la valeur de x, y et de z du tableau des charges de quelques propriétaires. 
+
+\begin{tabular}{|Oc|Oc|Oc|Oc|Oc|}
+\hline 
+Surface au sol en $m^{2}$ & x & 61.2 & y & 72.9 \\ 
+\hline 
+Montant des charges  & 82.32 & 171.36 & 189 & z \\ 
+\hline 
+\end{tabular} 
+\end{exercice}
+
+\begin{exercice}
+Sur une carte à l’échelle $\dfrac{1}{100000}$
+, deux villes sont séparées par 4,5 cm. Quelle est la distance réelle entre elles ? 
+\end{exercice}
+
+\begin{exercice}
+Un globule blanc monocyte est un disque de 0,002 mm de diamètre. On souhaite en faire un dessin à l’échelle
+$\dfrac{25000}{1}$ . Calculer le diamètre du disque à représenter à cette échelle. On donnera une réponse en cm. 
+\end{exercice}
+
+\begin{exercice}
+Une spore de fougère est représentée par un disque de 1 cm de diamètre. Son diamètre réel est de 0,5 mm. Quelle
+est l’échelle du schéma ? 
+\end{exercice}
+
+\begin{exercice}
+Une voiture roulant à vitesse constante, a parcouru 105 km en 1 h 15min. Combien de temps lui faudra-t-il pour
+parcourir 189 km ? 
+\end{exercice}
+
+\begin{exercice}
+Lorsqu’il a battu le record du monde de l’heure le 6 septembre 1956, le champion Chris
+Boardman a parcouru 27,06 m chaque fois qu’il a fait 3 tours de pédalier. Combien de tours de pédaliers a-t-il fait
+pour parcourir les 56,3759 km de son record ? 
+\end{exercice}
+
+\begin{exercice}
+Un train qui roule d’un mouvement uniforme à la vitesse de 80 km par heure défile en 12 s devant un passage à
+niveau. Calculer la longueur du train. 
+\end{exercice}
+
+\begin{exercice}
+Pour peindre un mur, un peintre mélange de la peinture blanche et de la peinture rouge. 
+Pour 2,5 L de peinture blanche, il met 1,7 L de peinture rouge. Les volumes de peinture blanche et de peinture rouge sont proportionnels. 
+Quel volume de peinture rouge ajoute-t-il à 3,5 L de peinture blanche ?
+\end{exercice}
+
+\begin{exercice}
+Un club de sports compte 260 membres dont 120 garçons.
+15\% des garçons et 25\% des filles participent à des compétitions.
+\begin{enumerate}
+\item Combien de garçons participent à des compétitions ?
+\item Combien de filles participent à des compétitions ?
+\item Quel pourcentage des membres de ce club participent à des compétitions ?
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+\begin{enumerate}
+\item Un cycliste parcourt 48 km en une heure et demie. Quelle est alors sa vitesse moyenne ?
+\item Plus tard, il fait le même trajet à la vitesse moyenne de 38,4 km/h. Combien de temps roule-t-il ?
+\item Quelle distance parcourt-il s'il roule pendant 1 h 40 min à la vitesse moyenne de 35 km/h ?
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+\begin{minipage}{0.6\linewidth}
+Le graphique donne, pour un opérateur téléphonique, le prix payé selon la durée de communication.
+\begin{enumerate}
+\item Ce graphique illustre-t-il une situation de
+proportionnalité ? Justifie.
+\item Quel est le prix à payer pour 25 minutes de
+communication ?
+\item Combien de temps peut-on téléphoner pour
+200 Dh ? Donne une valeur approchée en minutes.
+\end{enumerate}
+\end{minipage}%
+\begin{minipage}{0.4\linewidth}
+\begin{flushright}
+\begin{tikzpicture}
+\tkzInit[xmax=50,xstep=10,ymax=40,ystep=10]
+\tkzGrid[sub,subxstep=5,subystep=5]
+\tkzDrawX[label=min,right]
+\tkzDrawY[label=Dh,above]
+\tkzLabelX[orig=false]
+\tkzLabelY
+\tkzDefPoints{0/0/O,50/30/A}
+\tkzDrawLine[add=0.1 and 0.1](O,A)
+\end{tikzpicture}
+\end{flushright}
+\end{minipage}
+\end{exercice}
+
+\begin{exercice}
+Une entreprise propose deux tarifs pour la location d'un ordinateur. Le premier tarif est donné dans
+le tableau ci-dessous.
+
+\begin{tabular}{|Oc|Oc|Oc|Oc|}
+\hline 
+Nombre de jour de locaton & 1 & 2 & 5 \\ 
+\hline 
+Prix payé avec le tarif A en (Dh) & 150 & 300 & 750 \\ 
+\hline 
+\end{tabular} 
+\begin{enumerate}
+\item Le prix payé est-il proportionnel à la durée de location avec le tarif A ?
+\item Dans un repère (en prenant 1 cm pour 1 jour en abscisse et 1 cm pour 100 Dh en ordonnée), place
+les points correspondants au tarif A. Pourquoi la représentation est-elle une droite ?
+\item Avec le tarif B, le client paye un forfait de 200 Dh puis 100 Dh par jour de location. Calcule le prix payé
+avec le tarif B pour 1 jour de location puis pour 5 jours de location.
+\item Le prix payé est-il proportionnel à la durée de location avec le tarif B ?
+\item Détermine le tarif le plus avantageux pour 3 jours de location.
+\end{enumerate}
+\end{exercice}
+
+
+
+\end{Maquette}
+\end{document}

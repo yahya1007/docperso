@@ -1,0 +1,36 @@
+\documentclass{article}
+\usepackage{tikz}
+% ----------\rep[grid options](xmin,ymin)(xmax,ymax) -------
+\def\repadd{.5}
+\makeatletter
+\def\@repoption[#1](#2,#3)(#4,#5){
+\draw[help lines,#1] (#2-\repadd,#3-\repadd) grid (#4+\repadd,#5+\repadd);
+\draw [->,thick] (#2-\repadd,0) -- (#4+\repadd,0);
+\draw [->,thick] (0,#3-\repadd) -- (0,#5+\repadd);
+\foreach \i in {#2,...,#4}
+{\draw [thick](\i,.1) -- (\i,-.1)node[below left,font=\scriptsize]{$\i$};}
+\foreach \j in {#3,...,#5}
+{
+\draw [thick](.1,\j) \if\j0 \else -- (-.1,\j)node[below left,font=\scriptsize]{$\j$}\fi;}
+}
+\def\rep{
+\@ifnextchar[\@repoption{\@repoption[]}
+}
+\makeatother
+%----------------------------------------------------------
+
+\begin{document}
+\begin{center}
+\begin{tikzpicture}
+\rep[dashed,blue!30](-4,-3)(7,5)
+% draw function
+ \draw[scale=1, domain=-3:5, smooth, variable=\x, blue] plot (2, {\x});
+  \draw[scale=1, domain=-3:3, smooth, variable=\y, red]  plot ({\y*\y}, {\y});
+\end{tikzpicture}
+\bigskip
+\begin{tikzpicture}
+\rep[blue!30](-4,-1)(5,1)
+% draw function
+\end{tikzpicture}
+\end{center}
+\end{document}

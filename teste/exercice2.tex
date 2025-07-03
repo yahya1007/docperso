@@ -1,0 +1,62 @@
+\documentclass{article}
+\usepackage{lipsum}
+\usepackage[many]{tcolorbox} 
+\tcbuselibrary{skins}
+\xdefinecolor{pBlue}{RGB}{102, 53, 153}
+\newtcolorbox[auto counter, number within=section]{myex}[1][]{%
+  before=\bigskip\centering,
+  after=\bigskip,
+  breakable, 
+  enhanced, 
+  colback=white, 
+  frame hidden, 
+  sharp corners, 
+  rounded corners=southeast,
+  arc=25pt, 
+  fonttitle=\sffamily, % \bfseries,
+  title=Ex~\thetcbcounter,
+  attach boxed title to top left={xshift=5pt}, 
+  boxed title style={%
+    enhanced, 
+    colframe=pBlue, 
+    colback=pBlue, 
+    borderline east={1.5pt}{8pt}{white}, 
+    borderline east={1.5pt}{3.5pt}{white},
+    borderline east={3.5pt}{0pt}{white},    
+    borderline east={2.75pt}{0.25pt}{pBlue!50},    
+    borderline east={2.75pt}{-4pt}{pBlue!20},    
+    bottomrule=0pt, 
+    rightrule=5pt, 
+    sharp corners, 
+  }, 
+  interior style={}, 
+  overlay={%
+    \begin{scope}[line width=1.5pt, pBlue]
+      \fill[shade, bottom color=pBlue!30, top color=white]
+      ([xshift=-30pt]frame.south east)
+      to[out=0, in=-90] ([yshift=30pt]frame.south east)
+      -- ([shift={(-1pt, 15pt)}]frame.south east)
+      to[out=-90, in=0] ([xshift=-25pt]frame.south east);
+      \draw
+      ([shift={(-1pt, 19pt)}]frame.north west) coordinate (iniPoint)
+      -- ([xshift=-1pt]frame.south west)
+      -- ([xshift=-30pt]frame.south east)
+      to[out=0, in=-90] ([yshift=30pt]frame.south east)
+      -- (frame.north east) -- ++(-2.5, 0) coordinate (endPoint);
+      \draw (endPoint) -- ++(-3pt, 3pt) -- ++(-3pt, -3pt)
+      -- ++(3pt, -3pt) -- cycle;
+      \draw (iniPoint) -- ++(4pt, 0) -- ++(-8pt, 0);
+      \draw (iniPoint) ++(0, -10pt) -- ++(6pt, 0) -- ++(-12pt, 0);
+      \draw (iniPoint) ++(0, -14pt) -- ++(6pt, 0) -- ++(-12pt, 0);
+    \end{scope}
+  }
+}
+\begin{document}
+
+\section{Test}
+
+\begin{myex}
+  What is meant by \textbf{electron affinity}:
+  \lipsum[3]
+\end{myex} 
+\end{document}

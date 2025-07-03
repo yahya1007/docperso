@@ -1,0 +1,76 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{ProfModels}
+
+ 
+\begin{document}
+
+\begin{Maquette}[DM]{Prive=false, Numero=2, Niveau=3, Date=\today}
+
+\begin{exercice}
+\begin{enumerate}
+\item Comparer a et b en justifiant la réponse :
+
+\begin{minipage}{.5\linewidth}
+\begin{itemize}
+\item $ a=\sqrt{8}$ et $ b=3\sqrt{2}$
+\item $a=5-2\sqrt{3} $ et $  b=4-\sqrt{12}$
+\end{itemize}
+\end{minipage}
+\begin{minipage}{.5\linewidth}
+\begin{itemize}
+\item $ a=(\sqrt{3}+\sqrt{2})^{2}$ et $ b=2\sqrt{6}$
+\item $ a=-5\sqrt{3}$ et $ b=-\sqrt{76}$
+\end{itemize}
+\end{minipage}
+\begin{minipage}{.5\textwidth}
+\item Soient $2\leq x\leq 5$ et $-3\leq y\leq -1$
+\begin{itemize}
+\item Encadrer $2x+1$ et $-4y+5$
+\item Encadrer $x+y$ et $x-y$
+\item Encadrer $x^{2}$ et $y^{2}$ et $xy$
+\end{itemize}
+\end{minipage}
+\begin{minipage}{.5\textwidth}
+\item Sachant que : $0.6\leq \dfrac{-2a+1}{5} \leq 1.4$
+\begin{itemize}
+\item[a)] Montrer que : $-3\leq a \leq -1$
+\item[b)] Donner un encadrement de $a^{2}$
+
+ puis $(a+4)^{2}$
+\end{itemize}
+\end{minipage}
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+$ABCD$ est un parallélogramme. Soient $E$ et $I$ deux points de $[AB]$ et $[AC]$ respectivement tels que : $(IE)$ et $(BC)$ sont parallèles et $AB=10$ ; $BC=8$ ; $AI=3$ et $AE=6$.
+\begin{enumerate}
+\item Calculer $AC$ et $IE$.
+\item Soit $F$ un point de $[AD]$ tel que : $AF=4.8$
+\begin{itemize}
+\item[a.]Comparer les rapports : $\dfrac{AI}{AC}$ et $\dfrac{AF}{AD}$
+\item[b.]En déduire que $(IF)$ et $(DC)$ sont parallèles.
+\item Démontrer que $(BD)$ et $(EF)$ sont parallèles.
+\end{itemize}
+\end{enumerate} 
+\begin{tikzpicture}
+\tkzDefPoints{0/0/A,6/1/B,-2/5/C}
+\tkzDefPointOnLine[pos=0.7](A,B)\tkzGetPoint{E}
+\tkzDefParallelogram(A,B,C)\tkzGetPoint{D}
+\tkzDefPointOnLine[pos=0.7](A,D)\tkzGetPoint{F}
+\tkzDefParallelogram(F,A,E)\tkzGetPoint{I}
+\tkzDrawPolygon(A,B,C,D)
+\tkzDrawPoints(E,F,I)
+\tkzDrawPoints(A,B,C,D)
+\tkzDrawSegments(A,C E,I F,I)
+\tkzDrawSegments[dashed](E,F B,D)
+\tkzLabelPoints(A,B,D)
+\tkzLabelPoints(E,F,I)
+\tkzLabelPoints[above](C)
+\end{tikzpicture}
+\end{exercice}
+\end{Maquette}
+
+
+\end{document}

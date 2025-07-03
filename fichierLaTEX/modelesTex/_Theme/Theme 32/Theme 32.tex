@@ -1,0 +1,183 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage{array}
+\usepackage{polyglossia}
+\usepackage{geometry}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{amsmath,amssymb}
+\usepackage{pifont}
+\usepackage{fancybox}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+\usepackage{mathrsfs} % pour \mathscr
+\usepackage{tcolorbox,varwidth}
+\usepackage{fontspec}
+\tcbuselibrary{skins,breakable}
+\usepackage{pgf,tikz,pgfplots}
+\setmainfont[Scale=1.1]{Times New Roman}
+\usetikzlibrary{arrows}
+\pgfplotsset{compat=1.15}
+\pagestyle{empty}
+\usepackage{pgfornament}
+\usepackage{tasks}
+\usepackage{psvectorian}
+\usepackage{lastpage}
+\usepackage{eso-pic,graphicx}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Cc}{\mathbb{C}}
+\newcounter{numexo}
+\setcounter{numexo}{1}
+\newcommand{\numexo}{Exercice \thenumexo \addtocounter{numexo}{1} }
+\geometry{
+paperwidth=21cm,
+left=1cm,
+right=1cm,
+paperheight=29.7cm,
+top=.5cm,
+height=24.5cm,
+headheight=12.0pt,
+headsep=1cm,
+footskip=.5cm,
+bottom=1cm
+}
+\rfoot{\textit{}} %Bonne chance
+\cfoot{\textit{\underline{Page ~ \thepage ~ sur ~ \pageref{LastPage}}}}
+\renewcommand{\headrulewidth}{0.1mm}
+\renewcommand{\footrulewidth}{0.1mm}
+\renewcommand{\baselinestretch}{1}
+\pagestyle{fancy}
+%================= New box ======================
+\usepackage{varwidth}
+\newtcolorbox{mynewbox}[2][]{skin=enhancedlast jigsaw,breakable,interior hidden,
+boxsep=4pt,top=0pt,colframe=violet,coltitle=violet!50!black,
+fonttitle=\bfseries\sffamily,
+attach boxed title to top center,
+boxed title style={empty,boxrule=0.5mm},
+varwidth boxed title=0.5\linewidth,
+underlay boxed title={
+\draw[white,line width=0.5mm]
+([xshift=0.3mm-\tcboxedtitleheight*2,yshift=0.3mm]title.north west)
+--([xshift=-0.3mm+\tcboxedtitleheight*2,yshift=0.3mm]title.north east);
+\path[draw=violet,top color=white,bottom color=violet!50!white,line width=0.5mm]
+([xshift=0.25mm-\tcboxedtitleheight*2,yshift=0.25mm]title.north west)
+cos +(\tcboxedtitleheight,-\tcboxedtitleheight/2)
+sin +(\tcboxedtitleheight,-\tcboxedtitleheight/2)
+-- ([xshift=0.25mm,yshift=0.25mm]title.south west)
+-- ([yshift=0.25mm]title.south east)
+cos +(\tcboxedtitleheight,\tcboxedtitleheight/2)
+sin +(\tcboxedtitleheight,\tcboxedtitleheight/2); },
+title={#2},#1}
+%================================================
+\begin{document}
+\begin{center}
+{\Large\textit{\textcolor{violet}{1er BAC Sciences Expérimentales - Fr}}} \vspace*{0.5cm} \\
+{\Large \bf Série : Limite d'une fonction numérique } \\
+\end{center}
+\vspace*{-0.7cm}
+\begin{center}
+\rule{0.75\linewidth}{1pt}
+\end{center}
+\begin{multicols}{2}
+\begin{mynewbox}{\numexo}
+Calculer les limites suivantes:
+\begin{tasks}(2)
+\task $\lim\limits_{x \rightarrow 0} x^{2}-4 x+1$
+\task $\lim\limits_{x \rightarrow-1} 3 x^{4}-x^{2}+3$
+\task $\lim\limits_{x \rightarrow+\infty} 3 x^{2}-x+3$
+\task $\lim\limits_{x \rightarrow-\infty} x^{2}-x+3$
+\end{tasks}
+\end{mynewbox}
+\begin{mynewbox}{\numexo}
+Calculer les limites suivantes:
+\begin{tasks}(2)
+\task $\lim\limits_{x \rightarrow+\infty} \cfrac{x^{2}-x}{x^{2}-4 x+1}$
+\task $\lim\limits_{x \rightarrow-\infty} \cfrac{x^{2}-4 x}{1+x}$
+\task $\lim\limits_{x \rightarrow+\infty} \cfrac{-x^{2}+3}{3 x^{4}+x+2}$
+\task $\lim\limits_{x \rightarrow+\infty} 3 x^{4}-\cfrac{x^{2}+3}{1+x}$
+\end{tasks}
+\end{mynewbox}
+\begin{mynewbox}{\numexo}
+Calculer les limites suivantes:
+\begin{tasks}(2)
+\task $\lim\limits_{x \rightarrow 2} \cfrac{x^{2}-x}{-2 x+4}$
+\task $\lim\limits_{x \rightarrow 0} \cfrac{x^{2}+5 x-1}{x^{2}}$
+\task $\lim\limits_{x \rightarrow-2} \cfrac{x^{3}+5 x}{x^{2}+4 x+4}$
+\task $\lim\limits_{x \rightarrow 2^{-}} \cfrac{-x^{2}+x}{x-2}$
+\task $\lim\limits_{x \rightarrow 1^{+}} \cfrac{x^{2}+x}{x-1}$
+\task $\lim\limits_{x \rightarrow 1^{+}} \cfrac{1+x^{2}}{x^{2}-3 x+2}$
+\end{tasks}
+\end{mynewbox}
+\begin{mynewbox}{\numexo}
+Calculer les limites suivantes:
+\begin{tasks}(2)
+\task $\lim\limits_{x \rightarrow 1} \cfrac{x^{2}-x}{x^{2}-1}$
+\task $\lim\limits_{x \rightarrow 1} \cfrac{1-x^{2}}{x^{2}-5 x+4}$
+\task $\lim\limits_{x \rightarrow-2^{+}} \cfrac{4-x^{2}}{x^{2}+4 x+4}$
+\task $\lim\limits_{x \rightarrow 1} \cfrac{x^{2}+x-2}{x-1}$
+\end{tasks}
+\end{mynewbox}
+\begin{mynewbox}{\numexo}
+Calculer les limites suivantes:
+\begin{tasks}(2)
+\task $\lim\limits_{x \rightarrow-\infty} \sqrt{x^{2}+2 x-5}$
+\task $\lim\limits_{x \rightarrow-\infty} \sqrt{4 x^{2}-3}-2 x$
+\task $\lim\limits_{x \rightarrow+\infty} \sqrt{x^{2}+3}-x$
+\task $\lim\limits_{x \rightarrow+\infty} \cfrac{\sqrt{x^{2}-4}}{x-2}$
+\task $\lim\limits_{x \rightarrow-\infty} \cfrac{x^{2}-x \sqrt{x}}{x^{2}-1}$
+\task $\lim\limits_{x \rightarrow+\infty} \cfrac{x}{\sqrt{x^{2}+1}-1}$
+\end{tasks}
+\end{mynewbox}
+\begin{mynewbox}{\numexo}
+Calculer les limites suivantes:
+\begin{tasks}(2)
+\task $\lim\limits_{x \rightarrow 1}\left(\frac{\sqrt{2 x+1}-3}{x-4}\right)$
+\task $\lim\limits_{x \rightarrow 1}\left(\frac{x-1}{\sqrt{x}-1}\right)$
+\task $\lim\limits_{x \rightarrow 0}\left(\frac{\sqrt{4-x}-\sqrt{4+x}}{x}\right)$
+\task $\lim\limits_{x \rightarrow 1^{+}} \frac{\sqrt{2+x}}{x^{2}-x-2}$
+\end{tasks}
+\end{mynewbox}
+\begin{mynewbox}{\numexo}
+Calculer les limites suivantes:
+\begin{tasks}(2)
+\task $ \lim\limits_{x \rightarrow 0} \cfrac{\sin 3 x}{x}$
+\task $ \lim\limits_{x \rightarrow 0} \cfrac{1-\cos x}{x}$
+\task $ \lim\limits_{x \rightarrow 0} \cfrac{\tan x}{\sin 2 x}$
+\task $ \lim\limits_{x \rightarrow 0} \cfrac{\sin x}{2 x}$
+\task $ \lim\limits_{x \rightarrow 0} \cfrac{\sin (x)}{\sqrt{x+1}-1}$
+\task $ \lim\limits_{x \rightarrow 0} \cfrac{\sin (2 x)}{\sin (4 x)}$
+\end{tasks}
+\end{mynewbox}
+\begin{mynewbox}{\numexo}Calculer les limites suivantes:
+\begin{tasks}(2)
+\task $\lim\limits_{x \rightarrow+\infty} \cfrac{|x|-5}{|x+5|}$
+\task $\lim\limits_{x \rightarrow 1^{-}} \cfrac{x-1}{\left|x^{2}-1\right|}$
+\task $\lim\limits_{x \rightarrow+\infty}\left|3 x^{2}-4 x+1\right|$
+\task $\lim\limits_{x \rightarrow+\infty}|2 x-1|-3 x$
+\end{tasks}
+\end{mynewbox}
+\begin{mynewbox}{\numexo}
+\begin{enumerate}
+\item Soit $f$ la fonction définie sur $\mathbb{R}^{*}$ par: $$ f(x)=1+\cfrac{\sin x}{x} $$
+Déterminer la limite de la fonction $f$ en $+\infty$.
+\item Montrer que pour tout réel strictement positif: $$ \cfrac{x-1}{x+1} \leq \cfrac{x-\sin x}{x+1} \leq 1 $$
+En déduire la limite de la fonction $u$ définie sur $\mathbb{R}_{+}^{*}$ par: $\cfrac{x-\sin x}{x+1}$
+\end{enumerate}
+\end{mynewbox}
+\begin{mynewbox}{\numexo}
+Soit $f$ la fonction définie sur $I =] 0 ; 3\left[\right.$ par $$ f(x)=\cfrac{3 x-1}{x^{2}-3 x} $$
+\begin{enumerate}
+\item Étudier le signe de $f$ sur l'intervalle $\boldsymbol{I}$.
+\item Calculer les limites de $f$ aux bornes de $\boldsymbol{I}$.
+\end{enumerate}
+\end{mynewbox}
+\begin{mynewbox}{\numexo}
+Soit $\boldsymbol{u}$ une fonction définie sur $ ] 0 ;+\infty[$ telle que pour tout $x \in[1 ;+\infty[, \quad 0 \leq u(x) \leq x .$\\
+Et soit $f$ la fonction définie sur $] 0 ;+\infty[$ par :
+$$ f(x)=1+\cfrac{u(x)}{x^{2}} $$
+Montrer que si $x \geq 1, |f(x)-1| \leq \cfrac{1}{x}$.\\
+En déduire $\lim\limits_{x \rightarrow+\infty} f(x)$
+\end{mynewbox}
+\end{multicols}
+\end{document}

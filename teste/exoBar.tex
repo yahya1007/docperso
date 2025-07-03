@@ -1,0 +1,104 @@
+\documentclass{article}
+\usepackage{xstring}
+\usepackage{calculator}
+\usepackage{ifthen}
+\newcommand\ptTovirg[1]{\StrSubstitute{#1}{.}{,}}
+
+\newcommand\getvalueExpand[1]{%
+\directlua{
+tex.sprint(store["\luaescapestring{#1}"])
+}%
+}
+\newcommand\printCompExo[2][tiny]{%
+	\ifthenelse{\equal{#1}{tiny}}{%
+		\IfSubStr{#2}{Ca}{\circledCompTiny{Ca}}{}%
+		\IfSubStr{#2}{Ch}{\circledCompTiny{Ch}}{}%
+		\IfSubStr{#2}{Co}{\circledCompTiny{Co}}{}%
+		\IfSubStr{#2}{Ra}{\circledCompTiny{Ra}}{}%
+		\IfSubStr{#2}{Re}{\circledCompTiny{Re}}{}%
+		\IfSubStr{#2}{Mo}{\circledCompTiny{Mo}}{}%
+	}
+	{
+		\ifthenelse{\equal{#1}{mini}}{%
+			\IfSubStr{#2}{Ca}{\circledCompTinyTiny{Ca}}{}%
+			\IfSubStr{#2}{Ch}{\circledCompTinyTiny{Ch}}{}%
+			\IfSubStr{#2}{Co}{\circledCompTinyTiny{Co}}{}%
+			\IfSubStr{#2}{Ra}{\circledCompTinyTiny{Ra}}{}%
+			\IfSubStr{#2}{Re}{\circledCompTinyTiny{Re}}{}%
+			\IfSubStr{#2}{Mo}{\circledCompTinyTiny{Mo}}{}%
+		}%
+		{
+			\IfSubStr{#2}{Ca}{\circledComp{Ca}}{}%
+			\IfSubStr{#2}{Ch}{\circledComp{Ch}}{}%
+			\IfSubStr{#2}{Co}{\circledComp{Co}}{}%
+			\IfSubStr{#2}{Ra}{\circledComp{Ra}}{}%
+			\IfSubStr{#2}{Re}{\circledComp{Re}}{}%
+			\IfSubStr{#2}{Mo}{\circledComp{Mo}}{}%
+		}%
+	}%
+}
+
+%%%%%% Formats Questions %%%%%
+\newlength{\margenotes}
+\setlength{\margenotes}{1cm}
+
+
+\newcommand\CompExo{}
+\newcommand\strCompExo{}
+\newlength{\compareG}
+\newlength{\compareD}
+
+\newcommand\motPoints[2][point]
+{%
+	\setlength{\compareG}{#2 pt}%
+	\setlength{\compareD}{2 pt}%
+	#1\ifthenelse{\lengthtest{\compareG<\compareD}}{}{s}%
+}
+
+\newenvironment{exercice}[1]
+{%
+	\GLOBALCOPY{0}{\pointsExo}%
+	\section{#1}
+		\vspace{-5ex}
+		\edef\refexo{\thesection}
+		\renewcommand{\CompExo}{\printCompExo{\getvalueExpand{strcompexo\refexo}}}
+		\renewcommand\strCompExo{}%
+		\def\valuePoints{\getvalueExpand{pointsexo\refexo}}
+		\hfill\CompExo~\textit{(\ptTovirg{\valuePoints}~\motPoints{\valuePoints})}
+}
+{%
+	\edef\refexo{\thesection}
+	\setvalueExpand{pointsexo\refexo}{\pointsExo}
+	\setvalueExpand{strcompexo\refexo}{\strCompExo}
+}
+
+\newcommand{\question}[4]
+{%
+	\ADD{#1}{\pointsExo}{\pointsExo}
+	\GLOBALCOPY{\pointsExo}{\pointsExo}
+	\xappto\strCompExo{#2}
+	\item{\begin{tblr}[t]{measure=vbox, colspec={XQ[r,wd=\margenotes]},colsep=0pt}
+			{\raggedright#3}& {\small{\textit{(\ptTovirg{#1})}}}\\
+		\end{tblr}}%
+}
+
+
+
+
+
+
+
+
+
+
+
+\begin{document}
+
+\begin{exercice}{exercice 1}
+\question{2}{2}{3}
+
+\end{exercice}
+
+
+
+\end{document}

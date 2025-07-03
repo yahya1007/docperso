@@ -1,0 +1,48 @@
+\documentclass[12pt,a4paper]{article} 
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[left=0.5cm,top=1cm,right=0.5cm,bottom=1.5cm]{geometry}
+\usepackage{amsmath,amssymb,amsfonts} 
+\usepackage{eso-pic} 
+\usepackage[most]{tcolorbox} 
+\pagestyle{empty} 
+\definecolor{col1}{RGB}{30, 88, 77} 
+\definecolor{col2}{RGB}{79, 134, 123} 
+\definecolor{col3}{RGB}{179, 146, 102}
+\definecolor{col4}{RGB}{201, 124, 58}
+\definecolor{col5}{RGB}{113, 117, 120}
+\AddToShipoutPicture{% 
+\begin{tikzpicture}[remember picture,overlay]
+\fill[outer color=col1,inner color=col2] (current page.north west)rectangle (current page.south east);
+\fill[col4] (current page.north west)rectangle ([yshift=-0.5cm]current page.north east); 
+\fill[col4] (current page.south west)rectangle ([yshift=0.5cm]current page.south east);
+\draw[line width=4pt,col5] ([shift={(0,0.22)}]current page.south west)-- ([shift={(0,0.22)}]current page.south east);
+\fill[col4!55] ([yshift=0.2cm,xshift=2.5cm]current page.south west)rectangle ++(1.8,0.5);
+\fill[col4] ([yshift=0.7cm,xshift=2.5cm]current page.south west)rectangle ++(1.8,0.3);
+\draw[line width=4pt,white] ([shift={(6,0.46)}]current page.south west)-- ++(0.8,0);
+\draw[line width=4pt,white] ([shift={(6,0.3)}]current page.south west)-- ++(0.8,0);
+\draw[line width=4pt,white!95!black] ([shift={(6,0.3)}]current page.south west)-- ++(0.8,0.5);
+\end{tikzpicture} } 
+\color{white}
+\paperheight=16.3cm
+\textheight =13.5cm
+\usepackage[T1]{fontenc}
+\DeclareFontFamily{T1}{pzc}{}
+\DeclareFontShape{T1}{pzc}{mb}{it}{<->s*[1.2] pzcmi8t}{}
+\DeclareFontShape{T1}{pzc}{m}{it}{<->ssub * pzc/mb/it}{}
+\DeclareFontShape{T1}{pzc}{mb}{sl}{<->ssub * pzc/mb/it}{}
+\DeclareFontShape{T1}{pzc}{m}{sl}{<->ssub * pzc/mb/sl}{}
+\DeclareFontShape{T1}{pzc}{m}{n}{<->ssub * pzc/mb/it}{}
+\usepackage{chancery}
+\usepackage{mathastext}
+\linespread{1.05}
+\begin{document}\boldmath
+\section*{\textcolor{yellow}{Schéma de correction de pression}}
+Considérons une partition $0=t_{0}<t_{1}<\ldots<t_{N}=T$ de l'intervalle de temps $[0, T]$ que nous supposons uniforme. Soit $\delta t=t_{n+1}-t_{n}$ pour $n=0,1, \ldots, N-1$ soit le pas de temps constant. Le schéma correction de pression considéré ici consiste en deux étapes:\\
+ Mise \ à \ l�échelle \ du \ gradient \ de \ pression: \\
+ $$ \forall \sigma \in \mathcal{E}_{int }, \quad(\bar{\nabla} p)_{\sigma}^{n+1}=\left(\frac{\rho_{D}^{n}}{\rho_{D}^{n-1}}\right)^{1 / 2}\left(\nabla p^{n}\right)_{\sigma}$$
+ \\
+ Etape \ de \ prédiction � Résoudre \ en \ $\tilde{u}^{n+1}$: \\
+ Pour \  $1 \le i \le d$, $\forall \sigma \in \mathcal{E}_{S}^{(i)}$  \\
+ $$\frac{1}{\delta t}\left(\rho_{D_{\sigma}}^{n} \tilde{u}_{\sigma, i}^{n+1}-\rho_{D_{\sigma}}^{n-1} u_{\sigma, i}^{n}\right)+\operatorname{div}\left(\rho^{n} \tilde{u}_{i}^{n+1} u^{n}\right)_{\sigma}-\operatorname{div} \tau\left(\bar{u}^{n+1}\right)_{\sigma, i}+(\bar{\nabla} p)_{\sigma, i}^{n+1}=0$$
+\end{document}

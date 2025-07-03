@@ -1,0 +1,74 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{tikz}
+\usetikzlibrary{calc,scopes,backgrounds}
+\usetikzlibrary{shadows.blur,shadings}
+\usepackage[most]{tcolorbox} 
+\parindent=0pt
+\newtcolorbox{rounbox}[2][blue]{breakable,enhanced,detach title,blanker,title={\color{white}\bf\large{\sffamily #2}},
+ before skip=0.4cm,
+ after skip=0.5cm,bottom=4mm,top=1.2cm,left=4mm
+ ,right=4mm,
+ overlay={
+ \path[fill=#1!5](frame.north west)rectangle
+ (frame.south east);
+ \draw[#1,line width=1pt](frame.north west)--
+ (frame.south west);
+ \fill[black!60] ([xshift=1cm,yshift=5pt]interior.north west)-- ([xshift=0.8cm,yshift=0cm]interior.north west)--([xshift=1.2cm,yshift=0cm]interior.north west)--cycle;
+ \node[rectangle,text=white, drop shadow={opacity=.3, shadow xshift=-0.1cm}, inner sep=1.5mm,fill=#1,
+ anchor=north west,rounded corners=2pt] at ([yshift=0.2pt]interior.north west) {\phantom{\rule{1.5em}{0pt}}\tcbtitle};
+ \fill[color=#1,drop shadow={opacity=0.3,shadow xshift=1.5pt}]
+ ([xshift=1cm,yshift=5pt]interior.north west) {[rounded corners=3pt]--++(-1cm-5pt,0)}--++(0,-1cm-5pt)--cycle;
+ \fill[color=black!60] ([xshift=-5pt,yshift=-1cm]interior.north west)--([xshift=0cm,yshift=-0.8cm]interior.north west)-- ([xshift=0cm,yshift=-1.2cm]interior.north west)--cycle;
+ \fill[#1,drop shadow={opacity=0.3,shadow xshift=-1pt, shadow yshift=3pt}]
+ ([xshift=-0.05\linewidth,yshift=-5pt]interior.south east) {[rounded corners=3pt]--++(0.05\linewidth+5pt,0)}--++(0,0.05\linewidth+5pt)--cycle;
+ \fill[black!60] ([xshift=-0.05\linewidth,yshift=-5pt]interior.south east) -- ([xshift=-0.04\linewidth,yshift=0pt]interior.south east)-- ([xshift=-0.06\linewidth,yshift=0pt]interior.south east)--cycle;
+ \fill[black!60] ([xshift=5pt,yshift=0.05\linewidth]interior.south east)-- ([yshift=0.04\linewidth]interior.south east) -- ([yshift=0.06\linewidth]interior.south east)--cycle;
+ },overlay first={
+ \path[fill=#1!5](frame.north west)rectangle
+ (frame.south east);
+ \draw[#1,line width=1pt](frame.north west)--
+ (frame.south west);
+ \fill[black!60] ([xshift=1cm,yshift=5pt]interior.north west)-- ([xshift=0.8cm,yshift=0cm]interior.north west)--([xshift=1.2cm,yshift=0cm]interior.north west)--cycle;
+ \node[rectangle,text=white, drop shadow={opacity=.3, shadow xshift=-0.1cm}, inner sep=1.5mm,fill=#1,
+ anchor=north west,rounded corners=2pt] at ([yshift=0.2pt]interior.north west) {\phantom{\rule{1.5em}{0pt}}\tcbtitle};
+ \fill[color=#1,drop shadow={opacity=0.3,shadow xshift=1.5pt}]
+ ([xshift=1cm,yshift=5pt]interior.north west) {[rounded corners=3pt]--++(-1cm-5pt,0)}--++(0,-1cm-5pt)--cycle;
+ \fill[color=black!60] ([xshift=-5pt,yshift=-1cm]interior.north west)--([xshift=0cm,yshift=-0.8cm]interior.north west)-- ([xshift=0cm,yshift=-1.2cm]interior.north west)--cycle;
+ },
+ overlay middle={
+ \path[fill=#1!10](interior.north west)rectangle
+ (interior.south east);
+ \draw[#1,line width=1pt](frame.north west)--
+ (frame.south west);
+ },overlay last={
+ \path[fill=#1!10](interior.north west)rectangle
+ (interior.south west);
+ \draw[#1,line width=1pt](frame.north west)--
+ (frame.south west);
+ \fill[#1,drop shadow={opacity=0.3,shadow xshift=-1pt,shadow yshift=2pt}]
+ ([xshift=-0.05\linewidth,yshift=-5pt]interior.south east) {[rounded corners=3pt]--++(0.05\linewidth+5pt,0)}--++(0,0.05\linewidth+5pt)--cycle;
+ \fill[black!60] ([xshift=-0.05\linewidth,yshift=-5pt]interior.south east) -- ([xshift=-0.04\linewidth,yshift=0pt]interior.south east)-- ([xshift=-0.06\linewidth,yshift=0pt]interior.south east)--cycle;
+ \fill[black!60] ([xshift=5pt,yshift=0.05\linewidth]interior.south east)-- ([yshift=0.04\linewidth]interior.south east) -- ([yshift=0.06\linewidth]interior.south east)--cycle;
+}}
+\usepackage{enumitem}
+\newcommand\circitem[2][black]{%
+ \tikz[baseline=(a.base)]{
+ \node[circle,text=#1,line width=0pt,
+ minimum size=1.2em,inner sep=0] (a) {\color{red}#2};
+ \draw[#1,line width=0.7pt,red] (a.135)arc(135:-90:0.6em)--++(-0.8em,0);
+}} 
+\setlist[enumerate,1]{label=\protect\circitem{\arabic*}}
+\setlist[enumerate,2]{label=\protect\circitem{\alph*}}
+\begin{document}
+ \begin{rounbox}{Accroissements finis et suites récurrentes}
+ On considère une suite $\left(u_n\right)$ vérifiant la relation de récurrence $u_{n+1}=f\left(u_n\right)$ où $f$ est une fonction dérivable sur un intervalle I. Si
+ \begin{enumerate}
+ \item  il existe un réel $k>0$ tel que $\forall x \in I, \quad\left|f^{\prime}(x)\right| \leq k$
+ \item  il existe un réel $\alpha$ de $I$ tel que $f(\alpha)=\alpha$
+ \item  $\forall n, u_n \in I$
+ \end{enumerate}
+ Alors: $\quad \forall n, \quad\left|u_{n+1}-\alpha\right| \leq k\left|u_n-\alpha\right|$
+ \end{rounbox}
+\end{document}

@@ -1,0 +1,58 @@
+\documentclass[xcolor=dvipsnames]{beamer} 
+\usetheme{Madrid}
+\usepackage{booktabs}
+\useoutertheme{miniframes} 
+\useinnertheme{circles}
+\definecolor{UBCblue}{rgb}{0.05869, 0.13725, 0.26667} 
+\usecolortheme[named=UBCblue]{structure} % you can change colortheme here
+\title[LaTeX Beamer Presentation Title]{ LaTeX Beamer Presentation Title}
+\date{\today}
+\author[Sofyane ]{Name Academy}
+\institute[Templates LaTeX Beamer]{ \LaTeX }
+\begin{document}
+\begin{frame}
+  \titlepage
+\end{frame}
+\begin{frame}
+\tableofcontents
+\end{frame}
+\section{First Section}
+\subsection{First Subsection}
+\subsection{Second Subsection}
+\subsection{Third Subsection}
+\begin{frame}
+ Here is some List items
+ \begin{enumerate}
+ \item List item 1
+ \item List item 2
+ \end{enumerate}
+ Here is an alertblock
+ \begin{alertblock}
+ aaaaa
+ \end{alertblock}
+ Here is a block
+ \begin{block}
+ text here
+ \end{block}
+ Here is an example block
+ \begin{exampleblock}
+ text here
+ \end{exampleblock}
+\end{frame}
+\section{Second Section}
+\begin{frame}
+\begin{table}[ht]
+\centering
+\caption{Thicker horizontal lines above and below the table.}
+\begin{tabular}[t]{lcc}
+\toprule
+&Treatment A&Treatment B\\
+\midrule
+John Smith&1&2\\
+Jane Doe&--&3\\
+Mary Johnson&4&5\\
+\bottomrule
+\end{tabular}
+\end{table}
+\end{frame}
+\end{document}

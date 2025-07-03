@@ -1,0 +1,105 @@
+\documentclass{article}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usetikzlibrary{shadows,shadows.blur}
+\usepackage{anyfontsize}
+\usepackage{pdfrender}
+%============================================
+\definecolor{myblue3}{RGB}{36, 57, 126}
+\definecolor{YankeesBlue}{RGB}{28,40,65}
+\definecolor{mygray}{RGB}{112,121,139}
+%=================================================
+
+
+\begin{document}
+
+\pagestyle{empty}
+
+\begin{tikzpicture}[remember picture,overlay]
+\path 
+(current page.north west) coordinate (A) 
+(current page.north east) coordinate (B)
+(current page.south east) coordinate (C)
+(current page.south west) coordinate (D)
+([shift={(0,1)}]current page.east) coordinate (E)
+([shift={(0,1)}]current page.west) coordinate (W)
+(current page.center) coordinate (F)
+($(A)+(11,0)$)coordinate(NWT) ;
+%=============================================
+
+%==================================================
+%hexagon
+\fill[mygray!50!white] ($([shift={(0,5)}]W)!0.361!([shift={(0,5)}]E)$)--($([shift={(0,5)}]E)!0.361!([shift={(0,5)}]W)$)--([shift={(-4.8,0)}]E)--
+($([shift={(0,-5)}]E)!0.361!([shift={(0,-5)}]W)$)--
+($([shift={(0,-5)}]W)!0.361!([shift={(0,-5)}]E)$)--([shift={(4.8,0)}]W)--cycle;
+%===============================================
+\filldraw[draw=myblue3!80,fill=myblue3!80,blur shadow=%
+{
+	shadow blur steps=5,
+	shadow xshift=-0.8mm,
+	shadow yshift=-2mm}]
+(A)--($(A)+(3,0)$)--($($([shift={(0,5)}]W)!0.361!([shift={(0,5)}]E)$)+(-0.5,0.75)$)--([shift={(3.9,0)}]W)--(W)--cycle;
+%==============================================
+\filldraw[draw=myblue3,fill=myblue3,blur shadow=%
+{
+	shadow blur steps=5,
+	shadow xshift=-0.8mm,
+	shadow yshift=-2mm}]
+(D)--($(D)+(3,0)$)--($($([shift={(0,-5)}]W)!0.361!([shift={(0,-5)}]E)$)+(-0.5,-0.75)$)--([shift={(3.9,0)}]W)--(W)--cycle;
+%==============================================
+\filldraw[draw=YankeesBlue,fill=YankeesBlue,blur shadow=%
+{
+	shadow blur steps=5,
+	shadow xshift=-0.8mm,
+	shadow yshift=-2mm}]
+($(D)+(3,0)$)--($($([shift={(0,-5)}]W)!0.361!([shift={(0,-5)}]E)$)+(-0.5,-0.75)$)--($($([shift={(0,-5)}]E)!0.361!([shift={(0,-5)}]W)$)+(0.5,-0.75)$)--([shift={(-3.9,0)}]E)--(E)--(C)--cycle;
+%============================================
+%image background
+\begin{scope}
+\clip($([shift={(0,5)}]W)!0.361!([shift={(0,5)}]E)$)--($([shift={(0,5)}]E)!0.361!([shift={(0,5)}]W)$)--([shift={(-4.8,0)}]E)--
+($([shift={(0,-5)}]E)!0.361!([shift={(0,-5)}]W)$)--
+($([shift={(0,-5)}]W)!0.361!([shift={(0,-5)}]E)$)--([shift={(4.8,0)}]W)--($([shift={(0,5)}]W)!0.361!([shift={(0,5)}]E)$);
+\fill[mygray!50!white] ($([shift={(0,5)}]W)!0.361!([shift={(0,5)}]E)$)--($([shift={(0,5)}]E)!0.361!([shift={(0,5)}]W)$)--([shift={(-4.8,0)}]E)--
+($([shift={(0,-5)}]E)!0.361!([shift={(0,-5)}]W)$)--
+($([shift={(0,-5)}]W)!0.361!([shift={(0,-5)}]E)$)--([shift={(4.8,0)}]W)--cycle;
+\node[inner sep=0pt] at ([shift={(0,1)}]F) {\includegraphics[width=12cm,height=10cm]{Images/galaxie.jpeg}};
+\end{scope}
+%==========================================================
+%============================================
+%Title box
+\fill[white]($(E)+(0,1.75)$)--++(-10.8,0)--($(E)+(-12.5,0)$)--($(E)+(-10.8,-1.75)$)--($(E)+(0,-1.75)$)--cycle;
+%==============================================
+%title
+\node[anchor=west] at ([shift={(-9.5,0)}]E){
+	\textpdfrender{ 
+		TextRenderingMode=FillStroke, StrokeColor=myblue3, LineWidth=1.5pt, FillColor=white
+	}{\fontsize{60}{60}\sffamily\bfseries\color{YankeesBlue}
+		Title
+		
+}};
+%=====================================================
+%% TRIANGLE 
+\def\drrt{0.5}
+\foreach \c in {0,1,2}{
+	\path ($(C)+(-1,1.8)+(60+120*\c:\drrt)$)coordinate(RTB\c) 
+	($(A)+(11.6,-1.5)+(120*\c:\drrt)$)coordinate(RTT\c) ;
+}
+\begin{scope}[transform canvas={xshift=0.04cm,yshift=-0.05cm}]
+\fill [black, opacity=0.3] 
+(RTT0) -- (RTT1) -- (RTT2) -- cycle; 
+\end{scope}
+
+\shade [top color=YankeesBlue!60!white, bottom color=YankeesBlue] (RTT0) -- (RTT1) -- (RTT2) -- cycle; 
+%================================================
+%University of Médéa
+\node[anchor=west] at ([shift={(-8.5,11.5)}]E) {\LARGE\sffamily\bfseries\color{YankeesBlue} University of Médéa };
+%=========================================
+%Author name and Email
+\fill[white]
+($($(W)!0.75!(E)$)+(-5.5,-10.5)$)rectangle +(0.4,-2.5);
+\node[anchor=west] at ([shift={(-10,-11)}]E) {\LARGE\sffamily\bfseries\color{white} Rezak Souilah };
+\node[anchor=west] at ([shift={(-10,-12.5)}]E) {\LARGE\sffamily\bfseries\color{white} Email: rezazsouilah@gmail.com };
+\end{tikzpicture}
+
+\end{document}

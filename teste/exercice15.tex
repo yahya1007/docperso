@@ -1,0 +1,314 @@
+\documentclass[a4paper,12pt]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel} 
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{mathtools,thmtools}
+\usepackage[top=2.5cm,bottom=2.5cm,left=2.5cm,right=2.5cm]{geometry}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{newtxtext}
+\usepackage{tikz}
+\usetikzlibrary{calc,angles}
+\usetikzlibrary{fadings,backgrounds,shapes.misc,shadows.blur}
+\usetikzlibrary{decorations.text}
+\usepackage[shortlabels]{enumitem}
+\usepackage[most]{tcolorbox}
+\usepackage{enumitem}
+\usepackage{varwidth}
+\usepackage{eso-pic}
+%===============================================
+%======================================
+\definecolor{pBlue}{RGB}{102, 53, 153}
+%==================================
+%==========================================================
+\def\cola{pink!50!purple}
+\def\colb{cyan!80!blue}
+%==================================================
+%==========================================================
+\definecolor{myblue}{HTML}{1D2A6E}
+\definecolor{myred}{HTML}{A97E77}
+\definecolor{mybrown}{HTML}{B35823}
+\definecolor{gold}{HTML}{B48920}
+\definecolor{myorange}{HTML}{ED8C2B}
+\definecolor{col}{RGB}{45, 136, 119}
+\definecolor{MainRed}{rgb}{.8, .1, .1}
+\definecolor{winered}{rgb}{0.5,0,0}
+%==========================================================
+%=================================================
+\definecolor{salmon}{rgb}{1.0, 0.55, 0.41}
+\definecolor{tangelo}{rgb}{0.98, 0.3, 0.0}
+\definecolor{bg}{RGB}{240,240,0}
+\definecolor{col1}{RGB}{253, 181, 192}
+\definecolor{col2}{RGB}{166, 72, 124}
+\definecolor{col3}{RGB}{246, 66, 153}
+%======================================================
+%==========================================================
+\def\cola{pink!50!purple}
+\def\colb{cyan!80!blue}
+%==================================================
+\definecolor{mylightblue}{RGB}{185,204,222}
+\definecolor{myblue}{RGB}{117,150,175}
+\definecolor{mydarkblue}{RGB}{19,36,75}
+%===========================================================
+%=====================
+\usetikzlibrary{decorations.text, fadings}
+\tikzfading[name=fade out,
+inner color=transparent!0,
+outer color=transparent!5]
+%==========================================================
+%===============================================
+%===========================================
+\tikzset{
+	page/.style={
+		color  = white ,
+		fill   = col ,
+		font   =\bfseries\fontsize{25}{25}\selectfont\sffamily ,
+		minimum size = .5in ,
+		yshift = 0.5in
+	}
+}
+%---------------------------------------------
+%===========================================
+\usetikzlibrary{backgrounds}
+\foreach \column/\mycolor in {1/152C47, 2/1C7BB7, 3/0B43AB, 4/5990FF, 5/90ADDF, 6/B2CBE9}{
+	\xglobal\definecolor{color\column}{HTML}{\mycolor}
+}
+
+%=================================
+\tikzset{
+	myshade/.style={
+		shade, top color=color#1,  bottom color=color#1!44!white
+	}
+}
+%===========================================
+\newtcolorbox[auto counter]{exercise}[2][]{enhanced,
+before skip=1.5cm ,
+after skip=1.5cm ,
+colback=cyan!5,colframe=black!50,boxrule=0.2mm,
+left=.5cm,
+top=.5cm,
+%frame hidden,
+attach boxed title to top left={yshift*=-\tcboxedtitleheight/2},
+varwidth boxed title*=-3cm,
+boxed title style={frame code={
+\foreach \col in {6,...,1}{
+	\node (A) at ([shift={(1.4+.25*\col,0)}]frame.west){};
+	\node (B) at ([shift={(.25*\col,0)}]frame.east){};
+	\begin{scope}[on background layer]
+		\path[myshade=\col, draw=white,
+		on background layer, 
+		] ([shift={(6+.25*\col,0)}]frame.east) --++(-6,0) -- ++(-45:0.4) --++(6,0)--cycle;
+	\end{scope}
+	%==================================
+	\path[myshade=\col, draw=white,
+	on background layer, 
+	] ([shift={(.25*\col,-.3)}]frame.east) --++(-3,0) -- ++(90:0.6) --++(3.25,0)--cycle;
+	
+}
+
+	},interior engine=empty,
+},
+underlay={
+},
+fonttitle=\large\bfseries\color{white},
+title={#2},#1}
+%==================================================================
+%==================================================================
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{%
+		\node[shape=circle,fill=orange,draw,inner sep=2pt] (char) {\color{blue!60!black}#1};}}
+%==========================
+%===========================
+\newcommand{\SideBarNew}{\AddToShipoutPicture{
+\begin{tikzpicture}[remember picture,overlay]
+	
+\path (current page.north east) coordinate (NE)
+(current page.north west) coordinate (NW)
+(current page.south east) coordinate (SE)
+(current page.south west) coordinate (SW)
+(current page.south west) coordinate (SW)
+(current page.west) coordinate (W)
+(current page.north) coordinate (N)
+([shift={(-5,-2)}]NE) coordinate (F)
+([shift={(4,-3.5)}]F)coordinate (G);
+%======================================
+%\fill[cyan!10] (current page.north west)rectangle ([shift={(0,-2.5)}]current page.north east);
+%\fill[cyan!10] (current page.north west)rectangle ([shift={(2.5,0)}]current page.south west);
+%\fill[myblue] (current page.north west)--([shift={(1.5,0)}]current page.north west){[rounded corners=5pt]--++(0,-15)--++(-120:2)}
+%|-(current page.south west)--cycle;
+%\fill[col] (current page.north west)--([shift={(1.5,0)}]current page.north west){[rounded corners=5pt]--++(0,-14)--++(-120:2)}
+%|-(current page.south west)--cycle;
+%\fill[pBlue] (current page.north west)--([shift={(1.5,0)}]current page.north west){[rounded corners=5pt]--++(0,-13)--++(-120:2)}
+%|-(current page.south west)--cycle;
+%====================================================
+%\fill [pBlue,blur shadow={shadow blur steps=5},opacity=0.5]
+%($(current page.north west)+(2.7,-.25)$){[rounded corners=10pt]--++(10,0)--++(0,-2)} --++(-10,0)--cycle;
+%\fill [col]
+%($(current page.north west)+(1.79,-.5)$){[rounded corners=10pt]--++(6,0)--++(0,-1.5)} --++(-6,0)--cycle;	
+%=======================================================
+%\fill[col] ($(current page.north east)+(0,-40pt)$) rectangle ++(-0.8,-8.8);
+%\foreach \X [count=\Y starting from 1]in {1, 3/2, 11/6, 25/12, 137/60, 49/20, 363/140,
+%	761/280, 7129/2520, 7381/2520}
+%{\fill[col] ([yshift={-8.1cm-2*\X*1cm}]$(current page.north east)+(0,-11pt)$)
+%	rectangle ++(-0.8,1/\Y);}
+%===================================================
+%\fill[red] ([yshift=-.6cm ]G) arc (-90:0:.6)--([xshift=-.6cm ]G) 
+ % arc (180:270:.6);
+%=================================================
+%\draw[col,line width=2pt]([yshift=-.6cm ]G)--([shift={(-1,1.25)}]SE)--([yshift=1.25cm]current page.south west);	
+%==========================================
+%\fill[col](current page.south east) rectangle ++(-6,.88);
+%\node[white] at([shift={(-3,.5)}]current page.south east){{\Large\bfseries{Rezak Souilah}}};
+%===========================================
+%=====================================
+%\fill [black!20!teal,blur shadow={shadow blur steps=5},opacity=0.5]
+%($(current page.north west)+(3.2,-.25)$){[rounded corners=10pt]--++(8,0)--++(0,-2)} --++(-8,0)--cycle;
+%=======================================================
+%\fill [\cola!90!black]
+%($(current page.north west)+(2.2,-1.25)$) circle (21.5pt);
+%\fill [\cola]
+%($(current page.north west)+(2.29,-.5)$){[rounded corners=10pt]--++(6,0)--++(0,-1.5)} --++(-6,0)--cycle;
+%===========================================================	
+%=========================================================
+%\draw[line width=1.5pt, black!20!teal]
+%([shift={(.75, -.75)}]current page.north west) coordinate (A)|-([xshift=-2cm,yshift=1cm]current page.south east)
+%to[out=0, in=-90] ([xshift=-1cm,yshift=2cm]current page.south east)coordinate (B)
+%-- ([yshift=-.6cm ]G);
+%=================================================
+%\draw[line width=3pt, black!20!teal] ([xshift=12pt]A) -- ++(-24pt, 0);
+%\draw [line width=1.5pt, black!20!teal] (A) ++(-6pt, -10pt) -- ++(12pt, 0);
+%\draw[line width=1.5pt, black!20!teal] (A) ++(-6pt, -14pt)-- ++(12pt, 0);
+%================================================
+%\node[right,page] at ([yshift=-5pt]current page.south)
+%{\thepage} ;
+%=====================================
+%\fill[orange] (current page.south west) rectangle ([xshift=-1cm,yshift=10pt]current page.south east);
+%============================================
+%\fill[orange] (current page.north east)--([shift={(-.5,0)}]current page.north east){[rounded corners=5pt]--++(0,-14)--++(-60:.75)}
+%|-(current page.south east)--cycle;
+%=======================================
+%\fill[black!20!teal] (current page.south west)--([shift={(.5,0)}]current page.south west){[rounded corners=5pt]--++(0,14)--++(120:.75)}
+%|-(current page.north west)--cycle;
+%=====================================
+
+\path[myshade=1, draw=none
+] (current page.south east)--([shift={(-.5,0)}]current page.south east){[rounded corners=5pt]--++(0,14)--++(60:.75)}
+|-(current page.north east)--cycle;
+%========================================
+\path[myshade=2, draw=none
+] (current page.north west)--([shift={(.5,0)}]current page.north west){[rounded corners=5pt]--++(0,-14)--++(-120:.75)}
+|-(current page.south west)--cycle;
+\end{tikzpicture}
+}}
+\newcommand{\SideBarNewCurrent}{\AddToShipoutPicture*{%
+}}
+
+%start label for new stuff
+\newcommand{\NEW}{\SideBarNew}
+
+
+\begin{document}
+\pagestyle{empty}
+\NEW
+
+
+	\begin{exercise}[colbacktitle=blue!40 ]
+		{Exercice 1}{}
+		On considère les matrices $A=\begin{pmatrix}
+		4 & 8 \\
+		1 & 2  
+		\end{pmatrix}$ et
+		$B=\begin{pmatrix}
+		3 & 9 \\
+		1 & 1  
+		\end{pmatrix}$.
+		\begin{enumerate}[label=\protect\circled{\arabic*}]
+			\item Calculer $A+B,\,AB,\;BA,\,A^2$ et $B^2$.
+			\item A-t-on $(A+B)^2=A^2+2AB+B^2$?
+		\end{enumerate}	
+		\begin{itemize}
+			\item Mêmes questions pour les matrices $A=\begin{pmatrix}
+			1 & 0 \\
+			2 & 1 
+			\end{pmatrix}$ et
+			$B=\begin{pmatrix}
+			2 & 0 \\
+			1 & 2  
+			\end{pmatrix}$.
+		\end{itemize}
+		
+	\end{exercise}	
+	
+	\begin{exercise}[colbacktitle=red!40 ]
+		{Exercice 2}{}
+		On considère les matrices
+		$A=\begin{pmatrix}
+		x & 5 \\
+		0 & 2x  
+		\end{pmatrix}$ et
+		$B=\begin{pmatrix}
+		y & 7 \\
+		-1 & 3y  
+		\end{pmatrix}$. 
+		\begin{enumerate}[label=\protect\circled{\arabic*}]
+			\item  Trouver $x,y\in\mathbb{R}$ tels que
+			$A+B=\begin{pmatrix}
+			4 & 12 \\
+			-1 & 17  
+			\end{pmatrix}$.
+			\item Trouver $x,y\in\mathbb{R}$ tels que
+			$2A-4B=\begin{pmatrix}
+			-5 & -18 \\
+			4 & -16  
+			\end{pmatrix}$.
+		\end{enumerate}
+		
+	\end{exercise}
+	\begin{exercise}[colbacktitle=green!40 ]
+		{Exercice 3}{}
+		On considère la matrice
+		$
+		A=
+		\begin{pmatrix}
+		x & 1 \\
+		2 & 3  
+		\end{pmatrix}
+		$ où $x\in\mathbb{R}$.
+		\begin{itemize}
+			\item Trouver $x$ tel que $A^2=\begin{pmatrix}
+			6 & 1 \\
+			2 & 11  
+			\end{pmatrix}$ 
+		\end{itemize}
+		
+	\end{exercise}
+	\begin{exercise}[colbacktitle=blue!40 ]
+		{Exercice 4}{}
+		On considère les matrices 
+		$
+		A=
+		\begin{pmatrix}
+		1 & 3 \\
+		-4 & 2 \\
+		0 & 7 
+		\end{pmatrix},
+		\;
+		B=
+		\begin{pmatrix}
+		-2 & 0 \\
+		-2 & 1 \\
+		8 & 1 
+		\end{pmatrix},
+		\;
+		C=
+		\begin{pmatrix}
+		-4 & 6 \\
+		-14 & 7 \\
+		24 & 17 
+		\end{pmatrix}
+		$.
+		\begin{itemize}
+			\item Trouver $x, y\in\mathbb{R}$ tels que $xA+yB=C$.
+		\end{itemize}
+	\end{exercise}
+	
+\end{document}

@@ -1,0 +1,72 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{ProfModels}
+
+ 
+\begin{document}
+
+\begin{Maquette}[DM]{Prive=false, Numero=3, Niveau=2, Date=\today}
+
+\begin{exercice}
+$MNP$ est un triangle tel que  $\widehat{MNP}=70^{\circ}$ et$\widehat{MPN}=80^{\circ}$ et $NP=8 cm$
+\begin{enumerate}
+\item Calculer $\widehat{NMP}$
+\item Construire  $O$ le centre du cercle circonscrit au triangle $MNP$
+\item Calculer $\widehat{PON}$
+\item Construire le point  $A$ milieu du  $[MP]$ et le point $B$ le milieu de$[MN]$
+\item Calculer$AB$
+\item Construire $G$ le centre du gravité du triangle $MNP$
+
+\end{enumerate}
+
+\end{exercice}
+
+\begin{exercice}
+$a$ et $b$ deux nombres rationnels non nuls .
+\begin{enumerate}
+\item Simplifier ce qui suit :
+
+$A=a^{2}\times a \times a^{-4} $ \hspace{1cm} et $B=\dfrac{a^{2}\times a^{3}}{a^{-4}}$ \hspace{1cm} et
+$C=\dfrac{ab^{-4}\times (a^{2}b^{-1})^{3}\times a^{-2}b^{3}}{a^{-5}\times (ab^{-1})^{2}\times (ab)^{3}}$
+\item Déterminer l'écriture scientifique : 
+
+$x=0.000000000000114$\hspace{1cm}
+$y=32100000000000000$\hspace{1cm}
+$z=\dfrac{14\times 10^{14}\times 10^{-8}}{5\times 10^{-12}\times 10^{20}}$
+
+\end{enumerate}
+
+\end{exercice}
+
+\begin{exercice}
+$ABCD$ est un parallélogramme et  $I$ le milieu de  $[AD]$ et $J$ milieu de $[DC]$. Les droites$(IJ)$ et $(BD)$ se coupent en  $M$ .
+\begin{enumerate}
+\item Construire une figure.
+\item Démontrer que $M$ est le milieu de $[IJ]$.
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+\begin{minipage}{0.6\linewidth}
+
+On considère la figure ci-contre tel que $AD=4$ et $BD=6$ et $DE=3$. 
+\begin{enumerate}
+\item Sachant que $(DE)//(BC)$ , calculer $BC$
+\item Construire le centre de gravité du triangle $ABC$et$I$ le milieu de $[BC]$.
+\item Sachant que  $IG=3$ calculer $AG$.
+\end{enumerate}
+\end{minipage}
+\begin{minipage}{0.4\linewidth}
+\begin{tikzpicture}
+\tkzDefPoints{1/2/A,5/0/B,2/4/C}
+\tkzDefPointOnLine[pos=.3](A,B)\tkzGetPoint{D}
+\tkzDefPointOnLine[pos=.3](A,C)\tkzGetPoint{E}
+\tkzDrawLines(A,B A,C B,C)
+\tkzDrawSegment(D,E)
+\tkzLabelPoints(A,D,B)
+\tkzLabelPoints[above,left ](E,C)
+\end{tikzpicture}
+\end{minipage}
+\end{exercice}
+\end{Maquette}
+\end{document}

@@ -1,0 +1,23 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[most]{tcolorbox}
+\newtcolorbox{mybox}{enhanced,breakable,colback=white,attach boxed title to top center={yshift*=-\tcboxedtitleheight/2},arc=3mm,colframe=black,boxrule=1.5pt,title={title},boxed title style={right=1cm,left=1cm,frame hidden,colback=white,interior code app={
+\fill (frame.east)to[out=180,in=90]([xshift=-5mm]frame.east)to[out=-90,in=180]([yshift=-1.5pt]frame.east);
+\fill (frame.west)to[out=0,in=90]([xshift=5mm]frame.west)to[out=-90,in=0]([yshift=-1.5pt]frame.west);
+}},coltitle=black,fonttitle=\bfseries\Large}
+\begin{document}
+\begin{mybox}
+test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test 
+\end{mybox}
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+

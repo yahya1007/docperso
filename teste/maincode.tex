@@ -1,0 +1,205 @@
+%=============================================================================================================
+%=============================================================================================================
+%==============================This Template Was Created By Mr. O. Nabil======================================
+%=============================================================================================================
+%=============================================================================================================
+\documentclass[12pt,a4paper]{report}
+\usepackage[top=0.75cm,bottom=1cm,right=.85cm,left=.85cm]{geometry}
+
+%======================= All Libraries You Need For This Template =============================================
+\usepackage{lmodern}
+%\usepackage[french]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{tcolorbox,tikz,everypage,amsmath,etoolbox,pifont,multicol,colortbl,array,xparse}
+\usepackage{lipsum,tasks}
+\tcbuselibrary{skins,breakable}
+\usepackage{amsmath,amsfonts,amssymb,mathrsfs,tikz,fancyhdr,array, cases}
+\usepackage{fourier}
+\usetikzlibrary{patterns}
+\usepackage{fancyhdr,lastpage}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\usepackage[]{anttor}
+\everymath{\displaystyle}
+
+%================================ For Enumerate ==============================================
+\renewcommand{\labelenumi}{\tcbox[enhanced,colback=teal,size=fbox,frame hidden,arc=1mm,box align=base,colupper=white,fontupper=\bfseries]{\arabic{enumi}}}
+\renewcommand{\labelenumii}{\tcbox[enhanced,colback=lime,size=fbox,arc=1mm,box align=base,colupper=white,fontupper=\bfseries]{\alph{enumii}}}
+
+%===================================== For Pages Border =======================================
+\parindent=0mm
+\usepackage{tikz}
+\usetikzlibrary{positioning,shadows.blur,shapes.multipart,shapes.geometric}
+\usetikzlibrary{decorations.pathmorphing}
+\tikzset{render blur shadow/.prefix code={\colorlet{black}{gray}}}
+\AddEverypageHook{%
+	\tikzpicture[remember picture,overlay]
+	\coordinate (ne) at ([shift={(-.5,-.5)}]current page.north east);
+	\coordinate (nw) at ([shift={(.5,-.5)}]current page.north west);
+	\coordinate (sw) at ([shift={(.5,.65)}]current page.south west);
+	\coordinate (se) at ([shift={(-.5,.65)}]current page.south east);
+	\node[text opacity=.75]at(current page){};
+	\draw[teal!85!black,line width=.68mm] (ne)rectangle(sw);
+	\draw[fill=white, lime!3!white] ([shift={(-.15,-.15)}]ne)rectangle([shift={(.15,.15)}]sw);
+	\foreach \ico/\nm in {ne/M,nw/N,se/E,sw/O}{
+		\node[draw = lime!75!black, color=white, fill = teal!67!black, minimum width = .5cm,rotate=.5] at(\ico) {\nm};
+	}
+	\endtikzpicture
+}
+
+%================================== For Exercies Box ===============================================================
+\newcounter{myexo}% preamble
+
+\newtcolorbox[use counter=myexo,number format=\arabic]{mybox}[2][]{%
+	enhanced jigsaw, breakable,
+	arc=2mm,
+	arc is angular,
+	center,
+	attach boxed title to top left={xshift=1cm,yshift=-5mm},
+	top=8mm,
+	left=3mm,
+	right=3mm,
+	bottom=4mm,
+	coltitle=white,
+	boxed title style={
+		colback=teal!65!white,
+		colframe=teal!75!white,
+		leftrule=3pt, toprule=0pt, bottomrule=0pt, rightrule=0pt,
+		bottom=2pt,
+		drop large lifted shadow=teal!78!white,
+		sharp corners
+	},
+	watermark color=teal!65!white,
+	watermark opacity=.35,
+	watermark tikz={\node[rotate=30]at(0,0){\textsf{Prof. O. Nabil}};},
+	drop fuzzy shadow=teal!78!white,
+	colback=teal!5!white,
+	colframe=teal!65!white,
+	fonttitle=\bfseries,title=\Huge Exercie \thetcbcounter: #2,#1}
+
+%================================= For Foote Pages =================================================
+\newtcbox{\fpage}[1][red]{enhanced, rotate=30,
+	drop fuzzy shadow=lime!78!black,
+	colupper=white,
+	on line,arc=2pt,colback=#1!65!white,colframe=#1!50!black,before upper={\rule[-3pt]{0pt}{10pt}},boxrule=1pt,boxsep=0pt,left=6pt,right=6pt,top=2pt,bottom=2pt}
+\pagestyle{fancy}
+\cfoot{
+	\fpage[teal]{\Large\thepage}	
+}
+
+
+%========================= The Body Of Code =========================================
+\begin{document}
+	
+	%================ The Head Of Page =================================
+	\tcbset{
+		enhanced,
+		fonttitle=\bfseries\large,
+		fontupper=\large\sffamily,
+		colback=teal!3!white,
+		colframe=teal!70!black,
+		colupper=black!77!white,
+		drop fuzzy shadow=teal!67!white,
+		top=.3mm,left=.3mm,right=.3mm,bottom=.3mm,
+		arc is angular,
+		arc=2mm,
+		center title}
+	\begin{tcolorbox}
+		\renewcommand{\arraystretch}{2}
+		\renewcommand{\arrayrulewidth}{.38mm}
+		\arrayrulecolor{teal!65!white}
+		\begin{tabular}{|m{.3\linewidth}|>{\centering\bfseries}m{.35\linewidth}|m{.275\linewidth}|}
+			\hline
+			Lycée : ............
+			&
+			\textbf{\Large Test diagnostique}
+			&
+			Niveau : ..............
+			\\\cline{1-1}\cline{3-3}\vglue1mm
+			Année scolaire : 2024/2025
+			&\vglue1mm
+			Durée :...... 
+			&\vglue1mm
+			\large Prof. O. Nabil
+			\\\hline
+		\end{tabular}
+	\end{tcolorbox}
+	
+	%====================== Satart Exercise One ==========================
+	\begin{mybox}{}
+		Déterminer l'ensemble de définition de la fonction $f$ dans chacun des cas suivants:\\
+		\begingroup
+		\arraycolsep=.2cm%
+		\begin{displaymath}	
+			\begin{array}{llll}
+				1)f(x)=\frac{6x+7}{x^3-3x^2+2x} & 2)f(x)=\frac{\sqrt{1-2x}}{x^2-2x-8} & 3)f(x)=\sqrt{\frac{2x+3}{5-x}} &  4)f(x)=\frac{\sqrt{2x+3}}{\sqrt{5-x}}\\ 
+				5)f(x)=\sqrt{\frac{x^2-2x-15}{x^2-x-2}} & 6)f(x)=\frac{x}{\sqrt{x^2-x+3}} &
+				7)f(x)=\frac{\sin x}{5-\left\lvert x - 2\right\rvert} & 8)f(x)=\frac{3x-4}{\sqrt{\left\lvert x\right\lvert-2}}\\
+			\end{array}%
+		\end{displaymath}
+		\endgroup
+	\end{mybox}
+	%====================== End Exercise One =============================
+	
+	%====================== Satart Exercise Two ==========================
+	\begin{mybox}{}
+		\begin{enumerate}
+			\item Calculer les limites suivantes:\\
+			\begin{tabular}{lll}
+				1) $\lim\limits_{x \to 2}(5x^2-3x-2)$ & 
+				2) $\lim\limits_{\substack{x \to 4\\x>4}}\frac{x}{2-\sqrt{x}}$ &
+				3) $\lim\limits_{x \to 1}\frac{2x-7}{(x-1)^2}$ \\
+				4) $\lim\limits_{x \to +\infty}(x^3-4x^2+5x-1)$ &
+				5) $\lim\limits_{x \to +\infty}\frac{3x^2-7x+4}{(2x+1)^3}$ &
+				6) $\lim\limits_{x \to -\infty}\frac{5x^3+4x-1}{(x-2)(x^2+1)}$ \\
+				7) $\lim\limits_{x \to -\infty}\sqrt{x^2+x}+2x+5$ &
+				8) $\lim\limits_{x \to +\infty}\frac{\sqrt{x+1}}{x+3}$ &
+				9) $\lim\limits_{x \to 1}\frac{x^2-1}{2x^2-5x+3}$ \\
+				10) $\lim\limits_{x \to 1}\frac{x^3+3x^2-4}{x-1}$ &
+				11) $\lim\limits_{x \to 3}\frac{x^3+2x^2-11x-12}{x^4-81}$ &
+				12) $\lim\limits_{x \to 2}\frac{x^2+x-6}{\sqrt{x}-\sqrt{2}}$\\
+				13) $\lim\limits_{\substack{x \to -2\\x<-2}}\frac{\sqrt{x^2+x-2}}{x^2-4}$ &
+				14) $\lim\limits_{x \to +\infty}\frac{\sqrt{x^2+3x}-x}{\sqrt{2x^2+x-5}}$ &
+				15) $\lim\limits_{x \to +\infty}\frac{x\sqrt{x}}{x-3\sqrt{x}}$ \\
+				16) $\lim\limits_{x \to -\infty}(\sqrt{x^2+3x+2}+x+1)$ & &\\
+			\end{tabular}
+			\item Calculer les limites trigonométriques suivantes:\\
+			\\		   
+			\begin{tabular}{llll}
+				1) $\lim\limits_{x \to 0}\frac{\sin(7x)}{4x}$ & 
+				2) $\lim\limits_{x \to 0}\frac{\tan(4x)}{\sin(3x)}$ & 
+				3) $\lim\limits_{x \to 0}\frac{2x-\tan(3x)}{x+\sin(4x)}$ &  
+				4) $\lim\limits_{x \to 0}\frac{1-\cos(4x)}{\sin(2x)\tan(3x)}$\\
+				5) $\lim\limits_{x \to 0}\frac{\sqrt{x+4}-2}{\sin x}$ & 
+				6) $\lim\limits_{x \to +\infty}\frac{\sin x}{x^2+1}$ &
+				7) $\lim\limits_{x \to -\infty}\frac{1+x+\cos x}{x-1}$ & 
+				8) $\lim\limits_{x \to +\infty}\frac{x^2+1+\sin x}{x}$\\
+			\end{tabular}%
+		\end{enumerate}
+	\end{mybox}
+	%====================== End Exercise Two =============================
+	
+	%====================== Satart Exercise Three ==========================
+	\begin{mybox}{}
+		Soit $f$ la fonction numérique définie sur $\R-\{1\}$ par:\\
+		\\
+		$\left\{
+		\begin{array}{l}
+			f(x)=\frac{\sqrt{x^2-x}}{x-1}\; \quad si x>1\\
+			\\
+			f(x)=\frac{x^2-5}{\sqrt{1-x}}\; \quad si x<1
+		\end{array}\right.$\\
+		
+		\begin{enumerate}
+			\item Calculer les limites suivantes:\\
+			$\lim\limits_{\substack{x \to 1\\ x<1}}f(x)$\; ;\qquad $\lim\limits_{\substack{x \to 1\\ x>1}}f(x)$\; ;\qquad
+			$\lim\limits_{x \to +\infty}f(x)$\; ;\qquad $\lim\limits_{x \to -\infty}f(x)$\; et \; $\lim\limits_{x \to -\infty}\frac{f(x)}{x}$
+		\end{enumerate}
+	\end{mybox}
+	%====================== End Exercise Three =============================
+	
+\end{document}

@@ -1,0 +1,160 @@
+\documentclass{book}
+\usepackage[T1]{fontenc}
+\usepackage{tikz}
+\usepackage{lipsum}
+\usepackage{fourier}
+
+\usepackage{xpatch}
+\usepackage[automark]{scrlayer-scrpage}
+\renewcommand\chaptermarkformat{}
+% define a new mark for the chapter number
+\newmarks\chapternum
+\xapptocmd\chaptermark{\marks\chapternum{\thechapter}}{}{\PatchFailed}
+
+\newlength\outermarginwidth
+\setlength\outermarginwidth{2cm}
+\newlength\chapternumbersize
+\setlength\chapternumbersize{60pt}
+
+\colorlet{outermarginbgcolor}{lightgray}
+\colorlet{outermarginfgcolor}{darkgray}
+
+\newcommand*\outermarginpagemark{%
+  \ifodd\value{page}\else\hfill\fi%
+  \tikz[overlay]
+    \node[circle,fill=outermarginfgcolor,text=white,font=\bfseries,minimum size=6mm]
+      {\thepage};%
+}
+
+\makeatletter
+\newcommand\outermarginmark{
+  \ifodd\value{page}\hfill\else\hspace*{\dimexpr\outermarginwidth*3/8\relax}\fi
+  \rotatebox{90}{\parbox{\layerheight}{%
+    \raggedleft
+    \usekomafont{outermargin}{%
+      \MakeMarkcase{\ifodd\value{page}\odd@outermargin\else\even@outermargin\fi}}%
+  }}%
+  \ifodd\value{page}\hspace*{\dimexpr\outermarginwidth*3/8\relax}\fi%
+}
+\newcommand*\even@outermargin{}
+\newcommand*\odd@outermargin{}
+\newcommand*\evenoutermargin[1]{\renewcommand\even@outermargin{#1}}
+\newcommand*\oddoutermargin[1]{\renewcommand\odd@outermargin{#1}}
+\makeatother
+\newkomafont{outermargin}{%
+  \normalfont\normalcolor
+}
+
+\makeatletter
+\newcommand*\chapternumbermark{%
+  \ifodd\value{page}\else\hfill\fi%
+  \if@mainmatter
+    {\usekomafont{chapternumber}{\makebox[0pt]{\botmarks\chapternum}}}%
+  \fi
+  \vfill
+}
+\makeatother
+
+\newkomafont{chapternumber}{%
+  \fontsize{\chapternumbersize}{\chapternumbersize}\selectfont
+  \color{outermarginfgcolor}%
+}
+
+% declare new page style using layers
+\DeclareNewPageStyleByLayers{scth}{%
+  scth.outermargin.bg.even,%
+  scth.outermargin.bg.odd,%
+  scth.outermargin.pn.even,%
+  scth.outermargin.pn.odd,%
+  scth.outermargin.cn.even,%
+  scth.outermargin.cn.odd,%
+  scth.outermargin.text.even,%
+  scth.outermargin.text.odd%
+}
+
+% define the layers for even pages
+\DeclareNewLayer[
+  background,
+  evenpage,
+  outermargin,
+  width=\outermarginwidth,
+  contents={\color{outermarginbgcolor}\rule{\layerwidth}{\layerheight}}
+]{scth.outermargin.bg.even}
+\DeclareNewLayer[
+  foreground,
+  evenpage,
+  foot,
+  hoffset=0pt,
+  width=\outermarginwidth,
+  contents=\outermarginpagemark
+]{scth.outermargin.pn.even}
+\DeclareNewLayer[
+  foreground,
+  evenpage,
+  head,
+  hoffset=0cm,
+  width=\outermarginwidth,
+  align=t,
+  addvoffset=\dimexpr-\chapternumbersize+\headheight\relax,
+  height=\chapternumbersize,
+  contents=\chapternumbermark
+]{scth.outermargin.cn.even}
+\DeclareNewLayer[
+  clone=scth.outermargin.cn.even,
+  addheight=\dimexpr\headheight+\headsep+\textheight\relax,
+  contents=\outermarginmark
+]{scth.outermargin.text.even}
+
+% define the layers for odd page from the settings for even pages
+\newcommand*\DeclareOddFromEven[1]{%
+  \DeclareNewLayer[
+    clone=#1.even,
+    oddpage,
+    align=r,
+    hoffset=\paperwidth
+  ]{#1.odd}%
+}
+\DeclareOddFromEven{scth.outermargin.bg}
+\DeclareOddFromEven{scth.outermargin.pn}
+\DeclareOddFromEven{scth.outermargin.cn}
+\DeclareOddFromEven{scth.outermargin.text}
+
+% add the layers to page style scrheadings and page style plain
+\ForEachLayerOfPageStyle*{scth}{%
+  \AddLayersToPageStyle{scrheadings}{#1}%
+  \AddLayersToPageStyle{plain.scrheadings}{#1}%
+}
+
+%----------------------------------------------
+% header and footer contents settings
+\KOMAoptions{headsepline,markcase=upper}
+% for page styles scrheadings and plain
+\clearpairofpagestyles
+\ohead{\rightmark}
+\cfoot{\pagemark}
+\ofoot{Authors Name}
+% set the contents of the outer margin on even and odd pages for scrheadings, plain and scth
+\evenoutermargin{Title of the document}
+\oddoutermargin{\leftmark}
+
+\definecolor{lightblue}{RGB}{199,232,250}
+\definecolor{darkblue}{RGB}{59,134,215}
+
+\colorlet{outermarginbgcolor}{lightblue}
+\colorlet{outermarginfgcolor}{darkblue}
+
+\usepackage{blindtext}
+\begin{document}
+\frontmatter
+\tableofcontents
+\mainmatter
+\blinddocument
+
+\clearpage
+% change some settings
+\colorlet{outermarginbgcolor}{orange!30}
+\colorlet{outermarginfgcolor}{orange}
+\addtokomafont{outermargin}{\color{blue!50!green}}
+\evenoutermargin{Changed text on even pages}
+\blinddocument
+\end{document}

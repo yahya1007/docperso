@@ -1,0 +1,111 @@
+\documentclass[a4paper,12pt]{article}
+
+
+\usepackage{ProfModels}
+\usepackage{diagrammes}
+ 
+\begin{document}
+
+\begin{Maquette}[Fiche]{Theme=Repérage d'un point ,Niveau=1}
+
+\begin{exercice}
+Sur la droite graduée ci-dessous, quelles sont les abscisses des points $O$, $I$, $K$, $L$, $M$, $N$, $Q$ et $P$.
+
+\begin{tikzpicture}
+\tkzInit[xmin=-5,xmax=8,xstep=1,ymin=0,ymax=6,ystep=1]
+\tkzGrid[sub,subxstep=0.2,color=black,line width=0.4pt](-5.1,-0.1)(8.1,0.1)
+\tkzDrawX[text=black,color=black,right=12pt,left space=0.5,label={}]
+\tkzLabelX[text=black,below = 3pt,font=\small]
+\tkzDefPoints{-4/0/K,0/0/O,1/0/I,4.2/0/L,-1.5/0/M,-2.4/0/Q,6.5/0/P,2.6/0/N}
+\tkzDrawPoints[shape=circle](O,I,K,L,M,Q,P,N)
+\tkzLabelPoints[above](O,I,K,L,M,Q,P,N)
+\end{tikzpicture}
+\end{exercice}
+
+\begin{exercice}
+\begin{enumerate}
+\item Sue la  droite graduée  placer les points suivants:
+
+\begin{itemize*}
+\item $A\lrp{-3.2}$
+\item $B\lrp{2.7}$
+\item $C\lrp{4.8}$
+\item $D\lrp{-1.9}$
+\item $E\lrp{6.4}$
+\item $F\lrp{-2.3}$
+\end{itemize*}
+\item Calculer les distances $AB$;$CE$;$DF$ et $AE$.
+\end{enumerate}
+\begin{tikzpicture}
+\tkzInit[xmin=-5,xmax=8,xstep=1,ymin=0,ymax=6,ystep=1]
+\tkzGrid[sub,subxstep=0.1,color=black,line width=0.4pt](-5.1,-0.1)(8.1,0.1)
+\tkzDrawX[text=black,color=black,right=12pt,left space=0.5,label={}]
+\tkzLabelX[text=black,below = 3pt,font=\small]
+\end{tikzpicture}
+\end{exercice}
+
+\begin{exercice}
+\begin{minipage}{0.5\linewidth}
+On considère le repère $\oij$ ci-contre.
+\begin{enumerate}
+\item Determine les coordonnées des points $A$,$B$,$C$
+\item Determine les coordonnées des points $E$,$F$,$G$
+\item Determine les coordonnées des points $K$,$P$
+\item Determine les coordonnées des points $M$,$N$
+\item Determine les coordonnées des points $O$,$I$,$J$
+\end{enumerate}
+\end{minipage}%
+\begin{minipage}{0.5\linewidth}
+\begin{AffRepere}[-4][3][-2][3]
+\coordpoints{1}{2}{A}
+\coordpoints{-2.5}{3}{B}
+\coordpoints{-2}{-1.5}{C}
+\coordpoints{2}{-1}{E}
+\coordpoints{-1}{2.5}{F}
+\coordpoints{-3.5}{3}{G}
+\coordpoints{0}{2.5}{K}
+\coordpoints{0}{-1.5}{P}
+\coordpoints{-2}{0}{M}
+\coordpoints{3}{0}{N}
+\end{AffRepere}
+\end{minipage}
+\end{exercice}
+
+\begin{exercice}
+Placer les points dans le repère $\oij$ ci-dessous.\newline
+\begin{minipage}{0.4\linewidth}
+\begin{tasks}(2)
+\task[$\bullet$] $A\lrp{2,1}$
+\task[$\bullet$] $B\lrp{-2,-1}$
+\task[$\bullet$]	$C\lrp{3.5,-2}$
+\task[$\bullet$] $D\lrp{-3,-1}$
+\task[$\bullet$] $E\lrp{0,-1}$
+\task[$\bullet$] $F\lrp{2,0}$
+\task[$\bullet$] $G\lrp{-4,3.5}$
+\task[$\bullet$] $H\lrp{3,-2}$
+\task[$\bullet$] $K\lrp{0,-2}$
+\task[$\bullet$] $M\lrp{0,3}$
+\task[$\bullet$] $N\lrp{-2,2}$
+\task[$\bullet$] $P\lrp{3,3}$
+\task[$\bullet$] $Q\lrp{1,-1}$
+\task[$\bullet$] $R\lrp{2,4.5}$
+\task[$\bullet$] $S\lrp{0,-2.5}$
+\task[$\bullet$] $V\lrp{5,4.5}$
+\end{tasks}
+\end{minipage}%
+\begin{minipage}{0.6\linewidth}
+\begin{AffRepere}
+
+\end{AffRepere}
+\end{minipage}
+\end{exercice}
+
+
+
+
+
+
+
+
+\end{Maquette}
+\end{document}

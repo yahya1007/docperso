@@ -1,0 +1,98 @@
+\documentclass[a4paper,12pt]{article}
+
+
+\usepackage{ProfModels}
+\usepackage{fig3d}
+\usepackage{diagrammes}
+
+  
+\begin{document}
+\begin{Maquette}[DM]{Niveau=3, Numero=6, Date=19/10/2024, FinDate=31/12/2024, Semestre=2}
+
+\begin{exercice}
+\begin{enumerate}
+\item Soit $f$ une fonction linéaire et $(D)$ sa représentation graphique passe par le point $A(2;4)$.
+\begin{enumerate*}
+\item Montrer que $f(x)=2x$.
+\item Calculer $f(-3)$.
+\end{enumerate*}
+\item Soit $g$ une fonction affine telle que $g(3)-g(-1)=-2$ et $g(0)=5$ et $(\Delta)$ sa représentation graphique.
+
+\begin{enumerate*}
+\item Monter que $g(x)=-\dfrac{1}{2}x+5$.
+\item Calculer $g(4)$.
+\item Quel nombre a pour image -18 par $g$.
+\end{enumerate*}
+\item Montrer que $(D)$ et $(\Delta)$ sont perpendiculaires.
+\item Construire  $(D)$ et $(\Delta)$.
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+\begin{minipage}{.6\linewidth}
+Ce graphique représente les ventes des voitures d'une société durant les jours du mois du Juin.
+\begin{enumerate}
+\item Recopier et compléter le tableau suivant:
+
+\begin{tabular}{|*7{Oc|}}
+\hline 
+Caractère & 2 & 3 & 4 & 5 & 6 & 7 \\ 
+\hline 
+Effectif &  &  &  &  &  &  \\ 
+\hline 
+Effectif cumulé  &  &  &  &  &  &  \\ 
+\hline 
+\end{tabular}
+
+\item Déterminer le mode de cette série statistique.
+\item Calculer la moyenne des ventes par jours.
+\item Déterminer la médiane de cette série statistique. 
+\end{enumerate}
+\end{minipage}%
+\begin{minipage}{.4\linewidth}
+\Histogramme[Largeur=6,Hauteur=6,%
+ListeCouleurs={orange,gray,blue,pink,red,black},%
+DebutOx=0,FinOx=8,GradX={1,2,...,8},GradY={0,1,...,8},%
+AffEffectifs=false,LabelX={},LabelY={}]%
+{1.8/2.2/6 2.8/3.2/8 3.8/4.2/4 4.8/5.2/6 5.8/6.2/5 6.8/7.2/2}
+\end{minipage}
+\end{exercice}
+
+\begin{exercice}
+Soit $ABCDEFGH$ un parallélépipède rectangle tel que $AB=4$ ; $AE=6$ et $AD=3$.
+\begin{enumerate}
+\begin{minipage}{.7\linewidth}
+\item Calculer $EB$.
+\item Montrer que $EBC$ est un triangle rectangle  Calculer $EC$.
+\item Déterminer le volume du pyramide $EABCD$.
+\item La pyramide $EIJKL$ est une réduction de la pyramide $EABCD$ par le rapport $\dfrac{1}{2}$ 
+\begin{enumerate}
+\item Calculer $IJ$
+\item Calculer le volume de la pyramide $EIJKL$.
+\end{enumerate}
+\end{minipage}%
+\begin{minipage}{.3\linewidth}
+\begin{tikzpicture}[scale=1]
+\cube[50]{3}{4}
+\tkzDrawSegment[dashed](E,D)
+\tkzDrawSegment(E,B)
+\tkzDrawSegment[dashed](E,C)
+\tkzDefPointOnLine[pos=0.5](E,A)\tkzGetPoint{I}
+\tkzDefPointOnLine[pos=0.5](B,E)\tkzGetPoint{J}
+\tkzDefPointOnLine[pos=0.5](C,E)\tkzGetPoint{K}
+\tkzDefPointOnLine[pos=0.5](D,E)\tkzGetPoint{L}
+\tkzFillPolygon[color=gray!30,opacity=0.4](I,J,K,L)
+\tkzFillPolygon[color=gray!30,opacity=0.4](A,B,C,D)
+\tkzDrawSegments(I,J J,K K,L L,I)
+\tkzLabelPoint[left](I){I}
+\tkzLabelPoint[below](J){J}
+\tkzLabelPoint[above](K){K}
+\tkzLabelPoint[left](L){L}
+\end{tikzpicture}
+
+\end{minipage}
+\end{enumerate}
+\end{exercice}
+
+\end{Maquette}
+\end{document}

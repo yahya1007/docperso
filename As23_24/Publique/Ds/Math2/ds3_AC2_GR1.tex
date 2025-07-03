@@ -1,0 +1,51 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{ProfModels}
+
+\begin{document}
+\begin{Maquette}[DS]{Niveau=2, Numero=3, Date=19/10/2024, Semestre=1, Calculatrice=false}
+
+\begin{exercice}
+\begin{minipage}{0.6\linewidth}
+On considère la figure ci-contre tel que $(EF) // (BC)$  et $BC=12$ et $AE=4$ et $AC=9$ et $AB=7$
+\begin{enumerate}
+\item\brm{3} Calculer  $AF$.
+\notes[10pt]{4}{\linewidth}
+\end{enumerate}
+\end{minipage}
+\begin{minipage}{0.4\linewidth}
+\begin{tikzpicture}
+\tkzDefPoints{0/0/C,5/1/A,3/4/B}
+\tkzDefPointOnLine[pos=0.6](A,B)\tkzGetPoint{E}
+\tkzDefPointOnLine[pos=0.6](A,C)\tkzGetPoint{F}
+\tkzLabelPoints(A,C,F)
+\tkzLabelPoints[above, right=4pt](E,B)
+\tkzDrawSegments(A,B B,C C,A)
+\tkzDrawLine(E,F)
+
+\end{tikzpicture}
+\end{minipage}
+\begin{enumerate}
+\item\brm{3} Calculer  $EF$.
+\notes[10pt]{4}{\linewidth}
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+$MNP$ est un triangle tel que  $\widehat{MNP}=70^{\circ}$ et$\widehat{MPN}=80^{\circ}$ et $NP=8 cm$
+\begin{enumerate}
+\item\brm{4} Tracer la figure
+\item\brm{2} Calculer $\widehat{NMP}$
+\item\brm{2} Construire  $O$ le centre du cercle inscrit dans le triangle $MNP$
+\item\brm{2} Calculer $\widehat{PON}$
+\item\brm{2} Construire le point  $A$ milieu du  $[MP]$ et le point $B$ le milieu de$[MN]$
+\item\brm{2} Montrer que $(AB) // (PN)$ et calculer $AB$
+\end{enumerate}
+\end{exercice}
+\end{Maquette}
+\anserpage{1}
+
+
+
+
+\end{document} 

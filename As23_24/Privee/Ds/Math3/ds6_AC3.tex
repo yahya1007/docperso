@@ -1,0 +1,93 @@
+\documentclass[12pt]{article}
+
+\usepackage{ProfModels}
+\usepackage{fig3d}
+
+\pagestyle{empty}
+\begin{document}
+
+\begin{Maquette}[DS]{Niveau=3, Numero=6, Date=10/06/2025}
+
+
+\begin{exercice}[BaremeDetaille=true]
+\begin{minipage}{.42\linewidth}
+Le tableau suivant donne la répartition des notes d'une classe à un contrôle.
+\begin{enumerate}
+\item\brm{2} Compléter le tableau.
+ \end{enumerate}
+ \end{minipage}%
+ \begin{minipage}{.58\linewidth}
+\begin{tabular}{|Oc|Oc|Oc|Oc|Oc|Oc|Oc|Oc|Oc|Oc|}
+\hline 
+Note & 8 & 10 & 12 & 14 & 15 & 16 & 18 & 19 & 20 \\ 
+\hline 
+Effectif & 2 &  & 4 & 5 &  & 6 & 7 & 2 & 1 \\ 
+\hline 
+Eff cumulé &  & 4 &  &  &  &  &  &  & 30 \\ 
+\hline 
+\end{tabular} 
+\end{minipage}%
+\begin{enumerate}[start=2]
+\item\brm{1} Quel est l'effectif total ?
+ \anserline[1]
+\item\brm{1} Calculer la fréquence   de 16.\anserline[1]
+\item\brm{1} Calculer la note moyenne de la classe.\anserline[2]
+\item\brm{1} Déterminer le mode de cette série.\anserline[1]
+\item\brm{1} Déterminer la médiane de cette série.\anserline[1]
+\item\brm{1} Quel est le pourcentage des élèves qui ont une note supérieur à la moyenne de classe.\par\anserline[1]
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}[BaremeDetaille=true]
+Soit $f$ une fonction linéaire tel que $f(-3)=4$ et $g$ une fonction affine tel que $g(3)=2$ et $g(4)=6$.
+\begin{tasks}[label=\arabic*.](2)
+\task\brm{2} Montrer que $f(x)=-\dfrac{4}{3}x$.
+\par\anserline[3]
+\task\brm[0.5]{1} Calculer $f(3)$.\par\anserline[3]
+\task\brm{1.5}  Montrer que $g(x)=4x-10$.
+\par\anserline[4]
+\task\brm[0.5]{1.5} Quel nombre a pour image 0 par $g$.\par\anserline[4]
+\end{tasks}
+\end{exercice}
+
+\begin{exercice}[BaremeDetaille=true]
+Soit $SABC$  un tétraèdre de volume $160 cm^3$ et sa hauteur $SO=8cm$.
+\begin{enumerate}
+\begin{minipage}{.70\linewidth}
+\item\brm{1} Calculer l'aire de la base $ABC$.\newline
+  \anserline[3]
+\item  Le tétraèdre $SA'B'C'$ est l'agrandissement du tétraèdre $SABC$ et son volume est égal à $540 cm^3$.
+\end{minipage}%
+\begin{minipage}{.30\linewidth}
+  \begin{tikzpicture}[scale=0.8]
+\tetra[60]{3}{70}{70}
+\tkzDefPointOnLine[pos=1.4](S,A)\tkzGetPoint{A'}
+\tkzDefPointOnLine[pos=1.4](S,B)\tkzGetPoint{B'}
+\tkzDefPointOnLine[pos=1.4](S,C)\tkzGetPoint{C'}
+\tkzDefPoint(2.5,0.4){O}
+\tkzDefPointOnLine[pos=1.4](S,O)\tkzGetPoint{O'}
+\tkzDrawPoints[shape=cross out,size=4](O,O')
+\tkzDrawSegment[dashed](S,O')
+\tkzLabelPoint[left](O){O}
+\tkzLabelPoint[left](O'){$O'$}
+\tkzDrawSegments(A,A' B,B' C,C' A',B' B',C')
+\tkzDrawSegment[dashed](A',C')
+\tkzLabelPoints(A',B')
+\tkzLabelPoint[right](C'){$C'$}
+\end{tikzpicture}
+\end{minipage}%
+\begin{enumerate}
+\item \brm{1} Montrer que le rapport d'agrandissement est $\dfrac{3}{2}$.\\\anserline[3]
+\item\brm{1} Montrer que $\dfrac{BC}{B'C'}=\dfrac{2}{3}$.\\\anserline[3]
+\end{enumerate}
+\item\brm{1} Calculer $SO'$ la hauteur du tétraèdre après l'agrandissement.\\\anserline[3]
+\item\brm{1} Calculer l'aire de la base $A'B'C'$ après l'agrandissement.\\\anserline[3]
+\item\brm{1} Calculer le volume du solide ABCA'B'C'.\par\anserline[3]
+\end{enumerate}
+\end{exercice}
+
+\end{Maquette}
+
+
+
+\end{document}

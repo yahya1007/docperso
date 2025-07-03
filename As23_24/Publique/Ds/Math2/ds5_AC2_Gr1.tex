@@ -1,0 +1,103 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{ProfModels}
+\setlength{\columnseprule}{1pt}
+\setlength{\columnsep}{3em}
+\renewcommand{\columnseprulecolor}{\color{gray}}
+
+
+\begin{document}
+
+\begin{Maquette}[DS]{Niveau=2, Numero=5, Date=19/10/2024, Semestre=1, Calculatrice=false}
+
+\begin{exercice}
+\begin{minipage}{.65\linewidth}
+On considère la figure ci-contre tel que $AB=5$ ,$AC=3$ .
+\begin{enumerate}
+\item\brm{2} Calculer  $BC$.
+
+\anserline[4]
+\end{enumerate}
+\end{minipage}
+\begin{minipage}{.35\linewidth}
+\begin{tikzpicture}
+\tkzDefPoints{0/0/C,4/0/A}
+\tkzDefTriangle[pythagore](A,C)
+\tkzGetPoint{B}
+
+\tkzDefPointBy[projection=onto B--A](C)
+\tkzGetPoint{H}
+\tkzDrawSegments(C,A A,B B,C C,H)
+\tkzLabelPoints(A,C)
+\tkzLabelPoint[left](B){B}
+\tkzLabelPoint[above](H){H}
+\tkzMarkRightAngle(B,C,A)
+\tkzMarkRightAngle(A,H,C)
+\end{tikzpicture}
+\end{minipage}
+\begin{enumerate}
+\item\brm{3} Calculer $\cos(\widehat{ABC})$ et $\cos(\widehat{CAB})$.
+\begin{multicols}{2}
+\anserline[2]
+\columnbreak
+
+\anserline[2]
+\end{multicols}
+\item\brm{3} Calculer $HB$ et $HC$ et $HA$.
+\begin{multicols}{3}
+\anserline[3]
+\columnbreak
+
+\anserline[3]
+\columnbreak
+
+\anserline[3]
+\end{multicols}
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+Soient $a$ , $b$ et $c$ des nombres rationnels, tels que $-3\leq a \leq 5$ et $4\leq b \leq 7$.
+\begin{enumerate}
+\item\brm{6} Encadrer ce qui suit :\vspace{-1cm}
+\begin{multicols}{3}
+\[3a+6b\]\\ \anserline[3]
+\[a-5\]\\ \anserline[3]
+\[\frac{a+2b}{7}\]\\ \anserline[3]
+\end{multicols}
+\end{enumerate}
+\end{exercice}
+
+
+\begin{exercice}
+\begin{enumerate}
+\item\brm{3} Simplifier :
+
+\(\vv{BG}+\vv{GE}+\vv{EG}= \)\anserline[2]
+\(\vv{AM}-\vv{MD}+\vv{CA}-\vv{CM}= \)\anserline[2]
+\(2\vv{FE}-\vv{GE}-4\vv{GF}+\vv{GH}+4\vv{GF}+\vv{EH}= \)\anserline[2]
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+$ABCD$ est un parallélogramme de centre $I$.
+\begin{enumerate}
+\item\brm{2} Simplifier :
+\begin{multicols}{2}
+$\vv{IA}+\vv{CD}+\vv{AB}-\vv{ID}+\vv{BC}$
+
+\anserline[5]
+\columnbreak
+
+$\vv{ID}+\vv{IC}+\vv{IB}+\vv{IA}$
+
+\anserline[5]
+\end{multicols}
+\item\brm{1} Montrer que : $2\vv{AD}+\vv{DC}-\vv{BD}-\vv{BC}-2\vv{AB}=\vv{0}$
+
+\anserline[10]
+\end{enumerate}
+\end{exercice}
+\end{Maquette}
+
+\end{document}

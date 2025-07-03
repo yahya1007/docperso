@@ -1,0 +1,92 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{dlds}
+ 
+\begin{document}
+\begin{tcolorbox}[enhanced,colback=white,colframe=black] 
+{\begin{center}\Large \textbf{ Préparation d'Examen Local  }\end{center}}
+\end{tcolorbox}
+\begin{exo}
+\begin{enumerate}
+\item Calculer ce qui suit :
+$$
+A=\left( \dfrac{\sqrt{7}}{\sqrt{3}}\right)^{2}+\left( \dfrac{\sqrt{3}}{\sqrt{5}}\right)^{-2}  
+\hspace{0.5cm};\hspace{0.5cm}
+B=3\sqrt{75}+2\sqrt{300}-10\sqrt{12}
+\hspace{0.5cm};\hspace{0.5cm}
+C=\sqrt{10+\sqrt{36}}
+$$
+\item Rendre rationnel les dénominateurs des nombres suivants : 
+$$
+D=\dfrac{2}{\sqrt{11}}
+\hspace{0.5cm};\hspace{0.5cm}
+E=\dfrac{1}{\sqrt{7}+\sqrt{5}}
+$$
+\item Donner l'écriture scientifique : $F=0.0042 \times 10^{-5}$
+\item Développer  :$G=(\sqrt{3}-a)^{2}+2(1+\sqrt{3}a)$ 
+\item Factoriser : $(100-a^{2})+2(10+a)$
+\end{enumerate}
+\end{exo}
+
+\begin{exo}
+\begin{enumerate}
+\item Comparer les deux nombres : $3\sqrt{5}$ et $3\sqrt{7}$ , puis  $5-3\sqrt{5}$ et $5-3\sqrt{7}$ .\newline
+Soient $a$ , $b$ et $c$ des nombres réels tel que  : $1\leq a \leq 5$ et $3\leq b \leq 4$.
+\item Encadrer $a+b$ et $a-b$ et $a\times b$ et $\dfrac{a}{b}$
+\item Encadrer $5a+7b$ et $\dfrac{2a-5b}{3}$
+\end{enumerate}
+\end{exo}
+
+\begin{exo}
+\begin{minipage}{0.6\linewidth}
+ On considère la figure ci-contre tel que : $AC=\sqrt{52}$ , $BH=9$ et $HC=4$.
+\begin{enumerate}
+\item Calculer : $AH$ et $AB$ .
+\item Montrer que $ABC$ est un triangle rectangle .
+\item Calculer les rapports trigonométriques d'angle $\widehat{ABC}$
+
+Soit $x$ la mesure d'un angle aigu tel que : $\sin x =\dfrac{1}{2}$
+\item Calculer : $\cos x$ et $\tan x$
+\item Simplifier  :
+$A = \sin^{2}26^{\circ} +4\cos30^{\circ} +\sin^{2}64^{\circ}-4\sin60^{\circ} $
+\item Montrer que : $\dfrac{1+\tan^{2}x}{\tan^{2}x}\times (1-cos^{2}x)=1$
+\end{enumerate}
+\end{minipage}
+\begin{minipage}{0.4\linewidth}
+\begin{tikzpicture}
+\tkzDefPoints{-1/0/B,5/-1/C}
+\tkzDefTriangle[two angles=50 and 40](B,C)\tkzGetPoint{A}
+\tkzDefPointBy[projection=onto C--B](A)\tkzGetPoint{H}
+\tkzDrawSegments(A,B B,C C,A A,H)
+\tkzLabelPoints(B,C,H)
+\tkzLabelPoint[above](A){A}
+\tkzMarkRightAngle(C,H,A)
+\end{tikzpicture}
+\end{minipage}
+\end{exo}
+
+\begin{exo}
+\begin{minipage}{0.5\linewidth}
+$ABC$ est un triangle tel que : $AC=6$ , $CB=9$ , $AJ=4$  et $(BC)//(JK)$
+\begin{enumerate}
+\item Calculer  $JK$ .
+\item Soit $I$ un point de $[CB] $ tel que: $CI=3$\newline
+Monter que : $(AB)//(IJ)$
+\end{enumerate}
+\end{minipage}
+\begin{minipage}{0.5\linewidth}
+\begin{tikzpicture}
+\tkzDefPoints{0/0/C,5/0/B,-1/4/A}
+\tkzDefPointOnLine[pos=.3](C,A)\tkzGetPoint{J}
+\tkzDefPointOnLine[pos=.3](C,B)\tkzGetPoint{I}
+\tkzDefPointOnLine[pos=.3](B,A)\tkzGetPoint{K}
+\tkzDrawLines(I,J J,K)
+\tkzDrawSegments(A,C A,B B,C)
+\tkzLabelPoints(B,C,I)
+\tkzLabelPoints[below left](A,J)
+\tkzLabelPoint[above](K){K}
+\end{tikzpicture}
+\end{minipage}
+\end{exo}
+
+\end{document}

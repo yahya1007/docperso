@@ -1,0 +1,71 @@
+\documentclass[12pt,a4paper]{report}
+\usepackage[top=0.75cm,bottom=0.75cm,right=1cm,left=1cm]{geometry}
+\usepackage{amsmath,amsfonts,amssymb,amsthm,mathrsfs,pgfornament}
+\usepackage{amssymb}
+\usepackage[most]{tcolorbox}
+\pagestyle{empty}
+\usetikzlibrary{calc}
+\usepackage{hyperref, tikz}
+\usepackage{tkz-tab}
+\usepackage{varwidth}
+\usetikzlibrary{patterns}
+\tcbuselibrary{skins,breakable}
+%\usepackage[object=vectorian]{pgfornament}
+%\usetikzlibrary{shapes.multipart}
+\definecolor{bancolor}{RGB}{62,96,111}
+\tcbset{myboxstyle/.style={enhanced,skin=enhanced jigsaw,
+ attach boxed title to top left={xshift=-3mm,yshift=-\tcboxedtitleheight/2},
+ coltitle=black,varwidth boxed title=0.7\linewidth,
+ colbacktitle=#1!75, colback=white,sharp corners,
+ top=2ex,
+ boxed title style={sharp corners, boxrule=0pt},
+ underlay boxed title={
+ \fill[#1] (title.south west) -- (title.south-|frame.west)--++(0,-.5*\tcboxedtitleheight)--cycle;
+ \fill[#1] (title.north east) --++(-.5*\tcboxedtitleheight,0)--++(0,.5*\tcboxedtitleheight)--cycle;}},
+ myboxstyle/.default=bancolor}
+\newtcolorbox[auto counter]{mybox}{myboxstyle,breakable,title={Exercice \thetcbcounter},after skip=3mm}
+\begin{document}
+% \usepackage{lipsum}
+\begin{tcolorbox}[]
+ \begin{center}
+ \begin{tabular}{c c  c}
+ 2020/2021  \hspace*{2.5cm}   & \textbf{{\Large Série:bla bla bla  }} &  \hspace*{1.7cm} Classes:.......................... \\
+ Pr: S.BASSY\hspace*{2cm} &Mathématique & \hspace*{1.7cm}Lycée: .................
+ \end{tabular}
+\end{center}
+\end{tcolorbox}
+\vskip0.5cm
+\begin{mybox}
+bla 
+\begin{enumerate}
+ \item blabla
+ \item blabla
+ \item blabla
+\end{enumerate}
+\end{mybox}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{mybox}
+ bla 
+ \begin{enumerate}
+ \item blabla
+ \item blabla
+ \item blabla
+ \end{enumerate}
+\end{mybox}
+\begin{mybox}
+ bla 
+ \begin{enumerate}
+ \item blabla
+ \item blabla
+ \item blabla
+ \end{enumerate}
+\end{mybox}
+\begin{mybox}
+ bla 
+ \begin{enumerate}
+ \item blabla
+ \item blabla
+ \item blabla
+ \end{enumerate}
+\end{mybox}
+\end{document}

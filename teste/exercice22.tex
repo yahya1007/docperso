@@ -1,0 +1,100 @@
+\documentclass[a4paper,12pt,openany]{book}
+\usepackage[utf8]{inputenc}
+\usepackage{tikz,changepage,fancyhdr,lipsum}
+
+
+\def\tren{1.5}\def\duoi{1.5}\def\trai{2.4}\def\phai{1.4} 
+\definecolor{myblue}{RGB}{0,0,255} 
+\def\topset{1} 
+\def\botset{1} 
+
+
+\newcommand{\myfancyhead}{%
+	\begin{tikzpicture}[remember picture,overlay]
+		\checkoddpage
+		\ifoddpage 
+		\def\kctrai{\trai} \def\kcphai{\phai}
+		\pgfmathsetmacro{\kctren}{-\tren+0.5*\topset} 
+		\path ([yshift=\kctren cm]current page.north west) coordinate (AA)
+		++(\paperwidth,0)coordinate (BB); 
+		\foreach \ii/\mau in {1.35/myblue!30,1/myblue!50,0.5/myblue!70,-0.1/myblue!80}{
+			\fill[\mau,draw=white,line width=2pt] ([xshift=3pt,yshift=-2pt]BB)--++(-\kcphai cm-\ii cm-3pt,0)
+			--++(-0.3,0.5cm+1pt)--++(\kcphai cm +\ii cm+3pt+0.3 cm,0)--cycle;
+		}
+		
+		\node[anchor=south east,text=myblue,inner sep=0pt] at ([xshift=-\kcphai cm-1.35cm-8pt]BB){
+			\fontfamily{qag}\fontsize{8pt}{12pt}\selectfont\nouppercase{\rightmark}
+		};
+		
+		\draw[myblue, line width=1pt] ([yshift=0.5cm]AA)--([yshift=0.5cm]BB);
+		\else % Nếu là trang chẵn
+		\def\kctrai{\phai} \def\kcphai{\trai}
+		\pgfmathsetmacro{\kctren}{-\tren+0.5*\topset} 
+		\path ([yshift=\kctren cm]current page.north west) coordinate (AA)
+		++(\paperwidth,0)coordinate (BB); 
+		\foreach \ii/\mau in {1.35/myblue!30,1/myblue!50,0.5/myblue!70,-0.1/myblue!80}{
+			\fill[\mau,draw=white,line width=2pt] ([xshift=-3pt,yshift=-2pt]AA)--++(\kctrai cm+\ii cm+3pt,0)--++(0.3,0.5cm+1pt)--++(-\kctrai cm -\ii cm-3pt-0.3cm,0)--cycle;
+		}
+		\node[anchor=south west,text=myblue,inner sep=0pt] at ([xshift=\kctrai cm+1.35cm+8pt]AA){
+			\fontfamily{qag}\fontsize{8pt}{12pt}\selectfont\nouppercase{\leftmark}
+		};
+		\draw[myblue, line width=1pt] ([yshift=0.5cm]AA)--([yshift=0.5cm]BB);
+		\fi
+	\end{tikzpicture}%
+}
+
+
+\newcommand{\myfancyfoot}{%
+	\begin{tikzpicture}[remember picture,overlay]
+		\checkoddpage
+		\ifoddpage 
+		\def\kctrai{\trai} \def\kcphai{\phai}
+		\pgfmathsetmacro{\kcduoi}{\duoi-0.75*\botset} 
+		\path ([yshift=\kcduoi cm,xshift=\kctrai cm]current page.south west) coordinate (AA)
+		++(\textwidth,0)coordinate (BB); 
+		
+		\fill[right color=myblue, left color=myblue!10!white, rounded corners=0mm] ([xshift=3*\phai cm,yshift=0.07 cm]BB) rectangle +(-3.3*\phai cm,-0.6cm);
+		
+		\node[anchor=east,text=black,inner sep=0pt,xshift=0.47cm] at ([yshift=-2.3mm,xshift=2mm]BB) {
+			\fontfamily{put}\bfseries\thepage
+		};
+		
+		\node[anchor=east,text=myblue,inner sep=0pt] (tt) at ([yshift=-2.5mm,xshift=-7mm]BB){
+			\fontsize{9pt}{1pt}\selectfont bbbb 12 -- bbbb
+		};
+		
+		\draw[myblue,opacity=0.5,line width=1pt] ([xshift=-3pt]tt.west) --++(-\textwidth,0);
+		
+		\foreach \vt/\mau in {0/myblue!60,5/myblue!40,10/myblue!20,15/myblue!10,20/myblue!5}{
+			\fill[fill=\mau] ([xshift=-\kctrai cm +\vt mm]AA) rectangle +(3.5mm,-5mm);
+		}
+		\else 
+		\def\kctrai{\phai} \def\kcphai{\trai}
+		\pgfmathsetmacro{\kcduoi}{\duoi-0.75*\botset} 
+		\path ([yshift=\kcduoi cm,xshift=\kctrai cm]current page.south west) coordinate (AA)
+		++(\textwidth,0)coordinate (BB); 
+		\fill[left color=myblue, right color=myblue!10!white, rounded corners=0mm] ([xshift=0.2*\trai cm,yshift=0.07 cm]AA) rectangle +(-3*\trai cm,-0.6cm);
+		\node[anchor=west,text=black,inner sep=0pt,xshift=-1.7cm] at ([yshift=-2.3mm,xshift=12mm]AA) {
+			\fontfamily{put}\bfseries\thepage
+		};
+		\node[anchor=west,text=myblue,inner sep=0pt] (tentg) at ([yshift=-2.5mm,xshift=8mm]AA){
+			\fontsize{9pt}{1pt}\selectfont nnnnn 12 -- hhhh
+		}; 
+		
+		\draw[myblue,opacity=0.5,line width=1pt] ([xshift=3pt]tentg.east) --++(\textwidth,0);
+
+		\foreach \vt/\mau in {0/myblue!60,-5/myblue!40,-10/myblue!20,-15/myblue!10,-20/myblue!5}{
+			\fill[fill=\mau] ([xshift=\kcphai cm +\vt mm]BB) rectangle +(-3.5mm,-5mm);
+		}
+		\fi
+	\end{tikzpicture}%
+}
+
+\pagestyle{fancy}
+\fancyhead[LO,RE]{\myfancyhead} 
+\fancyfoot[LO,RE]{\myfancyfoot} 
+
+\begin{document}
+	
+	\lipsum[1-10]
+\end{document}

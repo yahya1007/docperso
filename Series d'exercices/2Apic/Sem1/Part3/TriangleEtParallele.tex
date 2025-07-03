@@ -1,0 +1,137 @@
+\documentclass[a4paper,12pt]{article}
+
+
+\usepackage{ProfModels}
+
+ 
+\begin{document}
+
+\begin{Maquette}[Fiche]{Theme=Triangle et parallèle,Niveau=2}
+
+\begin{exercice}
+$ABCD$ est un trapèze de bases $\lrc{AB}$ et $\lrc{CD}$, soit $I$, $J$ et $K$ les milieux respectifs de $\lrc{BC}$, $\lrc{BD}$ et  $\lrc{AD}$.
+\begin{enumerate}
+\item Construire une figure.
+\item Montrer que $I$, $J$ et $K$ sont des points alignés.
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+$ABCD$ est un parallélogramme, $E$ le symétrique de $D$ par rapport à $A$; la droite $\lrp{EC}$ coupe $\lrc{AB}$ en $M$.
+\begin{enumerate}
+\item Construire la figure.
+\item Montrer que $M$ est le milieu de $\lrc{AB}$.
+\item Prouver que $AEBC$ est un parallélogramme.
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+\begin{minipage}{0.5\linewidth}
+Dans la figure ci-contre : $AE=2$; $EB=7$; $AF=3$ et $\lrp{EF}//\lrp{BC}$.
+\begin{enumerate}
+\item Calculer $AC$.
+\item Déduire $FC$.
+\item Calculer $BC$.
+\end{enumerate}
+\end{minipage}
+\begin{minipage}{0.5\linewidth}
+\begin{tikzpicture}
+\tkzDefPoints{0/0/C,4/1/B,1/4/A}
+\tkzDefPointOnLine[pos=0.3](A,C)\tkzGetPoint{F}
+\tkzDefPointOnLine[pos=0.3](A,B)\tkzGetPoint{E}
+\tkzDrawPolygon(A,B,C)
+\tkzDrawSegment(E,F)
+\tkzLabelPoints[left](A,C,F)
+\tkzLabelPoints[right](E,B)
+\tkzLabelSegment[left](A,F){3}
+\tkzLabelSegment[right](A,E){2}
+\tkzLabelSegment[right](E,B){7}
+\tkzLabelSegment(E,F){2.4}
+\end{tikzpicture}
+\end{minipage}
+\end{exercice}
+
+\begin{exercice}
+$ABC$ est un triangle rectangle en $A$. Soit $M$, $N$ et $P$ les milieux respectifs de $\lrc{AB}$,  $\lrc{BC}$ et  $\lrc{AC}$.
+\begin{enumerate}
+\item Montrer que $\lrp{AB}//\lrp{MN}$.
+\item Montrer que $AN=BN=CN$.
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+$ABC$ est un triangle et $M$ le milieu de $\lrc{BC}$ et $O$ le milieu de $\lrc{AM}$. La droite $\lrp{OB}$ coupe $\lrc{AC}$ en $D$ et la droite parallèle à $\lrp{OB}$ passant par $M$ coupe $\lrc{AC}$ en $E$.
+\begin{enumerate}
+\item Construire une figure.
+\item Montrer que $D$ est le milieu de $\lrc{AE}$.
+\item Montrer que $E$ est le milieu de $\lrc{DC}$.
+\item Déduire que $EC=DE=AD$.
+\item Prouver que $DC=2AD$.
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+$ABCD$ est un quadrilatère tel que $M$, $N$, $P$ et $Q$ sont les milieux respectifs de $\lrc{AB}$, $\lrc{CB}$, $\lrc{CD}$ et $\lrc{AD}$.
+\begin{enumerate}
+\item Trace une figure convenable.
+\item Montrer que $\lrp{MN}//\lrp{PQ}$.
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+$ABCD$ est un parallélogramme et $O$ le milieu de $\lrc{AD}$.
+La droite $\lrp{OC}$ coupe $\lrp{AB}$ en $M$.
+\begin{enumerate}
+\item Construire une figure.
+\item Montrer que $A$ est le milieu de $\lrc{MD}$.
+\item Construire la droite parallèle à $\lrp{MO}$ passant par $D$ et qui coupe $\lrp{AB}$ en $N$.
+\item Montrer que $M$ est milieu de $\lrc{AN}$.
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+$ABCD$ est un parallélogramme et $E\in [DA)$ tel que : $AD=AE$; la droite $\lrp{EC}$ coupe $\lrp{AB}$ en $F$.
+\begin{enumerate}
+\item Construire une figure.
+\item Montrer que $E$ est le symétrique de $C$ par rapport à $F$.
+\item Construire $G$ le symétrique de $D$ par rapport à $F$.
+\item Montrer que $\lrp{EG}//\lrp{AB}$.
+\item Montrer que $AGBD$ est un parallélogramme.
+\item Déduire que $G$, $B$ et $C$ sont alignés.
+\end{enumerate} 
+\end{exercice}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{Maquette}
+\end{document}

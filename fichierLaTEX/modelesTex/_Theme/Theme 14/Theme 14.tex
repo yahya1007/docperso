@@ -1,0 +1,301 @@
+\documentclass[a4paper, 12pt]{report}
+\usepackage{etex}
+\usepackage[top=0.5cm, bottom=1.5cm, left=2cm, right=1cm]{geometry}
+\usepackage{tikz}
+\usepackage{etoolbox}
+\usepackage{lastpage} 
+
+\usepackage{pstricks-add}
+\pagestyle{empty}
+
+\usepackage{amsmath,amssymb}
+\usepackage{float}
+\usepackage[multidot]{grffile}
+\usepackage{graphicx}
+\usepackage{soul}
+\usepackage{ulem}
+\usepackage{amsthm}
+\usepackage{mathptmx}
+\usepackage{fancyhdr}
+\usepackage{color,colortbl}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{fancybox}
+\usepackage{pstricks,pst-plot,pst-text,pst-tree,pst-eps,pst-fill,pst-node,pst-math}
+\usepackage{pifont}
+\usepackage{xargs}
+\usepackage{framed}
+\usepackage[tikz]{bclogo}
+\usepackage{multirow}
+\usepackage[most]{tcolorbox}
+\renewcommand{\headrulewidth}{0pt}
+\usepackage{pgf,tikz,pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+\usepackage{multicol}
+\pagestyle{fancy}
+\usepackage{tcolorbox}
+\usepackage{amsmath,amsfonts,amssymb}
+\usetikzlibrary{calc}
+\usepackage[object=vectorian]{pgfornament}
+\tcbuselibrary{skins,xparse,hooks,vignette}
+\usepackage{tikzrput}
+\usepackage[tikz]{bclogo}
+\usepackage{varwidth}
+%\usepackage[]{anttor}
+%\usepackage[]{kurier}
+%\usepackage{arev}
+%\usepackage{avant}
+%\usepackage{bera}
+%\usepackage{bookman}
+%\usepackage{chancery}
+
+%\usepackage{charter}
+%\usepackage{cmbright}
+%\usepackage{concrete}
+%\usepackage{courier}
+%\usepackage{euler}
+%\usepackage{fourier}
+%\usepackage{fouriernc}
+%\usepackage{helvet}
+%\usepackage{inconsolata}
+%\usepackage{kpfonts}
+%\usepackage{lato}
+%\usepackage{mathpazo}
+%\usepackage{lmodern}
+%\usepackage{tgpagella}
+%\usepackage{tgtermes}
+%\usepackage{yfonts}
+ \newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+%<<<<<<<WARNING>>>>>>>
+% PGF/Tikz doesn't support hatch filling very well
+% Use PStricks for a perfect hatching export
+
+\usetikzlibrary[patterns]
+
+\makeatother
+
+   \usepackage{enumitem}
+\usetikzlibrary{shapes.geometric} 
+\usetikzlibrary{shapes.symbols}
+\newcommand{\circled}[1]{\tikz[baseline=-6pt] 
+ \node[circle,draw=red,inner sep=1.5pt]{#1};} 
+ \newcommand{\diamonde}[1]{\tikz[baseline=-6pt] \node[shape=diamond,draw=black,shade,ball color=black,inner sep=2pt]{#1};} \newcommand{\polygone}[1]{\tikz[baseline=-6pt]
+ \node[shape=regular polygon,regular polygon sides=8,draw=blue,inner sep=2pt,shade,ball color=red]{#1};} \newcommand{\signale}[1]{\tikz[baseline=-6pt] \node[signal,signal to =right,draw=blue,inner sep=2pt]{#1};} 
+\newcommand{\signalle}[1]{\tikz[baseline=-6pt] \node[signal,signal from =west,signal to =east,draw=blue,inner sep=2pt]{#1};}
+ \definecolor{uclagold}{rgb}{1.0, 0.7, 0.0}
+\definecolor{gold}{rgb}{1.0, 0.84, 0.0}
+\parindent=0pt
+\newcommand{\be}{\begin{enumerate}}
+	\newcommand{\ee}{\end{enumerate}}
+\newcommand{\vect}{\overrightarrow}
+\renewcommand{\footrulewidth}{1pt}
+\renewcommand{\headrulewidth}{1pt}
+\newcommand{\textreflect}[3]
+{%
+ \parbox[c]{5ex}
+{
+\begin{tikzpicture}[text=#2]
+ \node[at={(0,0)},yshift=1ex,yslant=#3]{%
+ \LARGE \bfseries #1};
+ \node[above,at={(0,0)},yslant=#3,yscale=-1,
+ scope fading=south,
+ opacity=0.5]{\LARGE \bfseries #1};
+ \end{tikzpicture}
+ }%
+ }
+  \setlist[enumerate,1]
+  {
+    itemsep=1ex, 
+    leftmargin=5ex, 
+    label=\fcolorbox{black}{blue!20}{\textcolor{black}{\large\bfseries$\arabic*$}}
+  }
+%%%
+\usetikzlibrary{shapes.symbols}
+\usetikzlibrary{decorations.pathmorphing}
+\tcbuselibrary{skins}
+
+%%%%%%%%%%%
+
+\usepackage{eso-pic}
+
+
+\newtcolorbox{myboxe2}[2][]{enhanced,breakable,
+	before skip=2mm,after skip=2mm,
+	colback=gray!20,colframe=black!50,boxrule=0.2mm,
+	attach boxed title to top left={xshift=1cm,yshift*=1mm-\tcboxedtitleheight},
+	varwidth boxed title*=-3cm,
+	boxed title style={frame code={
+			\path[fill=tcbcolback!30!black]
+			([yshift=-1mm,xshift=-1mm]frame.north west)
+			arc[start angle=0,end angle=180,radius=1mm]
+			([yshift=-1mm,xshift=1mm]frame.north east)
+			arc[start angle=180,end angle=0,radius=1mm];
+			\path[left color=tcbcolback!60!black,right color=tcbcolback!60!black,
+			middle color=tcbcolback!80!black]
+			([xshift=-2mm]frame.north west) -- ([xshift=2mm]frame.north east)
+			[rounded corners=1mm]-- ([xshift=1mm,yshift=-1mm]frame.north east)
+			-- (frame.south east) -- (frame.south west)
+			-- ([xshift=-1mm,yshift=-1mm]frame.north west)
+			[sharp corners]-- cycle;
+		},interior engine=empty,
+	},
+	fonttitle=\bfseries,
+	title={#2},#1}
+
+\cfoot{\thepage/\pageref{LastPage}}
+\lfoot{{\LARGE\ding{45}}
+\textcolor{black}{Pr:S.BASSY}}
+\rfoot{{\LARGE\ding{45}}
+\textcolor{black}{
+{\bf 2020~ \copyright~ Easy maths}}}
+\parindent=0pt
+\def\dg#1{%
+	\begin{tikzpicture}[remember picture,overlay]
+	\node [anchor=#1,rectangle,fill=gray!30,minimum width=1.5cm,minimum height=\paperheight,align=center]at(current page.#1){\rotatebox{90}{%
+		Pr: S.BASSY  \hspace*{2cm} 	lycée technique IBN ALHAITAM \hspace*{2cm} 2BAS SC EXP  \hspace*{2cm} Année scolaire: 2019-2020
+	}};
+	\end{tikzpicture}
+	
+}
+\AddToShipoutPicture{%
+	\ifodd \thepage
+	\dg{west}
+	\else
+	\dg{west}\fi
+}
+
+\begin{document}
+
+\begin{myboxe2}[colbacktitle=gray]{Exercice $1$}
+		
+			\begin{enumerate}
+		
+		\item Montrer que 
+		\begin{enumerate}[label=\protect\circled{\alph*}]
+			
+			
+			\begin{multicols}{2}
+				
+				\item text
+				\item text
+				\item text
+				
+				\item text
+				
+				
+			\end{multicols}
+			
+		\end{enumerate}
+		\item text
+		\begin{enumerate}
+			[label=\protect\circled{\alph*}]
+			
+			\begin{multicols}{3}
+				
+					\item text
+				\item text
+				\item text
+				
+				\item text
+					\item text
+				\item text
+				
+			\end{multicols}
+			
+		\end{enumerate}
+	\end{enumerate}
+
+	\end{myboxe2}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù	
+				\vspace*{0.1cm}
+			\begin{myboxe2}[colbacktitle=gray]{Exercice $2$}	
+				
+			On 
+		\begin{enumerate}
+		
+			\item \begin{enumerate}		[label=\protect\circled{\alph*}]
+				\item 	 Qst1
+				\item  Qst$2$	
+			
+		\end{enumerate}   
+		\item \begin{enumerate}		[label=\protect\circled{\alph*}]
+		\item 	 Qst1
+		\item  Qst$2$	
+		
+	\end{enumerate}   
+			
+		\end{enumerate}
+		
+		
+	\end{myboxe2}	
+	
+%%%%%%%%%%%%%%%
+\vspace*{0.1cm}
+\begin{myboxe2}[colbacktitle=red]{Exercice $3$}	
+	
+	On 
+	\begin{enumerate}
+		
+		\item \begin{enumerate}		[label=\protect\circled{\alph*}]
+			\item 	 Qst1
+			\item  Qst$2$	
+			
+		\end{enumerate}   
+		\item \begin{enumerate}		[label=\protect\circled{\alph*}]
+			\item 	 Qst1
+			\item  Qst$2$	
+			
+		\end{enumerate}   
+		
+	\end{enumerate}
+	
+	
+\end{myboxe2}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vspace*{0.1cm}
+\begin{myboxe2}[colbacktitle=blue]{Exercice $4$}	
+	
+	On 
+	\begin{enumerate}
+		
+		\item \begin{enumerate}		[label=\protect\circled{\alph*}]
+			\item 	 Qst1
+			\item  Qst$2$	
+			
+		\end{enumerate}   
+		\item \begin{enumerate}		[label=\protect\circled{\alph*}]
+			\item 	 Qst1
+			\item  Qst$2$	
+			
+		\end{enumerate}   
+		
+	\end{enumerate}
+	
+	
+\end{myboxe2}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
+\vspace*{0.1cm}
+\begin{myboxe2}[colbacktitle=black]{Exercice $5$}	
+	
+	On 
+	\begin{enumerate}
+		
+		\item \begin{enumerate}		[label=\protect\circled{\alph*}]
+			\item 	 Qst1
+			\item  Qst$2$	
+			
+		\end{enumerate}   
+		\item \begin{enumerate}		[label=\protect\circled{\alph*}]
+			\item 	 Qst1
+			\item  Qst$2$	
+			
+		\end{enumerate}   
+		
+	\end{enumerate}
+	
+	
+\end{myboxe2}
+
+\end{document}

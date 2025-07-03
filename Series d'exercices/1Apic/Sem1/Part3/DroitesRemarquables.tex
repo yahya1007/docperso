@@ -1,0 +1,164 @@
+\documentclass[a4paper,12pt]{article}
+
+
+\usepackage{ProfModels}
+
+ 
+\begin{document}
+
+\begin{Maquette}[Fiche]{Theme=Les droites remarquables dans un triangle,Niveau=1}
+
+\begin{exercice}
+Soit ABC un triangle tel que $AB = 10$, $BC = 11$ et $CA = 12$.
+\begin{enumerate}
+\item Construis l'orthocentre $H$ du triangle $ABC$.
+\item Soit $I$ le point d'intersection des droites $(AH)$ et $(BC)$; $J$ le point d'intersection des droites $(BH)$
+et $(CA)$; $K$ le point d'intersection des droites $(CH)$ et $(AB)$.
+\item Construis le centre du cercle inscrit au triangle $IJK$.
+\item Que constate-t-on ?
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+$ABC$ est un triangle rectangle en $A$, et $M$ un point de $\lrc{AC}$. La perpendiculaire à $\lrp{BC}$ passant par $M$ coupe $\lrp{AB}$ en $N$.
+\begin{enumerate}
+\item Construire une figure convenable.
+\item Montrer que $\lrp{BM}\perp\lrp{CN}$.
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+$ABC$ est un triangle rectangle en $A$, la médiatrice de $\lrc{AB}$ coupe $\lrc{BC}$ en $O$.
+\begin{enumerate}
+\item Construire une figure.
+\item Montrer que $\widehat{OAB}=\widehat{ABO}$.
+\item En déduire que $\widehat{OAB}+\widehat{OCA}=90^{\circ}$
+\item Montrer que $\widehat{CAO}=\widehat{OCA}$.
+\item En déduire que $O$ est le centre du cercle circonscrit au triangle $ABC$ et que $O$ est le milieu de $\lrc{BC}$.
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+\begin{minipage}{0.25\linewidth}
+\begin{tikzpicture}
+\tkzDefPoints{0/0/A,2.5/0/B,-1/3/C}
+\tkzDefPointBy[projection = onto A--B](C)
+\tkzGetPoint{I}
+\tkzDrawPolygon(A,B,C)
+\tkzDrawLine[add=0.5 and 0.5](C,I)
+\tkzDrawLine[add=0 and 0.25,dashed](A,I)
+\tkzLabelLine[pos=1.25,right](I,C){$(D2)$}
+\tkzMarkRightAngle(C,I,A)
+\tkzLabelPoint[below](A){A}
+\tkzLabelPoint[below](B){B}
+\tkzLabelPoint[left](C){C}
+\end{tikzpicture}%
+\end{minipage}%
+\begin{minipage}{0.25\linewidth}
+\begin{tikzpicture}[scale=0.8]
+\tkzDefPoints{0/0/A,3/0/B,-1/3/C}
+\tkzDefMidPoint(B,C)\tkzGetPoint{I}
+\tkzDefLine[mediator](C,B)
+\tkzGetPoints{i}{j}
+\tkzInterLL(i,j)(A,B)\tkzGetPoint{K}
+\tkzDrawPolygon(A,B,C)
+\tkzDrawLine[add=1 and 1 ](I,K)
+\tkzMarkRightAngle(C,I,K)
+\tkzMarkSegments[mark=||](C,I I,B)
+\tkzLabelLine[pos=1.5,right](I,K){$(D3)$}
+\tkzLabelPoint[above left](A){Q}
+\tkzLabelPoint[below](B){R}
+\tkzLabelPoint[left](C){T}
+\end{tikzpicture}%
+\end{minipage}%
+\begin{minipage}{0.25\linewidth}
+\begin{tikzpicture}[scale=0.8]
+\tkzDefPoints{0/0/A,4/0/B,3/3/C}
+\tkzDefLine[bisector](B,A,C)
+\tkzGetPoint{a}
+\tkzInterLL(A,a)(B,C)\tkzGetPoint{I}	
+\tkzDrawPolygon(A,B,C)
+\tkzDrawLine[add=0.2 and 0.2](I,A)
+\tkzLabelLine[pos=1.2,above](A,I){$(D4)$}
+\tkzMarkAngle(I,A,C)
+\tkzMarkAngle[size=0.8](B,A,I)
+\tkzLabelPoint[below](A){M}
+\tkzLabelPoint[below](B){N}
+\tkzLabelPoint[left](C){P}
+\end{tikzpicture}
+\end{minipage}%
+\begin{enumerate}
+\item La droite $\cdotsx{5}$ est une bissectrice du triangle $\cdotsx{5}$
+\item La droite $\cdotsx{5}$ est la médiantrice  du segment $\cdotsx{5}$
+\item la droite $\cdotsx{5}$ est la hauteur du triangle $\cdotsx{5}$ issue du sommet $\cdotsx{5}$
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+$ABC$ est un triangle.
+\begin{enumerate}
+\item Construire le point $I$ le projeté orthogonal de $A$ sur $\lrp{BC}$.
+\item Construire le point $J$ le projeté orthogonal de $B$ sur $\lrp{AC}$.
+\item les deux droites $\lrp{AI}$ et $\lrp{BJ}$ se coupent au point $K$.Montrer que $\lrp{AB}\perp\lrp{CK}$.
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+\begin{minipage}{0.5\linewidth}
+On considère la figure suivante.
+\begin{enumerate}
+\item Calculer la mesure de l'angle $\widehat{BAC}$.
+\item Calculer la mesure de l'angle $\widehat{BAC}$.
+\item Calculer la mesure de l'angle $\widehat{BAI}$.
+\end{enumerate}
+\end{minipage}%
+\begin{minipage}{0.5\linewidth}
+\begin{tikzpicture}
+\tkzDefPoints{0/0/B,3/1/A,2/-3/C}
+\tkzDefTriangleCenter[in](A,B,C)\tkzGetPoint{I}
+\tkzDrawPolygon(A,B,C)
+\tkzDrawLine[add=0 and 1](B,I)
+\tkzDrawLine[add=0 and 1](C,I)
+\tkzLabelPoint[right](A){A}
+\tkzLabelPoint[left](B){B}
+\tkzLabelPoint[left](C){C}
+\tkzLabelPoint[right](I){I}
+\tkzMarkAngle[arc=l , size=0.5 , mark=|](C,B,I)
+\tkzMarkAngle[arc=l , size=0.5 , mark=|](I,B,A)
+\tkzMarkAngle[arc=ll , size=0.5 , mark=|](I,C,B)
+\tkzMarkAngle[arc=ll , size=0.5 , mark=|](A,C,I)
+\tkzLabelAngle(C,B,I){\scriptsize{$34^{\circ}$}}
+\tkzLabelAngle(I,C,B){\scriptsize{$19^{\circ}$}}
+\end{tikzpicture}
+\end{minipage}
+\end{exercice}
+
+\begin{exercice}
+$ABCD$ est un rectangle de centre $I$. la perpendiculaire à $\lrp{AC}$ en $I$ coupe la droite $\lrp{CD}$ en $N$ et la droite $\lrp{AD}$ en $M$.
+\begin{enumerate}
+\item Construire une figure convenable.
+\item Démontrer que les droites $\lrp{AN}$ et $\lrp{CM}$ sont perpendiculaires.
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+$ABC$ est un triangle tel que : $AB=8$, $AC=7$ et $BC=9$.
+\begin{enumerate}
+\item Construire le triangle $ABC$.
+\item Construire le cercle circonscrit au triangle $ABC$ de centre $O$.
+\item Construire le cercle inscrit au triangle $ABC$ de centre $I$.
+\end{enumerate}
+\end{exercice}
+
+
+
+
+
+
+
+
+
+
+
+\end{Maquette}
+\end{document}

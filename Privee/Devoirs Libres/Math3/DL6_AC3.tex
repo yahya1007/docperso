@@ -1,0 +1,100 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{dlds}
+\usepackage{fig3d}
+% \usepackage[column=O]{cellspace}
+%\setlength{\cellspacebottomlimit}{5pt}
+%\setlength{\cellspacetoplimit}{5pt}
+\begin{document}
+
+\devoir[sem=2,prv=true,ds=false,num=6 ,niv=3 ,date=29/05/2023,Rdate=01/06/2023]
+
+\begin{exo}
+\begin{enumerate}
+\item Soit $f$ une fonction linéaire et $(D)$ sa représentation graphique passe par le point $A(2;4)$.
+\begin{enumerate}
+\item Montrer que $f(x)=2x$.
+\item Calculer $f(-3)$.
+\end{enumerate}
+\item Soit $g$ une fonction affine telle que $g(3)-g(-1)=-2$ et $g(0)=5$ et $(\Delta)$ sa représentation graphique.
+\begin{enumerate}
+\item Monter que $g(x)=-\dfrac{1}{2}x+5$.
+\item Calculer $g(4)$.
+\item Quel nombre a pour image -18 par $g$.
+\end{enumerate}
+\item Montrer que $(D)$ et $(\Delta)$ sont perpendiculaires.
+\item Construire  $(D)$ et $(\Delta)$.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}
+\begin{minipage}{.5\linewidth}
+Ce graphique représente les ventes des voitures d'une société durant les jours du mois du Juin.
+\begin{enumerate}
+\item Recopier et compléter le tableau suivant:
+\begin{EnvFullwidth}
+\begin{tabular}{|*7{Oc|}}
+\hline 
+Caractère & 2 & 3 & 4 & 5 & 6 & 7 \\ 
+\hline 
+Effectif &  &  &  &  &  &  \\ 
+\hline 
+Effectif cumulé  &  &  &  &  &  &  \\ 
+\hline 
+\end{tabular}
+\end{EnvFullwidth}
+\item Déterminer le mode de cette série statistique.
+\item Calculer la moyenne des ventes par jours dans cette société.
+\item Déterminer la médiane de cette série statistique. 
+\end{enumerate}
+\end{minipage}%
+\begin{minipage}{.5\linewidth}
+\begin{tikzpicture}
+\draw (0,0) grid (8,9);
+\foreach \y in {1,2,...,9} \draw(-0.1,\y)node[left]{\y};
+\foreach \x in {0,1,...,8} \draw(\x,0)node[below]{\x};
+\draw[line width=4pt] plot[ycomb,mark=*]  coordinates
+{(2,6)(3,9)(4,4)(5,4)(6,5)(7,2)};
+\end{tikzpicture}
+\end{minipage}
+\end{exo}
+
+\begin{exo}
+\begin{enumerate}
+\begin{minipage}{.7\linewidth}
+\begin{EnvUplevel}
+Soit $ABCDEFGH$ un parallélépipède rectangle tel que $AB=4$ ; $AD=6$ et $AE=3$.
+\end{EnvUplevel}
+\item Calculer $EB$.
+\item Montrer que $EBC$ est un triangle rectangle.
+\item Calculer $EC$.
+\item Déterminer le volume du pyramide $CEABF$.
+\item La pyramide $CIJKL$ est une réduction de la pyramide $CEABF$ par le rapport $\dfrac{1}{2}$ 
+\begin{enumerate}
+\item Calculer $IJ$
+\item Calculer le volume de la pyramide $CIJKL$.
+\end{enumerate}
+\end{minipage}%
+\begin{minipage}{.3\linewidth}
+\begin{EnvFullwidth}
+\begin{tikzpicture}
+\cube[30]{3}{4}
+\tkzDrawSegment(A,C)
+\tkzDrawSegment(F,C)
+\tkzDrawSegment(E,B)
+\tkzDrawSegment[dashed](E,C)
+\tkzDefPointOnLine[pos=0.5](A,C)\tkzGetPoint{I}
+\tkzDefPointOnLine[pos=0.5](B,C)\tkzGetPoint{J}
+\tkzDefPointOnLine[pos=0.5](C,F)\tkzGetPoint{K}
+\tkzDefPointOnLine[pos=0.5](C,E)\tkzGetPoint{L}
+\tkzDrawSegments(I,J J,K K,L L,I)
+\tkzLabelPoint[below right=-4pt](I){I}
+\tkzLabelPoint[below right=-4pt](J){J}
+\tkzLabelPoint[below right=-2pt](K){K}
+\tkzLabelPoint[below right=-4pt](L){L}
+\end{tikzpicture}
+\end{EnvFullwidth}
+\end{minipage}
+\end{enumerate}
+\end{exo}
+\end{document}

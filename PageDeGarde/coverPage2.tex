@@ -1,0 +1,137 @@
+\documentclass{article}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usetikzlibrary{shadows,shadows.blur}
+\usepackage{anyfontsize}
+\usepackage{pdfrender}
+%============================================
+\definecolor{myblue}{cmyk}{10,0,0,0}
+\definecolor{YankeesBlue}{RGB}{28,40,65}
+\definecolor{mygray}{RGB}{112,121,139}
+\definecolor{mytan}{HTML}{F6D5A8}
+%=================================================
+
+
+\begin{document}
+
+\pagestyle{empty}
+
+\begin{tikzpicture}[remember picture,overlay]
+\path 
+(current page.north west) coordinate (A)
+(current page.north east) coordinate (B)
+(current page.south east) coordinate (C)
+(current page.south west) coordinate (D)
+(current page.west) coordinate (W)
+(current page.east) coordinate (F)  
+(current page.center) coordinate (E) ;
+%=============================================
+%%%%%%%%%%%%%%%%%%%% Background %%%%%%%%%%%%%%%%%%%%%%%%
+\fill[myblue!15!white] (A) rectangle (C);
+\foreach \i in {2,4,...,16}
+\foreach \j  in {4,8,...,16,20,24}
+{
+	\pgfmathsetmacro\k{\j*3+\i}
+	\fill[myblue!\k,blur shadow=%
+	{
+		shadow blur steps=5,
+		shadow xshift=-0.8mm,
+		shadow yshift=-2mm}]
+	($(A)+(0,-\j+.86)$) -++(15.4,0)--([turn]-60:{4})--([turn]-60:{4})--++(-15.4,0)--([turn]-60:{4})--cycle;
+}
+
+\foreach \i in {2,4,...,16}
+\foreach \j  in {4,8,...,16}
+{
+	\pgfmathsetmacro\k{\j*3+\i}
+	\fill[orange!\k,blur shadow=%
+	{
+		shadow blur steps=5,
+		shadow xshift=-0.8mm,
+		shadow yshift=-2mm}]
+	($(B)+(0,-\j-8)$) -++(-3,0)--([turn]-60:{4})--([turn]-60:{4})--++(3,0)--([turn]-60:{4})--cycle;
+}
+
+%=======================================
+
+%Publishing house
+\node[anchor=west] at ([shift={(-3,12.5)}]E){
+	\textpdfrender{
+		TextRenderingMode=FillStroke, StrokeColor=YankeesBlue, LineWidth=1.5pt, FillColor=white
+	}{\fontsize{25}{25}\sffamily\bfseries\color{YankeesBlue}
+		University of Médéa
+}};
+%=====================================================
+%Author name
+\node[anchor=west] at ([shift={(2,0)}]W){
+	\textpdfrender{
+		TextRenderingMode=FillStroke, StrokeColor=YankeesBlue, LineWidth=1.5pt, FillColor=white
+	}{\fontsize{25}{25}\sffamily\bfseries\color{YankeesBlue}
+		Rezak Souilah
+}};
+%==============================================
+%triangle 1
+\def\r{.6}
+\foreach \c in {0,1,2}{
+	\path 
+	($(E)+(-4,12.5)+(120*\c:\r)$)coordinate(T\c) ;
+}
+
+\begin{scope}[transform canvas={xshift=0.04cm,yshift=-0.05cm}]
+\fill [black, opacity=0.3] 
+(T0) -- (T1) -- (T2) -- cycle; 
+\end{scope}
+
+\shade [top color=YankeesBlue!60!white, bottom color=YankeesBlue] (T0) -- (T1) -- (T2) -- cycle; 
+
+
+%==============================================
+% Title
+\node[rotate=90,align=center] at ($(F)+(-2,0)$){
+	\textpdfrender{
+		TextRenderingMode=FillStroke, StrokeColor=YankeesBlue, LineWidth=1.5pt, FillColor=white
+	}{\fontsize{70}{82}\sffamily\bfseries\color{YankeesBlue}
+		Linear Algebra 
+}};
+
+%==============================================
+%==============================================
+% Subject of book
+\node[align=left] at ($(F)+(-12.2,8.5)$){
+	\textpdfrender{
+		TextRenderingMode=FillStroke, StrokeColor=YankeesBlue, LineWidth=1.5pt, FillColor=white
+	}{\fontsize{48}{60}\sffamily\bfseries\color{YankeesBlue}
+		With Applications
+}};
+
+%==============================================
+% Year of edition
+\draw[YankeesBlue,line width=6pt]
+($(E)+(-3.8,-10)$) -- ++(0,-1.5cm) 
+node[
+midway,
+left=0.25cm,
+text width=5cm,
+align=right,
+YankeesBlue
+]
+{
+	{\fontsize{25}{30} \selectfont \bf  EDITION}
+} 
+node[
+midway,
+right=0.25cm,
+text width=6cm,
+align=left,
+YankeesBlue]
+{
+	{\bfseries\fontsize{32}{46.4} \selectfont 2022}
+};
+%================================================
+\fill[myblue] ($(A)+(1.5,0)$) -- ($(D)+(1.5,0)$);
+
+
+\end{tikzpicture}
+
+\end{document}

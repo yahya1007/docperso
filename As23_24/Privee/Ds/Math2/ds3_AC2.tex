@@ -1,0 +1,122 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{ProfModels}
+
+  
+\begin{document}
+\begin{Maquette}[DS]{Niveau=2, Numero=3, Date=13/01/2025, Semestre=1, Calculatrice=false}
+
+\begin{exercice}
+\begin{enumerate}
+\item\brm{6} Écrire sous forme $a^{n}$ les expressions suivantes :
+\begin{tasks}
+\task $\dfrac{13^{6}}{13^{8}}=$\anserline[1]
+\task $\dfrac{3^{12}\times (-3)^{6}}{9^{-9}}=$\anserline[1]
+\task $\dfrac{a^{-9}\times a^{5}\times (-a)^{18}}{a^{-4}}=$\anserline[1]
+\end{tasks}
+\item\brm{2} Donner l'écriture scientifique des nombres suivants :\newline
+$A=0.003\times 70000000000 = $\anserline[1]
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+\begin{minipage}{0.7\linewidth}
+On considère la figure ci-contre tel que $AM=3$, $BM=9$, $MN=4$, $AN=2$ et $(MN)//(BC)$ . Soient $I$ et $J$ les milieux respectifs de $[AC]$ et $[BC]$. 
+\begin{enumerate}
+\item\brm{3} Calculer $BC$ et $NC$\newline
+\anserline[5]
+\end{enumerate}
+\end{minipage}%
+\begin{minipage}{0.3\linewidth}
+\begin{tikzpicture}
+\tkzDefPoints{0/0/A,4/1/B,1/4/C}
+\tkzDrawSegments(A,B B,C C,A)
+\tkzDefPointOnLine[pos=.3](A,B)\tkzGetPoint{M}
+\tkzDefPointOnLine[pos=.3](A,C)\tkzGetPoint{N}
+\tkzDefPointOnLine[pos=.5](A,C)\tkzGetPoint{I}
+\tkzDefPointOnLine[pos=.5](C,B)\tkzGetPoint{J}
+\tkzDrawPoints(I,J)
+\tkzDrawSegment(M,N)
+\tkzLabelPoints[left](A,N,C)
+\tkzLabelPoints[below](B,M)
+\tkzLabelPoints[above=4pt](I,J)
+\end{tikzpicture}
+\end{minipage}\vspace{4mm}
+
+\begin{enumerate}[start=2]
+\begin{minipage}{0.48\linewidth}
+\item\brm{3} Monter que $(IJ)//(AB)$\newline
+\anserline[7]
+\end{minipage}\hfill\vrule\hfill%
+\begin{minipage}{.48\linewidth}
+\item Calculer $IJ$\newline
+\anserline[7]
+\end{minipage}
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}[6]
+\begin{tikzpicture}
+\tkzDefPoints{0/0/A,9/0/B,3/6/C}
+\tkzDrawSegments(A,B A,C C,B)
+\tkzDefTriangleCenter[circum](A,B,C)\tkzGetPoint{O}
+\tkzDefTriangleCenter[in](A,B,C)\tkzGetPoint{I}
+\tkzDefTriangleCenter[ortho](A,B,C)\tkzGetPoint{H}
+\tkzDefTriangleCenter[centroid](A,B,C)\tkzGetPoint{G}
+\tkzDrawPoints(O,I,G,H)
+\tkzLabelPoints(O,I,G,H,A,B)
+\tkzLabelPoints[above](C)
+\tkzInterLL(A,B)(C,H)\tkzGetPoint{H_1}
+\tkzInterLL(A,C)(B,H)\tkzGetPoint{H_2}
+\tkzDrawLines(C,H_1 B,H_2)
+\tkzMarkRightAngles(B,H_1,C B,H_2,C)
+
+\tkzInterLL(A,G)(C,B)\tkzGetPoint{G_1}
+\tkzInterLL(C,G)(A,B)\tkzGetPoint{G_2}
+\tkzDrawLines[dashed](A,G_1 C,G_2)
+
+\tkzDefPointBy[projection=onto B--C](O)\tkzGetPoint{O_1}
+\tkzDrawLine[add=0.5 and 1](O,O_1)
+\tkzMarkRightAngle(C,O_1,O)
+\tkzLabelPoints[above=6pt, right=6pt](O_1)
+\tkzDrawSegment(A,I)
+\tkzMarkAngle[arc=ll , size=1 , mark=|](I,A,C) 
+\tkzMarkAngle[arc=ll , size=1.2 , mark=|](B,A,I) 
+
+\end{tikzpicture}
+
+Observer bien la figure et répondre aux questions suivantes .
+\begin{enumerate}
+\item\brm{1} Citer un médiatrice du triangle $ABC$
+\anserline[1]
+\item\brm{1} Citer un hauteur du triangle $ABC$
+\anserline[1]
+\item\brm{1} Citer un bissectrice du triangle $ABC$
+\anserline[1]
+\item\brm{1} Quel est le centre du cercle inscrit dans le triangle $ABC$?
+\anserline[1]
+\item\brm{1} Quel est le centre du cercle circonscrit au triangle $ABC$ ?
+\anserline[1]
+\item\brm{1} Quel est l'orthocentre du triangle $ABC$ ?
+\anserline[1]
+\end{enumerate}
+\end{exercice}
+
+
+
+\end{Maquette}
+\end{document} 
+
+
+%\begin{exercice}
+%$ABCD$ est un trapèze de bases $[AB]$ et $[CD]$ . $M$ et $N$ sont respectivement les milieux des cotés $[AD]$ et $[AC]$ 
+%\begin{enumerate}
+%\item\brm{2} Montrer que $(MN)//(CD)$\newline
+%\anserline[8]
+%\item\brm{2} La droite $(MN)$ coupe la droite $(BC)$ en $K$ ,monter que $K$ est le milieu de $[BC]$\newline
+%\anserline[7]
+%\item\brm{2} Calculer la distance $MN$ sachant que $CD=100$\newline
+%\anserline[6]
+%\end{enumerate}
+%\end{exercice}
+

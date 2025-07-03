@@ -1,0 +1,347 @@
+\documentclass[12pt,a4paper]{book}
+\usepackage[utf8]{inputenc}
+%\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{mathtools,thmtools}
+\usepackage[explicit]{titlesec}
+\usepackage{titletoc}
+\usepackage[many]{tcolorbox}
+\tcbuselibrary{skins}
+\usepackage{array}
+\usepackage{pifont}
+\usepackage{xcolor,colortbl}
+\usepackage{tikz}
+\usepackage[framemethod=tikz]{mdframed}
+\usetikzlibrary{matrix,fit,calc,shadows,shadows.blur}
+\usepackage[left=2cm,right=2.5cm,top=2.5cm,bottom=2.5cm]{geometry}
+\usepackage{eso-pic}
+\usepackage{tikzpagenodes}
+\usepackage{nopageno}
+%============================================
+\definecolor{myblue3}{RGB}{36, 57, 126}
+\definecolor{YankeesBlue}{RGB}{28,40,65}
+\definecolor{mygray}{RGB}{112,121,139}
+%=================================================
+%===========================================
+\definecolor{myblue}{RGB}{0,82,155}
+\definecolor{myblueii}{RGB}{0, 0, 100}
+\definecolor{MainRed}{rgb}{.6, .1, .1}
+\definecolor{berry}{RGB}{235, 37, 129}
+\definecolor{Kgolden}{RGB}{255, 188, 0}
+\definecolor{golden}{RGB}{255,223,0}
+%===========================================
+\definecolor{coralred}{rgb}{1.0, 0.25, 0.25}
+%===========================================
+\definecolor{definitioncolor}{gray}{0.65}
+\definecolor{clight2}{RGB}{212, 237, 244}
+\definecolor{col}{RGB}{31, 170, 31}
+\definecolor{colf}{RGB}{208, 61, 66}
+\definecolor{ocre}{RGB}{52,177,201}
+\definecolor{ultramarine}{RGB}{0,45,97}
+\definecolor{mybluei}{RGB}{0,173,239}
+\definecolor{myblueii}{RGB}{63,200,244}
+\definecolor{myblueiii}{RGB}{199,234,253}
+\definecolor{MainRed}{rgb}{.6, .1, .1}
+\definecolor{berry}{RGB}{235, 37, 129}
+\definecolor{Kgolden}{RGB}{255, 188, 0}
+\definecolor{coralred}{rgb}{1.0, 0.25, 0.25}
+%===========================================
+\definecolor{shadow@color}{cmyk}{.07,0,0,0.49}
+\definecolor{col1}{RGB}{12, 102, 98}
+\definecolor{col2}{RGB}{248, 193, 12}
+\definecolor{col3}{RGB}{236, 67, 1} 
+%=========================================
+\definecolor{shamrockgreen}{rgb}{0.0, 0.62, 0.38}
+\definecolor{rose}{rgb}{1.0, 0.0, 0.5}
+\definecolor{richlavender}{rgb}{0.67, 0.38, 0.8}
+\definecolor{tangelo}{rgb}{0.98, 0.3, 0.0}
+% % % % % % % % % % % % % % % % % % % % % % %
+%===========================================
+\titlespacing*{\chapter}{0pt}{2cm}{3.5cm}%left,top,bottom
+\titleformat{\chapter}[display]
+{\startcontents\bfseries\sffamily\color{MainRed}}
+{
+\begin{tikzpicture}[remember picture,overlay]
+%\path (current page.north west) coordinate (A); 
+\coordinate (D) at ([yshift=-1cm]current page.north);
+\path[fill=yellow](D)--++(0,-6)--++(2.5cm,-3mm)--++(2.5,3mm)--++(0,6) --cycle;
+\node[scale=9.5,font=\color{red}] (num) at ([shift={(2.5,-2)}]D) {\thechapter};
+\path[fill=cyan]([yshift=-4cm]D)--++(0,-1cm+2mm) -- ++(2mm,-2mm) --++(5cm-4mm,0) --++ (2mm,2mm)--++(0,1cm-2mm)--cycle;
+\path[fill=cyan]([yshift=-.75cm]current page.north west) rectangle ([yshift=-1cm-3pt]current page.north east);
+\node[scale=2.2,color=coralred] at ([yshift=-2.5cm]num) {\chaptertitlename};
+\node[minimum height=1.5cm, fill=white,font=\color{coralred},text width=5cm]  at ([shift={(-3,-6.25)}]num) [scale=2.5,align=left,]{#1};
+%==============================================
+\path 
+([shift={(-11,-6.25)}]num) coordinate (A);
+%triangle
+\def\r{1}
+\foreach \c in {0,1,2}{
+ \path 
+ ($(A)+(.1,-.1)+(120*\c:\r)$)coordinate(T\c) ;
+}
+\begin{scope}[transform canvas={xshift=0.04cm,yshift=-0.05cm}]
+\fill [black, opacity=0.3] 
+(T0) -- (T1) -- (T2) -- cycle; 
+\end{scope}
+\shade [top color=coralred!60!white, bottom color=coralred] (T0) -- (T1) -- (T2) -- cycle; 
+\end{tikzpicture}}
+{10ex}
+{}
+[]
+%------------------------------------------------------
+\titleformat{name=\chapter,numberless}[display]
+{\Huge\bfseries\sffamily\color{MainRed}}
+{#1}
+{1ex}
+{\titlerule[2pt]\vspace*{5ex}\huge\normalfont}
+%------------------------------------------------------
+\titleformat{\section}
+{\sffamily\Large\bfseries\color{cyan}}
+{}
+{1em}
+{%
+ \begin{tikzpicture}
+ \node[name=r1, rectangle, fill=cyan, anchor=north west, font=\bfseries\color{white},
+ inner sep=3pt, minimum width=40mm, minimum height=10mm,
+ xshift=3mm, align=center, text width=10cm,
+ ] {#1};
+ \node[name=c, rectangle, fill=blue, font=\color{white}, anchor=north west,
+ minimum width=10mm,
+ ] {\thesection};
+ \draw[cyan, line width=5pt] ($(c.north east)+(0,-.5\pgflinewidth)$)
+ -- ({(\textwidth)},{-.5\pgflinewidth});
+ \end{tikzpicture}
+}
+%==============================================
+%=============================================
+% % % % % % % % % % % % % % % % % % % % % % %
+% Définitions environment
+\declaretheoremstyle[
+headfont=\large\normalfont\bfseries\color{MainRed},
+notefont=\mdseries, notebraces={(}{)},
+bodyfont=\normalfont,
+postheadspace=0.5em,
+mdframed={
+ skipabove=\topsep,
+ skipbelow=\topsep,
+ hidealllines=true,
+ backgroundcolor={definitioncolor!10},
+ innerleftmargin=0pt,
+ innerrightmargin=0pt,
+}
+]{mystyle}
+\declaretheorem[style=mystyle,name=D\'{e}finition]{definition}
+\newenvironment{Definition}[1]
+{\renewcommand\thedefinition{#1}\begin{definition}}
+ {\end{definition}}
+\numberwithin{definition}{chapter}
+% % % % % % % % % % % % % % % % % % % % % % %
+% % % % % %% Example environment
+\theoremstyle{plain}
+\newmdtheoremenv[%
+innertopmargin=0pt,% make the frame "tight"
+innerbottommargin=0pt,%
+rightline=false,% Kill all the lines except the left one
+topline=false,%
+bottomline=false,%
+linecolor=gray,%
+linewidth=4pt,%
+leftmargin=10pt%
+ntheorem = true% since we are using ntheorem to configure the style
+]{example}{\color{blue!30!black}Exemple}[chapter]
+% % % % % % % % % % % % % % % % % % %
+\AddToShipoutPictureBG{
+ \begin{tikzpicture}[remember picture,overlay]
+ \fill[cyan]([yshift=1cm]current page.south west)rectangle(current page.south east) ;
+ \node[circle,draw=white,line width=2pt,minimum size=1cm,fill=cyan]at([yshift=0.9cm]current page.south){\bfseries\Large\textcolor{MainRed}{\thepage}};
+ \end{tikzpicture} }
+% % % %
+\begin{document}
+\thispagestyle{empty}
+\chapter{Matrices}
+\section{Notions générales}
+\begin{definition}
+ Une Matrice est un tableau rectangulaire de la forme
+ \begin{equation*}
+ A = 
+ \left[
+ \begin{array}{ccc>{\columncolor{clight2}}c cc} 
+ a_{11} & a_{12} & \cdots &  a_{1j} & \cdots & a_{1n}\\ 
+ a_{21} & a_{22} & \cdots &  a_{2j} & \cdots & a_{2n}\\ 
+ \vdots & \vdots &\vdots & \vdots & \vdots&\vdots \\
+ \rowcolor{clight2} a_{i1} & a_{i2} & \cdots & \cellcolor[gray]{.6}a_{ij} & \cdots & a_{in}\\
+ \vdots & \vdots &\ddots & \vdots & \vdots &\vdots \\
+ a_{m1} & a_{m2} & \cdots & a_{mj} & \cdots & a_{mn}
+ \end{array}
+ \right]
+ \end{equation*}
+ où les $a_{ij}$ sont des nombres réels appelés les éléments ou coefficients de la matrice $A$. La matrice précédente est aussi notée par $\left(a_{ij}\right),\;i=1,\cdots,m,\;j=1,\cdots,n$, ou simplement par $\left(a_{ij}\right)$. L'élément $a_{ij}$ est situé à l’intersection de la $i$-ème ligne et de la $j$-ème colonne. Une matrice ayant $m$ lignes et $n$ colonnes
+ est appelée une matrice d'ordre $(m,n)$, ou de dimension $m\times n$. Les matrices seront notées habituellement par des lettres capitales $A,\,B,\cdots$, et les éléments par des lettres minuscules $a,\,b,\cdots$.
+\end{definition}
+\begin{example}:
+ On considère les matrices suivantes:
+ \begin{equation*}
+ A=
+ \begin{bmatrix}
+ 1 & -1 & 2\\
+ 3 &  \frac{1}{2} & \sqrt{2}
+ \end{bmatrix},\;
+ B=
+ \begin{bmatrix}
+ -\sqrt{3} \\
+ \frac{1}{5}\\
+ 1
+ \end{bmatrix},\;
+ C=
+ \begin{bmatrix}
+ -1 & 0 & 1 & 5
+ \end{bmatrix},\;
+ D=
+ \begin{bmatrix}
+ -1 & 1 & 3 \\
+ 5 & 6 & 2 \\
+ 1 & -1 & 0
+ \end{bmatrix}.
+ \end{equation*}
+ \begin{enumerate}
+ \item La matrice $A$ est de dimension $2\times 3$ et on a $a_{23}=\sqrt{2},\quad a_{13}=2,\quad a_{22}=\frac{1}{2}$.
+ \item La matrice $B$ est de dimension $3\times 1$ et on a $b_{11}=-\sqrt{3},\quad b_{21}=\frac{1}{5},\quad b_{31}=1$.
+ \item La matrice $C$ est de dimension $1\times 4$ et on a $C_{11}=-1,\quad C_{12}=0,\quad C_{13}=1,\quad C_{14}=5$. 
+ \item La matrice $D$ est de dimension $3\times 3$ et on a $D_{33}=0,\quad D_{23}=2,\quad D_{32}=-1$. 
+ \end{enumerate} 
+\end{example}
+\section{Matrices particulières}
+\begin{definition}
+ Une matrice ligne est une matrice comportant une seule ligne. Une matrice ligne a donc
+ pour dimension $1\times n$. Une matrice ligne a la forme suivante:
+ \begin{equation*}
+ A=
+ \begin{bmatrix}
+ a_{11} & a_{12} & \cdots & a_{1n}
+ \end{bmatrix}_{1\times n}.
+ \end{equation*}
+\end{definition}
+\begin{example}: La matrice
+ $
+ A=
+ \begin{bmatrix}
+ 1 & 2 & -1 & 5 & 0
+ \end{bmatrix}
+ $ est une matrice ligne de dimension $1\times 5$.
+\end{example}
+\begin{definition}
+ Une matrice colonne est une matrice comportant une seule colonne.  Une matrice colonne a donc
+ pour dimension $m\times 1$. Une matrice colonne a la forme suivante:
+ \begin{equation*}
+ A=\begin{bmatrix}
+ a_{11}  \\
+ a_{21}  \\
+ \vdots  \\
+ a_{n1}
+ \end{bmatrix}_{n\times 1}.
+ \end{equation*}
+\end{definition}
+\begin{example}: La matrice
+ $
+ A=
+ \begin{bmatrix}
+ -1 \\
+ 0 \\
+ 2 \\
+ 4
+ \end{bmatrix}$ est une matrice colonne de dimension $4\times 1$.
+\end{example}
+\section{Opérations sur les matrice}
+\begin{definition}
+ Soit $A$ et $B$ deux matrices de même dimension. La somme de $A$ et $B$, écrite $A+B$, est la matrice obtenue en ajoutant les éléments correspondants des deux matrices.
+ \begin{equation*}
+ \begin{aligned}
+ &\text{Si}\quad A=\begin{bmatrix}
+ a_{11} & a_{12} & a_{13}\\
+ a_{21} & a_{22}  & a_{23}
+ \end{bmatrix}_{2\times 3}\;\text{et}\quad
+ B=\begin{bmatrix}
+ b_{11} & b_{12} & b_{13}\\
+ b_{21} & b_{22}  & b_{23}
+ \end{bmatrix}_{2\times 3},
+ \\ \ \\
+ &\text{alors}\quad A+B=\begin{bmatrix}
+ a_{11}+b_{11} & a_{12}+b_{12} & a_{13}+b_{13}\\
+ a_{21}+b_{21} & a_{22}+b_{22}  & a_{23}+b_{23}
+ \end{bmatrix}_{2\times 3}.
+ \end{aligned}
+ \end{equation*}
+\end{definition}
+\begin{example}: On considère les matrices: 
+ \begin{equation*}
+ A=
+ \begin{bmatrix}
+ -2 & 0 & 1\\
+ 1 & 3  & -1\\
+ \end{bmatrix},\;
+ B=
+ \begin{bmatrix}
+ 1 & 2 \\
+ 1 & 0 \\
+ 0 & 4
+ \end{bmatrix},\;
+ C=
+ \begin{bmatrix}
+ -2 & 1 \\
+ 4 & 3 \\
+ -1 & -1
+ \end{bmatrix},\;
+ D=
+ \begin{bmatrix}
+ 1 & 1 & 0\\
+ 2 & 0 & 4
+ \end{bmatrix}.
+ \end{equation*}
+ \begin{itemize}
+ \item[\ding{43}] Calchler $B+C$.
+ \begin{equation*}
+ B+C=\begin{bmatrix}
+ 1 & 2 \\
+ 1 & 0 \\
+ 0 & 4
+ \end{bmatrix}+
+ \begin{bmatrix}
+ -2 & 1 \\
+ 4 & 3 \\
+ -1 & -1
+ \end{bmatrix}=
+ \begin{bmatrix}
+ 1+(-2) & 2+1 \\
+ 1+4 & 0+3 \\
+ 0+1 & 4+(-1)
+ \end{bmatrix}=
+ \begin{bmatrix}
+ -1 & 3 \\
+ 5 & 3 \\
+ 1 & 3
+ \end{bmatrix}.
+ \end{equation*} 
+ \item[\ding{43}] Calculer $A+D$.
+ \begin{equation*}
+ A+D=\begin{bmatrix}
+ -2 & 0 & 1 \\
+ 1 & 3  & -1
+ \end{bmatrix}+
+ \begin{bmatrix}
+ 1 & 1 & 0\\
+ 2 & 0 & 4
+ \end{bmatrix}=
+ \begin{bmatrix}
+ -2+1 & 0+1 & 1+0\\
+ 1+2 & 3+0 & -1+4
+ \end{bmatrix}=
+ \begin{bmatrix}
+ -1 & 1 & 1\\
+ 3 & 3 & 3
+ \end{bmatrix}.
+ \end{equation*}
+ \item[\ding{43}]  La somme de $A$ et $B$ n’est pas définie car $A$ et $B$ ne sont pas de même dimension.
+ \end{itemize}
+\end{example}
+\end{document}

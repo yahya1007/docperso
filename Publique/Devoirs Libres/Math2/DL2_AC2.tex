@@ -1,0 +1,101 @@
+\documentclass[a4paper,addpoints,12pt]{exam}
+
+\usepackage{dlds}
+ 
+\begin{document}
+
+\devoir[prv=false,num=2 ,niv=2 , date=01/12/2022,Rdate=12/12/2022 ]
+
+\begin{exo}
+\begin{questions}
+\question Calculer : 
+\[ 2022^{0} \quad; \quad (-1)^{101} \quad; \quad 0^{89} \quad; \quad (\dfrac{1}{5})^{-3}\]
+\question Déterminer le signe des puissances suivantes :
+\[ (\dfrac{-1}{13})^{-12} \quad; \quad 
+	(-7)^{2007}
+\] 
+\question Écrire sous forme $a^{n}$ les expressions suivantes :
+\[\dfrac{11^{-6}}{11^{-8}}\quad; \quad
+	\dfrac{3^{5}\times (-3)^{8}}{9^{9}}\quad; \quad
+	\dfrac{10^{5}\times 10^{-8}\times 10^{4}}{2^{6}\times 2^{-7}\times 2^{2}}\quad; \quad
+\dfrac{a^{-9}\times a^{5}\times (-a)^{18}}{a^{-4}}
+\]
+\question Simplifier : 
+\[
+\dfrac{ab^{-4}\times (a^{2}b^{-1})^{3}\times a^{-2}b^{3}}{a^{-5}\times (ab^{-1})^{2}\times (ab)^{-3}}
+\]
+\question Donner l'écriture scientifique des nombres suivants :
+\[
+	A=0.0000000025\times 0.00000000042 \quad; \quad
+	B=\dfrac{540\times 10^{-9}}{6\times 10^{-22}}\quad; \quad
+\]
+\end{questions}
+\end{exo}
+
+\begin{exo}
+\begin{minipage}{.5\textwidth}
+\begin{questions}
+\question Reproduire cette figure et construire $E$ et $F$ les symétriques de $A$ et $B$ par rapport à la droite  $(\Delta)$.
+\question Quel est le symétrique de $O$ par rapport à $(\Delta)$? En justifiant ta réponse .
+\question Montrer que $AB=EF$.
+\question Montrer que les points $O$ , $E$ et $F$ sont alignés.
+\question Montrer que $O$ est le milieu du segment $[EF]$.
+\end{questions}
+\end{minipage}
+\begin{minipage}{.5\textwidth}
+\begin{tikzpicture}
+\tkzDefPoints{-3/0/A,0/0/O,3/0/B}
+\tkzDefPoint(30:2){D}
+\tkzDrawSegment(A,B)
+\tkzDrawLine[add=2 and 1](O,D)
+\tkzDrawPoints(A,B,O)
+\tkzLabelPoints(A,O,B)
+\tkzLabelLine[pos=2,above](O,D){$(\Delta)$}
+\tkzMarkSegments[mark=||](A,O O,B)
+
+\end{tikzpicture}
+\end{minipage}
+\end{exo}
+
+\begin{exo}
+Soit $ABC$ un triangle tel que : $\widehat{BAC}=130^{\circ}$ et $\widehat{ACB}=30^{\circ}$
+\begin{questions}
+\question Construire la figure , puis le point $A'$ symétrique du point $A$ par rapport à la droite $(BC)$.
+\question
+	\begin{parts}
+	\part Montrer que $CA=CA'$
+	\part Donner la mesure de l'angle $\widehat{A'CA}$
+	\part En déduire la nature du triangle $AA'C$
+	\end{parts}
+\question Soit $I$ le point de $[BC]$ tel que $[AI)$est  la bissectrice de l'angle $\widehat{BAC}$
+		\begin{parts}
+		\part Quel est le symétrique de l'angle $\widehat{BAI}$ par rapport à la droite $(BC)$ ?
+		\part Montrer que $[A'I)$ est la bissectrice de l'angle $\widehat{BA'C}$.
+		\end{parts}	
+\end{questions}
+\end{exo}
+
+\begin{exo}
+Soit $OAB$ un triangle et $(d)$ une droite passant par le point $O$ et parallèle à la droite $(AB)$
+\begin{questions}
+\question Construire les points $A'$ et $B'$ symétriques respectifs des points $A$ et $B$ par rapport à $(d)$.
+\question Montrer que $(AB)//(A'B')$
+\question Montrer que $AB'=A'B$
+\question En déduire que le quadrilatère $ABB'A'$ est un rectangle.
+\question Quel est le symétrique du cercle $(C)$ de centre $O$ passant par le point $A$ par rapport à la droite $(d)$?
+\end{questions}
+\end{exo}
+
+\begin{exo}
+\begin{questions}
+\question Tracer un segment $[AB]$ puis sa médiatrice $(d)$.
+\question Quel est le symétrique de $A$ par rapport à $(d)$ ?
+\question Quel est le symétrique de $B$ par rapport à $(d)$ ?
+\question Placer un point $K$ sur $(d)$ avec $K\notin [AB]$.
+\question Quel est le symétrique de $K$ par rapport à $(d)$ ?
+\question Que peut-on dire des longueurs $KA$ et $KB$ ?
+\question Déduire la nature du triangle $BAK$.
+\end{questions}
+\end{exo}
+
+\end{document}

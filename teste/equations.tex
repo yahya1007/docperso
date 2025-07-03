@@ -1,0 +1,56 @@
+\documentclass[11pt,a4paper]{article}
+%\usepackage[french]{babel}
+%\usepackage[T1]{fontenc}
+%\usepackage{lmodern}
+%\usepackage[margin=1.5cm]{geometry}
+%% Les packages
+%\usepackage{mathtools}
+\usepackage{TestProfModels}
+
+
+\begin{document}
+
+\section{Un bloc d’équations avec \texttt{equation} et \texttt{aligned}}
+
+\begin{equation*}
+	\begin{aligned}
+		      3x^2+4x+2 &= 2x^2+2x+6 \\
+		3x^2-2x^2+4x-2x &= 6x-2 \\
+		         x^2+2x &= 4 \\
+		   x\times(x+2) &= 4
+	\end{aligned}
+\end{equation*}
+
+\section{Deux blocs d’équations avec \texttt{align} et \texttt{aligned}}
+
+\begin{align*}
+	&\begin{aligned}% Premier bloc
+		y&=(x+3)^2 \\
+		 &=x^2+2\times x \times 3+3^2 \\
+		 &=x^2+6x+9
+	\end{aligned}
+	\\% Aller à la ligne dans align
+	&\begin{aligned}% Deuxième bloc
+		y&=(2x-1)^2 \\
+		 &=4x^2-2\times 2x \times 1+1^2 \\
+		 &=4x^2-4x+1
+	\end{aligned}
+	\\
+	&\begin{aligned}% Premier bloc
+		y&=(x+3)^2 \\
+		 &=x^2+2\times x \times 3+3^2 \\
+		 &=x^2+6x+9
+	\end{aligned}
+	\\% Aller à la ligne dans align
+	&\begin{aligned}% Deuxième bloc
+		y&=(2x-1)^2 \\
+		 &=4x^2-2\times 2x \times 1+1^2 \\
+		 &=\cdotsx{20}
+	\end{aligned}
+\end{align*}
+
+\anserdotline[2]
+
+\anserline[2]
+
+\end{document}

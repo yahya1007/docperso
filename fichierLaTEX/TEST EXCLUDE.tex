@@ -1,0 +1,138 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[T1]{fontenc}          
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage{fancybox}		
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{ mathrsfs }
+\usepackage{stmaryrd}
+\usepackage{tkz-tab}
+\usepackage{comment}
+\usepackage{lipsum}
+\usepackage{makeidx}
+\usepackage{multicol}
+\usepackage{tikz}    
+\usetikzlibrary{decorations.pathreplacing,shapes, backgrounds, patterns, arrows,positioning,automata,shadows,fit,shapes,trees} 
+\usepackage{tikz-qtree,tikz-qtree-compat}
+\usepackage{graphicx} 
+\usepackage{amsfonts}
+\usepackage{wrapfig}
+\usepackage{enumitem}
+\usepackage{pict2e}
+\usepackage{graphicx}
+\usepackage{systeme}
+\usepackage{tikz}
+\usetikzlibrary{shapes}
+\usepackage[left=2cm, right =2cm, top =2cm, bottom =2cm]{geometry}
+\usepackage{fullpage}
+\usepackage{eso-pic}
+\usepackage{ hyperref}
+\usepackage{biblatex}
+\usepackage{xcolor} 
+\frenchbsetup{StandardLists=true}
+\usepackage{mdframed}
+\usepackage{lipsum}
+\usepackage[most]{tcolorbox}
+\usepackage{comment}
+
+\geometry{left=2cm, right =2cm, top =0.8cm, bottom =2cm}
+
+
+\theoremstyle{definition}
+
+\newtheorem{exo}{Exercice}
+
+\newtcbtheorem[no counter]{rep}{Réponse}{%
+                lower separated=false,
+                colback=white,
+colframe=black, fonttitle=\bfseries,
+colbacktitle=white,
+coltitle=black,
+enhanced,
+boxed title style={colframe=black},
+attach boxed title to top left={xshift=0.5cm,yshift=-2mm},
+}{theo}
+
+
+%%------------------------------------------------------------------
+% Rédaction du document
+%%----------------------------------------------------------------
+
+\excludecomment{exo}
+
+\begin{document}
+\begin{center}
+
+\Large
+\textbf{{TD11 : Probabilités (\textbf{Correction})}}\\
+
+
+\end{center}
+
+\begin{exo}
+On tire une carte au hasard dans un jeu de 52 cartes. Soit les événements : \\
+$T$ : "La carte tirée est un trèfle." \\
+$F$ : "La carte tirée est une figure." \\
+$S$ : "La carte tirée est un chiffre inférieur ou égal à 7." \\
+$C$ : "La carte tirée est un carreau". 
+
+
+\begin{enumerate}
+   
+    \item Décrire avec des phrases les événements suivants.
+    \begin{multicols}{3}
+    
+
+    \begin{enumerate}
+        \item $T \cap S$.
+        \item $C \cup F$.
+        \item $\overline{F}$.
+        \item $\overline{S} \cap C$.
+        \item $F \cap S$.
+        \item $F \cup \overline{T}$.
+    \end{enumerate}
+        \end{multicols}
+
+\begin{rep}{}{}
+
+\begin{enumerate}
+        \item $T \cap S$ : "La carte tirée est un trèfle inférieur ou égal à 7"
+        \item $C \cup F$ : "La carte tirée est un carreau ou une figure"
+        \item $\overline{F}$ : "La carte tirée n'est pas une figure"
+        \item $\overline{S} \cap C$ : "La carte tirée est un carreau strictement plus grand que 7"
+        \item $F \cap S$ : "La carte tirée est une figure inférieure ou égale à 7"
+        \item $F \cup \overline{T}$ : "La carte tirée est une figure qui n'est pas un trèfle"
+    \end{enumerate}
+
+\end{rep}
+        
+        \item Écrire les événements suivants à l’aide des événements $T$, $F$, $A$ et $C$.
+        
+    \begin{enumerate}
+        \item "La carte tirée est un trèfle ou une figure."
+        \item "La carte tirée est un carreau inférieur ou égal à 7."
+        \item "La carte tirée n'est ni une figure, ni un carreau."
+        \item "La carte tirée est une figure plus grande que 7"
+        \item "La carte tirée n'est ni un trèfle, ni une figure, ni un carreau."
+    \end{enumerate}
+
+    \begin{rep}{}{}
+
+         
+    \begin{enumerate}
+        \item "La carte tirée est un trèfle ou une figure." : $T \cup F$
+        \item "La carte tirée est un carreau inférieur ou égal à 7." : $C \cap S$
+        \item "La carte tirée n'est ni une figure, ni un carreau." : $\overline{C} \cap \overline{F}$
+        \item "La carte tirée est une figure plus grande que 7" : $F \cap \overline{S}$
+        \item "La carte tirée n'est ni un trèfle, ni une figure, ni un carreau." : $\overline{T} \cap \overline{F} \cap \overline{C}$
+    \end{enumerate}
+    
+
+    \end{rep}
+    
+\end{enumerate}
+
+\end{exo}
+\end{document}

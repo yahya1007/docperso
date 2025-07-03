@@ -1,0 +1,25 @@
+\documentclass[12pt,a4paper,fleqn]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[most]{tcolorbox}
+\usepackage{lipsum,tikz,amssymb,amsmath,xcolor}
+\everymath{\displaystyle}
+\usetikzlibrary{through,intersections,calc}  
+\definecolor{col}{RGB}{183, 35, 35}
+\newtcolorbox{mybox}[1][]{enhanced, 
+  colframe=red,colback=white,colbacktitle=blue!5!yellow!50!white,
+  colback=white,colframe=col,
+frame code app={\fill[rounded corners,col] ([yshift=-1cm]frame.north west)rectangle([yshift=1cm]frame.north east);
+\foreach \i in {1,4.75,8.5,12.25}
+\fill[rounded corners,col!55,draw=red!44] ([xshift=\i cm,yshift=0.6cm]frame.north west)rectangle++(0.25,1.2);
+} }
+\begin{document}
+\begin{mybox}
+\textcolor{blue}{\textbf{\underline{Théorème de Stolz :}}}\vskip3mm
+Soit $(x_n)$ et $(y_n)$ deux suites vérifient les propriétés suivantes :
+\begin{enumerate}
+ \item $(y_n)$ est strictement croissante et $ \lim_{n\to +\infty}y_n=+\infty $ . 
+ \item $ \lim_{n\to +\infty} \dfrac{x_{n+1}-x_n}{y_{n+1}-y_n}=\ell$ avec $\ell \in \mathbb R$ .
+\end{enumerate}
+Alors  {$$ \lim_{n\to +\infty} \dfrac{ x_n}{ y_n}=\ell$$ .}
+\end{mybox}
+\end{document}

@@ -1,0 +1,140 @@
+\documentclass{book}
+\usepackage[T1]{fontenc} 
+\RequirePackage[english,french]{babel}
+\usepackage{tikz}
+\usetikzlibrary{shadows} 
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2.5cm]{geometry}
+\usepackage[explicit]{titlesec}
+\usepackage[listings,skins,theorems,breakable,most]{tcolorbox}\usepackage{lmodern}
+
+\usepackage{lipsum}
+
+ 
+\definecolor{RoyalRed}{RGB}{200,20,20}
+\definecolor{MainRed}{rgb}{.6, .1, .1}
+ 
+ 
+
+\titleformat{\chapter}[display]
+  {\normalfont\huge\bfseries}
+  {}
+  {20pt}
+  {%
+\begin{tcolorbox}[
+      enhanced,
+      %rounded corners,
+      %shadow={1mm}{-1mm}{-2.2mm}{black!20!white},
+      colframe=purple,
+      colback=white,
+      boxrule=0mm,
+      %arc=3mm,
+      leftrule=2pt,
+      rightrule=2pt,
+      toprule=.5pt,
+      bottomrule=.5pt,
+      fontupper=\color{purple}\sffamily\bfseries\huge,
+      width=\textwidth-3.2mm,  % account for shadow width.
+      top=0.6cm, 
+      bottom=0.6cm,
+      halign=center,
+      valign=center,
+      sharp corners,
+      arc=15pt,
+      rounded corners=southwest,
+      rounded corners=northeast,
+      attach boxed title to top center={yshift=-0.25mm-\tcboxedtitleheight/2,yshifttext=-0.25mm-\tcboxedtitleheight/2},
+    boxed title style={%
+    enhanced,
+    colframe=RoyalRed,
+    colback=RoyalRed,
+    arc=5pt,
+    left=10pt, 
+    right=10pt,
+    top=4 pt, 
+    bottom=4 pt,
+  },
+  title=\chaptertitlename\,\thechapter,
+    ]
+     \MakeUppercase{#1}
+    \end{tcolorbox}%
+  }
+  [
+\hfill 
+\normalsize\normalfont
+{
+%%
+}
+]
+\titleformat{name=\chapter,numberless}[display]
+  {\normalfont\huge\bfseries}
+  {}
+  {20pt}
+  {%
+    \begin{tcolorbox}[
+      enhanced,
+      colframe=purple,
+      %rounded corners,
+      %shadow={1mm}{-1mm}{-2.2mm}{black!20!white},
+      colback=white,
+      boxrule=0mm,
+      %arc=3mm,
+      leftrule=2pt,
+      rightrule=2pt,
+      toprule=.5pt,
+      bottomrule=.5pt,
+      fontupper=\color{purple}\sffamily\bfseries\huge,
+      width=\textwidth-3.2mm,  % account for shadow width.
+      top=0.6cm, 
+      bottom=0.6cm,
+      halign=center,
+      valign=center,
+      sharp corners,
+      arc=15pt,
+      rounded corners=southwest,
+      rounded corners=northeast,
+          ]
+     \MakeUppercase{#1}
+    \end{tcolorbox}
+  }
+\titlespacing*{\chapter}
+  {0pt}{0pt}{40pt}
+\makeatother
+
+
+
+
+
+
+\titleformat{\section}
+  {\normalfont\Large\bfseries\color{purple}}{{
+\begin{tikzpicture}[anchor=base, baseline]
+  \node [circular drop shadow={shadow scale=1.01, color=red},minimum size=1cm,
+         fill=white,circle] {{\thesection}};
+\end{tikzpicture}  
+}}{1em}{#1}
+
+
+\renewcommand\thesection{\arabic{section}}
+
+\begin{document}
+
+\chapter*{Introduction}
+\lipsum[4]
+
+\chapter{math\'Ematiques fondamentales}
+\lipsum[4]
+
+\section{Alg\`ebre 1}
+\section{Alg\`ebre 2}
+\section{Alg\`ebre 3}
+ 
+\chapter{math\'ematiques appliqu\'ees}
+\lipsum[4]
+\section{Analyse 1}
+\section{Analyse 2}
+\section{Analyse 3}
+
+\chapter{A test chapter with a long title that will span more than one line}
+\lipsum[4]
+
+\end{document}

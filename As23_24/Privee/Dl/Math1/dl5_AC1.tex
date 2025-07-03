@@ -1,0 +1,120 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{ProfModels}
+
+
+
+ 
+\begin{document}
+
+\begin{Maquette}[DM]{Niveau=1, Numero=5, Date=19/05/2024,Semestre=2, FinDate=20/12/2024}
+
+\begin{exercice}
+Soit ABC un triangle tel que : $AC=6cm$ et $\widehat{BAC}=60^{\circ}$
+\begin{enumerate}
+\item Sur la figure ci-contre construire les points $E$,$F$ et $G$ les symétriques respectifs de $A$,$B$ et $C$ par rapport au point $O$.
+\item Construire le point $M$ le milieu du segment $[AC]$, et $N$ le symétrique de $M$ par rapport à $O$.
+\item Montrer que les points $E$,$N$ et $G$ sont alignés.
+\item Monter que $(AB)//(EF)$.
+\item Calculer la mesure de l'angle $\widehat{EFG}$.
+\item Calculer la distance $EG$.
+\item Montrer que $N$ est le milieu du segment $[EG]$.
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+Répondre par vrai ou faux
+\begin{enumerate}
+\item Un losange peut avoir des côtés de longueurs différentes.
+\item Le carré est un losange.
+\item Le rectangle a forcément les diagonales de même longueurs.
+\item Un rectangle est forcément un parallélogramme.
+\item N'importe quel quadrilatère qui a un angle droit est un rectangle.
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+\begin{minipage}{.58\linewidth}
+$ABC$ et $CDA$ sont deux triangles équilatéraux.
+
+Quelle est la nature du quadrilatère $ABCD$? Jusfifier.
+\end{minipage}
+\begin{minipage}{.4\linewidth}
+\begin{tikzpicture}
+\tkzDefPoint(0,0){D}
+\tkzDefPoint(3,1){A}
+\tkzDefTriangle[equilateral](D,A)
+\tkzGetPoint{C}
+\tkzDefTriangle[equilateral](C,A)
+\tkzGetPoint{B}
+\tkzDrawSegments(D,A A,B B,C C,D C,A)
+\tkzLabelPoint[below](D){D}
+\tkzLabelPoint[below](A){A}
+\tkzLabelPoint[left](C){C}
+\tkzLabelPoint[right](B){B}
+
+\end{tikzpicture}
+\end{minipage}
+
+\end{exercice}
+
+\begin{exercice}
+Construis les quadrilatères demandés.
+\begin{enumerate}
+\item Le parallélogramme $IFGH$ avec $IF=5cm$ , $FG=4cm$ et $\widehat{IFG}=32^{\circ}$
+\item Le losange $PLOT$ tel que $PL=6cm$ et $\widehat{LOT}=47^{\circ}$
+\item Le rectangle $KRAC$ tel que $\widehat{RKA}=36^{\circ}$ et $RA=3cm$.
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+\begin{minipage}{.58\linewidth}
+On considère la figure ci-contre, tel que $(AB)//(CD)$  et $\widehat{CDA}=38^{\circ}$ et $\widehat{CBA}=49^{\circ}$
+\begin{enumerate}
+\item Calculer la mesure des angles $\widehat{IAB}$ et $\widehat{ICD}$.
+\item Déduire la mesure de $x$.
+\end{enumerate}
+\end{minipage}%
+\begin{minipage}{.40\linewidth}
+  \begin{tikzpicture}[scale=0.8]
+\tkzDefPoints{0/0/A,4/0/B,1/3/C,6/3/D}
+\tkzLabelPoints[below](A,B)
+\tkzLabelPoints[above](C,D)
+\tkzDrawPoints(A,B,C,D)
+\tkzDrawLines(A,B C,D D,A C,B)
+\tkzInterLL(A,D)(B,C)
+\tkzGetPoint{I}
+\tkzLabelPoint[above](I){I}
+\tkzMarkAngle[arc=l , size=0.5cm , mark=|](C,D,A)
+\tkzMarkAngle[arc=l , size=0.5cm , mark= ||](C,B,A)
+\tkzMarkAngle[arc=l , size=0.5cm , mark= |||](B,I,D)
+
+\tkzLabelAngle(C,D,A){$38^{\circ}$}
+\tkzLabelAngle(C,B,A){$49^{\circ}$}
+\tkzLabelAngle(B,I,D){$x$}
+
+\end{tikzpicture}
+\end{minipage}
+
+\end{exercice}
+
+\begin{exercice}
+Soit $[AB]$ un segment de longueur $6cm$.
+\begin{enumerate}
+\item Tracer les cercles $C_1(A,3)$ et $C_2(B,4)$ .
+\fullwidth{Les deux cercles se coupent en $E$ et $F$.}
+\item Quelle est la nature du triangle $ABE$? Justifier.
+\item Quelle est la nature du quadrilatère $AEBF$? Justifier.
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+Soit $C(O,4)$ un cercle de diamètre $[MN]$.
+\begin{enumerate}
+\item Tracer $(D)$ la tangente à $C$ en $M$ et $(D')$ la tangente à $C$ en $N$.
+\item Montrer que $(D)//(D')$.
+\end{enumerate}
+\end{exercice}
+
+\end{Maquette}
+\end{document}

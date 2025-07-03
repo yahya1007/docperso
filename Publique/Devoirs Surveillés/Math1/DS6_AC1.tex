@@ -1,0 +1,70 @@
+\documentclass[a4paper,addpoints,12pt]{exam}
+
+\usepackage{dlds}
+
+\usepackage[column=O]{cellspace}
+\setlength{\cellspacebottomlimit}{5pt}
+\setlength{\cellspacetoplimit}{5pt}
+\begin{document}
+
+\devoir[sem=2,prv=false,ds=true,num=6 ,niv=1 ]
+
+
+
+\begin{exo}[14]
+Sur la droite graduée ci-dessous, donner la distance à zéro et l’abscisse de chacun des points   :
+
+\begin{tikzpicture}
+\tkzInit[xmin = -8,xmax = 5]
+\tkzDrawX
+\tkzLabelX
+\tkzDefPoints{3/0/M,-4/0/N,-5.5/0/P,0.5/0/Q}   
+\tkzDrawPoints(M,N,P,Q)
+\tkzLabelPoints[above](M,N,P,Q)
+\end{tikzpicture}
+\vspace{5mm}
+
+\begin{minipage}{.6\linewidth}
+\begin{questions}
+\question Compléter le tableau ci-contre.
+\question Donner les coordonnées des points $A$,$B$,$C$ et $D$.
+
+\anserline[2]
+\question Placer les points $E(-4, 0)$, $F(-2, 2)$, $G(1, -4)$ et $H(3, 3)$.
+\end{questions}
+\end{minipage}
+\begin{minipage}{.4\linewidth}
+\begin{tabular}{|*5{Oc|}}
+\hline 
+point & M & N & P & Q \\ 
+\hline 
+Abscisse &  &  &  &  \\ 
+\hline 
+Distance à 0 &  &  &  &  \\ 
+\hline 
+\end{tabular} 
+\end{minipage}
+
+\begin{reper}
+\tkzSetUpPoint[shape=cross out,size=5]
+\coordpoints{1}{2}{A}
+\coordpoints{4}{0}{B}
+\coordpoints{0}{-2}{C}
+\coordpoints{-3}{-2}{D}
+\end{reper}
+\end{exo}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

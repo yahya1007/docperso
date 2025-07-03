@@ -1,0 +1,262 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{ProfModels}
+
+ 
+\begin{document}
+
+\begin{Maquette}[Fiche]{Theme=Théorème Pythagore,Niveau=3}
+
+\begin{exercice}
+\begin{minipage}{.6\linewidth}
+On considère la figure ci-contre, tel que $H$ est le projeté orthogonal de $A$ sur $(BC)$.
+\begin{enumerate}
+\item Calculer $AH$ et $BH$.
+\item Le triangle $ABC$ est-il rectangle.
+\end{enumerate}
+
+\end{minipage}%
+\begin{minipage}{.4\linewidth}
+\begin{tikzpicture}[scale=0.8]
+\tkzDefPoints{0/0/A,4/0/B}
+\tkzDefTriangle[pythagore](B,A)
+\tkzGetPoint{C}
+\tkzDefPointBy[projection=onto B--C ](A)
+\tkzGetPoint{H}
+\tkzDrawSegments(A,B B,C C,A A,H)
+\tkzLabelPoint[](A){A}
+\tkzLabelPoint[](B){B}
+\tkzLabelPoint[left](C){C}
+\tkzLabelPoint[above](H){H}
+\tkzMarkRightAngle(A,H,B)
+\tkzLabelSegment(A,B){$3\sqrt{2}$}
+\tkzLabelSegment[left](A,C){$\sqrt{7}$}
+\tkzLabelSegment(H,C){2}
+\end{tikzpicture}
+\end{minipage}
+\end{exercice}
+
+\begin{exercice}
+\begin{minipage}{.5\linewidth}
+\begin{tikzpicture}[scale=0.8]
+\tkzDefPoints{0/0/A,5/1/C}
+\tkzDefTriangle[school](C,A)
+\tkzGetPoint{B}
+\tkzDefPointBy[projection=onto B--C](A)
+\tkzGetPoint{H}
+\tkzDrawPolygon
+(A,B,C)
+\tkzDrawSegment(A,H)
+\tkzLabelPoint[above](A){A}
+\tkzLabelPoint[below](B){B}
+\tkzLabelPoint[above](C){C}
+\tkzLabelPoint[below](H){H}
+\tkzMarkRightAngle(A,H,C)
+\tkzLabelSegment(B,H){2}
+\tkzLabelSegment(H,C){8}
+\tkzLabelSegment(A,H){4}
+\end{tikzpicture}
+\end{minipage}%
+\begin{minipage}{.5\linewidth}
+On considère la figure ci-contre.
+\begin{enumerate}
+\item Calculer $AC$.
+\item Calculer $AB$.
+\item Prouver que $ABC$ est un triangle rectangle.
+\end{enumerate}
+\end{minipage}
+\end{exercice}
+
+\begin{exercice}
+\begin{minipage}{0.5\linewidth}
+On considère la figure ci-contre. Prouve que $AB^{2}+AC^{2}=BD^{2}+DC^{2}$
+\end{minipage}%
+\begin{minipage}{.5\linewidth}
+\begin{tikzpicture}[scale=0.8]
+\tkzDefPoints{0/0/B,5/-3/C}
+\tkzDefTriangle[two angles=30 and 60](B,C)
+\tkzGetPoint{D}
+\tkzDefTriangle[two angles=-65 and -25](B,C)
+\tkzGetPoint{A}
+\tkzDrawPolygon(A,B,D,C)
+\tkzDrawSegment(B,C)
+\tkzLabelPoint[](A){A}
+\tkzLabelPoint[left](B){B}
+\tkzLabelPoint[](C){C}
+\tkzLabelPoint[right](D){D}
+\tkzMarkRightAngle(B,D,C)
+\tkzMarkRightAngle(C,A,B)
+\end{tikzpicture}
+\end{minipage}
+\end{exercice}
+
+\begin{exercice}
+\begin{minipage}{.6\linewidth}
+$ABCD$ est un rectangle, $M$ et $N$ deux points tels que : $AB=6$, $AD=4$ et $CM=CN=2$.
+\begin{enumerate}
+\item Calculer les distances $AM$ , $MN$ et $AN$.
+\item En déduire la nature du triangle $AMN$.
+\end{enumerate}
+\end{minipage}%
+\begin{minipage}{.4\linewidth}
+\begin{tikzpicture}[scale=1]
+\tkzDefPoints{0/0/A,5/3/C}
+\tkzDefRectangle(A,C)
+\tkzGetPoints{B}{D}
+\tkzDrawPolygon(A,B,C,D)
+\tkzLabelPoints(A,B)
+\tkzLabelPoints[above](C,D)
+\tkzDefCircle[R](C,2)\tkzGetPoint{r}
+\tkzInterLC(D,C)(C,r)
+\tkzGetPoints{M}{M'}
+\tkzInterLC(C,B)(C,r)
+\tkzGetPoints{N'}{N}
+\tkzDrawPoint(M)
+\tkzLabelPoint[above](M){M}
+\tkzDrawPoint(N)
+\tkzLabelPoint[right](N){N}
+\tkzDrawSegments(A,M M,N N,A)
+\end{tikzpicture}
+\end{minipage}
+\end{exercice}
+
+\begin{exercice}
+\begin{minipage}{.5\linewidth}
+On considère la figure ci-contre,
+\begin{enumerate}
+\item Calculer $HC$
+\item Calculer $CG$
+\end{enumerate}
+\end{minipage}%
+\begin{minipage}{.5\linewidth}
+\begin{tikzpicture}[scale=0.8]
+\tkzDefPoints{0/0/E,4/0/C}
+\tkzDefTriangle[pythagore](C,E)\tkzGetPoint{H}
+\tkzDefTriangle[school](H,C)\tkzGetPoint{G}
+\tkzDrawPolygon(E,C,H)
+\tkzDrawSegments(H,G C,G)
+\tkzLabelPoints(E,C,G)
+\tkzLabelPoint[left](H){H}
+\tkzLabelSegment[left](E,H){4}
+\tkzLabelSegment(E,C){10}
+\tkzLabelSegment[above](H,G){16}
+\tkzMarkRightAngles(C,E,H G,C,H)
+\end{tikzpicture}
+\end{minipage}
+\end{exercice}
+
+\begin{exercice}
+\begin{minipage}{.7\linewidth}
+$ABC$ est un triangle et $H$ le projeté orthogonal de $A$ sur $(BC)$ tel que $BH=4$, $CH=9$ et $AH=6$.
+\begin{enumerate}
+\item Calculer $AB$ et $AC$.
+\item Montrer que $ABC$ est un triangle rectangle en $A$.
+\end{enumerate}
+\end{minipage}%
+\begin{minipage}{.3\linewidth}
+\begin{tikzpicture}[scale=0.8]
+\tkzDefPoint(0,0){A}
+\tkzDefPoint(4,0){B}
+\tkzDefTriangle[pythagore](B,A)\tkzGetPoint{C}
+\tkzDefPointBy[projection=onto B--C](A)\tkzGetPoint{H}
+\tkzDrawPolygon(A,B,C)
+\tkzDrawSegment(A,H)
+\tkzLabelPoints[above](B,C,H)
+\tkzLabelPoint[](A){A}
+\tkzLabelSegment[above](B,H){9}
+\tkzLabelSegment[above](C,H){4}
+\tkzLabelSegment(A,H){6}
+\tkzMarkRightAngle(A,H,B)
+\end{tikzpicture}
+\end{minipage}
+\end{exercice}
+
+\begin{exercice}
+\begin{minipage}{.6\linewidth}
+$EFGH$ est un trapèze rectangle en $E$ et $H$ tel que : $EF=8$ , $EH=4$ et $HG=10$.
+\begin{enumerate}
+\item Montrer que $FH=4\sqrt{5}$ et $FG=2\sqrt{5}$
+\item Montrer que $FGH$ est un triangle rectangle. 
+\end{enumerate}
+\end{minipage}%
+\begin{minipage}{.4\linewidth}
+\begin{tikzpicture}[scale=0.8]
+\tkzDefPoint(0,0){F}
+\tkzDefPoint(4,-3){H}
+\tkzDefTriangle[two angles=30 and 60](F,H)\tkzGetPoint{E}
+\tkzDefTriangle[two angles=30 and 70](H,F)\tkzGetPoint{G}
+\tkzDrawPolygon(F,E,H,G)
+\tkzDrawSegment(F,H)
+\tkzLabelPoints[above](F,E)
+\tkzLabelPoints(G,H)
+\tkzMarkRightAngles(F,E,H E,H,G)
+\end{tikzpicture}
+\end{minipage}
+\end{exercice}
+
+\begin{exercice}
+\begin{minipage}{.6\linewidth}
+$ABCD$ est un rectangle tel que $AB=10$ et $AD=4$
+\begin{enumerate}
+\item Calculer $BD$
+\item Calculer $AE$
+\item Calculer $EF$
+\end{enumerate}
+\end{minipage}%
+\begin{minipage}{.4\linewidth}
+\begin{tikzpicture}[scale=0.8]
+\tkzDefPoints{0/0/A,5/3/C}
+\tkzDefRectangle(A,C)\tkzGetPoints{B}{D}
+\tkzDrawSegment(B,D)
+\tkzDrawPolygon(A,B,C,D)
+\tkzDefPointBy[projection=onto D--B](A)\tkzGetPoint{E}
+\tkzDefPointBy[projection=onto D--B](C)\tkzGetPoint{F}
+\tkzDrawSegments(A,E C,F)
+\tkzLabelPoints[above](D,C)
+\tkzLabelPoints(A,B)
+\tkzLabelPoint[above](E){E}
+\tkzLabelPoint[](F){F}
+\tkzMarkRightAngles(B,F,C D,E,A)
+\end{tikzpicture}
+\end{minipage}
+\end{exercice}
+
+\begin{exercice}
+\begin{minipage}{.75\linewidth}
+$ABCD$ un trapèze rectangle en $B$ et $C$ tel que : $AB=4$ et $BC=2$ et $CD=5$
+\begin{enumerate}
+\item Montrer que $AC=2\sqrt{5}$.
+\item Soit $H$ le projeté orthogonal de $A$ sur $(DC)$.
+\begin{enumerate}
+\item Calculer $AD$.
+\item Montrer que $ADC$ est un triangle rectangle en $A$.
+\end{enumerate}
+\end{enumerate}
+\end{minipage}%
+\begin{minipage}{.25\linewidth}
+\begin{tikzpicture}[scale=0.8]
+\tkzDefPoints{0/0/A,0/4/B,2/4/C,2/-1/D,2/0/H}
+\tkzDrawSegments(A,B B,C C,D D,A A,H A,C)
+\tkzLabelPoints[left](A,B)
+\tkzLabelPoints[right](C,H,D)
+\tkzMarkRightAngles(A,H,D A,B,C B,C,H)
+\end{tikzpicture}
+\end{minipage}
+\end{exercice}
+
+\begin{exercice}
+$ABC$ est un triangle rectangle en $A$, soit $H$ le projeté orthogonal de $A$ sur $(BC)$.
+
+Montrer que :
+\begin{enumerate}
+\item $BH^{2}+CH^{2}+2AH^{2}=BC^{2}$
+\item $AH^{2}=BH\times CH$
+\item $AB^{2}=BH\times BC$ et $AC^{2}=CH\times BC$
+\item $AB\times AC=AH\times BC$
+\end{enumerate}
+\end{exercice}
+
+
+
+\end{Maquette}
+\end{document}

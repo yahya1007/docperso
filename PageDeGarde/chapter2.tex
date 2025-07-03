@@ -1,0 +1,147 @@
+\documentclass[12pt,a4paper]{book}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amsfonts,amssymb,amsthm}
+\usepackage[left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm]{geometry}
+
+\usepackage{lipsum} %for dummy text
+\usepackage[most]{tcolorbox}
+\usepackage{tikz}
+%====================
+\definecolor{myblue}{HTML}{1D2A6E}
+\definecolor{myred}{HTML}{A97E77}
+\definecolor{mybrown}{HTML}{B35823}
+\definecolor{gold}{HTML}{B48920}
+\definecolor{myorange}{HTML}{ED8C2B}
+\definecolor{col}{RGB}{45, 136, 119}
+\definecolor{mygreen}{HTML}{07a56d}
+\definecolor{headercolourgreen}{rgb}{0,0.7019,0.7019}
+\definecolor{carmine}{rgb}{0.68, 0.0, 0.09}
+\definecolor{berry}{RGB}{235, 37, 129}
+%===============
+\DeclareFixedFont{\chapternumberfont}{T1}{phv}{bx}{sc}{1in}
+%==================================
+\newtcolorbox{titlecolorbox}[1]{ %the box around chapter
+    coltext=white,
+    colframe=myblue,
+    colback=myblue,
+    boxrule=0pt,
+    arc=0pt,
+    title=\small\bfseries CHAPITRE,
+    width=1.2in,
+    height=1.2in,
+    before=\hfill
+}
+
+\usepackage{xcolor}
+
+\usepackage[explicit]{titlesec}
+\titlespacing{\chapter}{0pt}{-20ex}{10ex}
+\titleformat{\chapter}[display]
+  {\sffamily\Huge\color{myblue}} 
+  {}
+  {0pt}
+{\rule{\paperwidth}{.5pt}\vspace{-10pt}
+\begin{titlecolorbox}{}
+  {\chapternumberfont\thechapter
+  }
+\end{titlecolorbox}
+  \vspace{-8ex}
+  \noindent\hfill
+  \raggedright
+  \parbox[b]{\dimexpr\textwidth-4.8em\relax}{\MakeUppercase{#1}}
+  }
+  []
+%==================================
+%================
+% sections heading===========================================
+%=================================================
+%defining subsection titles
+\newcommand\titlebar{%
+	\tikz[baseline,trim left=0cm,trim right=3cm] {
+		\node [
+		fill=myblue,
+		text = white,
+		anchor= base east,
+		minimum height=2.5ex] (a) at (3cm,0) {
+			\textbf{\arabic{chapter}.\thesection}
+		};   
+	}%
+}
+\titleformat{\section}{\large\sf\bfseries}{\titlebar}{0.25cm}{\textcolor{myblue}{#1}}      %% Change color if needed.
+\titlespacing*{\section}{-2cm}{3.5ex plus 1ex minus .2ex}{2.3ex plus .2ex}
+\renewcommand*{\thesection}{\arabic{section}}
+
+%defining subsection titles
+\newcommand\subtitlebar{%
+	\tikz[baseline,trim left=0cm,trim right=3cm] {
+		\node [
+		fill=berry,
+		text = white,
+		anchor= base east,
+		minimum height=3.5ex] (b) at (3cm,0) {
+			\textbf{\arabic{chapter}.\arabic{section}.\thesubsection}
+		};
+	}%
+}
+
+\titleformat{\subsection}{\large\normalfont\sf\bfseries}{\subtitlebar}{0.2cm}{\textcolor{berry}{#1}}  %% Change color if needed.
+\titlespacing*{\subsection}{-1cm}{3.5ex plus 1ex minus .2ex}{2.3ex plus .2ex}
+\renewcommand*{\thesubsection}{\arabic{subsection}}
+%=======================
+%===============================================
+%definition environment
+\newtcbtheorem[auto counter,number within=chapter]{definition}{DÉFINITION}{
+	enhanced,
+	breakable,
+	before skip=.5cm,
+	after skip=1.25cm,
+	sharp corners,
+	attach boxed title to top left={
+		xshift=0pt, 
+		yshift=-\tcboxedtitleheight, 
+		yshifttext=-\tcboxedtitleheight/2
+	},
+	colback=white,
+	colframe=mygreen,
+	fonttitle=\small\bfseries\sffamily,
+	coltitle=white,
+	boxed title style={
+		rounded corners,
+		arc=2pt,
+		size=small,
+		colback=mygreen,
+		colframe=mygreen,
+	},
+	top=20pt,
+	leftrule=0pt, 
+	rightrule=0pt, 
+}{def}
+%==============
+
+\begin{document}
+
+\chapter{Préliminaires}
+				
+Dans ce chapitre, nous présentons quelques définitions et rappels des résultats nécessaires pour la suite de ce travail. nous introduisons quelques définitions, lemmes et  quelques théorèmes sur les espaces fonctionnels.
+				
+\section{Espaces de Lebesgue}
+
+\subsection{Notions générales}
+
+\begin{definition}{}{} On définit l'espace de Lebesgue $L^{p}(\Omega)$ par:\\	Pour $1\leq p <+\infty$ 
+\[
+L^{p}(\Omega)=\left\lbrace   u:\Omega\longrightarrow \mathbb{R}\quad \mbox{mesurable} , \quad \int_{\Omega} \lvert u(x)\rvert^{p} dx <+\infty \right\rbrace
+\]
+	mini de la norme 
+	$$ \lVert u\rVert_{L^{p}(\Omega)}=\left(   \int_{\Omega} \lvert u(x)\rvert^{p} dx \right)      ^{\frac{1}{p}}.$$
+	Pour $p=+\infty$ 
+	$$ L^{\infty}(\Omega)=\left\lbrace u:\Omega\longrightarrow{\mathbb{R}}\quad \mbox{mesurable},\quad \sup\limits_{x\in \Omega} \textit{ess} \lvert u(x) \rvert< +\infty\right\rbrace ,$$
+	muni de la norme
+	$$  \lVert u\rVert_{L^{\infty}(\Omega)}=\sup\limits_{x\in \Omega}\textit{ess}\lvert u(x) \rvert.$$
+	$L^{p}(\Omega)$ est un espace de Banach pour $ 1\leq p \leq \infty $ et de Hilbert Pour $p=2$ muni de produit scalaire
+	$$ ( f,g)=\int_{\Omega}f(x)g(x)   ~ dx.$$
+\end{definition}
+
+\end{document}

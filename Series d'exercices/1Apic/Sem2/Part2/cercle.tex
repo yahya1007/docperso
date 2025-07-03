@@ -1,0 +1,196 @@
+\documentclass[a4paper,12pt]{article}
+
+
+\usepackage{ProfModels}
+
+ 
+\begin{document}
+
+\begin{Maquette}[Fiche]{Theme=Le cercle,Niveau=1}
+
+\begin{exercice}
+ On donne deux points $A$ et $B$, tels que : $AB= 2,5$.
+ \begin{enumerate}
+\item Trace le cercle $\lrp{\mathcal{C}1}$ de centre $A$ et de rayon 1,5
+\item Trace le cercle $\lrp{\mathcal{C}2}$ de centre $B$ et de rayon 1
+\item Les deux cercles se coupent au point $E$
+\begin{enumerate}
+\item Trace la droite $\lrp{AB}$.
+La droite $\lrp{AB}$ coupe le cercle $\lrp{\mathcal{C}1}$ en $G$ et $E$ ; elle coupe le cercle $\lrp{\mathcal{C}2}$ en $E$ et $H$
+\item Construis le cercle $\lrp{\mathcal{C}}$ de diamètre $\lrc{GH}$
+\end{enumerate}
+\item Hachure les disques $D\lrp{A ; 1,5}$ et $D\lrp{B ; 1}$
+ \end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+\begin{minipage}{0.5\linewidth}
+$\lrp{\mathcal{C}}$ est un cercle de centre $O$. Les droites $\lrp{AC}$ et $\lrp{BC}$ sont tangentes au cercle $\lrp{\mathcal{C}}$ tel que $\widehat{AOB}=140^{\circ}$.
+\begin{enumerate}
+\item Calculer la mesure de $\widehat{ACB}$.
+\item Déduire $\widehat{ACO}$.
+\end{enumerate}
+\end{minipage}%
+\begin{minipage}{0.5\linewidth}
+\begin{tikzpicture}[scale=0.8]
+\tkzDefPoint(0,0){O}
+\tkzDefPoint(-1,2){A}
+\tkzDefPointBy[rotation=center O angle 140](A)
+\tkzGetPoint{B}
+\tkzDefLine[perpendicular=through A](O,A)
+\tkzGetPoint{x}
+\tkzDefLine[perpendicular=through B](O,B)
+\tkzGetPoint{y}
+\tkzInterLL(A,x)(B,y)\tkzGetPoint{C}
+\tkzDrawCircle(O,A)
+\tkzDrawLines(A,C B,C)
+\tkzDrawSegments(O,A O,B)
+\tkzLabelPoints[above](C,A)
+\tkzLabelPoint[below](B){B}
+\tkzLabelPoint[right](O){O}
+\tkzLabelCircle[above](O,A)(-45){($\mathcal{C}$)}
+\tkzLabelAngle[rotate=90](A,O,B){$140^{\circ}$}
+\tkzMarkAngle[arc=l , size=0.4 , mark=|](A,O,B)
+\end{tikzpicture}
+\end{minipage}
+\end{exercice}
+
+\begin{exercice}
+$\lrp{\mathcal{C}}$ est un cercle de centre $O$. $H$ est un point de $\lrp{\mathcal{C}}$ et $A$ le symétrique de $O$ par rapport à $H$. Soient $\lrp{D}$ médiatrice du segment $\lrc{OA}$. $\lrp{\Delta}$ la droite parallèle à $\lrp{D}$ et passant par $O$. $\lrp{\Delta}$ coupe $\lrp{\mathcal{C}}$ en $E$ et $F$.
+\begin{enumerate}
+\item Construire une figure.
+\item Montrer que $\lrp{D}$ est la tangente au cercle $\lrp{\mathcal{C}}$ en $H$.
+\item Calculer la mesure de $\widehat{HFO}$.
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+$\lrp{\mathcal{C}}$ est un cercle de centre $O$. Soient $A$ et $B$ deux points tels que : $A\in \lrp{\mathcal{C}}$ , $\widehat{AOB}=48^{\circ}$ et $\widehat{OBA}=42^{\circ}$.
+\begin{enumerate}
+\item Faire un figure convenable.
+\item Montrer que la droite $\lrp{AB}$ est tangente au cercle $\lrp{\mathcal{C}}$.
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+Soient $\lrp{\mathcal{C}}$ un cercle de centre $O$ et $A$ un point extérieur à $\lrp{\mathcal{C}}$.
+Le cercle $\lrp{\mathcal{C'}}$ de diamètre $\lrc{OA}$ coupe $\lrp{\mathcal{C}}$ en deux points $C$ et $D$.
+On note $O'$ le centre de $\lrp{\mathcal{C'}}$.
+\begin{enumerate}
+\item Montrer que les triangles $AO'C$, $OO'C$, $AO'D$ et $OO'D$ sont isocèles.
+\item Montrer que $\lrp{AC}$ et $\lrp{AD}$ sont tangentes à $\lrp{\mathcal{C}}$.
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+\begin{minipage}{0.5\linewidth}
+$\lrp{\mathcal{C}}$ et $\lrp{\mathcal{C'}}$ sont deux cercles de même rayon et de centres respectifs $O$ et $O'$. $\lrp{\mathcal{C}}$ et $\lrp{\mathcal{C'}}$ se coupent en $A$ et $B$.
+\begin{enumerate}
+\item Montrer que $\lrp{AB}$ est la médiatrice du $\lrc{OO'}$.
+\item Quelle est la nature du triangle $AOO'$.
+\item Quelle est la nature du quadrilatère $AOBO'$.
+\end{enumerate}
+\end{minipage}%
+\begin{minipage}{0.5\linewidth}
+\begin{tikzpicture}
+\tkzDefPoint(0,0){O}
+\tkzDefPoint(3,-1){O'}
+\tkzDefCircle[R](O,2) \tkzGetPoint{a}
+\tkzDefCircle[R](O',2) \tkzGetPoint{b}
+\tkzInterCC(O,a)(O',b)
+\tkzGetPoints{A}{B}
+\tkzDrawCircles(O,a O',b)
+\tkzDrawPoints(O,O')
+\tkzLabelPoints(O,O')
+\tkzLabelPoint[above=5pt](A){A}
+\tkzLabelPoint[below=5pt](B){B}
+\end{tikzpicture}
+\end{minipage}
+\end{exercice}
+
+\begin{exercice}
+$\lrp{\mathcal{C}}$ est un cercle de centre $O$. Soient $A$ et $B$ deux points non diamétralement opposés sur $\lrp{\mathcal{C}}$. $\lrp{D}$ est la tangente en $A$ au cercle $\lrp{\mathcal{C}}$, $\lrp{D'}$ est la tangente en $B$ au cercle $\lrp{\mathcal{C}}$; $\lrp{D}$ et $\lrp{D'}$ se coupent en $I$.
+\begin{enumerate}
+\item Faire une  figure.
+\item Montrer que $O$ appartient à la bissectrice de l'angle $\widehat{AIB}$.
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+$ABC$ est un triangle rectangle en A, O est le milieu de $\lrc{BC}$
+\begin{enumerate}
+\item Construire le point $D$ le symétrique de $A$ par rapport à $O$.
+\item Montrer que le quadrilatère $ABDC$ est un rectangle.
+\item Déduire que A,B et C appartiennent tous à un cercle de centre O et de rayon OA.
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+\begin{minipage}{0.6\linewidth}
+On considère la figure ci-contre.
+\begin{enumerate}
+\item Montrer que $OB=OC=OE$.
+\item Déduire que les points $A$, $B$, $C$, $D$ et $E$ sont cocycliques.
+\end{enumerate}
+\end{minipage}%
+\begin{minipage}{0.4\linewidth}
+\begin{tikzpicture}
+\tkzDefPoints{0/0/D,4/2/A}
+\tkzDefPointOnLine[pos=0.5](A,D)
+\tkzGetPoint{O}
+\tkzDefTriangle[two angles=30 and 60](D,A)\tkzGetPoint{C}
+\tkzDefTriangle[two angles=70 and 20](D,A)\tkzGetPoint{B}
+\tkzDefTriangle[two angles=48 and 42](A,D)\tkzGetPoint{E}
+\tkzDrawPoint(O)
+\tkzDrawPolygon(A,D,B)
+\tkzDrawPolygon(A,D,C)
+\tkzDrawPolygon(A,D,E)
+\tkzLabelPoints(E,D,O)
+\tkzLabelPoints[above](B,C,A)
+\tkzMarkRightAngles(A,E,D D,B,A D,C,A)
+\tkzMarkSegments[mark=||](O,D O,A)
+\end{tikzpicture}
+\end{minipage}
+\end{exercice}
+
+\begin{exercice}
+\begin{minipage}{0.6\linewidth}
+Soit $\lrp{\mathcal{C}}$ un cercle de centre $O$, $\lrp{D}$ et $\lrp{D'}$ sont deux tangentes au cercle $\lrp{\mathcal{C}}$ respectivement en $A$ et $B$.Soit I le point d'interssection de $\lrp{D}$ et $\lrp{D'}$.
+\begin{enumerate}
+\item Montrer que $\lrp{OI}$ est la bissectrice de $\widehat{AOB}$.
+\item Déduire que $\lrp{OI}$ est la médiatrice de $\lrc{AB}$
+\end{enumerate}
+\end{minipage}%
+\begin{minipage}{0.4\linewidth}
+\begin{tikzpicture}
+\tkzDefPoint(0,0){O}
+\tkzDefCircle[R](O,1.5)\tkzGetPoint{a}
+\tkzDefPointOnCircle[through= center O angle 45 point a]
+\tkzGetPoint{A}
+\tkzDefPointOnCircle[through= center O angle -90 point a]
+\tkzGetPoint{B}
+\tkzDefLine[tangent at =A](O)\tkzGetPoint{x}
+\tkzDefLine[tangent at =B](O)\tkzGetPoint{y}
+
+\tkzInterLL(A,x)(B,y)\tkzGetPoint{I}
+\tkzDrawLines(A,I B,I)
+\tkzDrawSegments(O,A O,B)
+\tkzLabelLine[pos=1.4](I,A){(D)}
+\tkzLabelLine[pos=1.4](I,B){(D')}
+\tkzDrawCircle(O,a)
+\tkzDrawPoints(A,B)
+\tkzLabelPoint[left](O){O}
+\tkzLabelPoint[below](B){B}
+\tkzLabelPoints[above](A,I)
+\tkzMarkRightAngles(O,A,I I,B,O)
+\end{tikzpicture}
+\end{minipage}
+\end{exercice}
+
+
+
+
+
+
+\end{Maquette}
+\end{document}

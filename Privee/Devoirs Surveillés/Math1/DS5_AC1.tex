@@ -1,0 +1,83 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{dlds}
+%\pointsinmargin 
+%\pointformat{(\themarginpoints)\hspace{0.5cm}}
+ 
+\begin{document}
+
+\devoir[sem=2,prv=true,ds=true,num=5 ,niv=1 ,date=08/05/2023]
+%\newcommand{\tf}[1][{}]{%
+%\fillin[#1][1in]%
+%}
+\begin{exo}[10]
+Répondre par vrai(V) ou faux(F)
+\begin{enumerate}
+\item Un losange peut avoir des côtés de longueurs différentes.
+\item Le carré est un losange.
+\item Le rectangle a forcément les diagonales de même longueurs.
+\item Un rectangle est forcément un parallélogramme.
+\item N'importe quel quadrilatère qui a un angle droit est un rectangle.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[4]
+\begin{minipage}{.68\linewidth}
+$ABC$ et $CDA$ sont deux triangles équilatéraux.
+\begin{enumerate}
+\item Quelle est la nature du quadrilatère $ABCD$?
+\end{enumerate}
+\anserline[5]
+\end{minipage}
+\begin{minipage}{.32\linewidth}
+\begin{tikzpicture}
+\tkzDefPoint(0,0){D}
+\tkzDefPoint(3,1){A}
+\tkzDefTriangle[equilateral](D,A)
+\tkzGetPoint{C}
+\tkzDefTriangle[equilateral](C,A)
+\tkzGetPoint{B}
+\tkzDrawSegments(D,A A,B B,C C,D C,A)
+\tkzLabelPoint[below](D){D}
+\tkzLabelPoint[below](A){A}
+\tkzLabelPoint[left](C){C}
+\tkzLabelPoint[right](B){B}
+\end{tikzpicture}
+\end{minipage}
+
+\end{exo}
+
+\begin{exo}[6]
+\begin{minipage}{.5\linewidth}
+On considère la figure ci-contre, tel que $(AB)//(CD)$ et $\widehat{CDA}=38^{\circ}$ et $\widehat{CBA}=49^{\circ}$
+\begin{enumerate}
+\item Calculer la mesure des angles $\widehat{IAB}$ et $\widehat{ICD}$.\newline
+\anserline[2]
+\item Déduire la mesure de $x$.\newline
+\anserline[2]
+\end{enumerate}
+\end{minipage}%
+\begin{minipage}{.5\linewidth}
+\begin{tikzpicture}
+\tkzDefPoints{0/0/A,4/0/B,1/3/C,6/3/D}
+\tkzLabelPoints[below](A,B)
+\tkzLabelPoints[above](C,D)
+\tkzDrawPoints(A,B,C,D)
+\tkzDrawLines(A,B C,D D,A C,B)
+\tkzInterLL(A,D)(B,C)
+\tkzGetPoint{I}
+\tkzLabelPoint[above](I){I}
+\tkzMarkAngle[arc=l , size=0.5cm , mark=|](C,D,A)
+\tkzMarkAngle[arc=l , size=0.5cm , mark= ||](C,B,A)
+\tkzMarkAngle[arc=l , size=0.5cm , mark= |||](B,I,D)
+
+\tkzLabelAngle(C,D,A){$38^{\circ}$}
+\tkzLabelAngle(C,B,A){$49^{\circ}$}
+\tkzLabelAngle(B,I,D){$x$}
+
+\end{tikzpicture}
+\end{minipage}
+
+\end{exo}
+
+\end{document}

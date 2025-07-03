@@ -1,0 +1,109 @@
+\documentclass[12pt, a4paper]{book}
+\usepackage[english]{babel}
+\usepackage[left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm]{geometry}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+\usepackage{lipsum}% dummy text
+\usepackage{fancyhdr}
+% =============================================
+% colors:
+\definecolor{myblueii}{RGB}{0, 0, 100}
+\definecolor{myblue3}{RGB}{36, 57, 126}
+\definecolor{YankeesBlue}{RGB}{28,40,65}
+\definecolor{mygray}{RGB}{112,121,139}
+\definecolor{darkred}{cmyk}{0.0,0.87,0.87,0.50}
+\definecolor{myblue}{HTML}{1D2A6E}
+\definecolor{myred}{HTML}{A97E77}
+\definecolor{mybrown}{HTML}{B35823}
+\definecolor{gold}{HTML}{B48920}
+\definecolor{myorange}{HTML}{ED8C2B}
+\definecolor{col}{RGB}{45, 136, 119}
+\definecolor{mygreen}{HTML}{07a56d}
+\definecolor{headercolourgreen}{rgb}{0,0.7019,0.7019}
+%============================================
+\tikzset{
+	page/.style={
+		color  = black ,
+		fill   = blue!20!white ,
+		font   = \normalfont\sffamily\Huge\bfseries ,
+		minimum size = .5in ,
+		yshift = 2in
+	}
+}
+%========
+\fancypagestyle{plain}{% % <-- this is new
+	\fancyhf{} 
+	\renewcommand{\headrule}{\hrule height 0pt \vspace{0pt}\hrule height 0pt}
+	\fancyfoot{
+		\begin{tikzpicture}[remember picture, overlay]
+		% page number:
+		\ifodd\value{page}
+		\node[left,page] at ([shift={(-7pt,-3.5)}]current page.south east)
+		{\thepage} ;
+		\draw[mygray,very thin]
+		(current page.south east)++(-.6in,0)--++(0,.6\paperheight) ;
+		% \draw[gray,very thin]
+		% (current page.south west)++(.6in,0)--++(0,.6\paperheight) ;
+		\else
+		\node[right,page] at ([shift={(7pt,-3.5)}]current page.south west)
+		{\thepage} ;
+		%\draw[gray,very thin]
+		%(current page.south east)++(-.6in,0)--++(0,.6\paperheight) ;
+		\draw[mygray,very thin]
+		(current page.south west)++(.6in,0)--++(0,.6\paperheight) ;
+		\fi
+		\end{tikzpicture}
+}}
+%==============
+\setlength{\headheight}{52pt}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand\headrule
+{{     \color{myblue}\rule{0.33\headwidth}{2.5pt}%   <---
+		\color{myred}\rule{0.34\headwidth}{2.5pt}%    <---
+		\color{myorange}\rule{0.33\headwidth}{2.5pt}% <---
+}}
+\fancyhead[RE]
+{\bfseries\color{myblueii}\nouppercase{\leftmark}}
+\fancyhead[LO]{\bfseries\color{myblueii}\nouppercase{\rightmark}}
+\makeatother
+%\renewcommand{\footrulewidth}{1.5pt}
+%\futurelet\TMPfootrule\def\footrule{{\color{myblue}\TMPfootrule}}
+\fancyfoot{
+	\begin{tikzpicture}[remember picture, overlay]
+	% page number:
+	\ifodd\value{page}
+	\node[left,page] at ([shift={(-7pt,-3.5)}]current page.south east)
+	{\thepage} ;
+	\draw[mygray,very thin]
+	(current page.south east)++(-.6in,0)--++(0,.6\paperheight) ;
+	% \draw[gray,very thin]
+	% (current page.south west)++(.6in,0)--++(0,.6\paperheight) ;
+	\else
+	\node[right,page] at ([shift={(7pt,-3.5)}]current page.south west)
+	{\thepage} ;
+	%\draw[gray,very thin]
+	%(current page.south east)++(-.6in,0)--++(0,.6\paperheight) ;
+	\draw[mygray,very thin]
+	(current page.south west)++(.6in,0)--++(0,.6\paperheight) ;
+	\fi
+	\end{tikzpicture}
+}
+%===========
+%============================================================
+
+\begin{document}
+
+\chapter{Preliminaries }
+
+
+\section{Bounded operator}
+\lipsum[1-12]
+
+\section{Monotone operators}
+\lipsum[1-12]
+\section{Hemicontinuous operators}
+\lipsum[1-12]
+
+\end{document}

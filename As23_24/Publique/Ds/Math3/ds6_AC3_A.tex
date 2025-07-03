@@ -1,0 +1,98 @@
+\documentclass[12pt]{article}
+
+\usepackage{ProfModels}
+\usepackage{fig3d}
+
+\pagestyle{empty}
+\begin{document}
+
+\begin{Maquette}[DS]{Niveau=3, Numero=6, Date=22/05/2025}
+\begin{exercice}[BaremeDetaille=true]
+\begin{minipage}{.42\linewidth}
+Le tableau suivant donne la répartition des notes d'une classe à un contrôle.
+\begin{enumerate}
+\item\brm{2} Compléter le tableau.
+ \end{enumerate}
+ \end{minipage}%
+ \begin{minipage}{.58\linewidth}
+\begin{tabular}{|Oc|Oc|Oc|Oc|Oc|Oc|Oc|Oc|Oc|Oc|}
+\hline 
+Note & 8 & 10 & 12 & 14 & 15 & 16 & 18 & 19 & 20 \\ 
+\hline 
+Effectif & 2 &  & 4 & 5 &  & 6 & 7 & 2 & 1 \\ 
+\hline 
+Eff cumulé &  & 4 &  &  &  &  &  &  & 30 \\ 
+\hline 
+\end{tabular} 
+\end{minipage}%
+\begin{enumerate}[start=2]
+\item\brm{1} Quel est l'effectif total ?
+ \anserline[1]
+\item\brm{1} Calculer la fréquence   de 16.\anserline[1]
+\item\brm{1} Calculer la note moyenne de la classe.\anserline[2]
+\item\brm{1} Déterminer le mode de cette série.\anserline[1]
+\item\brm{1} Déterminer la médiane de cette série.\anserline[1]
+\item\brm{1} Quel est le pourcentage des élèves qui ont une note supérieur à la moyenne de classe.\par\anserline[1]
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}[BaremeDetaille=true]
+Soit $f$ une fonction linéaire tel que $f(-3)=4$ et $g$ une fonction affine tel que $g(x)=4x-10$.
+\begin{tasks}[label=\arabic*.](2)
+\task\brm{2} Montrer que $f(x)=-\dfrac{4}{3}x$.
+\par\anserline[4]
+\task\brm[0.5]{1} Calculer $f(3)$.\par\anserline[4]
+\task\brm{1.5}  Montrer que $g(3)=2$.
+\par\anserline[4]
+\task\brm[0.5]{1.5} Quel nombre a pour image 0 par $g$.\par\anserline[4]
+\end{tasks}
+\end{exercice}
+
+\begin{exercice}[BaremeDetaille=true]
+\begin{minipage}{0.65\linewidth}
+$SABCD$ est un pyramide de base rectangle $ABCD$, de centre $O$, $AB=3$ et $BD=5$.La hauteur $\lrc{SO}$ mesure $6$.
+\begin{enumerate}
+\item Montrer que $AD=4$.\par
+\anserline[4]
+\end{enumerate}
+\end{minipage}%
+\begin{minipage}{0.35\linewidth}
+\begin{tikzpicture}[scale=0.8]
+\pyramide[30]{4}{65}{65}
+\tkzInterLL(A,C)(B,D)
+\tkzGetPoint{O}
+\tkzDefPointOnLine[pos=0.4](S,A)\tkzGetPoint{A'}
+\tkzDefPointOnLine[pos=0.4](S,B)\tkzGetPoint{B'}
+\tkzDefPointOnLine[pos=0.4](S,C)\tkzGetPoint{C'}
+\tkzDefPointOnLine[pos=0.4](S,D)\tkzGetPoint{D'}
+\tkzDrawSegments(A',B' B',C')
+\tkzDrawSegments[dashed](A',D' D',C')
+\tkzDrawSegments[dotted](A,C B,D)
+\tkzLabelPoints[left](A',D')
+\tkzLabelPoints[right](B',C')
+\tkzLabelPoint[below](O){O}
+\end{tikzpicture}
+\end{minipage}%
+\begin{enumerate}[start=2]
+\item\brm{2} Calculer le volume de $SABCD$.\par
+\anserline[3]
+\item\brm{1} La pyramide $SA'B'C'D'$ est une réduction de la pyramide $SABCD$ avec un rapport de $\dfrac{1}{2}$.
+\begin{enumerate}
+\item\brm{1} Monter que $V_{SA'B'C'D'}=3$.\par
+\anserline[4]
+\item\brm{1} Calculer $SO'$.\par
+\anserline[5]
+\item\brm{1} Calculer l'aire du quadrilatère $A'B'C'D'$.\par
+\anserline[4]
+\end{enumerate}
+\end{enumerate}
+
+
+
+\end{exercice}
+
+
+
+
+\end{Maquette}
+\end{document}

@@ -1,0 +1,810 @@
+\documentclass[12pt,a4paper,x11names,usenames,dvipsnames,svgnames,oneside]{book}
+\usepackage[table]{xcolor}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[left=0.7 cm,right=0.5 cm,top=1.2cm,bottom=1.5cm]{geometry}
+\usepackage{amsmath,amssymb,amsfonts,mathrsfs}
+\usepackage{mathpazo,tikz,mathtools}
+\usepackage{,fontawesome,float,lmodern,multirow,bidicontour,contour}
+\usepackage{fancybox,lipsum,graphics,graphicx,multicol,fancyhdr,ulem,url}
+\usepackage{pgf,eso-pic,lastpage,diagbox,fourier,frcursive,pgfplots,tkz-tab}
+\usepackage[most]{tcolorbox}
+\usepackage[]{bclogo}
+\usetikzlibrary{patterns,shapes,shapes.geometric,arrows,arrows.meta,shadings}
+\usetikzlibrary{calc,scopes,backgrounds,fadings,shadows}
+\usetikzlibrary{shapes.arrows,decorations, decorations.text}
+\usetikzlibrary{decorations.pathmorphing,shadows.blur}
+\tcbuselibrary{skins,breakable}
+\tcbuselibrary{skins,theorems,breakable}
+\usepackage{fontspec,color,pifont,bbding,tablists,pstricks-add,esvect,sectsty}
+\usepackage{pdfpages,array,colortbl,varwidth} 
+\usepackage[explicit]{ titlesec} 
+\usepackage{titletoc}
+\usepackage{hyperref}
+\usepackage{mdframed}
+\usepackage{polyglossia}
+
+%------------------------------------------------enumerate-------------------------------------------------------------------------------------------------------------------------
+\renewcommand{\labelenumi}{%
+	\begin{tikzpicture}[baseline=(1.base)]
+		\node[rectangle,fill=cyan,text=white,font=\bfseries,minimum size=5mm,inner sep=0mm](1){\arabic{enumi}};
+	\end{tikzpicture}
+}
+\renewcommand{\labelenumii}{%
+	\begin{tikzpicture}[baseline=(1.base)]
+		\node[circle,fill=cyan,text=white,font=\bfseries,minimum size=5mm,inner sep=0mm](1){\alph{enumii}};
+	\end{tikzpicture}
+}
+%----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\hypersetup{                    % parametrage des hyperliens
+	colorlinks=true,                % colorise les liens
+	breaklinks=true,                % permet les retours à la ligne pour les liens trop longs
+	urlcolor= blue,                 % couleur des hyperliens
+	linkcolor= blue,                % couleur des liens internes aux documents (index, figures, tableaux, equations,...)
+	citecolor= blue                % couleur des liens vers les references bibliographiques
+}
+%---------------------------------langue-------------------------------------------------------------------------------------------------------------------------------------------
+\setdefaultlanguage{french}
+\newfontfamily\frenchfont[Scale=1.2]{Amiri}%
+\newfontfamily{\Ar}[Scale=2]{Arial}
+\newfontfamily\frenchfontm[Scale=1.5]{Mistral}
+\newfontfamily\frenchfonts[Scale=1.7]{Mistral}
+\setotherlanguage{arabic}
+%---------------------------------stylemaths---------------------------------------------------------------------------------------------------------------------------------------
+\everymath{\displaystyle \color{violet}   \boldmath}
+\mathversion{bold}
+\renewcommand{\headrulewidth}{0pt}
+%--------------------------colors--------------------------------------------------------------------------------------------------------------------------------------------------
+\definecolor{olive}{rgb}{1,.972,.864}
+\definecolor{col}{RGB}{0,100,0}  
+\definecolor{col1}{RGB}{255, 102, 0}
+\definecolor{col2}{RGB}{125, 125, 10}
+%--------------------------stylepages----------------------------------------------------------------------------------------------------------------------------------------------
+\AddToShipoutPictureBG{\ifnum\value{page}=1
+	\begin{tikzpicture}[remember picture,overlay]
+		\fill[col1]([yshift=1cm]current page.south west)rectangle(current page.south east) ;
+		\node[cloud,draw=white,line width=2pt,minimum size=0.3cm,fill=col1]at([yshift=0.9cm]current page.south){$ {\color{white}\thepage} $};
+		\node[anchor=west]at([yshift=.5cm]current page.south west){{ \textbf{\color{white} Continuité et limites}}};
+		\node[anchor=east]at([yshift=.5cm]current page.south east){{ \textbf{\color{white}Prof: Mersani Imed}}};
+	\end{tikzpicture}
+	\else
+	\begin{tikzpicture}[remember picture,overlay]
+		\fill[col1]([yshift=-0.5cm]current page.north west)rectangle(current page.north east) ;
+		\fill[col1]([yshift=1cm]current page.south west)rectangle(current page.south east) ;
+		\node[cloud,draw=white,line width=2pt,minimum size=0.3cm,fill=col1]at([yshift=0.9cm]current page.south){${\color{white} \thepage} $};
+		\node[anchor=west]at([yshift=.5cm]current page.south west){{ \textbf{\color{white} Continuité et limites}}};
+		\node[anchor=east]at([yshift=.5cm]current page.south east){{ \textbf{\color{white}Prof: Mersani Imed}}};
+	\end{tikzpicture}
+	\fi}
+\parindent=0mm
+%------------------------table-des-matiéres----------------------------------------------------------------------------------------------------------------------------------------
+\contentsmargin{1cm}
+\definecolor{doc}{RGB}{0,60,110}
+\titlecontents{chapter}[0pc]
+{\addvspace{30pt}%
+	\begin{tikzpicture}[remember picture, overlay]%
+		\draw[fill=doc!30,draw=doc!30] (-0.5,-.2) rectangle (3,.5);%
+		\pgftext[right,x=2.5cm,y=0.2cm]{\color{white}\Large\sc\bfseries Cours\
+			\thecontentslabel};%
+	\end{tikzpicture}\color{doc!40}\large\sc\bfseries\hspace*{3.5cm}}%
+{}
+{}
+{\;\titlerule\;\large\sc\bfseries Page \thecontentspage
+	\begin{tikzpicture}[remember picture, overlay]
+		\draw[fill=doc!25,draw=doc!20] (2pt,0) rectangle (1cm,0.1pt);
+	\end{tikzpicture}	\vskip4pt}%
+\titlecontents{section}[2.4pc]
+{\addvspace{1pt}}
+{\contentslabel[\thecontentslabel]{2.4pc}}
+{}
+{\;\;\color{doc!40}\dotfill\;\;\small \thecontentspage}
+[]
+\titlecontents{subsection}[5pc]
+{\addvspace{1pt}}
+{\contentslabel[\thecontentslabel]{2.4pc}}
+{}
+{\;\;\color{doc!40}\dotfill\;\;\small \thecontentspage}
+[]
+\makeatletter
+%-----------------------------boxes------------------------------------------------------------------------------------------------------------------------------------------------
+%--------------------remarque--------------------------------------------------------------------------------------------------------------------------------------------------
+\def\skn{\tcbsubskin{skn}{empty}{frame code={%\draw [black,transform canvas={xscale=1.5},decorate,decoration={zigzag,segment length=3mm,amplitude=.5mm},line width=1.3pt]([yshift=-5pt]frame.north west)--(frame.south west);
+}}}
+\usetikzlibrary{decorations.pathmorphing}
+\newtcolorbox{boxxr}{enhanced,breakable,detach title,coltitle=black,fonttitle=\bfseries,leftrule=2mm,title={\bclampe ~~Remarque\par},skin=skn,left=0mm,top=0mm,bottom=0mm,right=0mm,
+	skin first=skn,
+	skin middle=skn,
+	skin last=skn
+}
+\newenvironment{rem}{\skn\boxxr\tcbtitle}{\endboxxr}
+%--------------------notation--------------------------------------------------------------------------------------------------------------------------------------------------
+\def\skn{\tcbsubskin{skn}{empty}{frame code={%\draw [black,transform canvas={xscale=1.5},decorate,decoration={zigzag,segment length=3mm,amplitude=.5mm},line width=1.3pt]([yshift=-5pt]frame.north west)--(frame.south west);
+}}}
+\usetikzlibrary{decorations.pathmorphing}
+\newtcolorbox{boxxn}{enhanced,breakable,detach title,coltitle=black,fonttitle=\bfseries,leftrule=2mm,title={\bcinfo ~~Notations\par},skin=skn,left=0mm,top=0mm,bottom=0mm,right=0mm,
+	skin first=skn,
+	skin middle=skn,
+	skin last=skn
+}
+\newenvironment{nt}{\skn\boxxn\tcbtitle}{\endboxxn}
+%----------------------------proposition-------------------------------------------------------------------------------------------------------------------------------------------
+\newtcolorbox{pr}{breakable,enhanced,colback=MediumSpringGreen!5,colframe=MediumSpringGreen,title=Proprietés,top=2mm,boxsep=3mm,
+	attach boxed title to top left=
+	{yshift=-\tcboxedtitleheight/2 ,xshift=0.3cm},
+	boxed title style={size=small,colback=MediumSpringGreen}}
+
+%------------------------------------exemple---------------------------------------------------------------------------------------------------------------------------------------
+\newtcolorbox{expl}{breakable,enhanced,detach title,blanker,title={Exemple~:},coltitle=black,
+	boxsep=3mm,top=2.7mm,left=2mm,right=2mm
+	,before skip=0.5cm,
+	after skip=0.5cm,
+	overlay={
+		\node[anchor=west,font=\large\bfseries, scale=1.2] (1) at ([xshift=0.7cm]interior.north west){\tcbtitle};
+%		\fill(1.west)circle(2pt);
+%		\scoped[on background layer]{
+%			\draw(1.west)--(interior.north west)--
+%			(interior.south west);
+%	}
+},overlay first={
+		\node[anchor=west,font=\large\bfseries, scale=1.2] (1) at ([xshift=0.7cm]interior.north west){\tcbtitle};
+%		\fill(1.west)circle(2pt);
+%		\scoped[on background layer]{
+%			\draw(1.west)--(interior.north west)--(interior.south west);
+	%	}
+	},overlay middle={
+%		\draw(interior.north west)--
+%		(interior.south west);
+	},overlay last={
+%		\draw(interior.north west)--
+%		(interior.south west);
+}
+}
+%----------------------------------------------theoreme----------------------------------------------------------------------------------------------------------------------------
+\newtcolorbox{thr}{
+	enhanced,breakable,
+	before skip=2mm,after skip=0.3cm,
+	bottom=0.5cm,colframe=magenta,coltitle=white,
+	colback=magenta!4,boxrule=0.2mm,arc=0mm,leftrule=2mm,
+	attach boxed title to top left={xshift=0cm,yshift*=0mm-\tcboxedtitleheight},
+	varwidth boxed title*=-3cm,
+	boxed title style={frame code={
+			\coordinate (A) at (frame.north east);
+			\coordinate (B) at (frame.south east);
+			\path[fill=magenta](frame.north east)--([xshift=-2mm]frame.north west)--([xshift=-2mm]frame.south west)--(frame.south east) --([xshift=3mm]$(A)!0.5!(B)$)--cycle;
+			\draw[white,line width=2pt]([xshift=-2mm]frame.north east)--([xshift=1mm]$(A)!0.5!(B)$)--([xshift=-2mm]frame.south east);
+			\path[fill=magenta!50]([xshift=-2mm]frame.south west)--+(2mm,-2mm)|-cycle;
+		},interior engine=empty,
+	},
+	title={\large\bf\color{white} Théorème}}
+%-----------------------------------definition-------------------------------------------------------------------------------------------------------------------------------------
+\newtcolorbox{df}{breakable,enhanced,detach title,blanker,title={Définition},coltitle=white,
+	boxsep=3mm,top=2mm,left=2mm,right=2mm
+	,before skip=1cm,after skip=0.1cm,
+	overlay={\scoped[on background layer]{
+			\draw[fill=red!60!blue!3,draw=none](interior.north west)rectangle(interior.south east);
+			\draw[red!60!blue](interior.north west)|-(interior.south east);},\node[anchor=west,font=\bfseries,
+		scale=1.2,above right,fill=red!60!blue,xshift=-2mm,yshift=-2mm,drop shadow] (1) at (interior.north west){\tcbtitle};
+	},overlay first={\scoped[on background layer]{
+			\draw[fill=red!60!blue!3,draw=none](interior.north west)rectangle(interior.south east);
+			\draw[red!60!blue](interior.north west)--(interior.south west);},\node[anchor=west,font=\bfseries,
+		scale=1.2,above right,fill=red!60!blue,xshift=-2mm,yshift=-2mm,drop shadow] (1) at (interior.north west){\tcbtitle};
+	},overlay middle={\draw[fill=red!60!blue!3,draw=none](interior.north west)rectangle(interior.south east);
+		\draw[red!60!blue](interior.north west)--(interior.south west);},overlay last={\draw[fill=red!60!blue!3,draw=none](interior.north west)rectangle(interior.south east);
+		\draw[red!60!blue](interior.north west)|-(interior.south east);}}
+%-----------------------------activité---------------------------------------------------------------------------------------------------------------------------------------------
+\newcounter{activ}
+\newcommand{\activite}{\addtocounter{activ}{1}\textbf{Activité}~\theactiv}%
+\newtcolorbox{act}{reset,breakable,blanker,
+	before skip=6pt,after skip=6pt,
+	borderline west={1mm}{0pt}{orange!60!blue},
+	title={\activite},
+	coltitle=purple,left=4mm}
+%------------------Démonstration---------------------------------------------------------------------------------------------------------------------------------------------------
+\newtcolorbox{dem}{reset,breakable,blanker,
+	before skip=6pt,after skip=6pt,
+	title={\underline{\sc{Démonstration}}},
+	coltitle=gray,left=4mm}
+%-------------------------solution-------------------------------------------------------------------------------------------------------------------------------------------------
+\newtcolorbox{sol}{reset,breakable,blanker,
+	before skip=6pt,after skip=6pt,
+	title={\underline{\textbf{Solution}}},
+	coltitle=purple,left=4mm}
+%|-------------------Exercices-----------------------------------------------------------------------------------------------------------------------------------------------------
+\newcounter{exerc}
+\newcommand{\exercicenum}{\addtocounter{exerc}{1}\Large \theexerc}%
+\newtcolorbox{exr}{breakable,enhanced,detach title,blanker,title={{ Exercice}},coltitle= blue,
+	boxsep=2mm,top=2mm,left=2mm,right=2mm
+	,before skip=0.7cm,
+	after skip=0.5cm,
+	overlay={
+		\scoped[on background layer]{
+			\draw[fill=white,draw=none](interior.north west)rectangle
+			(interior.south east);}
+		\node[anchor=north west,above right,font=\large\bfseries] (1) at (interior.north west){\tcbtitle};
+		\draw[very thick, blue](1.south west)--([xshift=4mm]1.south east)node[above=-3mm ,circle,draw,fill=white,font=\large\bfseries , anchor=south, minimum size=0.9cm](2){\ };
+		\node[font=\bf,  blue] at (2.center){\exercicenum };
+		\scoped[on background layer]{
+			\draw[very thick, blue](interior.south west)|-(1.south west)--([xshift=4mm]1.south east);}
+	},overlay first={
+		\scoped[on background layer]{
+			\draw[fill=white,draw=none](interior.north west)rectangle
+			(interior.south east);}
+		\node[anchor=north west,above right,font=\large\bfseries] (1) at (interior.north west){\tcbtitle};
+		\draw[very thick, blue](1.south west)--([xshift=4mm]1.south east)node[above=-3mm ,circle,draw,fill=white,text=black,font=\large\bfseries , anchor=south, minimum size=0.9cm](2){\ };
+		\node[font=\bf , blue] at (2.center){\exercicenum };
+		\scoped[on background layer]{
+			\draw[very thick, blue](interior.south west)|-(1.south west)--([xshift=4mm]1.south east);}
+	},
+	overlay middle={
+		\draw[fill=white,draw=none](interior.north west)rectangle
+		(interior.south east);
+		\draw[very thick, blue](interior.north west)--
+		(interior.south west);
+	},overlay last={
+		\draw[fill=white,draw=none](interior.north west)rectangle
+		(interior.south east);
+		\draw[very thick, blue](interior.north west)--
+		(interior.south west);
+}}
+%-------------------------------Applications---------------------------------------------------------------------------------------------------------------------------------------
+\newtcolorbox{apll}{breakable,enhanced,detach title,blanker,title={Application},coltitle=black,
+	boxsep=3mm,top=2mm,left=2mm,right=2mm
+	,before skip=1cm,
+	after skip=1cm,
+	overlay={
+		\scoped[on background layer]{
+			\draw([xshift=0.3cm]interior.north west)|-
+			(interior.south east)--(interior.north east);}
+		\node[anchor=west,font=\large\bfseries, scale=1.2,above right] (1) at (interior.north west){\tcbtitle};
+		\scoped[on background layer]{
+			\draw([yshift=-0.5mm]1.north west)|-(1.south east);
+			\fill(1.south east) circle(2pt);
+			\fill[black](interior.north west)--+(0.3cm,-0.3cm)|-cycle;
+	}},overlay first={
+		\node[anchor=west,font=\large\bfseries, scale=1.2,above right] (1) at (interior.north west){\tcbtitle};
+		\scoped[on background layer]{
+			\draw([xshift=0.3cm]interior.north west)--
+			([xshift=0.3cm]interior.south west);
+			\draw(interior.north east)--
+			(interior.south east);
+			\draw([yshift=-0.5mm]1.north west)|-(1.south east);
+			\fill[black](interior.north west)--+(0.3cm,-0.3cm)|-cycle;}
+	},overlay middle={
+		\draw([xshift=0.3cm]interior.north west)--
+		([xshift=0.3cm]interior.south west);
+		\draw(interior.north east)--
+		(interior.south east);
+	},overlay last={
+		\draw([xshift=0.3cm]interior.north west)|-
+		(interior.south east)--(interior.north east);}
+}
+%---------------------stylepourenumerate-------------------------------------------------------------------------------------------------------------------------------------------
+\newcommand{\pc}[1]{\begin{tikzpicture}[baseline=(1.base)]
+		\node[draw,fill=green!20!white,circle,inner sep=.5mm,font=\bfseries\footnotesize,minimum size=5mm](1){#1};
+\end{tikzpicture}}
+\newcommand{\pg}[1]{	\begin{tikzpicture}[baseline=(1.base)]
+		\node[draw,,fill=orange!20!white,regular polygon,regular polygon sides=8,inner sep=.5mm,font=\bfseries](1){#1};
+\end{tikzpicture}}
+\newcommand{\ps}[1]{	\begin{tikzpicture}[baseline=(1.base)]
+		\node[draw,fill=violet!20!white,star,star points=7,star point ratio=.2mm,font=\bfseries](1){#1};
+\end{tikzpicture}}
+%---------------------------------newcommand---------------------------------------------------------------------------------------------------------------------------------------
+\newcommand{\Oij}{$( O, \overrightarrow{i},\overrightarrow{j})$}
+\def\Oj{$\left(\text{O},~\overrightarrow{j}\right)$}
+\def\Oi{$\left(\text{O},~\overrightarrow{i}\right)$}
+\newcommand{\Oijk}{$\left( O, \overrightarrow{i},\overrightarrow{j},\overrightarrow{k} \right)$}
+\newcommand{\Ouv}{$\left( O, \overrightarrow{u},\overrightarrow{v} \right)$}
+\newcommand{\Oee}{$\left( O, \overrightarrow{e}_1,\overrightarrow{e}_2 \right)$}
+\def\vv{\overrightarrow}
+\def\N{\mathbb{N}}
+\def\NN{\mathbb{N}}
+\def\Z{\mathbb{Z}}
+\def\D{\mathbb{D}}
+\def\Q{\mathbb{Q}}
+\def\R{\mathbb{R}}
+\def\RR{\mathbb{R}}
+\def\C{\mathbb{C}}
+\def\K{\mathbb{K}}
+\def\ds{\displaystyle}
+\def\calc{$\mathscr{C}~$}
+\def\calp{$\mathscr{P}~$}
+\def\cald{$\mathscr{D}~$}
+\def\cala{$\mathscr{A}~$}
+\def\cale{$\mathscr{E}~$}
+\def\calv{$\mathscr{V}~$}
+\def\calq{$\mathscr{Q}~$}
+\def\calr{$\mathscr{R}~$}
+\newcommand{\nex}{01}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\cf}{$ \mathscr{C}_{f} $}
+\newcommand{\cg}{$ \mathscr{C}_{g} $}
+\newcommand{\oij}{$ (O,\overrightarrow{i},\overrightarrow{j}) $}
+\newcommand{\ouv}{$ (O,\overrightarrow{u},\overrightarrow{v}) $}
+\newcommand{\Pf}{ +\infty }
+\newcommand{\Nf}{ -\infty }
+\newcommand{\qst}[2]{$ #1 $&#2\\}
+\newcommand{\chaptitle}[1]{%
+	\thispagestyle{empty}
+	\begin{tikzpicture}[remember picture,overlay,decoration=saw]
+		\fill[fill=col1,decorate,decoration={snake,amplitude=1mm,segment length=2mm,post length=1mm}] ([xshift=-10pt,yshift=.5cm]current page.north west)rectangle([xshift=10pt,yshift=-2.2cm]current page.north east);
+		\node[text width=16.5cm,align=center ]at ([yshift=-1.1cm]current page.north) {
+			\LARGE\color{white}\bfseries #1}; 
+		\fill[violet]([xshift=2cm,yshift=-1.1cm]current page.north west)circle(1.1cm);
+		\fill[white]([xshift=2cm,yshift=-1.1cm]current page.north west)circle(1cm);
+		\fill[col1]([xshift=2cm,yshift=-1.1cm]current page.north west)circle(0.9cm);
+		\node [scale=1.2,anchor=east](0)at ([xshift=3cm,yshift=-1.1cm]current page.north west){{\ifnum\thechapter<10 \LARGE\color{white}\textbf{{0\thechapter}}\else \LARGE\color{white}\textbf{{\thechapter}}\fi}};
+	\end{tikzpicture}
+}
+\newcommand{\chapTitle}[1]{%
+	\thispagestyle{empty}
+	\begin{tikzpicture}[remember picture,overlay]
+		\fill[col1] (current page.north west)rectangle([yshift=-2.2cm]current page.north east);
+		\node[text width=16.5cm,align=center,scale=2]at ([xshift=-1.5cm,yshift=-1.1cm]current page.north) {
+			\LARGE\color{white}\bfseries #1 }; 
+	\end{tikzpicture}
+}
+%--------------------stylechapter--------------------------------------------------------------------------------------------------------------------------------------------------
+\titleformat{\chapter}[block]
+{ }{ }{10pt}{\Huge
+	\centering \chaptitle{#1}\vskip-4cm}
+\titleformat{name=\chapter,numberless}[block]
+{ }{ }{10pt}{\Huge
+	\centering \chapTitle{#1}\vskip-5cm}
+\renewcommand{\thesection}{\Roman{section}}
+\renewcommand{\thesubsection}{\arabic{subsection}}
+\renewcommand{\thesubsubsection}{\alph{subsubsection}}
+%--------------------stylesection--------------------------------------------------------------------------------------------------------------------------------------------------
+\titleformat{\section}
+{\bf\Large}
+{
+	\tikzpicture[baseline=(2.base)]
+	\node [text=blue!70!red,anchor=west] (2){#1};
+	\draw[blue!70!red]([xshift=-2mm]2.north east)--([xshift=-1.1cm]2.north west)node[fill=blue!70!red,anchor=north west,text=white,scale=1.1]{\thesection};
+	\endtikzpicture}
+{0pt}{}
+\parindent=0pt
+%--------------------stylesaubsection----------------------------------------------------------------------------------------------------------------------------------------------
+\titleformat{\subsection}[block]{\bfseries\Large\color{blue}}{\quad\thesubsection. #1}{2mm}{}[]
+%-----stylesubsubsection------------------------------------------
+\titleformat{\subsubsection}[block]{\bfseries\Large\color{yellow!80!red}}{\quad\quad\thesubsubsection~-~#1}{2mm}{}[\vskip5pt]
+\setcounter{secnumdepth}{3}
+%--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\begin{document}\pagestyle{empty}
+	\tableofcontents
+	\chapter{\sc{Continuité et limites}}
+	\section{Rappels:}
+	\subsection{Continuité:}
+	\begin{act}
+	\begin{enumerate}
+	\item \begin{enumerate}
+	\item Vérifier que pour tout $x\in\left]-\dfrac{\pi}{2},\dfrac{\pi}{2}\right[\setminus\{0\}$, $\dfrac{1-\cos x}{x^2}=\dfrac{\sin^2x}{x^2}.\dfrac{1}{1+\cos x}$.
+	\item On admet que: $\ds \lim_{x\to 0} \dfrac{\sin x}{x}=1$.\\
+	Déduire que: $\ds \lim_{x\to 0}\dfrac{1-\cos x}{x^2}=\dfrac{1}{2}$ et $\ds \lim_{x\to 0} \dfrac{1-\cos x}{x}=0$.
+	\end{enumerate}
+	\item Déterminer les limites suivantes: $\ds \lim_{x\to 0}\dfrac{\sin x}{1-\cos x}$ et $\ds \lim_{x\to 0}\dfrac{\sqrt{1+\cos x}-\sqrt{2}}{\sin^2x}$.
+	\end{enumerate}
+	\end{act}
+	\begin{thr}
+	Soit $a$ un réel non nul.
+	\begin{multicols}{3}
+	\begin{itemize}
+	\item $\ds \lim_{x\to 0}\dfrac{\sin x}{x}=1$
+	\item $\ds \lim_{x\to 0}\dfrac{\sin ax}{x}=a$
+	\item $\ds \lim_{x\to 0}\dfrac{\tan x}{x}=1$
+	\item $\ds \lim_{x\to 0}\dfrac{\tan ax}{x}=a$
+	\item $\ds \lim_{x\to 0}\dfrac{1-\cos x}{x}=0$
+	\item $\ds \lim_{x\to 0}\dfrac{1-\cos x}{x^2}=\dfrac{1}{2}$
+	\end{itemize}
+	\end{multicols}
+	\end{thr}
+\begin{thr}
+Soit $f$ une fonction définie sur un intervalle ouvert $I$ et $a$ un réel de $I$.\\
+La fonction $f$ est continue en $a$, si et seulement si, $\lim_{x\to a^-}f(x)=\lim_{x\to a^+}f(x)=f(a)$.\\
+Autrement dit: La fonction $f$ est continue en $a$, si et seulement si, $f$ est continue à gauche et à droite en $a$.
+\end{thr}
+\begin{act}
+Soit $f$ la fonction définie sur $\R$ par $g(x)=\left\lbrace \begin{array}{ll}
+\dfrac{x^2+5x-6}{\left|x-1\right|}&\text{si}~x\neq 1\\
+7&\text{si}~x=1
+
+\end{array} \right. $.
+\'{E}tudier la continuité de $f$ en $1$.
+\end{act}
+
+\begin{act}
+Soit $g$ la fonction définie sur $\R$ par $g(x)=\left\lbrace \begin{array}{ll}
+\dfrac{\sin 2x}{x}&\text{si}~x<0\\
+x^2-1&\text{si}~ 0\leqslant x <2\\
+\sqrt{x+7}&\text{si}~x \geqslant 2
+
+\end{array} \right. $. 
+\'{E}tudier la continuité de $g$ en $0$ et $2$.
+\end{act}
+\begin{thr}
+Soient $f$ et $g$ deux fonctions définies sur un intervalle ouvert $I$ et $a$ un réel de $I$.
+\begin{itemize}
+\item Soit $f$ est continue en $a$ alors les fonctions $\alpha f,(\alpha\in\R)$, $\left|f\right|$ et $f^n, (n\in\N^*)$ sont continues en $a$.
+\item Si $f$ est continue en $a$ et $f(a)\neq 0$ alors les fonctions $\dfrac{1}{f}$ et $\dfrac{1}{f^n}, (n\in\N^*)$ sont continues en $a$.
+\item Si $f$ et $g$ sont continues en $a$ et $g(a)\neq 0$ alors la fonction $\dfrac{f}{g}$ est continue en $a$.
+\item Si $f$ est continue en $a$ et $f$ est positive sur $I$ alors $\sqrt{f}$ est continue en $a$.
+\end{itemize}
+\end{thr}
+\begin{thr}
+\begin{itemize}
+\item Toute fonction polynôme est continue en tout réel.
+\item Toute fonction rationnelle est continue en tout réel de son ensemble de définition.
+\item Les fonctions $x\longmapsto \sin x$ et $x\longmapsto \cos x$ sont continues en tout réel.
+\end{itemize}
+\end{thr}
+\subsection{Prolongement par continuité:}
+\begin{thr}
+Sot $f$ une fonction définie sur un intervalle ouvert $I$, sauf en un réel $a$ de $I$.\\
+Si la fonction $f$  admet une limite finie $\ell$ lorsque $x$ tend vers $a$, alors la fonction $g$ définie sur $I$ par $g(x)=\left\lbrace \begin{array}{ll}
+f(x)&\text{si}~x\neq a\\
+\ell &\text{si}~x=a
+
+\end{array} \right. $ est continue en $a$.\\
+La fonction $g$ est appelée le prolongement par continuité de $f$ en $a$.
+\end{thr}
+\begin{act}
+Soit $f$ la fonction définie sur $\R^*$ par $f(x)=\dfrac{x^2+\sin x}{x}$.\\
+Montrer que $f$ est prolongeable par continuité en $0$ et déterminer son prolongement.
+\end{act}
+\subsection{Continuité sur un intervalle:}
+\begin{df}
+\begin{itemize}
+\item Une fonction continue sur un intervalle ouvert $I$ si elle est continue en tout réel de $I$.
+\item Une fonction est continue sur un intervalle $\big[a, b\big]$ si elle est continue sur $\big]a, b\big[$, à droite en $a$ et à gauche en $b$.
+\item De façon analogue, on définit la continuité d'une fonction $f$ sur les intervalles $\big[a, b\big[$, $\big]a,b\big]$, $\big[a, +\infty\big[$ et $\big]-\infty, a\big]$.
+
+\end{itemize}
+\end{df}
+\begin{act}
+Soit $f$ la fonction définie sur $\left[0,\pi \right]$ par $f(x)=\left\lbrace \begin{array}{ll}
+\dfrac{1-\cos x}{x}&\text{si}~x\in\left]0,\pi\right]\\
+0&\text{si}~x=0
+
+\end{array} \right.$.\\
+Montrer que la fonction $f$ est continue sur $\left[0,\pi\right]$.
+\end{act}
+\subsection{Opérations sur les limites:}
+Les résultats résumés dans le tableau ci-dessous concernent les opérations sur les limites des fonctions en un réel $a$, à droite en $a$, à gauche en $b$ ou à l'infini. Soit $\ell$ et $\ell '$ deux réels.
+\subsubsection{Limite d'une somme:}
+\begin{center}
+
+\begin{tabular}{|c|c|c|}
+\hline
+limite de $f$ & limite de $g$ & limite de $f+g$\\
+\hline 
+$\ell$ & $\ell '$ & $\ell+\ell'$\\
+\hline
+$\ell$ & $+\infty$ & $+\infty$\\
+\hline
+$\ell$ & $-\infty$ & $-\infty$\\
+\hline
+$+\infty$ & $+\infty$ & $+\infty$\\
+\hline
+$-\infty$ & $-\infty$ & $-\infty$\\
+\hline
+$-\infty$ & $+\infty$ & F.I\\
+\hline
+\end{tabular}
+\end{center}
+\subsubsection{Limite d'un produit:}
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+limite de $f$ & limite de $g$ & limite de $f\times g$\\
+\hline 
+$\ell$ & $\ell '$ & $\ell \times \ell'$\\
+\hline
+$\ell\neq 0$ & $\infty$ & (R.S) $\infty$\\
+\hline
+$\infty$ & $\infty$ &(R.S) $\infty$\\
+\hline
+$0$ & $\infty$ & F.I\\
+\hline
+\end{tabular}
+\end{center}
+\subsubsection{Limite d'un quotient:}
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+limite de $f$ & limite de $g$ & limite de $\dfrac{f}{g}$\\
+\hline 
+$\ell$ & $\ell '\neq 0$ & $\dfrac{\ell}{\ell'}$\\
+\hline
+$\ell$ & $+\infty$ & $+\infty$\\
+\hline
+$\ell$ & $\infty$ & $0$\\
+\hline
+$\infty$ & $\ell'$ & (R.S) $\infty$\\
+\hline
+$\ell \neq 0$ & $0 $ & (R.S) $\infty$\\
+\hline
+$0$ & $0$ & F.I\\
+\hline
+$\infty$ & $\infty$ & F.I\\
+\hline
+\end{tabular}
+\end{center}
+\begin{thr}
+\begin{itemize}
+\item La limite d'une fonction polynôme à l'infini est la même que celle de son terme de plus haut degré.
+\item La limite d'une fonction rationnelle à l'infini est la même que celle du quotient des termes de haut degré.
+\end{itemize}
+\end{thr}
+\begin{act}
+Déterminer les limites ci-dessous:
+\begin{enumerate}
+\begin{multicols}{3}
+\item $\lim_{x\to+\infty}3x^2-x+1$
+\item $\lim_{x\to-\infty}\dfrac{2x^2-x+1}{x^2+2x-3}$
+\item $\lim_{x\to+\infty}\dfrac{2x+3}{x^2+5x-4}$
+
+\item $\lim_{x\to+\infty}\dfrac{\sqrt{4x^2+2x-3}}{2x+5}$
+\item $\lim_{x\to-\infty}\sqrt{9x^2+3}+x$
+\item $\lim_{x\to+\infty}\sqrt{4x^2+1}-2x$
+
+\item $\lim_{x\to 0}\dfrac{\sqrt{x+4}-2}{x}$
+\item $\lim_{x\to-\infty}\sqrt{x^2+x}+x$
+\item $\lim_{x\to 1}\dfrac{x^2-2x+1}{x^2+x-2}$
+\end{multicols}
+\end{enumerate}
+\end{act}
+\section{Branches infinies:}
+\begin{act}
+Activité 1 page 9
+\end{act}
+\begin{df}
+\begin{itemize}
+\item Soit $f$ une fonction définie sur un intervalle ouvert $I$, sauf en un réel $a$ de $I$ et \cf  sa courbe représentative dans un repère orthogonl \oij.\\
+Lorsque $\lim_{x\to a^-}f(x)=\pm \infty$ ou $\lim_{x\to a^+}f(x)=\pm \infty$ , on dit que la droite d'équation $x=a$ est une asymptote verticale à la courbe \cf.
+\item Soit $f$ une fonction et \cf sa courbe représentative dans un repère orthonornal \oij.\\
+Lorsque $\lim_{x\to+\infty}f(x)=L$ ou $\lim_{x\to-\infty}f(x)=L$ $(L\in\R)$, on dit que la droite d'équation $y=L$ est une asymptote horizontale à la courbe \cf.\\
+Lorsque $\lim_{x\to+\infty}(f(x)-(ax+b))=0$ ou $\lim_{x\to-\infty}(f(x)-(ax+b))=0$ $(a\in\R^*, b\in\R)$ alors la droite d'équation $y=ax+b$ est une asymptote oblique à la courbe \cf.
+\end{itemize}
+\end{df}
+\begin{exr}
+Soit $f$ la fonction définie sur $\mathbb{R}\backslash \left\{ 1 \right\}$ par $f(x)=\dfrac{2x+1}{\left|x-1\right|}$. On désigne par \cf la courbe représentative de $f$ dans un repère orthonormé \oij.
+\begin{enumerate}
+\item Déterminer $\lim_{x\to 1}f(x)$. Interpréter graphiquement.
+\item Calculer $\lim_{x\to+\infty}f(x)$ et $\lim_{x\to-\infty}f(x)$. Interpréter graphiquement les résultats obtenus.
+\end{enumerate}
+\end{exr}
+\begin{exr}
+Soit $g$ la fonction définie sur $\R$ par $g(x)=\dfrac{x}{\sqrt{x^2+1}}$. On désigne par \cg la courbe représentative de $g$ dans un repère orthonormé \oij.\\
+Calculer $\lim_{x\to+\infty}g(x)$ et $\lim_{x\to-\infty}g(x)$. Interpréter graphiquement.
+\end{exr}
+\begin{exr}
+Soit $h$ la fonction définie sur $\R$ par $h(x)=\sqrt{x^2+2x+2}$. On désigne par $\mathscr C_h$ la courbe représentative de $h$ dans un repère orthonormé \oij du plan.\\
+Montrer que la droite $\Delta$ d'équation $y=x+1$ est une asymtote oblique à la courbe $\mathscr C_h$ au voisinage de $+\infty$.
+\end{exr}
+\begin{thr}
+Soit $f$ une fonction et \cf sa courbe représentative dans un repère orthogonal \oij du plan.\\
+Lorsque $\lim_{x\to+\infty}f(x)$ est infinie, alors la branche infinie de \cf au voisinage de $+\infty$ dépend de $\lim_{x\to+\infty}\dfrac{f(x)}{x}$.
+\begin{enumerate}
+
+\item Si $\lim_{x\to+\infty}\dfrac{f(x)}{x}$ est infinie, alors la courbe \cf admet une branche parabolique de dierction \Oj au voisinage de $+\infty$.
+\item Si $\lim_{x\to+\infty}\dfrac{f(x)}{x}=0$, alors la courbe \cf admet une branche parabolique de direction \Oi au voisinage de $+\infty$.
+\item Si $\lim_{x\to+\infty}\dfrac{f(x)}{x}=a, (a\in\R^*)$ alors deux cas peuvent se présenter selon $\lim_{x\to+\infty}(f(x)-ax)$.
+\begin{enumerate}
+\item Si $\lim_{x\to+\infty}(f(x)-ax)=b, (b\in\R)$ alors la droite d'équation $y=ax+b$ est une asymptote oblique à la courbe \cf au voisinage de $+\infty$.
+\item Si $\lim_{x\to+\infty}(f(x)-ax)$ est infinie alors la droite d'équation $y=ax$ est une direction asymptotique à la courbe \cf au voisinage de $+\infty$.
+\end{enumerate}
+\end{enumerate}
+\end{thr}
+\begin{rem}
+Les autres cas se déterminent d'une façon analogue.
+\end{rem}
+\begin{exr}
+Soit $f$ la fonction définie sur $\left[ {1, + \infty } \right[$ par $f(x)=\sqrt{x-1}$. On note \cf la courbe représentative de $f$ dans un repère orthonormé \oij du plan.\\
+Déterminer $\lim_{x\to+\infty}f(x)$ et $\lim_{x\to+\infty}\dfrac{f(x)}{x}$. Interpréter graphiquement.
+\end{exr}
+\begin{exr}
+Soit $g$ la fonction définie sur $\R_+$ par $g(x)=x\sqrt{x}$. On appelle \cg la courbe représentative de $g$ dans un plan muni d'un repère orthonormé \oij.\\
+Déterminer $\lim_{x\to+\infty}g(x)$ et $\lim_{x\to+\infty}\dfrac{g(x)}{x}$. Interpréter graphiquement.
+\end{exr}
+\begin{exr}
+Soit $h$ la fonction définie sur $\R_+$ par $h(x)=x-\sqrt{x}$. On désigne par $\mathscr C_h$ la courbe représentative de $h$ dans le plan muni d'un repère orthonormé \oij.\\
+Déterminer $\lim_{x\to+\infty}h(x)$, $\lim_{x\to+\infty}\dfrac{h(x)}{x}$ et $\lim_{x\to+\infty}(h(x)-x)$. Interpréter graphiquement.
+\end{exr}
+\section{Continuité et limite d'une fonction composée:}
+\subsection{Composée de deux fonctions:}
+\begin{df}
+Soit $u$ une fonction définie sur un ensemble $I$ et $v$ une fonction définie sur un ensemble $J$ telle que $u(I) \subset J$. La fonction notée $v \circ u$, définie sur $I$ par $v\circ u(x)=v(u(x))$, est appelée fonction composée de $u$ et $v$.
+\end{df}
+\begin{act}
+Activité 2 page 12
+\end{act}
+\begin{thr}
+Soit $u$ une fonction définie sur un intervalle ouvert $I$ contenant un réel $a$.\\
+Soit $v$ une fonction définie sur un intervalle ouvert $J$ contenant le réel $u(a)$.\\
+Si $u$ est continue en $a$ et $v$ est continue en $u(a)$ alors la fonction $v\circ u$ est continue en $a$.
+\end{thr}
+\begin{dem}
+
+\end{dem}
+\begin{thr}
+La composée de deux fonctions continues est une fonction continue.\\
+\textbf{Plus précisément:} Si $u$ est continue sur un intervalle $I$ et $v$ est continue sur un intervalle $J$ telle que $u(I) \subset J$  alors la fonction $v\circ u$ est continue sur l'intervalle $I$.
+\end{thr}
+\begin{rem}
+Si $J=\R$ alors la condition $u(I)\subset J$ devient unitile.
+\end{rem}
+\begin{act}
+Activité page 12
+\end{act}
+\subsection{Limite d'une fonction composée:}
+\begin{thr}
+Soient $u$ et $v$ deux fonctions et $a$, $b$ et $c$ finis ou infinis.\\
+Si $\lim_{x\to a}u(x)=b$ et $\lim_{x\to b}v(x)=c$ alors $\lim_{x\to a}v\circ u(x)=c$.
+\end{thr}
+\begin{act}
+Les activités 1, 2, 3, 4 et 5 page 12
+\end{act}
+\section{Limites et ordre:}
+\begin{thr}
+Soient $f$, $u$ et $v$ des fonctions définies sur un intervalle ouvert $I$ suaf peut-être en un réel $a$ de $I$.\\
+Soient $\ell$ et $\ell'$ deux réels.
+\begin{enumerate}
+\item Si $u(x) \leqslant v(x)$, pour tout $x\in I\backslash \left\{ a \right\}$ et si $\lim_{x\to a} u(x)=\ell$ et $\lim_{x\to a}v(x)=\ell'$ alors $\ell \leqslant \ell'$.
+\item Si $u(x) \leqslant f(x) \leqslant v(x)$, pour tout $x\in I\backslash \left\{ a \right\}$ et si $\lim_{x\to a}u(x)=\lim_{x\to a}v(x)=\ell$ alors $\lim_{x\to a}f(x)=\ell$.
+\item Si $u(x)  \leqslant f(x)$, pour tout $x\in I\backslash \left\{ a \right\}$ et si $\lim_{x\to a}u(x)=+\infty$ alors $\lim_{x\to a}f(x)=+\infty$.
+\item Si $f(x) \leqslant u(x)$, pour tout $x\in I\backslash \left\{ a \right\}$ et si $\lim_{x\to a}u(x)=-\infty$ alors $\lim_{x\to a}f(x)=-\infty$.
+\end{enumerate}
+\end{thr}
+\begin{rem}
+Ces résultats restent valables lorsque l'on considère des limites à gauche en $a$, à droite en $a$ ou à l'infini.
+\end{rem}
+\begin{dem}
+\end{dem}
+\begin{exr}
+Soient $f$ et $g$ les fonctions définies sur $\R$ par $f(x)=\dfrac{x+\cos x}{x^2+1}$ et $g(x)=2x-\sin x$.
+\begin{enumerate}
+\item Vérifier que: $\forall x\in\R$, $\dfrac{x-1}{x^2+1} \leqslant f(x) \leqslant \dfrac{x+1}{x^2+1}$, en déduire $\lim_{x\to+\infty}f(x)$ et $\lim_{x\to-\infty}f(x)$.
+\item Vérifier que: $\forall x\in\R$, $2x-1 \leqslant g(x) \leqslant 2x+1$, en déduire $\lim_{x\to+\infty}g(x)$ et $\lim_{x\to-\infty}f(x)$.
+\end{enumerate}
+\end{exr}
+\begin{exr}
+Soient les fonctions $f$ et $g$ définies sur $\R$ par $f(x)=xE\left(\dfrac{1}{x}\right)$ et $g(x)=x^2E\left(\dfrac{1}{x}\right)$.
+\begin{enumerate}
+\item Montrer que: $\forall x\in\R^*$, $x-x^2 \leqslant g(x) \leqslant x$, en déduire $\lim_{x\to 0}g(x)$.
+\item Déterminer alors $\lim_{x\to 0}f(x)$.
+\end{enumerate}
+\end{exr}
+\section{Image d'un intervalle par une fonction continue:}
+\begin{thr}
+L'image d'un intervalle par une fonction continue est un intervalle
+\end{thr}
+\begin{thr}
+Soit $f$ une fonction continue sur un intervalle $I$.\\
+Soit $a$ et $b$ deux réels de $I$ tels que $a<b$.\\
+Pour tout réel $k$ compris entre $f(a)$ et $f(b)$, l'équation $f(x)=k$ admet au moins une solution $\alpha$ dans l'intervalle $\left[ {a,b} \right]$.\\
+En particulier si $f(a) \times f(b) <0$ alors l'équation $f(x)=0$ admet au moins une solution dans l'intervalle $\left] {a,b} \right[$.
+\begin{center}
+\newrgbcolor{qqqqcc}{0 0 0.8}
+\newrgbcolor{zzqqzz}{0.6 0 0.6}
+\psset{xunit=1.2cm,yunit=1.2cm,algebraic=true,dotstyle=o,dotsize=3pt 0,linewidth=0.8pt,arrowsize=3pt 2,arrowinset=0.25}
+\begin{pspicture*}(-2.25,-0.48)(3.26,4.67)
+\psaxes[labelFontSize=\scriptstyle,xAxis=true,yAxis=true,Dx=1,Dy=1,ticksize=-2pt 0,subticks=2]{->}(0,0)(-2.25,-0.48)(3.26,4.67)
+\psplot[linewidth=1.2pt,linecolor=qqqqcc,plotpoints=200]{-1.2}{1.8}{x^4-3*x^2+0.3*x+3}
+\psline[linestyle=dashed,dash=1pt 1pt,linecolor=red](-1.2,0.39)(-1.2,0)
+\psline[linestyle=dashed,dash=1pt 1pt,linecolor=red](-1.2,0.39)(0,0.39)
+\psline[linestyle=dashed,dash=1pt 1pt,linecolor=red](1.8,4.32)(1.8,0)
+\psline[linestyle=dashed,dash=1pt 1pt,linecolor=red](1.8,4.32)(0,4.32)
+\psplot{-2.25}{3.26}{(--2.3-0*x)/1}
+\psline[linestyle=dashed,dash=1pt 1pt,linecolor=red](-0.45,2.3)(-0.45,0)
+\psline[linestyle=dashed,dash=1pt 1pt,linecolor=red](0.57,2.3)(0.57,0)
+\psline[linestyle=dashed,dash=1pt 1pt,linecolor=red](1.59,2.3)(1.59,0)
+\psline[linewidth=1.2pt,linecolor=red]{->}(0,0)(1,0)
+\psline[linewidth=1.2pt,linecolor=red]{->}(0,0)(0,1)
+\rput[tl](-0.56,-0.2){$\zzqqzz{x_1}$}
+\rput[tl](0.44,-0.14){$\zzqqzz{x_2}$}
+\rput[tl](1.43,-0.1){$\zzqqzz{x_3}$}
+\rput[tl](-1.43,-0.04){$\zzqqzz{a}$}
+\rput[tl](1.81,-0.05){$\zzqqzz{b}$}
+\rput[tl](1.97,2.01){$\zzqqzz{\Delta:y=k}$}
+\rput[tl](0.05,0.74){$\zzqqzz{f(a)}$}
+\rput[tl](-0.84,3.99){$\zzqqzz{f(b)}$}
+\rput[tl](-1.17,1.9){$\zzqqzz{\mathscr{C}_f}$}
+\rput[tl](0.12,2.82){$\zzqqzz{k}$}
+\psdots[dotstyle=*,linecolor=red](-1.2,0.39)
+\psdots[dotstyle=*,linecolor=red](1.8,4.32)
+\psdots[dotstyle=*,linecolor=red](-0.45,2.3)
+\psdots[dotstyle=*,linecolor=red](0.57,2.3)
+\psdots[dotstyle=*,linecolor=red](1.59,2.3)
+\psdots[dotstyle=*,linecolor=red](0,0)
+\rput[bl](-0.21,-0.35){\red{$O$}}
+\end{pspicture*}
+\end{center} 
+\end{thr}
+\begin{thr}
+Soit $f$ une fonction continue et strictement monotone sur un intervalle $I$.\\
+Soit $a$ et $b$ deux réels de $I$ tels que $a<b$.\\
+Pour tout réel $k$ compris entre $f(a)$ et $f(b)$, l'équation $f(x)=k$ admet une unique solution dans l'intervalle $\left[ {a,b} \right]$.
+\end{thr}
+\begin{act}
+Activité 5 page 17
+\end{act}
+\begin{act}
+Soit $f$ une fonction continue sur $\left[ {0,1} \right]$ et telle que ppur tout $x\in\left[ {0,1} \right]$, $f(x)\in\left[ {0,1} \right]$.\\
+Montrer qu'il existe au moins un réel $\beta$ de $\left[ {0,1} \right]$ tel que $f(\beta)=\beta$.
+\end{act}
+\begin{thr}
+Soit $f$ une fonction continue sur un intervalle $I$.\\
+Si $f$ ne s'annule en aucun réel de $I$ alors $f$ gardre un signe constant sur $I$.
+\end{thr}
+\begin{dem}
+
+\end{dem}
+\begin{thr}
+L'image d'un intervalle fermé borné $\left[ {a,b} \right]$ par une fonction continue est un intervalle fermé borné $\left[ {m,M} \right]$.\\
+$m$ est minimum de $f$ sur $\left[ {a,b} \right]$. Il existe un réel $\alpha \in \left[ {a,b} \right]$ tel que $m=f(\alpha)$.\\
+$M$ est le maximum de $f$ sur $\left[ {a,b} \right]$. Il existe un réel $\beta\in \left[ {a,b} \right]$ tel que $M=f(\beta)$.\\
+On dit que $f$ atteint des bornes en $\alpha$ et $\beta$.
+\end{thr}
+\begin{exr}
+Soit $f$ une fonction définie sur $\R$ par $f(x)=\sin^2x$\\
+Montrer que $f\left( {\left[ { - \frac{\pi }
+{6},\frac{\pi }
+{6}} \right]} \right) = \left[ {0,\frac{1}
+{4}} \right]$.
+\end{exr}
+\section{Image d'un intervalle par une fonction strictement monotone:}
+\begin{thr}
+Soit $f$ une fonction définie sur un intervalle de type $\left[ {a,b} \right[$ ($b$ fini ou infini)
+\begin{enumerate}
+\item Si la fonction $f$ est croissante et majorée alors $f$ possède une limite finie en $b$.
+\item Si la fonction $f$ est croissante et non majorée alors $f$ tend vers $+\infty$ en $b$.
+\item Si la fonction $f$ est décroissante et minorée alors $f$ possède une limite finie en $b$.
+\item Si la fonction $f$ est décroissante et non minorée alors $f$ tend vers $-\infty$ en $b$.
+\end{enumerate}
+\end{thr}
+\begin{act}
+Activité 1 page 19
+\end{act}
+\begin{thr}
+L'image d'un intervalle par une fonction continue et strictement monotone est un intervalle de même nature.
+\end{thr}
+\begin{expl}
+Soient $a$ et $b$ deux réels.
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline 
+Intervalle $I$&Si $f$ est continue et strictement & Si $f$ est continue et strictement \\
+ & croissante sur $I$& décroissante sur $I$\\
+\hline
+$I=\big[a,b\big]$&$f(I)=\big[f(a),f(b)\big]$&$f(I)=\big[f(b),f(a)\big]$\\
+\hline
+$I=\big[a,b\big[$&$f(I)=\big[f(a),\lim_{b^-}f\big[$&$f(I)=\big]\lim_{b^-}f,f(a)\big]$\\
+\hline
+$I=\big[a,+\infty\big[$&$f(I)=\big[f(a),\lim_{+\infty}f\big[$&$f(I)=\big]\lim_{+\infty}f,f(a)\big]$\\
+\hline
+$I=\big]a,b\big[$&$f(I)=\big]\lim_{a^+}f,\lim_{b^-}f\big[$&$f(I)=\big]\lim_{b^-}f,\lim_{a^+}f\big[$\\
+\hline
+\end{tabular}
+\end{center}
+\end{expl}
+\begin{exr}
+Soit $f$ la fonction définie sur $\big]2,+\infty\big[$ par $f(x)=\dfrac{x+1}{x-2}$.\\
+Déterminer $f\left( {\left] {2, + \infty } \right[} \right)$.
+\end{exr}
+\begin{exr}
+On donne ci-dessous le tableau de variation d'une fonction $f$ définie et continue sur chacun des intervalles $]-\infty,3[$ et $]3,+\infty[$.
+\begin{center}
+\begin{tikzpicture}
+\tkzTabInit[espcl=2]{$x$/1, $f$/2}{$-\infty$, $-5$, $2$, $3$, $+\infty$}
+\tkzTabVar{+/$+\infty$,-/$-3$,+/$8$,-D-/$-\infty$ /$-\infty$,+/$7$}
+\end{tikzpicture}
+\end{center}
+Déterminer l'image par $f$ de chacun des intervalles suivants:
+\begin{multicols}{3}
+\begin{enumerate}
+\item $]-\infty,-5]$
+\item $]-\infty,3[$
+\item $]3,+\infty[$
+\end{enumerate}
+\end{multicols}
+\end{exr}
+\end{document}

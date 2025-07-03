@@ -1,0 +1,255 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{ProfModels}
+
+
+\begin{document}
+\begin{Maquette}[Fiche]{Theme=Théorème de Pythagore,Niveau=2}
+
+\begin{exercice}%1
+\begin{minipage}{0.65\linewidth}
+On considère la figure ci-contre, tel que $AD=9$ et $BD=12$ et $BC=13$.
+\begin{enumerate}
+\item Calculer les longueurs $AB$ et $DC$.
+\item Donner le périmètre et l'aire du triangle $ABC$.
+\end{enumerate}
+\end{minipage}%
+\begin{minipage}{0.35\linewidth}
+\begin{tikzpicture}
+\tkzDefPoints{0/0/A,4/0/C}
+\tkzDefTriangle[two angles=50 and 70](A,C)
+\tkzGetPoint{B}
+\tkzDefPointBy[projection=onto A--C](B)
+\tkzGetPoint{D}
+\tkzDrawPolygon(A,C,B)
+\tkzDrawSegment(B,D)
+\tkzLabelPoints(A,D,C)
+\tkzLabelPoint[above](B){B}
+\tkzLabelSegment(A,D){9}
+\tkzLabelSegment[left=7pt,rotate=90](B,D){12}
+\tkzLabelSegment[right](B,C){13}
+\tkzMarkRightAngle(B,D,A)
+\end{tikzpicture}
+\end{minipage}
+\end{exercice}
+
+\begin{exercice}
+\begin{minipage}{0.62\linewidth}
+On considère la figure ci-contre, tel que $AD=15$ et $CD=6$ et $BC=10$.
+\begin{enumerate}
+\item Calculer les longueurs $AB$ et $BD$.
+\item Donner le périmètre et l'aire du triangle $ABC$.
+\end{enumerate}
+\end{minipage}%
+\begin{minipage}{0.38\linewidth}
+\begin{tikzpicture}
+\tkzDefPoints{0/0/A,6/0/C}
+\tkzDefTriangle[two angles=40 and 50](A,C)
+\tkzGetPoint{B}
+\tkzDefPointBy[projection=onto A--C](B)
+\tkzGetPoint{D}
+\tkzDrawPolygon(A,C,B)
+\tkzDrawSegment(B,D)
+\tkzLabelPoints(A,D,C)
+\tkzLabelPoint[above](B){B}
+\tkzLabelSegment(A,D){15}
+\tkzLabelSegment(C,D){6}
+\tkzLabelSegment[right](B,C){10}
+\tkzMarkRightAngle(B,D,A)
+\end{tikzpicture}
+\end{minipage}
+\end{exercice}
+
+\begin{exercice}
+$ABC$ est triangle équilatéral tel que $AB=3$ et $M$ le symétrique de $B$ par rapport à $A$.
+\begin{enumerate}
+\item Construire une figure.
+\item Montrer que $BMC$ est un triangle rectangle.
+\item Déduire $MC^{2}$.
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+\begin{minipage}{0.5\linewidth}
+On considère la figure ci-contre.
+\begin{enumerate}
+\item Calculer $AH$.
+\item Calculer $BH$ et $HC$.
+\end{enumerate}
+\end{minipage}%
+\begin{minipage}{0.5\linewidth}
+\begin{tikzpicture}
+\tkzDefPoints{0/0/A,4/0/B}
+\tkzDefTriangle[pythagore](B,A)\tkzGetPoint{C}
+\tkzDefPointBy[projection=onto B--C](A)\tkzGetPoint{H}
+\tkzDrawPolygon(A,B,C)
+\tkzDrawSegment(A,H)
+\tkzLabelPoints(A,B)
+\tkzLabelPoints[above](C,H)
+\tkzLabelSegment(A,B){3}
+\tkzLabelSegment[left](A,C){4}
+\tkzMarkRightAngles(B,A,C C,H,A)
+\end{tikzpicture}
+\end{minipage}
+\end{exercice}
+
+\begin{exercice}
+\begin{minipage}{0.5\linewidth}
+On considère la figure ci-contre ,tel que $AB=9$ et $BC=3$ et $CD=6$.
+\begin{enumerate}
+\item Calculer $BD$ et $AD$.
+\item Quelle est la nature de triangle $ADC$.
+\end{enumerate}
+\end{minipage}%
+\begin{minipage}{0.5\linewidth}
+\begin{tikzpicture}
+\tkzDefPoints{0/0/C,4/0/D}
+\tkzDefTriangle[pythagore](D,C)\tkzGetPoint{B}
+\tkzDefTriangle[two angles=30 and 90](B,D)\tkzGetPoint{A}
+\tkzDrawPolygon(A,B,C,D)
+\tkzDrawSegment(B,D)
+\tkzMarkRightAngles(A,D,B D,C,B)
+\tkzLabelSegment(C,D){6}
+\tkzLabelSegment[left](B,C){3}
+\tkzLabelSegment[above](A,B){9}
+\tkzLabelPoints(C,D)
+\tkzLabelPoints[above](A,B)
+\end{tikzpicture}
+\end{minipage}
+\end{exercice}
+
+\begin{exercice}
+EFG est un triangle rectangle en E tel que : $EF=4$ et $\cos\widehat{EFG}=\dfrac{2}{3}$.
+\begin{enumerate}
+\item Calculer $FG$.
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+ABC est un triangle rectangle en A tel que : $AC=21$ et $\cos\widehat{ACB}=\dfrac{21}{29}$.
+\begin{enumerate}
+\item Calculer $BC$.
+\item Déduire la longueur $AB$.
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+\begin{minipage}{0.5\linewidth}
+On considère la figure ci-contre tel que $AC=6.5$ et $BH=1.2$ et $CH=1.6$
+\begin{enumerate}
+\item Calculer $\cos\widehat{HCB}$ et $\cos\widehat{HCA}$.
+\item Calculer $\cos\widehat{HAC}$.
+\end{enumerate}
+\end{minipage}%
+\begin{minipage}{0.5\linewidth}
+\begin{tikzpicture}
+\tkzDefPoints{0/0/H,5/0/A,3/0/B,0/4/C}
+\tkzDrawPolygon(C,H,A)
+\tkzDrawSegment(B,C)
+\tkzMarkRightAngle(A,H,C)
+\tkzLabelSegment[left](H,C){1.6}
+\tkzLabelSegment[right](A,C){6.5}
+\tkzLabelSegment(H,B){1.2}
+\tkzLabelPoints(A,B,H)
+\tkzLabelPoint[above](C){C}
+\end{tikzpicture}
+\end{minipage}
+\end{exercice}
+
+\begin{exercice}
+$ABC$ est un triangle isocèle en $A$. M est le projeté orthogonal de $C$ sur $\lrp{AB}$ et N est le projeté orthogonal de $B$ sur $\lrp{AC}$
+\begin{enumerate}
+\item Construire une figure.
+\item Montrer que $\dfrac{AM}{AC}=\dfrac{AN}{AB}$.
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+\begin{minipage}{0.5\linewidth}
+On considère la figure suivante tel que $M$ est le milieu de $\lrc{AE}$.
+\begin{enumerate}
+\item Prouver que :
+\begin{enumerate}
+\item $MB^{2}-AB^{2}=MF^{2}-EF^{2}$
+\item $MG^{2}+AG^{2}=MF^{2}-EF^{2}$
+\item $MB^{2}-AB^{2}=MH^{2}+EH^{2}$
+\item $MG^{2}+AG^{2}=MH^{2}+EH^{2}$
+\end{enumerate}
+\end{enumerate}
+\end{minipage}\hfill
+\begin{minipage}{0.4\linewidth}
+\begin{tikzpicture}
+\tkzDefPoints{0/0/A,2.5/0/M,5/0/E,0/2/B,5/-2/F}
+\tkzDefPointBy[projection=onto B--M](A)
+\tkzGetPoint{G}
+\tkzDefPointBy[projection=onto M--F](E)
+\tkzGetPoint{H}
+\tkzDrawPolygon(A,E,F,B)
+\tkzDrawSegments(A,G E,H)
+\tkzLabelPoints(A,M,H,F)
+\tkzLabelPoints[above](B,G,E)
+\tkzMarkRightAngles(M,A,B M,E,F A,G,M E,H,M)
+\end{tikzpicture}
+\end{minipage}
+\end{exercice}
+
+\begin{exercice}
+$ABC$ est un triangle rectangle en $A$ tel que $\widehat{ABC}=60^{\circ}$; la bissectrice de $\widehat{ABC}$ coupe $\lrc{AC}$ en $E$.
+\begin{enumerate}
+\item Construire une figure.
+\item Montrer que $EC^{2}=AB^{2}+AE^{2}$
+\item Montrer que $\cos^{2}\widehat{ABC}+\cos^{2}\widehat{ACB}=1$
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+\begin{minipage}{0.5\linewidth}
+On considère la figure ci-contre tel que $ABCD$ est un parallélogramme.
+\begin{enumerate}
+\item Montrer que :
+\begin{enumerate}
+\item $AF^{2}+FB^{2}=DE^{2}+EC^{2}$.
+\item $DE^{2}+EA^{2}=BF^{2}+FC^{2}$
+\end{enumerate}
+\end{enumerate}
+\end{minipage}\hfill
+\begin{minipage}{0.4\linewidth}
+\begin{tikzpicture}
+\tkzDefPoints{0/0/A,4/1/B,2/-3/C}
+\tkzDefParallelogram(A,B,C)
+\tkzGetPoint{D}
+\tkzDefPointBy[projection=onto A--C](D)
+\tkzGetPoint{E}
+\tkzDefPointBy[projection=onto A--C](B)
+\tkzGetPoint{F}
+\tkzDrawPolygon(A,B,C,D)
+\tkzDrawSegments(A,C D,E B,F)
+\tkzLabelPoints[above](A,B)
+\tkzLabelPoints(D,C)
+\tkzLabelPoint[right](E){E}
+\tkzLabelPoint[left](F){F}
+\tkzMarkRightAngles(D,E,C B,F,A)
+\end{tikzpicture}
+\end{minipage}
+\end{exercice}
+
+\begin{exercice}
+$(\mathcal{C})$ est un cercle de centre $O$ et de rayon $r=5$; son diamètre  est $\lrc{BC}$, et $A$ un point de $(\mathcal{C})$ tel que $AB=6$.
+\begin{enumerate}
+\item Construire une figure convenable.
+\item Montrer que $ABC$ est triangle rectangle.
+\item Soit $H$ le projeté orthogonal de $A$ sur $\lrp{BC}$.
+\begin{enumerate}
+\item Calculer $\cos\widehat{ABC}$ et $\cos\widehat{ACB}$.
+\item Déduire les longueurs $BH$ et $CH$.
+\end{enumerate}
+\end{enumerate}
+\end{exercice}
+
+
+
+
+
+
+\end{Maquette}
+\end{document}

@@ -1,0 +1,139 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{ProfModels}
+
+\usepackage{diagrammes}
+
+ 
+\begin{document}
+
+\begin{Maquette}[DM]{Niveau=1, Numero=6, Date=19/05/2024,Semestre=2, FinDate=20/12/2024}
+
+
+\begin{exercice}
+\begin{minipage}{.6\linewidth}
+Voici la liste des notes d'un devoir de mathématiques 
+\begin{enumerate}
+\item compléter le tableau ci-dessous.
+\item Représenter le tableau par un diagramme circulaire .
+\end{enumerate}
+\end{minipage}
+\begin{tabular}{c|c|c|c|c|c|c|c}
+12 & 15 & 14 & 8 & 6 & 8 & 14 & 14	 \\ 
+\hline 
+14 & 12 & 8 & 6 & 3 & 8 & 14 & 15	 \\ 
+\hline 
+12 & 8 & 6 & 6 & 3 & 8 & 14 & 15	 \\ 
+\hline 
+14 & 15 & 12 & 8 & 8 & 3 & 3 & 15 \\ 
+\hline 
+20 & 20 & 6 & 6 & 3 & 3 & 8 & 9 \\ 
+\hline 
+8 & 6 & 8 & 8 & 8 & 14 & 12 & 2 \\ 
+\end{tabular} 
+
+\begin{tabular}{|c|c|c|c|c|}
+\hline 
+Classe : note  & $2\leq n \leq 7$ & $8\leq n \leq 11$ &$12\leq n \leq 16$ & $16\leq n \leq 20$ \\ 
+\hline 
+Nombre des élèves &  &  &  &  \\ 
+\hline 
+Fréquence&  &  &  &  \\ 
+\hline 
+Pourcentage &  &  &  &  \\ 
+\hline 
+Mesure des angles &  &  &  &  \\ 
+\hline 
+\end{tabular} 
+\end{exercice}
+
+\begin{exercice}
+Le tableau suivant représente le nombre d'enfant par famille
+
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline 
+Nombre d'enfant & 1 & 2 & 3 & 4 & 5 \\ 
+\hline 
+nombre de famille & 3 & 10 & 7 & 4 & 8 \\ 
+\hline 
+Fréquence  &  &  &  &  &  \\ 
+\hline 
+pourcentage &  &  &  &  &  \\ 
+\hline 
+\end{tabular} 
+\begin{enumerate}
+\item compléter le tableau
+\item Quel est le caractère de cette série statistique ?
+\item Quel est l'effectif total de cette série statistique?
+\item Tracer le diagramme en bâtons des effectifs.
+\end{enumerate}
+\end{exercice}
+
+
+\begin{exercice}
+Sur la droite graduée ci-dessous, donner la distance à zéro et l’abscisse de chacun des points   :
+
+\begin{tikzpicture}
+\tkzInit[xmin = -8,xmax = 5]
+\tkzDrawX
+\tkzLabelX
+\tkzDefPoints{3/0/M,-4/0/N,-5.5/0/P,0.5/0/Q}   
+\tkzDrawPoints(M,N,P,Q)
+\tkzLabelPoints[above](M,N,P,Q)
+\end{tikzpicture}
+
+\begin{tabular}{|c|c|c|c|c|}
+\hline 
+point & M & N & P & Q \\ 
+\hline 
+Abscisse &  &  &  &  \\ 
+\hline 
+Distance à 0 &  &  &  &  \\ 
+\hline 
+\end{tabular} 
+\begin{enumerate}
+\item donner les coordonnées des points $A$,$B$,$C$ et $D$.
+\item Placer les points $E(-4, 0)$, $F(-2, 2)$, $G(1, -4)$ et $H(3, 3)$.
+\end{enumerate}
+\begin{AffRepere}
+\coordpoints{1}{2}{A}
+\coordpoints{4}{0}{B}
+\coordpoints{0}{-2}{C}
+\coordpoints{-3}{-2}{D}
+\end{AffRepere}
+\end{exercice}
+
+\begin{exercice}
+On considère le tableau de proportionnalité suivant :
+\begin{tabular}{|c|c|c|c|c|}
+\hline 
+3 &  & 7 &  & 5 \\ 
+\hline 
+12 & 45 &  & 15.5 &  \\ 
+\hline 
+\end{tabular} 
+\begin{enumerate}
+\item calculer le coefficient de proportionnalité .
+\item compléter le tableau 
+\end{enumerate}
+\end{exercice}
+
+
+\begin{exercice}
+Un TGV roule pendant 90 min  à la vitesse de 300 km/h.
+
+Quelle distance parcourt-il ?
+\end{exercice}
+
+\begin{exercice}
+\begin{enumerate}
+\fullwidth{Aprés une remise de 135DH , un costume coûte 765DH.}
+\item  De quel pourcentage son prix a-t-il diminué ?
+\fullwidth{ Sachant que l'on a fixé une solde de -30\% sur un article coûte 480DH.}
+\item Quel est le prix à payer ?
+\end{enumerate}
+\end{exercice}
+
+
+\end{Maquette}
+\end{document}

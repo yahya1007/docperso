@@ -1,0 +1,87 @@
+\documentclass[a4paper,12pt]{extarticle}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{cmbright}
+\usepackage[ngerman]{babel}
+\usepackage{tikz}
+\usepackage{tasks}
+
+\definecolor{textnewGreen}{HTML}{66AE3E}
+\definecolor{bgnewGreen}{HTML}{EBF4DE}
+
+\usepackage[many]{tcolorbox}
+%
+\newtcbox{\titlebox}{
+  enhanced,
+  colupper=white,
+  colback=textnewGreen,
+  fontupper=\bfseries,
+  size=small,
+  baseline=3pt,
+  nobeforeafter,
+  frame code={
+    \path[fill=textnewGreen] (frame.north west)
+    -- ([xshift=2mm]frame.north east)
+    -- (frame.south east)
+    -- (frame.south west)
+    -- (frame.north west)
+      [sharp corners]-- cycle;
+  }
+}
+
+\makeatletter
+\newtcolorbox{gruenebox}[1]{
+  enhanced,
+  skin=bicolor,
+  arc=0pt,
+  coltitle=white,
+  colframe=textnewGreen,
+  colback=bgnewGreen,
+  colbacklower=white,
+  fonttitle=\bfseries,
+  detach title,
+  title={#1},
+  before upper*={%
+    \vskip-\dimexpr\kvtcb@boxsep+\kvtcb@top+.1pt
+    \hspace*{-\dimexpr\kvtcb@boxsep+\kvtcb@leftupper+.1pt}%
+    \expandafter\titlebox\expandafter{\tcbtitletext} %
+  }
+}
+\makeatother
+
+\begin{document}
+\makeatletter
+\begin{tcolorbox}[enhanced,
+  skin=bicolor,
+  arc=0pt,
+  coltitle=white,
+  colframe=textnewGreen,
+  colback=bgnewGreen,
+  colbacklower=white,
+  fonttitle=\bfseries,
+  detach title,
+  title={Exercice},
+  before upper*={%
+    \vskip-\dimexpr\kvtcb@boxsep+\kvtcb@top+.1pt
+    \hspace*{-\dimexpr\kvtcb@boxsep+\kvtcb@leftupper+.1pt}%
+    \expandafter\titlebox\expandafter{\tcbtitletext} %
+  }]
+soit les questioon :
+\end{tcolorbox}
+\makeatother
+\begin{gruenebox}{Beispiel 1}
+ Schätze und begründe deine Schätzung.
+ \begin{tasks}
+ \task Wie hoch ist eine Getränkedose?
+ \task  Wie viel wiegt eine volle Kiste mit 12 1-l Wasserflaschen?
+ \end{tasks}
+ \tcblower
+ \paragraph{Lösung}
+ \begin{tasks}
+ \task Eine Getränkedose ist ungefähr genauso hoch wie eine Handlänge. Eine Hand ist etwa 10 cm bis 20 cm lang.
+ \task Liter Wasser wiegt etwa 1 kg. 12 Liter wiegen also 12 kg. Dazu kommen noch das Gewicht der Kiste und das Gewicht der Flaschen. Also wiegt die Kiste zwischen 13 und 15 kg für Plastikflaschen, bei Glas noch mehr.   
+ \end{tasks}
+\end{gruenebox}
+
+\end{document}

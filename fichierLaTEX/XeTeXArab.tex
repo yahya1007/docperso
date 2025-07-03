@@ -1,0 +1,55 @@
+\documentclass{article}
+
+\input{preambuleXeTeX.tex}
+
+
+\cadre[x=0.5, y=0.5, doubleline]
+
+\begin{document}
+\entete
+%\vspace{0.2mm}
+\exo[bareme,bar=15]{
+\begin{minipage}{.5\linewidth}
+\definecolor{qqqqff}{rgb}{0.,0.,1.}
+\definecolor{cqcqcq}{rgb}{0.7529411764705882,0.7529411764705882,0.7529411764705882}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm,scale=0.75]
+\draw [color=cqcqcq,, xstep=1.0cm,ystep=1.0cm] (-1.98,0.42) grid (2.26,4.56);
+\clip(-1.98,0.42) rectangle (2.26,4.56);
+\draw [domain=-1.98:2.26] plot(\x,{(--8.36-3.*\x)/2.36});
+\draw [domain=-1.98:2.26] plot(\x,{(-3.36-0.*\x)/-3.36});
+\draw [domain=-1.98:2.26] plot(\x,{(--5.08--3.*\x)/1.});
+\begin{scriptsize}
+\draw [fill=qqqqff] (-0.36,4.) circle (1.5pt);
+\draw[color=qqqqff] (-0.12,4.2) node {$A$};
+\draw [fill=qqqqff] (-1.36,1.) circle (1.5pt);
+\draw[color=qqqqff] (-1.52,1.38) node {$B$};
+\draw [fill=qqqqff] (2.,1.) circle (1.5pt);
+\draw[color=qqqqff] (2.14,1.28) node {$C$};
+\end{scriptsize}
+\end{tikzpicture}
+\end{minipage}
+\begin{minipage}{.5\linewidth}
+\begin{arab}
+lykn $ABC$ m_tl_t qA'im AlzAwyT 
+\begin{enumerate}
+\item[$.1$] 'u.hsb AlmsAfT $CB $  'u.hsb AlmsAfT $CB $  'u.hsb AlmsAfT $CB $  'u.hsb AlmsAfT $CB $  'u.hsb AlmsAfT $CB $  'u.hsb AlmsAfT $CB $ 
+\item[$.2$] 'u.hsb AlmsAfT $CB$
+\item[$.3$] 'u.hsb AlmsAfT $CB$
+\end{enumerate}
+\end{arab}
+\end{minipage}
+}
+
+\begin{exercice}
+\begin{arab}
+lykn $ABC$ m_tl_t qA'im AlzAwyT 
+\begin{enumerate}
+\item[$.1$] 'u.hsb AlmsAfT $CB $  'u.hsb AlmsAfT $CB $  'u.hsb AlmsAfT $CB $  'u.hsb AlmsAfT $CB $  'u.hsb AlmsAfT $CB $  'u.hsb AlmsAfT $CB $  'u.hsb AlmsAfT $CB $  'u.hsb AlmsAfT $CB $  'u.hsb AlmsAfT $CB $  'u.hsb AlmsAfT $CB $ 
+\item[$.2$] 'u.hsb AlmsAfT $CB$
+\item[$.3$] 'u.hsb AlmsAfT $CB$
+\end{enumerate}
+\end{arab}
+\end{exercice}
+
+
+\end{document}

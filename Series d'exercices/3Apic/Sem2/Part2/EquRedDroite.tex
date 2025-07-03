@@ -1,0 +1,184 @@
+\documentclass[a4paper,12pt]{article}
+
+
+\usepackage{ProfModels}
+
+ 
+\begin{document}
+
+\begin{Maquette}[Fiche]{Theme=L'équation réduite d'une droite,Niveau=3}
+
+\begin{exercice}%1
+Le plan muni d'un repère orthonormé $\oij$, on considère la droite $(D):y=-3x+6$
+\begin{enumerate}
+\item Parmi les points $A(1,3)$ et $B(2,5)$ et $C(6,-12)$ détermine ceux qui appartiennent à $(D)$.
+\item Construire la droite $(D)$.
+\item $F(a,-1)$, détermine $a$ pour que $F\in (D)$. 
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}%2
+Le plan muni d'un repère orthonormé $\oij$.
+\begin{enumerate}
+\item Détermine l'équation réduite de la droite $(D)$ telle que sa pente $a=-4$ et qui passe par le point $E(-2,1)$.
+\item Détermine l'équation réduite de la droite $(\Delta)$ telle que son ordonnée à l'origine $b=-1$ et qui passe par le point $F(3,-1)$.
+\item Construire les droites $(\Delta)$ et $(D)$.
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}%3
+Le plan muni d'un repère orthonormé $\oij$.On considère les points $A(2,3)$ et $B(-1,-2)$ et $C(1,5)$ et $D(1,\dfrac{4}{3})$.
+\begin{enumerate}
+\item Déterminer l'équation réduite de la droite $\lrp{AC}$.
+\item Montrer que $\lrp{AB}: y=\dfrac{5}{3}x-\dfrac{1}{3}$.
+\item Prouver que $A$ , $B$ et $D$ sont alignés.
+\item Déterminer l'équation réduite de  $\lrp{D}$ la perpendiculaire à $\lrp{AB}$ passant par $M\lrp{-2;2}$.
+\item Déterminer l'équation réduite de  $\lrp{\Delta}$ la parallèle à $\lrp{AC}$ passant par $N\lrp{1;1}$.
+\item Déterminer l'équation réduite de  $\lrp{L}$ la médiatrice de $\lrc{BC}$ .
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}%4
+\begin{minipage}{.5\linewidth}
+Dans la figure suivante, on a représenté des droites $(D1)$ et $(D2)$ et $(D3)$ et $(D4)$ et $(D5)$ dans un repère orthonormé $\oij$.
+\begin{enumerate}
+\item Détermine les équations des droites $(D1)$ et $(D2)$ et $(D5)$ .
+\item  Détermine les équations des droites $(D3)$ et $(D4)$
+\end{enumerate}
+\end{minipage}\hfill
+\begin{minipage}{.5\linewidth}
+\definecolor{cqcqcq}{rgb}{0.75,0.75,0.75}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=0.7359154929577466cm,y=0.63855421686747cm]
+\draw [color=cqcqcq,dash pattern=on 2pt off 2pt, xstep=0.7359154929577466cm,ystep=0.63855421686747cm] (-3.92,-2.8) grid (7.44,5.5);
+\draw[->,color=black] (-3.92,0) -- (7.44,0);
+\foreach \x in {-3,-2,1,2,3,4,5,6,7}
+\draw[shift={(\x,0)},color=black] (0pt,2pt) -- (0pt,-2pt) node[below] {\tiny $\x$};
+\draw[->,color=black] (0,-2.8) -- (0,5.5);
+\foreach \y in {-2,-1,1,2,3,4,5}
+\draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt) node[left] {\tiny $\y$};
+\draw[color=black] (4 pt,-4 pt) node {\tiny $0$};
+\clip(-3.92,-2.8) rectangle (7.44,5.5);
+\draw [domain=-3.92:7.44] plot(\x,{(-0--1*\x)/2});
+\draw [domain=-3.92:7.44] plot(\x,{(-6--3*\x)/-2});
+\draw [domain=-3.92:7.44] plot(\x,{(--40-0*\x)/10});
+\draw (4,-2.8) -- (4,5.5);
+\draw [domain=-3.92:7.44] plot(\x,{(--8-2*\x)/-4});
+\begin{scriptsize}
+\draw[color=black] (-2.92,-1.8) node {(D1)};
+\draw[color=black] (-1.7,4.9) node {(D2)};
+\draw[color=black] (-3.44,3.66) node {(D3)};
+\draw[color=black] (3.58,5.08) node {(D4)};
+\draw[color=black] (-1.5,-2.2) node {(D5)};
+\end{scriptsize}
+\end{tikzpicture}
+\end{minipage}
+\end{exercice}
+\newpage
+\begin{exercice}%5
+Le plan muni d'un repère orthonormé $\oij$.On considère les points $A(3,3)$ et $B(7,-1)$ et $C(8,4)$ et $D(2,-2)$ et $E(a,8)$ et $F(13;b)$.
+\begin{enumerate}
+\item Montrer que $\lrp{AB}\perp\lrp{CD}$.
+\item Montrer que $\lrp{AC}//\lrp{BD}$.
+\item Détermine $a$ pour que $\lrp{AE}//\lrp{BC}$.
+\item Détermine $b$ pour que $\lrp{AF}\perp\lrp{AD}$.
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}%6
+Le plan muni d'un repère orthonormé $\oij$.Soit $\lrp{D}:y=2x-4$.
+\begin{enumerate}
+\item Détermine les coordonnées de $E$ point d'intersection de $\lrp{D}$ et l'axe des abscisses.
+\item Détermine les coordonnées de $F$ point d'intersection de $\lrp{D}$ et l'axe des ordonnées.
+\item Représenter graphiquement la droite $\lrp{D}$.
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+On considère $(D): y=3x-1$ .
+\begin{enumerate}
+\item  Les points $A(1,1)$ et $B(3,-1)$ et $C(1,2)$  appartiennent ils à $(D)$.
+\item Quel est le coefficient directeur de  $(D)$.
+\item Représenter graphiquement la droite $(D)$.
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+On considère la droite  $(\Delta) : y= \dfrac{x}{2}+1$ .
+\begin{enumerate}
+\item Determine  $\alpha$ tel que $A(2\alpha ; 4)$ appartient à $(\Delta)$.
+\item Quel est le coefficient directeur de $(\Delta)$.
+\item Représenter graphiquement la droite $(\Delta)$.
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+On considère la droite $(L): 2x-y+1=0$ .
+\begin{enumerate}
+\item Detérmine  $a$ tel que $A(1,a)\in (L)$.
+\item Detérmine  $b$ tel que $B(b,-3)\in (L)$.
+\item Représenter graphiquement la droite  $(L)$ .
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+Détermine les équations réduites de $(\Delta_{1})$ et $(\Delta_{2})$ et $(\Delta_{3})$ et $(\Delta_{4})$ sachant que :
+\begin{enumerate}
+\item  $(\Delta_{1})$ est de pente $m_{1}=\dfrac{1}{2}$ et passant par $A_{1}(-3 , 1)$ .
+\item  $(\Delta_{2})$ est de pente $m_{2}=\dfrac{-1}{2}$ et passant par le point $A_{2}(3 , -1)$ .
+\item  $(\Delta_{3})$ est de pente $m_{3}=2$ et passant par $A_{3}(2 , -4)$ .
+\item  $(\Delta_{4})$ est de pente $m_{4}=-3$ et passant par le point $A_{4}(3 , 6)$ .
+\end{enumerate}
+\end{exercice}
+
+
+\begin{exercice}
+On considère les points : $A(3;-4)$ , $B(-3;\dfrac{1}{2})$ , $C(2;3)$ , $D(2;10)$ et $E(-3;3)$.
+\begin{enumerate}
+\item Détermine les équations des droites $(AC)$ et $(BC)$ et $(AB)$.
+\item Détermine les équations des droites $(DC)$ et  $(EB)$ .
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+Dans chacun des cas suivants, préciser si les droites $(D)$ et $(\Delta)$  sont parallèles.
+\begin{enumerate}
+\item  $(D): y=2x+3$ et $(\Delta): y=2x-3$.
+\item  $(D): y=2x+4$ et $(\Delta): y=-2x-3$.
+\item  $(D): y=2x+5$ et $(\Delta): 2x+y-3=0$.
+\item  $(D): 2x-y+3=0$ et $(\Delta): 2x+y+9=0$.
+\end{enumerate}
+
+Dans chacun des cas suivants, préciser si les droites $(D)$ et $(\Delta)$  sont perpendiculaires.
+\begin{enumerate}
+\item $(D): y=2x+3$ et $(\Delta): y=\dfrac{-1}{2}x-3$.
+\item $(D): y=5x+4$ et $(\Delta): y=\dfrac{x}{5}-3$.
+\item $(D): y=x+5$ et $(\Delta): x+y-3=0$.
+\item $(D): 2x-y+3=0$ et $(\Delta): \dfrac{-x}{2}+y+9=0$.
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+On considère les points  $A(1;6)$ , $B(-3;4)$ et $C(2;-3)$.
+\begin{enumerate}
+\item Détermine l'équation de $\lrp{D}$ la médiatrice de $\lrc{BC}$.
+\item Détermine l'équation de $\lrp{\Delta}$ la médiatrice de $\lrc{AB}$.
+\item Détermine l'équation de $\lrp{L}$ la hauteur du triangle $ABC$ relative à $\lrc{AC}$.
+\item  Détermine l'équation de $\lrp{K}$ la parallèle  de $\lrp{BC}$ passant par $A$.
+\end{enumerate}
+\end{exercice}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{Maquette}
+\end{document}

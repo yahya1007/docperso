@@ -1,0 +1,169 @@
+\documentclass[a4paper,12pt]{article}
+
+
+\usepackage{ProfModels}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+ 
+\begin{document}
+\begin{Maquette}[Fiche]{Theme=Proportionnalité,Niveau=1}
+
+\begin{exercice}
+Ces tableaux sont-ils des tableaux de proportionnalité?
+
+\begin{minipage}{0.24\linewidth}
+\begin{tabular}{|c|c|c|c|}
+\hline 
+12 & 15 & 37 & 100 \\ 
+\hline 
+24 & 30 & 73 & 200 \\ 
+\hline 
+\end{tabular} 
+\begin{center}
+ tableau 1 
+\end{center}
+\end{minipage}\hfill%
+\begin{minipage}{0.24\linewidth}
+\begin{tabular}{|c|c|c|c|}
+\hline 
+3 & 5 & 1.5 & 10 \\ 
+\hline 
+4.5 & 7.5 & 2.25 & 15 \\ 
+\hline 
+\end{tabular}
+\begin{center}
+ tableau 2 
+\end{center}
+\end{minipage}\hfill%
+\begin{minipage}{0.24\linewidth}
+\begin{tabular}{|c|c|c|c|}
+\hline 
+4 & 5 & 1.5 & 11 \\ 
+\hline 
+12 & 15 & 7.5 & 15 \\ 
+\hline 
+\end{tabular} 
+\begin{center}
+ tableau 3 
+\end{center}
+\end{minipage}\hfill%
+\begin{minipage}{0.24\linewidth}
+\begin{tabular}{|c|c|c|c|}
+\hline 
+3 & 4 & 15 & 10 \\ 
+\hline 
+1.5 & 2.5 & 0.75 & 5 \\ 
+\hline 
+\end{tabular}
+\begin{center}
+ tableau 4 
+\end{center}
+\end{minipage}
+\end{exercice}
+
+\begin{exercice}
+Compléter les tableaux de proportionnalité suivants:
+
+\begin{minipage}{0.33\linewidth}
+\begin{tabular}{|C{0.75cm}|C{0.75cm}|C{0.75cm}|C{0.75cm}|}
+\hline 
+4 & 5 &  & 14 \\ 
+\hline 
+5 &  & 9 &  \\ 
+\hline 
+\end{tabular} 
+\end{minipage}\hfill%
+\begin{minipage}{0.33\linewidth}
+\begin{tabular}{|C{0.75cm}|C{0.75cm}|C{0.75cm}|C{0.75cm}|}
+\hline 
+ 1 &  & 6 &  24\\ 
+\hline 
+  & 18 & 12 &  \\ 
+\hline 
+\end{tabular} 
+\end{minipage}\hfill%
+\begin{minipage}{0.33\linewidth}
+\begin{tabular}{|C{0.75cm}|C{0.75cm}|C{0.75cm}|C{0.75cm}|}
+\hline 
+4 & 5 &  & 36 \\ 
+\hline 
+12 &  & 20 &  \\ 
+\hline 
+\end{tabular} 
+\end{minipage}
+\end{exercice}
+
+\begin{exercice}
+Compléter le tableau suivant 
+
+\begin{tabular}{|c|C{1cm}|C{1cm}|C{1cm}|C{1cm}|C{1cm}|C{1cm}|}
+\hline 
+Longueur du côté d'un carré & 5 & 6.4 &  & 13.4 &  & 1.98 \\ 
+\hline 
+Périmètre du carré &  &  & 98 &  & 36.4 &  \\ 
+\hline 
+\end{tabular} 
+\end{exercice}
+
+
+\begin{exercice}
+Une voiture consomme 10 litres de gasoil pour faire 150 km.
+\begin{enumerate}
+\item Quelle consommation peut-on prévoir pour 350 km ?
+\item Avec 45 l dans le réservoir, peut-on espérer faire un trajet de 800 km ?
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+Dans une école de 135 élèves, on compte 72 filles et 63 garçons.
+\begin{enumerate}
+\item Quel est le pourcentage des garçons ?
+\item Quel est le pourcentage des filles ?
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+Compléter le tableau : 
+
+\begin{tabular}{|c|C{1cm}|C{1cm}|C{1cm}|C{1cm}|C{1cm}|C{1cm}|C{1cm}|}
+\hline 
+Nombre & 60 &  &  &  &  &  &  \\ 
+\hline 
+Pourcentage & 100 & 50 & 25 & 10 & 20 & 5 & 1 \\ 
+\hline 
+\end{tabular} 
+
+Un pantalon d'une valeur de 160 Dhs est vendu avec une réduction de 20\%. Quel est le prix de ce pantalon ?
+\end{exercice}
+
+\begin{exercice}
+\begin{minipage}{0.6\linewidth}
+Le graphique suivant permet de déterminer le prix à payer pour une chambre pour deux personnes dans un hôtel en fonction du  nombre de nuits.
+\begin{enumerate}
+\item A l'aide du graphique, complète le tableau
+
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline 
+Nombre de nuits & 1 & 2 &  & 5 &  & 6 \\ 
+\hline 
+Prix à payer &  &  & 4000 &  & 3000 &  \\ 
+\hline 
+\end{tabular} 
+\item Le prix à payer est-il proportionnel au nombre de nuits passées à l'hôtel ?
+\end{enumerate}
+\end{minipage}\hfill%
+\begin{minipage}{0.38\linewidth}
+\begin{tikzpicture}[scale=0.8]
+\tkzInit[xmin=0, xmax=6, ymin=0, ymax=6000,ystep=1000]
+\tkzGrid[sub,subxstep=0.5,subystep=500,color=black,line width=0.4pt]
+\tkzDrawXY[label={}]
+\tkzLabelXY
+\tkzDefPoints{0/0/A,6/6000/B}
+\tkzDrawLine[add=0 and 0,line width=1pt](A,B)
+\end{tikzpicture}
+\end{minipage}
+\end{exercice}
+
+
+
+\end{Maquette}
+\end{document}

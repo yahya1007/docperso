@@ -1,0 +1,57 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{ProfModels}
+
+  
+\begin{document}
+\begin{Maquette}[DM]{Niveau=3, Numero=3, Date=02/01/2025, FinDate=06/01/2025, Semestre=1}
+
+\begin{exercice}
+\begin{minipage}{0.6\linewidth}
+On considère la figure ci-contre tel que $ABCD$ est un  carré  et $I$ le milieu de $[DC]$ et $AB=12$ et$JC=3$
+\begin{enumerate}
+\item Calculer $IJ$ , $AJ$ et $AI$
+\item Montrer que $AIJ$ est un triangle rectangle .
+\end{enumerate}
+\end{minipage}
+\begin{minipage}{0.4\linewidth}
+\begin{tikzpicture}
+\tkzDefPoints{-1/4/A,4/4/B}
+\tkzDefSquare(A,B)\tkzGetPoints{C}{D}
+\tkzDrawPolygon(A,B,C,D)
+\tkzDefMidPoint(D,C)\tkzGetPoint{I}
+\tkzDefPointOnLine[pos=0.25](C,B)\tkzGetPoint{J}
+\tkzDrawPoints(A,B,C,D,I,J)
+\tkzDrawPolygon(A,I,J)
+\tkzLabelPoints(A,B)
+\tkzLabelPoints[above](D,I,C)
+\tkzLabelPoints[right](J)
+\tkzMarkRightAngles(C,B,A A,D,C D,C,B)
+\end{tikzpicture}
+\end{minipage}
+\end{exercice}
+
+\begin{exercice}
+
+Soit  $ABC$ un triangle rectangle en $A$ tel que  $AC=7$ et $\cos \widehat{C}=\dfrac{3}{5}$
+\begin{enumerate}
+\item Calculer  $\sin \widehat{C}$ et $\tan \widehat{C}$ .
+\item Calculer les rapports trigonométriques d'angle $\widehat{B}$.
+\item Déduire $AB$ et $BC$ .
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+\begin{enumerate}
+\item Calculer ce qui suit :
+$$A= cos^{2}14^{\circ}+cos^{2}28^{\circ}+cos^{2}76^{\circ}+cos^{2}62^{\circ}$$
+$$B=sin^{2}40^{\circ}-4cos^{2}30^{\circ}+sin^{2}50^{\circ}+tan^{2}45^{\circ}$$
+$$C=tan70^{\circ}-\dfrac{1}{tan20^{\circ}}+\dfrac{2}{tan60^{\circ}}$$
+\item Simplifier :
+$$ X=(sinx+cosx)^{2}-(sinx-cosx)^{2} $$
+$$ Y=1+tan^{2}x-\dfrac{1}{\cos^{2}x}$$
+\end{enumerate}
+
+\end{exercice}
+\end{Maquette}
+\end{document}

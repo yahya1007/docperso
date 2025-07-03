@@ -1,0 +1,114 @@
+%!TEX pdflatex
+
+%!TEX pdflatex
+
+\documentclass[a4paper,12pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[top=0.9in, bottom=0.8in, left=0.7in, right=0.7in]{geometry}
+\usepackage[table]{xcolor}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{tikz,pgffor}
+\usepackage[most]{tcolorbox}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead{}
+\fancyfoot{}
+\usepackage{lastpage}
+\lhead{\textbf{Spé Maths Term}} \chead{\textbf{CBPM}} \rhead{\textbf{2022-2023}}
+\lfoot{\textbf{Function 1}}
+\rfoot{\thepage \hspace{0.02cm} / \pageref{LastPage}}
+\renewcommand{\footrulewidth}{0.1pt}
+\DeclareMathOperator{\e}{e}
+\usepackage{wrapstuff}
+\usepackage[french]{babel}
+%\usepackage{ProfModels}
+\begin{document}
+
+\begin{tcolorbox}[title= \textbf{Exercise}, colframe=black, colback=white]
+\textbf{Part A}
+
+\medskip
+
+Consider the differential equation $(E):y'-y=2\e^{-x}$.
+
+\begin{enumerate}[font=\bfseries]
+	\item Determine the real number $\lambda$ so that $y=\lambda \e^{-x}$ is a solution of $(E)$.
+		\item 
+	\begin{enumerate}[font=\bfseries]
+		\item Solve the equation $(E_0):y'-y=0$.
+		\item Deduce the general solution of $(E)$.
+		\item Verify that the function $g$ defined over $\mathbb{R}$ by $g(x)=\e^x-\e^{-x}$ is a particular solution of 
+		$(E)$.
+	\end{enumerate}
+\end{enumerate}
+
+\vspace{0.5cm}
+
+\textbf{Part B}
+
+\medskip
+
+Consider the function $f$ defined over $\mathbb{R}$ by $f(x)=g(x)-2x$ and designate by $C_f$ its representative curve in an orthonormal system $\left( O; \overrightarrow{i} , \overrightarrow{j} \right)$. $f'$ is the derivative of $f$.
+
+\begin{enumerate}[font=\bfseries]
+	\item 
+	\begin{enumerate}[font=\bfseries]
+		\item Prove that $f$ is odd.
+		\item Calculate $\lim\limits_{x \rightarrow +\infty} f(x)$ and $\lim\limits_{x \rightarrow -\infty} f(x)$.
+		\item Determine the expression of $f'(x)$, study its sign then set the table of variation of $f$.
+	\end{enumerate}
+	
+	\begin{wrapstuff}[r,abovesep=-6pt,belowsep=-6pt]
+		\begin{tikzpicture}[x=0.7cm,y=0.7cm]
+			\draw[thin,lightgray!50,xstep=0.5,ystep=0.5] (-3,-3) grid (3,5) ;
+			\draw[semithick,->,>=latex] (-3,0)--(3,0) ;
+			\draw[semithick,->,>=latex] (0,-3)--(0,5) ;
+			\foreach \x in {-3,-2,...,2} \draw[semithick] (\x,2pt)--++(0,-4pt) ;
+			\foreach \y in {-3,-2,...,4} \draw[semithick] (2pt,\y)--++(-4pt,0) ;
+			\clip (-3,-3) rectangle (3,5) ;
+			\draw[thick,blue,samples=100,domain=-3:3] plot (\x,{exp(\x)-exp(-\x)-3*\x}) ;
+		\end{tikzpicture}
+	\end{wrapstuff}
+	
+	\item The adjacent figure shows the representative curve $C_h$ of the function $h$ defined over $\mathbb{R}$ by 
+	
+	$h(x)=g(x)-3x$.
+	
+	\begin{enumerate}[font=\bfseries]
+		\item Write, in Python language, the dichotomy algorithm and give a bounding of $\alpha$ of amplitude $0.001$ 
+		knowing that $\alpha$ is between $1$ and $2$.
+		\item Using the curve $C_h$, prove that the curve $C_f$ cuts the straight line $(d)$ of equation $y=x$ at three 
+		points whose abscissas are to be determined.
+	\end{enumerate}
+	\item Draw $(d)$ and $C_f$ in the system $\left( O; \overrightarrow{i} , \overrightarrow{j} \right)$.
+	\item 
+	\begin{enumerate}[font=\bfseries]
+		\item Prove that $f$ has an inverse function $f^{-1}$ and determine its domain of definition.
+		\item Determine the values of $x$ satisfying $1 < f^{-1}(x) < 2$.
+		\item Draw the representative curve $C_{f^{-1}}$ of $f^{-1}$ in the system 
+		$\left( O; \overrightarrow{i} , \overrightarrow{j} \right)$.
+	\end{enumerate}
+	\item Calculate, in terms of $\alpha$, the area of the region bounded by $C_f$ and $C_{f^{-1}}$.
+\end{enumerate}
+
+\vspace{0.5cm}
+
+\textbf{Part C}
+
+\medskip
+
+Consider the sequence $(U_n)$ defined for every $n \in \mathbb{N}$ by $U_0 \in ]0, \alpha[$ and $U_{n+1}=f(U_n)$.
+
+\begin{enumerate}[font=\bfseries]
+	\item Prove that for every $n \in \mathbb{N}$, $0 < U_n <\alpha$.
+	\item Noticing that for every $x \in ]0,\alpha[$, $f(x) < x$, prove that the sequence $(U_n)$ is strictly decreasing and 
+	deduce that it is convergent.
+\end{enumerate}
+\end{tcolorbox}
+
+\end{document}

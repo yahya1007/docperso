@@ -1,0 +1,184 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{ProfModels}
+
+
+\begin{document}
+\begin{Maquette}[Fiche]{Theme=Triangle rectangle et cercle,Niveau=2}
+
+\begin{exercice}%1
+$ABC$ est un triangle rectangle en $A$ tel que $AB<AC$ et $O$ le milieu de $\lrc{AC}$,le cercle de centre $O$ et son diamètre $\lrc{AC}$ coupe $\lrc{BC}$ en $C$ et $M$.
+\begin{enumerate}
+\item Construire une figure convenable.
+\item Montrer que $M$ est le projeté orthogonal de $A$ sur $\lrc{BC}$.
+\item Soit $E$ le milieu de $\lrc{AB}$.
+\begin{enumerate}
+\item Montrer que $BEM$ est un triangle isocèle.
+\end{enumerate}
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+On considère la figure ci-contre tel que $\lrp{C}$ est un cercle de centre $O$ et $\lrc{MN}$ sa corde.La droite perpendiculaire à $\lrp{MN}$ en $N$ coupe $\lrp{C}$ en $N$ et $L$.
+\begin{minipage}{0.5\linewidth}
+\begin{enumerate}
+\item faire une schéma.
+\item Montrer que $O$ est le milieu de $\lrc{ML}$
+\item La droite $\lrp{ON}$ coupe le cercle en $N$ et $P$.
+\begin{enumerate}
+\item Prouver que $\lrp{PL}//\lrp{MN}$.
+\end{enumerate}
+\end{enumerate}
+\end{minipage}%
+\begin{minipage}{0.5\linewidth}
+\begin{tikzpicture}
+\tkzDefPoints{0/0/O,2/0/B}
+
+\tkzDrawCircle(O,B)
+\tkzDefPointBy[rotation=center O angle 50](B)
+\tkzGetPoint{M}
+\tkzDefPointBy[rotation=center O angle -40](B)
+\tkzGetPoint{N}
+\tkzDrawPoints(O,M,N)
+\tkzDrawSegment(M,N)
+\tkzLabelPoints[right](M,N)
+\tkzLabelPoint[below](O){O}
+\tkzLabelCircle[above=4pt](O,B)(120){$\lrp{\mathcal{C}}$}
+\end{tikzpicture}
+\end{minipage}
+\end{exercice}
+
+\begin{exercice}
+\begin{minipage}{0.5\linewidth}
+On considère la figure ci-contre tel que : \newline
+$A\in \lrp{MN}$ et $A\in \lrp{EF}$
+\begin{enumerate}
+\item Montrer que $\lrp{NF}//\lrp{EM}$
+\end{enumerate}
+\end{minipage}%
+\begin{minipage}{0.5\linewidth}
+\begin{tikzpicture}
+\tkzDefPoints{0/0/A,2/0/O,-1.5/0/O',4/0/M,-3/0/N}
+\tkzDefPointBy[rotation=center O angle 40](M)\tkzGetPoint{E}
+\tkzDefPointBy[rotation=center O' angle 40](N)\tkzGetPoint{F}
+\tkzDrawCircle(O,M)
+\tkzDrawCircle(O',N)
+\tkzDrawSegments(M,N E,F)
+\tkzDrawLines(E,M N,F)
+\tkzDrawPoints(O,O')
+\tkzLabelPoints[right](M,E)
+\tkzLabelPoints[left](N,F)
+\tkzLabelPoints[below right](O,A)
+\tkzLabelPoint[above](O'){O'}
+\end{tikzpicture}
+\end{minipage}
+\end{exercice}
+
+\begin{exercice}
+$ABC$ est un triangle isocèle en $A$.Et soit $H$ le projeté orthogonal de $A$ sur $\lrp{BC}$.
+\begin{enumerate}
+\item Construire le point $M$ milieu de $\lrc{AB}$ et $N$ milieu de $\lrc{AC}$.
+\item Montrer que $HM=HN$.
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+\begin{minipage}{0.65\linewidth}
+On considère la figure ci-contre tel que : $FGH$ et $EFG$ sont deux triangles rectangles respectives en $H$ et $E$.
+\begin{enumerate}
+\item Montrer que $OE=OH$.
+\end{enumerate}
+\end{minipage}%
+\begin{minipage}{0.35\linewidth}
+\begin{tikzpicture}[rotate=-40]
+\tkzDefPoints{0/0/F,4/0/H}
+\tkzDefTriangle[two angles= 40 and 90](F,H)\tkzGetPoint{G}
+\tkzDefPointOnLine[pos=0.5](F,G)\tkzGetPoint{O}
+\tkzDefPointOnCircle[through= center O angle -100 point G]
+\tkzGetPoint{E}
+\tkzDrawPoint(O)
+\tkzDrawSegments(F,H H,G G,F F,E E,G)
+\tkzLabelPoint[above](G){G}
+\tkzLabelPoint[above](O){O}
+\tkzLabelPoint[left](F){F}
+\tkzLabelPoint[right](H){H}
+\tkzLabelPoint[below](E){E}
+\tkzMarkSegments[mark=||](O,F O,G)
+\tkzMarkRightAngles(G,H,F G,E,F)
+\end{tikzpicture}
+\end{minipage}
+\end{exercice}
+
+\begin{exercice}
+ABC est un triangle rectangle en A tel que $\widehat{ABC}=50^{\circ}$ et E le milieu de $\lrc{BC}$
+\begin{enumerate}
+\item Construire une figure convenable
+\item Calculer $\widehat{EAB}$ et $\widehat{AEB}$.
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+\begin{minipage}{0.65\linewidth}
+On considère la figure ci-contre tel que $\lrp{\mathcal{C}}$ est un cercle de centre $O$ et de diamètre $\lrc{BC}$ et $\lrp{\mathcal{C'}}$ est un cercle de centre $O'$ et de diamètre $\lrc{CF}$.
+\begin{enumerate}
+\item Montrer que $\lrp{AB}//\lrp{EF}$
+\end{enumerate}
+\end{minipage}%
+\begin{minipage}{0.35\linewidth}
+\begin{tikzpicture}
+\tkzDefPoints{0/0/O,2.5/0/B,-2.5/0/C,-1/0/O',0.5/0/F}
+\tkzDefPointOnCircle[through= center O angle 60 point B]\tkzGetPoint{A}
+\tkzDefPointOnCircle[through= center O' angle 60 point F]\tkzGetPoint{E}
+\tkzDrawPoints(C,O',O,F,B,A,E)
+\tkzDrawCircles(O',C O,C)
+\tkzDrawSegments(C,B C,A E,F A,B)
+\tkzLabelPoints(O,O')
+\tkzLabelPoints[left](C)
+\tkzLabelPoints[right](A,B)
+\tkzLabelPoint[above](E){E}
+\tkzLabelPoint[below right](F){F}
+\tkzLabelCircle[below=4pt](O,B)(-40){$(\mathcal{C})$}
+\tkzLabelCircle[below=4pt](O',F)(-40){$(\mathcal{C'})$}
+\end{tikzpicture}
+\end{minipage}
+\end{exercice}
+
+\begin{exercice}
+$\lrp{\mathcal{C}}$ est un cercle de centre $O$ et de rayon $r$ et $\lrc{AB}$ son diamètre. Soient $E$ et $F$ deux points différentes de $\lrp{\mathcal{C}}$.
+\begin{enumerate}
+\item Construire une figure convenable.
+\item Détermine la nature des triangles $AEB$ et $AFB$.
+\item Déduire que : $OE=OF$.
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+Soit $\lrc{AB}$ un segment et $E$ son milieu. $C$ un point tel que $EAC$ est un triangle équilatéral.
+\begin{enumerate}
+\item faire une schéma
+\item Montrer que $ABC$ est un triangle rectangle.
+\item Déduire la mesure d'angle $\widehat{ECB}$.
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+$AOB$ est un triangle isocèle en $O$ et $C$ le symétrique de $B$ par rapport à $O$.
+\begin{enumerate}
+\item Construire une figure.
+\item Montrer que $ABC$ est un triangle rectangle.
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+$ABC$ est un triangle rectangle en $A$ tel que $AB=7$ et $AC=5$ et $H$ est le projeté orthogonal de $A$ sur $\lrp{BC}$.Soient $M$ et $N$ les milieux de $\lrc{AB}$ et $\lrc{AC}$ respectivement.
+\begin{enumerate}
+\item Construire la figure.
+\item Calculer $MH$ et $NH$.
+\end{enumerate}
+\end{exercice}
+
+
+
+
+\end{Maquette}
+\end{document}

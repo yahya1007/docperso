@@ -1,0 +1,119 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{ProfModels}
+
+
+\begin{document}
+\begin{Maquette}[Fiche]{Theme=La symétrie centrale,présentation}
+
+\begin{exercice}%1
+$ABC$ est un triangle et $O$ un point à l'extérieur du triangle $ABC$.
+\begin{enumerate}
+\item Construis $A'$ le symétrique du point $A$ par rapport à $O$.
+\item Construis $B'$ le symétrique du point $B$ par rapport à $O$.
+\item Construis $C'$ le symétrique du point $C$ par rapport à $O$.
+\end{enumerate}
+\begin{tikzpicture}
+\tkzDefPoints{0/0/A,4/-1/B,2/3/C,4/2/O}
+\tkzDrawPoints(A,B,C,O)
+\tkzDrawSegments(A,B B,C C,A)
+\tkzLabelPoint[below](A){A}
+\tkzLabelPoint[below](B){B}
+\tkzLabelPoint[above](C){C}
+\tkzLabelPoint[below](O){O}
+\end{tikzpicture}
+\end{exercice}
+
+\begin{exercice}%2
+Le point $B$ est le symétrique de $A$ par rapport à $O$, le point $C$ est le symétrique de $O$ par rapport à $B$,et le point $I$ est le milieu du segment $\lrc{OB}$
+\begin{enumerate}
+\item Montrer que $I$ est le milieu du segment $\lrc{AB}$.
+\end{enumerate}
+\begin{tikzpicture}
+\tkzDefPoints{0/0/O,-2/0/A}
+\tkzDefPointBy[symmetry=center O](A)\tkzGetPoint{B}
+\tkzDefPointBy[symmetry=center B](O)\tkzGetPoint{C}
+\tkzDefMidPoint(O,B)\tkzGetPoint{I}
+\tkzDrawPoints(A,B,C,O,I)
+\tkzDrawLine(A,C)
+\tkzLabelPoints[above](A,B,C,O,I)
+\end{tikzpicture}
+\end{exercice}
+
+\begin{exercice}%3
+$ABC$ est un triangle tel que : $AC=3$ , $AB=6$ et $\widehat{BAC}=70^{\circ}$ , et soit $E$ un point de $\lrc{BC}$
+\begin{enumerate}
+\item Construis les points $E'$ , $C'$ et $B'$ les symétriques respectifs des $E$ ,$C$ et $B$ par rapport à $A$ .
+\item Montrer que $\lrp{BC}// \lrp{B'C'}$.
+\item Montrer que $E'$ , $B'$ et $C'$ sont alignés.
+\item Déterminer en justifiant $AC'$ et $AB'$.
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}%4
+$EFG$ est un triangle tel que $EF=5$ et $\widehat{FEG}=50^{\circ}$ et $\widehat{EFG}=70^{\circ}$. $M$ est un point à l'extérieur  du triangle $EFG$.
+\begin{enumerate}
+\item Construis $E'$ ,$F'$ et $G'$ les symétriques respectifs des points $E$, $F$ et $G$ par rapport à $M$.
+\item Calculer $E'F'$.Justifier.
+\item Montrer que $\lrp{FG}// \lrp{F'G'}$.
+\item Calculer la mesure de l'angle $\widehat{E'F'G'}$
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}%5
+$ABC$ est un triangle et $E$ le milieu de $\lrc{BC}$.
+\begin{enumerate}
+\item Construis $B'$ , $C'$ et $E'$ les symétriques respectifs des $B$ , $C$ et $E$ par rapport à $A$.
+\item Montrer que $E'$ est le milieu de $\lrc{B'C'}$.
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}%6
+$EFG$ est un triangle et $O$ un point de $\lrc{FG}$, et soit $M$ le milieu de $\lrc{EO}$.
+\begin{enumerate}
+\item Construis $F'$ et $G'$ les symétriques respectifs de $F$ et $G$ par rapport à $M$.
+\item Montrer que $\lrp{EF}//\lrp{OF'}$.
+\item Montrer que les points $E$ ,$F'$ et $G'$ sont alignés.
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}%7
+$\lrc{AB}$ est un segment et $\lrp{\Delta}$ sa médiatrice, le point $M$ est à l'extérieur des deux droites $\lrp{AB}$ et $\lrp{\Delta}$
+\begin{enumerate}
+\item Construis $A'$ et $B'$ les symétriques respectifs de $A$ et $B$ par rapport à $M$.
+\item Tracer la droite $\lrp{D}$ médiatrice du segment $\lrc{A'B'}$.
+\item Montrer que $\lrp{D} //\lrp{\Delta}$.
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}%8
+$\lrc{AB}$ est un segment et $\lrp{\Delta}$ sa médiatrice, le point $M$ est à l'extérieur des deux droites $\lrp{AB}$ et appartient à $\lrp{\Delta}$.
+\begin{enumerate}
+\item  Construis $A'$ et $B'$ les symétriques respectifs de $A$ et $B$ par rapport à $M$.
+\item Montrer que $MA'B'$ est un triangle isocèle en $M$.
+\item Montrer que $\lrp{\Delta}$ est la médiatrice du segment $\lrc{A'B'}$.
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}%9
+$\lrp{C}$ est un cercle de centre $O$ et de rayon $r$. Soit $E$ un point du cercle $\lrp{C}$ .
+\begin{enumerate}
+\item Construis $\lrp{C'}$ le symétrique du cercle $\lrp{C}$ par rapport au point $E$.
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+$ABC$ est un triangle équilatéral.
+\begin{enumerate}
+\item Construis $E$ et $F$  les symétriques respectifs  de $B$ et $C$ par rapport au point $A$.
+\item Montrer que $AEF$ est un triangle équilatéral.
+\item Montrer que $\lrp{EC} // \lrp{FB}$.
+\item Monter que les points $E$,$F$, $B$ et $C$ appartient au meme cercle de centre $A$.
+\end{enumerate}
+\end{exercice}
+
+\end{Maquette}
+
+
+
+\end{document}

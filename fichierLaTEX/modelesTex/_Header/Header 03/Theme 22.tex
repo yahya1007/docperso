@@ -1,0 +1,18 @@
+\documentclass[12pt,a4paper]{book}
+\usepackage[utf8]{inputenc}
+\usepackage{tikz}
+\usepackage[explicit]{titlesec} 
+\usepackage[left=1.5cm,right=1.5cm,top=1.5cm,bottom=1cm]{geometry}
+\newcommand{\chaptitle}[1]{
+\begin{tikzpicture}[overlay]
+\node[xshift=5cm,yshift=2.3cm,text width=\dimexpr12.5cm,anchor=north west,inner xsep=0pt,align=flush left ](nchp) {{\LARGE \textbf{#1}}};
+\draw[line width=4pt]([yshift=0.3cm]nchp.north west)--([yshift=0.3cm]nchp.north east);
+\node[scale=4,anchor=east,inner xsep=2pt ](tchp)at(nchp.west) {\thechapter} ;
+\node[scale=1.2,anchor=north east,inner xsep=0pt ]at([yshift=-0.3cm]tchp.north west) {{\large\bfseries CHAPITRE}} ;
+\end{tikzpicture}}
+\titleformat{\chapter}[block]{ }{ }{10pt}{\Huge \chaptitle{#1} }
+\titlespacing*{\chapter} {0pt}{50pt}{0pt}
+\begin{document}
+\chapter{Solution d'un système d'équations aux différences non linéaire} 
+\chapter{Solution d'un système d'équations aux différences non linéaire} 
+\end{document}

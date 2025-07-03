@@ -1,0 +1,30 @@
+\documentclass[13pt]{extarticle}
+\usepackage[paperwidth=9in, paperheight=6in, margin=0.3in, marginparwidth=0.6in]{geometry}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage[utf8]{inputenc}    
+\usepackage{amsmath,amsfonts,amssymb,tikz,enumitem}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+\pagestyle{empty}
+\begin{document}
+\tcbset{nobeforeafter, colbacktitle=white, colback=white, coltitle=black, enhanced, frame code={\path[tcb fill frame] (frame.south west)--([yshift=-5mm]frame.north west)
+ --([xshift=5mm]frame.north west)--(frame.north east)--([yshift=-5mm]frame.north east)
+ --([yshift=5mm]frame.south east)--([xshift=-5mm]frame.south east)--cycle;},colframe=blue,width=16.5cm}
+\begin{tcolorbox}
+ \begin{minipage}{8cm}
+ \begin{enumerate}[font=\sffamily\bfseries,label=\arabic*), series=Is]
+ \item Si $z=x+iy$ avec $x$ et $y$ réels, alors\\
+  $|z|=\sqrt{x^2+y^2}$.
+ \item $z=0\Leftrightarrow |z|=0$
+ \item $|zz'|=|z|\times |z'|$
+ \item $\left|z^n\right|=|z|^n$ ($n\in\mathbb{N}^*$)
+ \end{enumerate}
+ \end{minipage}  \begin{minipage}{8cm}
+ \begin{enumerate}[label=\arabic*),resume*=Is]
+ \item $\left|\dfrac{1}{z}\right|=\dfrac{1}{|z|}$ ($z\neq 0$)
+ \item Si $z'\neq 0$, $\left|\dfrac{z}{z'}\right|=\dfrac{|z|}{|z'|}$
+ \item Inégalité triangulaire ; $|z+z'|\leqslant |z|+|z'|$ \\
+ (mais on n'a pas égalité en général) \end{enumerate}
+ \end{minipage}
+\end{tcolorbox}
+\end{document}

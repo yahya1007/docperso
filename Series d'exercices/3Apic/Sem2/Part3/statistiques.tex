@@ -1,0 +1,174 @@
+\documentclass[a4paper,12pt]{article}
+
+
+\usepackage{ProfModels}
+\usepackage{diagrammes}
+
+ 
+\begin{document}
+
+\begin{Maquette}[Fiche]{Theme=Les statistiques,Niveau=3}
+
+\begin{exercice}
+Un prélèvement de Institut National de la Météorologie des précipitations quotidiennes (en mm):
+
+\begin{tabular}{c|c|c|c|c|c|c|c|c|c|c}
+4 & 6 & 6 & 7 & 4 & 5 & 8 & 8 & 8 & 6 & 5 \\ 
+\hline 
+8 & 7 & 4 & 4 & 5 & 5 & 6 & 6 & 6 & 7 & 7 \\ 
+\hline 
+4 & 5 & 4 & 6 & 6 & 7 & 7 & 8 & 8 & 6 & 4 \\ 
+\end{tabular} 
+\begin{enumerate}
+\item Donner le tableau des effectifs et des effectifs cumulés.
+\item Déterminer le mode de cette série statistique.
+\item Calculer la moyenne de précipitations.
+\item Déterminer la médiane de cette série statistique.
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+Le tableau suivant donne une classification de 30 jeunes dans un club sportif selon leurs âges:
+
+\begin{tabular}{|c|c|c|c|c|}
+\hline 
+Classe: Age & $8\leq <10$ & $10\leq <12$ & $12\leq <14$ & $14\leq <16$ \\ 
+\hline 
+Effectifs & 9 & 4 & 12 & 5 \\ 
+\hline 
+\end{tabular}
+\begin{enumerate}
+\item Déterminer la classe modale de cette série statistique.
+\item calculer la moyenne de cette série statistique.
+\item Donner le tableau des effectifs cumulés.
+\item Déterminer la médiane
+\item Calculer le pourcentage des jeunes ayant un âge entre 12 et 16 ans.
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+Le tableau suivant donne le nombres des opérations chirurgicales effectués par équipe médicale des médecins pendant 30 jours.
+
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline 
+Nombre des opérations & 0 & 1 & 2 & 3 & 4 & 5 \\ 
+\hline 
+Nombred de jours & 5 & 6 & 10 & 8 & 1 & 0 \\ 
+\hline 
+\end{tabular} 
+\begin{enumerate}
+\item Déterminer le mode de cette série statistique.
+`\item Déterminer l'effectif cumulé 
+\item Calculer la moyenne de cette série statistique.
+\item Déterminer la médiane de cette série statistique.
+\item Calculer le pourcentage des jours où aucune opération chirurgicale n'a été effectuée.
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+Le tableau suivant donne le nombre des enfants de 25 familles.Recopier puis compléter le tableau:
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline 
+Nombre des enfants & 1 & 2 & 3 & 4 & 5 \\ 
+\hline 
+Nombre des familles & 5 &  & 7 & 3 & 4 \\ 
+\hline 
+Effectif cumulé &  & 11 &  &  &  \\ 
+\hline 
+\end{tabular}
+\begin{enumerate}
+\item Déterminer le mode de cette série statistique.
+\item Déterminer la médiane de cette série statistique.
+\item Calculer la moyenne des enfants de ces familles.
+\item Calculer le pourcentage des familles ayant plus de trois enfants.
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+Le graphique suivant présent les notes des élèves d'une classe dans un contrôle surveillé de mathématiques.
+
+\Histogramme[Largeur=12,Hauteur=6,%
+ListeCouleurs={orange,gray,blue,pink,red,black,gray,green,orange,gray,blue},%
+DebutOx=0,FinOx=18,GradX={1,2,...,18},GradY={0,1,...,8},%
+AffEffectifs=false,LabelX={},LabelY={}]%
+{1.8/2.2/3 3.8/4.2/2 5.8/6.2/4 7.8/8.2/5 8.8/9.2/6 9.8/10.2/8 10.8/11.2/3 12.8/13.2/4 13.8/14.2/6 15.8/16.2/7 17.8/18.2/3}
+\begin{enumerate}
+\item Déterminer l'effectif total.
+\item Déterminer le mode de cette série statistique.
+\item Calculer le pourcentage des élèves ayant une note supérieur à 12.
+\item Calculer la note moyenne du classe.
+\item Déterminer la note médiane de la série statistique.
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}%6
+Le tableau suivant donne les distances en Km parcourus par 80 élèves de maisons vers l'école:
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline 
+Classe: Distance & $0\leq d<2$ & $2\leq d<4$ & $4\leq d<6$ & $6\leq d<8$ & $8\leq d<10$ \\ 
+\hline 
+Effectif & 15 & 5 & x & 20 & 10 \\ 
+\hline 
+\end{tabular} 
+\begin{enumerate}
+\item Montrer que $x=30$ puis déterminer les effectifs cumulés.
+\item Déterminer la classe modale de cette série statistique.
+\item Déterminer la médiane de cette série statistique.
+\item Calcule la moyenne des distances parcourus par ces élèves.
+\item Calcule le pourcentage des élèves qui parcourent des distances supérieurs ou égales à 4 Km.
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+Le tableau suivant donne la répartition des notes d'une classe à un contrôle.
+
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+\hline 
+Note & 6 & 8 & 9 & 10 & 11 & 12 & 13 & 16 & 19 \\ 
+\hline 
+Effectif & 2 & $\cdots$ & 4 & 5 & $\cdots$ & 6 & 7 & 2 & 1 \\ 
+\hline 
+Effectif cumulé & $\cdots$ & 4 & $\cdots$ & $\cdots$ & $\cdots$ & $\cdots$ & $\cdots$ & $\cdots$ & 30 \\ 
+\hline 
+\end{tabular} 
+\begin{enumerate}
+\item Quel est l'effectif total de cette série?
+\item Recopier et compléter le tableau.
+\item Calculer la fréquence de 12.
+\item Calculer le pourcentage des élèves qui ont obtenu une note supérieur à 12.
+\item Calculer la note moyenne de la classe.
+\item Déterminer la médiane de cette série
+\item Déterminer le mode de cette série statistique
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+Dans le tableau ci-dessous est donnée la masse en Kg des élèves d'un collège.
+
+\begin{tabular}{|c|c|c|c|c|}
+\hline 
+Masse en Kg & $20<m\leq 26$ & $26<m\leq 32$  & $32<m\leq 38$  & $38<m\leq 50$  \\ 
+\hline 
+Effectif & 20 & 45 & 51 & 28 \\ 
+\hline 
+Centre de classe &  &  &  &  \\ 
+\hline 
+Effectif cumulé &  &  &  &  \\ 
+\hline 
+Fréquence &  &  &  &  \\ 
+\hline 
+\end{tabular} 
+\begin{enumerate}
+\item Compléter le tableau.
+\item Calculer l'effectif total.
+\item Calculer le poids moyen des élèves.
+\item Détermine le mode de cette série statistique.
+\item A quelle classe appartient la médiane de cette série?
+\end{enumerate}
+
+\end{exercice}
+
+
+
+\end{Maquette}
+\end{document}

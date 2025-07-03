@@ -1,0 +1,120 @@
+\documentclass[a4paper,addpoints,12pt]{exam}
+
+\usepackage{dlds}
+\pointsdroppedatright
+\marginpointname{ \points}
+\setlength{\rightpointsmargin}{25mm}
+\pointformat{\bfseries\boldmath[\themarginpoints]}
+\begin{document}
+
+\examen[Janvier 2023]
+
+\begin{exo}[7]
+\begin{questions}
+\question[2]Calculer :\droppoints
+\begin{multicols}{2}
+$\sqrt{2}^{2}=$\anserline[1]
+$\left(\dfrac{2\sqrt{3}}{3\sqrt{5}}\right)^{2}=$\anserline[2]\columnbreak
+
+$\sqrt{5}\times \sqrt{\sqrt{16}}\times\sqrt{20}=$\anserline[3]
+\end{multicols}
+\question[1]Simplifier \droppoints
+$A=\sqrt{63}+\sqrt{28}-\sqrt{7}=$\anserline[3]
+\question[1]Développer et simplifier\droppoints
+\begin{multicols}{2}
+$\left(\sqrt{7}-3\right)^{2}=$\anserline[2]
+$\left(3-\sqrt{2}\right)\left(3+\sqrt{2}\right)=$\anserline[2]
+\end{multicols}
+\question[1]Factoriser :\droppoints
+$x^{2}+2\sqrt{7}x+7=$\anserline[2]
+\question[1]Donner l'écriture scientifique\droppoints
+$\dfrac{560\times 10^{26}}{0.000008\times 10^{-14}}=$\anserline[3]
+\question[1]Ecrire le dénominateur sans radicale :\droppoints
+$\dfrac{2}{2+\sqrt{3}}=$\anserline[1]
+\end{questions}
+\end{exo}
+
+\begin{exo}[4]
+\begin{questions}
+\question[1]Comparer $2\sqrt{3}$ et $\sqrt{13}$\droppoints
+\anserline[2]
+\question[1]Déduire la comparaison des nombres : 
+$\dfrac{3}{1+2\sqrt{3}}$ et $\dfrac{3}{1+\sqrt{13}}$\droppoints
+\anserline[4]
+\question[2]Soient $4\leq a\leq 7$ et $1\leq b\leq 3$ . Encadrer :\droppoints
+\begin{multicols}{4}
+$2a+b$\notes[10pt]{6}{\linewidth}\columnbreak
+
+$a-b$\notes[10pt]{6}{\linewidth}\columnbreak
+ 
+$ab$\notes[10pt]{6}{\linewidth}\columnbreak
+  
+$\dfrac{a}{b}$ \notes[10pt]{6}{\linewidth}
+\end{multicols}
+\end{questions}
+\end{exo}
+
+\begin{exo}[7]
+On considère la figure ci-contre tel que : $AC=5$ , $BA=10$ et $BC=5\sqrt{5}$ et $H$  le projeté orthogonal de $A$ sur $(BC)$.
+\begin{questions}
+\question[1] Montrer que $ABC$ est un triangle rectangle .\droppoints
+\begin{minipage}{0.6\linewidth}
+\anserline[5]
+\end{minipage}%
+\begin{minipage}{0.4\linewidth}
+\begin{tikzpicture}
+\tkzDefPoints{-1/0/B,5/-1/C}
+\tkzDefTriangle[two angles=50 and 40](B,C)\tkzGetPoint{A}
+\tkzDefPointBy[projection=onto C--B](A)\tkzGetPoint{H}
+\tkzDrawSegments(A,B B,C C,A A,H)
+\tkzLabelPoints(B,C,H)
+\tkzLabelPoint[above](A){A}
+\tkzMarkRightAngle(C,H,A)
+\end{tikzpicture}
+\end{minipage}
+\question[2] Calculer les rapports trigonométriques d'angle $\widehat{ACB}$\droppoints
+\anserline[3]
+\question[1] Calculer $AH$\droppoints
+\anserline[3]
+\end{questions}
+Soit $x$ la mesure d'un angle aigu tel que : $\cos x =\dfrac{2}{3}$
+\begin{questions}
+\setcounter{question}{3}
+\question[1] Calculer : $\sin x$ et $\tan x$\droppoints
+\anserline[4]
+\question[1] Simplifier  :\droppoints
+$A = \sin^{2}40^{\circ} +\cos55^{\circ} +\sin^{2}50^{\circ}-\sin35^{\circ} =$\anserline[3]
+\question[1] Montrer que : $1+\tan^{2}x = \dfrac{1}{\cos^{2}x}$\droppoints
+\anserline[4]
+\end{questions}
+\end{exo}
+
+\begin{exo}[2]
+$ABC$ est un triangle tel que : $AC=9$ , $CB=12$ , $AM=6$  et $(BC)//(MN)$
+\begin{questions}
+\question[1] Calculer  $MN$ .\droppoints
+\begin{minipage}{0.5\linewidth}
+\anserline[6]
+\end{minipage}
+\begin{minipage}{0.5\linewidth}
+\begin{tikzpicture}
+\tkzDefPoints{0/0/C,5/0/B,-1/4/A}
+\tkzDefPointOnLine[pos=.3](C,A)\tkzGetPoint{M}
+\tkzDefPointOnLine[pos=.3](C,B)\tkzGetPoint{P}
+\tkzDefPointOnLine[pos=.3](B,A)\tkzGetPoint{N}
+\tkzDrawLines(P,M M,N)
+\tkzDrawSegments(A,C A,B B,C)
+\tkzLabelPoints(B,C,P)
+\tkzLabelPoints[below left](A,M)
+\tkzLabelPoint[above](N){N}
+\end{tikzpicture}
+\end{minipage}
+\anserline[3]
+\question[1] Soit $P$ un point de $[CB] $ tel que: $PC=4$.
+Monter que : $(AB)//(MP)$\droppoints
+\anserline[8]
+\end{questions}
+\end{exo}
+
+
+\end{document}

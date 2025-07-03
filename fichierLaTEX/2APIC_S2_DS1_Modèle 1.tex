@@ -1,0 +1,149 @@
+\documentclass[12pt,a4paper,fleqn]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb,mathtools,amsthm,amsmath,amsfonts,array}
+\usepackage[left=1cm,right=1cm,top=1cm,bottom=1cm]{geometry}
+\everymath{\displaystyle}
+\usepackage[many]{tcolorbox}
+\usetikzlibrary{calc}
+\usepackage{wrapfig} %%% images et figures
+\usepackage{fourier}
+\usepackage{tikz}
+\usepackage{lipsum}
+\usepackage{tabularx}
+\usepackage{graphicx}
+\pagestyle{empty} %%%% aucune en-tete et aucun pied de page
+
+\usepackage[T1]{fontenc}
+\usepackage[frenchb]{babel}
+
+\usepackage{enumitem} %%% modifie numérotation item
+\usepackage{hyperref}
+%\usepackage[french]{babel}
+
+
+
+\usepackage{xcolor}
+\usepackage{color} %% colorer texte
+
+%%%%%%%%%%%%%%%%%%%%%  EXERCICE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand\dunderline[3][-1pt]{{%
+\setbox0=\hbox{#3}
+\ooalign{\copy0\cr\rule[\dimexpr#1-#2\relax]{\wd0}{#2}}}}
+\newtcolorbox[auto counter]{Exercice}[1][]{
+enhanced,left=80pt,
+interior code app={\fill[blue!25,line width=1cm] ([xshift=-0cm,yshift=-0.3cm]frame.north west)rectangle([xshift=2.7cm]frame.south west);} ,
+colframe=white,colback=white,
+attach boxed title to top left={xshift=-0cm,yshift=-\tcboxedtitleheight/3},
+boxed title style={colback=red!44,left=-2pt},
+coltitle=black,
+title=\dunderline{2.5pt}{\sffamily \textbf{Exercice n$^{\circ}$\thetcbcounter :}}\quad$\big($\textbf{#1}$ \big)$ }
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{%
+\node[shape=circle,fill=black,draw,inner sep=2pt] (char) {#1};}}
+\tikzstyle{every picture}+=[remember picture]
+\newcommand{\pts}[2]{\tikz[overlay,anchor=base, baseline,xshift=-#1cm] {\node[](4){\textbf{#2}};}}
+
+
+%%%%%%%%%%%%%%%%%%%%%% l'entête %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newtcolorbox[]{entete}[1][]{
+breakable,
+enhanced,
+arc=2pt,
+top=3mm,
+left=3mm,
+colframe=black,
+colback=blue!15
+}
+
+\begin{document}
+\begin{entete}
+\begin{tabular}{m{5cm}m{7.2cm}m{5cm}}
+Niveau: 2APIC  \newline Durée:\quad 1h \newline
+Prof : \emph{\href{https://mathelatex.com}{Mathe\LaTeX}} & \centering \begin{large}
+\textbf{DEVOIR SURVEILLE N\textsuperscript{o} 1}
+\end{large}\vspace{0.05cm}\newline
+\centering  Semestre 2 $\qquad\quad$ & \centering \href{https://mathelatex.com}{Mathe\LaTeX} \quad \href{https://mathelatex.com}{Mathe\LaTeX} \\ \href{https://mathelatex.com}{Mathe\LaTeX} \newline
+Année scolaire :2022-2023
+\end{tabular}
+\end{entete}
+
+\large
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EXERCIC 1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{Exercice}[4 points]
+Complète les phrases suivantes:
+\begin{enumerate}
+      \item[•] \pts{2.6}{2 pts} La bissectrice d'un angle est  \dotfill
+      \item[•] \pts{2.6}{1 pt} Le centre de gravité d'un triangle est le point de concours des \dotfill
+      \item[•] \pts{2.6}{1 pt} .\dotfill est le point de concours des bissectrices.
+      \item[•] \pts{2.6}{1 pt} .\dotfill est le point de concours des hauteurs.
+\end{enumerate}
+\end{Exercice}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EXERCIC 2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{Exercice}[7 points]
+\begin{enumerate}
+\item Développer puis réduire les expressions suivantes:
+     \begin{enumerate}
+     \item \pts{3.6}{1 pt} $A=2x(1-x)$
+     \item \pts{3.6}{1 pt} $B=(2x-1)(x+3)$
+     \item \pts{3.6}{1 pt} $C=(3x-2)^2$
+     \item \pts{3.6}{1 pt} $D=(x-3)(x+3)$
+     \end{enumerate}
+\item Factoriser les expressions suivantes:
+     \begin{enumerate}
+     \item \pts{3.6}{1 pt} $E=36x^2+12$
+     \item \pts{3.6}{1 pt} $F=x^2-8x+16$
+     \item \pts{3.6}{1 pt} $G=9x^2-100$
+     \end{enumerate}
+\end{enumerate}
+\end{Exercice}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EXERCIC 3 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{Exercice}[5 points]
+\begin{enumerate}
+\item Considérons l'expression suivante: $H=16-(2x+3)^2$
+     \begin{enumerate}
+     \item \pts{3.6}{1 pt} Développer et réduire $H$.
+     \item \pts{3.6}{1 pt} Factoriser $H$.
+     \item \pts{3.6}{1 pt} Calculer la valeur de $H$ pour $x=\dfrac{1}{2}$
+     \end{enumerate}
+\item \pts{2.6}{2 pts} Soit $x$ et $y$ deux nombres rationnels.\\
+ Montrer que: $(x+y)^2+(x-y)^2=2(x^2+y^2)$
+\end{enumerate}
+\end{Exercice}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EXERCIC 4 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{Exercice}[4 points]
+Résoudre les équations suivantes:
+\begin{enumerate}
+\item \pts{2.6}{1 pt} $x+5=16$
+\item \pts{2.6}{1.5 pts} $7x-6=2x+2$
+\item \pts{2.6}{1.5 pts} $2(5x-1)-(6x-4)=0$
+\end{enumerate}
+\end{Exercice}
+
+
+
+\hfill\textbf{\huge\textcolor{red}{ $\mathcal{BON}$ \ $\mathcal{COURAGE}$}}
+
+
+\end{document}

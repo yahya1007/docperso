@@ -1,0 +1,37 @@
+\documentclass[12pt,a4paper]{report}
+\usepackage[margin=1.5cm]{geometry}
+\usepackage{tikz,tcolorbox,varwidth,multicol}
+\usetikzlibrary{shapes.geometric,calc}
+\tcbuselibrary{xparse,hooks,skins,breakable}
+\usepackage{lipsum}
+\newtcolorbox[auto counter]{tbox}[1][]
+{enhanced,arc=1.5mm,
+boxrule=2pt,
+breakable,colback=cyan!3,frame style={
+left color=cyan!80!blue,
+middle color=green!80,
+right color=yellow!80,
+},
+title=#1,
+attach boxed title to top left={xshift=+0.51cm,yshift*=-0.42cm},
+coltitle=red, boxed title style={top=.5mm,bottom=+.5mm},
+,
+underlay unbroken and first={
+\fill[green!30,draw=cyan]([xshift=-2pt,yshift=+2pt]title.north west) -- ([xshift=+8pt,yshift=+2pt]title.north east)--([xshift=+9pt]$(title.east)+(0.3cm,0)$)--
+([xshift=+8pt,yshift=-2pt]title.south east) -- ([xshift=-2pt,yshift=-2pt]title.south west)--cycle;
+%
+\draw[white,thick]([xshift=-1pt,yshift=+1pt]title.north west) -- ([xshift=+7pt,yshift=+1pt]title.north east)--([xshift=+8pt]$(title.east)+(0.3cm,0)$)--
+([xshift=+7pt,yshift=-1pt]title.south east) -- ([xshift=-1pt,yshift=-1pt]title.south west)--cycle;
+%
+\fill[cyan](title.north west) -- (title.north east)--($(title.east)+(0.3cm,0)$)--
+(title.south east) -- (title.south west)--cycle;
+\node[font=\bf] at(title.center){\textcolor{white}{#1}}
+;}
+%
+}
+\begin{document}
+\begin{tbox}[Propriété]
+\lipsum[2]
+\end{tbox}
+%
+\end{document}

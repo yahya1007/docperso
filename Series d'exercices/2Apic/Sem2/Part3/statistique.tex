@@ -1,0 +1,170 @@
+\documentclass[a4paper,12pt]{article}
+
+
+\usepackage{ProfModels}
+
+\usepackage{diagrammes}
+ 
+\begin{document}
+
+\begin{Maquette}[Fiche]{Theme=Les statistiques,Niveau=2}
+
+\begin{exercice}
+Voici la liste des notes obtenues par des élèves d'une classe à un devoir de mathématiques.
+\begin{center}
+14 - 16 - 14 - 6 - 7 - 12 - 14 - 13 - 15 - 9 - 8 - 10\\
+10 - 12 - 12 - 16 - 12 - 8 - 13 - 9 - 6 - 7 - 9 - 8 - 10 - 12\\
+14 - 14 - 13 - 6 - 15 - 13 - 12 - 9 - 8 - 7 - 6 - 12 - 7.
+\end{center}
+
+\begin{enumerate}
+\item Décrire la population et le caractère.
+\item Réaliser un tableau d'effectifs, d'effectifs cumulés, fréquences et fréquences cumulés.
+\item Calculer la moyenne de cette série statistique.
+\item Dresser un diagramme en bâtons.
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+Un prélèvement de Institut National de la Météorologie des précipitations quotidiennes (en mm):
+\begin{minipage}{0.5\linewidth}
+\begin{enumerate}
+\item Donner le tableau des effectifs et des effectifs cumulés.
+\item Calculer la moyenne de précipitations.
+\item Dresser un diagramme en bâtons.
+\end{enumerate}
+\end{minipage}%
+\begin{minipage}{0.5\linewidth}
+\begin{tabular}{Oc|Oc|Oc|Oc|Oc|Oc|Oc|Oc|Oc|Oc|Oc}
+4 & 6 & 6 & 7 & 4 & 5 & 8 & 8 & 8 & 6 & 5 \\ 
+\hline 
+8 & 7 & 4 & 4 & 5 & 5 & 6 & 6 & 6 & 7 & 7 \\ 
+\hline 
+4 & 5 & 4 & 6 & 6 & 7 & 7 & 8 & 8 & 6 & 4 \\ 
+\end{tabular}
+\end{minipage}
+\end{exercice}
+
+\begin{exercice}
+Le tableau suivant donne une classification de 30 jeunes dans un club sportif selon leurs âges:
+
+\begin{tabular}{|Oc|Oc|Oc|Oc|Oc|}
+\hline 
+Classe: Âge & $8\leq a <10$ & $10\leq a<12$ & $12\leq a<14$ & $14\leq a<16$ \\ 
+\hline 
+Effectifs & 9 & 4 & 12 & 5 \\ 
+\hline 
+\end{tabular}
+\begin{enumerate}
+\item calculer la moyenne de cette série statistique.
+\item Donner le tableau des effectifs cumulés.
+\item Donner le tableau des fréquences.
+\item Calculer le pourcentage des jeunes ayant un âge entre 12 et 16 ans.
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+Le tableau suivant donne le nombres des opérations chirurgicales effectués par équipe médicale des médecins pendant 30 jours.
+
+\begin{minipage}{0.5\linewidth}
+\begin{enumerate}
+\item Déterminer l'effectif cumulé 
+\item Calculer la moyenne de cette série statistique.
+\item Calculer le pourcentage des jours où aucune opération chirurgicale n'a été effectuée.
+\item Dresser un diagramme en bâtons.
+\end{enumerate}
+\end{minipage}%
+\begin{minipage}{0.5\linewidth}
+\begin{tabular}{|Oc|Oc|Oc|Oc|Oc|Oc|Oc|}
+\hline 
+Nombre des opérations & 0 & 1 & 2 & 3 & 4 & 5 \\ 
+\hline 
+Nombred de jours & 5 & 6 & 10 & 8 & 1 & 0 \\ 
+\hline 
+\end{tabular}
+\end{minipage}
+ \end{exercice}
+\newpage
+
+\begin{exercice}
+Le tableau suivant donne le nombre des enfants de 25 familles.Recopier puis compléter le tableau:
+\begin{minipage}{0.6\linewidth}
+\begin{enumerate}
+\item Calculer la moyenne des enfants de ces familles.
+\item Calculer le pourcentage des familles ayant plus de trois enfants.
+\end{enumerate}
+\end{minipage}%
+\begin{minipage}{0.4\linewidth}
+\begin{tabular}{|Oc|Oc|Oc|Oc|Oc|Oc|}
+\hline 
+Nombre des enfants & 1 & 2 & 3 & 4 & 5 \\ 
+\hline 
+Nombre des familles & 5 &  & 7 & 3 & 4 \\ 
+\hline 
+Effectif cumulé &  & 11 &  &  &  \\ 
+\hline 
+\end{tabular}
+\end{minipage}
+\end{exercice}
+
+\begin{exercice}
+Le graphique suivant présent les notes des élèves d'une classe dans un contrôle surveillé de mathématiques.
+
+\begin{minipage}{0.5\linewidth}
+\begin{enumerate}
+\item Déterminer l'effectif total.
+\item Calculer le pourcentage des élèves ayant une note supérieur à 12.
+\item Calculer la note moyenne du classe.
+\item Dresser un diagramme en bâtons.
+\end{enumerate}
+\end{minipage}%
+\begin{minipage}{0.5\linewidth}
+\Histogramme[Largeur=8,Hauteur=5,%
+ListeCouleurs={orange,gray,blue,pink,red,black,gray,green,orange,gray,blue},%
+DebutOx=0,FinOx=18,GradX={1,2,...,18},GradY={0,1,...,8},%
+AffEffectifs=false,LabelX={},LabelY={}]%
+{1.8/2.2/3 3.8/4.2/2 5.8/6.2/4 7.8/8.2/5 8.8/9.2/6 9.8/10.2/8 10.8/11.2/3 12.8/13.2/4 13.8/14.2/6 15.8/16.2/7 17.8/18.2/3}
+\end{minipage}
+\end{exercice}
+
+\begin{exercice}%6
+Le tableau suivant donne les distances en Km parcourus par 80 élèves de maisons vers l'école:
+\begin{tabular}{|Oc|Oc|Oc|Oc|Oc|Oc|}
+\hline 
+Classe: Distance & $0\leq d<2$ & $2\leq d<4$ & $4\leq d<6$ & $6\leq d<8$ & $8\leq d<10$ \\ 
+\hline 
+Effectif & 15 & 5 & x & 20 & 10 \\ 
+\hline 
+\end{tabular} 
+\begin{enumerate}
+\item Montrer que $x=30$ puis déterminer les effectifs cumulés.
+\item Calcule la moyenne des distances parcourus par ces élèves.
+\item Calcule le pourcentage des élèves qui parcourent des distances supérieurs ou égales à 4 Km.
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+Le tableau suivant donne la répartition des notes d'une classe à un contrôle.
+
+\begin{tabular}{|Oc|Oc|Oc|Oc|Oc|Oc|Oc|Oc|Oc|Oc|}
+\hline 
+Note & 6 & 8 & 9 & 10 & 11 & 12 & 13 & 16 & 19 \\ 
+\hline 
+Effectif & 2 & $\cdots$ & 4 & 5 & $\cdots$ & 6 & 7 & 2 & 1 \\ 
+\hline 
+Effectif cumulé & $\cdots$ & 4 & $\cdots$ & $\cdots$ & $\cdots$ & $\cdots$ & $\cdots$ & $\cdots$ & 30 \\ 
+\hline 
+\end{tabular} 
+\begin{enumerate}
+\item Quel est l'effectif total de cette série?
+\item Recopier et compléter le tableau.
+\item Calculer la fréquence de 12.
+\item Calculer le pourcentage des élèves qui ont obtenu une note supérieur à 12.
+\item Calculer la note moyenne de la classe.
+\end{enumerate}
+\end{exercice}
+
+
+
+\end{Maquette}
+\end{document}

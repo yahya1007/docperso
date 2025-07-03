@@ -1,0 +1,143 @@
+\documentclass[12pt,a4paper]{book}
+\usepackage[utf8]{inputenc}
+%\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amsfonts,amssymb,amsthm}
+\usepackage[left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm]{geometry}
+
+\usepackage{lipsum} %for dummy text
+\usepackage{tcolorbox}
+%====================
+\definecolor{myblue}{HTML}{1D2A6E}
+\definecolor{myred}{HTML}{A97E77}
+\definecolor{mybrown}{HTML}{B35823}
+\definecolor{gold}{HTML}{B48920}
+\definecolor{myorange}{HTML}{ED8C2B}
+\definecolor{col}{RGB}{45, 136, 119}
+\definecolor{mygreen}{HTML}{07a56d}
+\definecolor{headercolourgreen}{rgb}{0,0.7019,0.7019}
+%===============
+\DeclareFixedFont{\chapternumberfont}{T1}{phv}{bx}{sc}{1in}
+%==================================
+\newtcolorbox{titlecolorbox}[1]{ %the box around chapter
+    coltext=white,
+    colframe=myblue,
+    colback=myblue,
+    boxrule=0pt,
+    arc=0pt,
+    notitle,
+    width=1in,
+    height=1.2in,
+    before=\hfill
+}
+
+\usepackage{xcolor}
+
+\usepackage[explicit]{titlesec}
+\titlespacing{\chapter}{0pt}{-50pt}{20pt}
+\titleformat{\chapter}[display]
+  {\sffamily\Huge\color{myblue}} 
+  {}
+  {0pt}
+{\rule{\textwidth}{1.5pt}\noindent
+\begin{titlecolorbox}{}
+\small\MakeUppercase{\chaptertitlename}\vspace{1ex}
+  {{\chapternumberfont\thechapter} 
+  }
+  \end{titlecolorbox}\noindent\hfill\raggedright
+  \parbox[b]{\dimexpr\textwidth-4.8em\relax}{\MakeUppercase{#1}}
+  }
+  []
+%==================================
+%================
+
+\titleformat{\section}[display]
+  {\sffamily\large}
+  {}
+  {0pt}
+  {\hrule\vspace*{0.25ex}\parbox[b]{\dimexpr\textwidth\relax}{\textcolor{darkgray}{\thesection}\quad\raggedright\bfseries\MakeUppercase{#1}}}
+  [\hrule]
+
+\begin{document}
+
+\chapter{Modeling Event-Based Behaviour with State Machine}
+\lipsum[3]
+\section{Overview}
+\lipsum[4]
+\end{document}
+
+
+%\documentclass[12pt,a4paper]{book}
+%\usepackage[utf8]{inputenc}
+%\usepackage[french]{babel}
+%\usepackage[T1]{fontenc}
+%\usepackage{amsmath,amsfonts,amssymb,amsthm}
+%\usepackage[left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm]{geometry}
+%
+%\usepackage{lipsum} %for dummy text
+%\usepackage{tcolorbox}
+%%====================
+%\definecolor{myblue}{HTML}{1D2A6E}
+%\definecolor{myred}{HTML}{A97E77}
+%\definecolor{mybrown}{HTML}{B35823}
+%\definecolor{gold}{HTML}{B48920}
+%\definecolor{myorange}{HTML}{ED8C2B}
+%\definecolor{col}{RGB}{45, 136, 119}
+%\definecolor{mygreen}{HTML}{07a56d}
+%\definecolor{headercolourgreen}{rgb}{0,0.7019,0.7019}
+%%===============
+%\DeclareFixedFont{\chapternumberfont}{T1}{phv}{bx}{sc}{1in}
+%%==================================
+%\newtcolorbox{titlecolorbox}[1]{ %the box around chapter
+%    coltext=white,
+%    colframe=myblue,
+%    colback=myblue,
+%    boxrule=0pt,
+%    arc=0pt,
+%    title=\small\bfseries CHAPITRE,
+%    width=1.2in,
+%    height=1.2in,
+%    before=\hfill
+%}
+%
+%\usepackage{xcolor}
+%
+%\usepackage[explicit]{titlesec}
+%\titlespacing{\chapter}{0pt}{-20ex}{5ex}
+%\titleformat{\chapter}[display]
+%  {\sffamily\Huge\color{myblue}} 
+%  {}
+%  {0pt}
+%{\rule{\textwidth}{5pt}\vspace{-10pt}
+%\begin{titlecolorbox}{}
+%  {\chapternumberfont\thechapter
+%  }
+%\end{titlecolorbox}
+%  \vspace{-8ex}
+%  \noindent\hfill
+%  \raggedright
+%  \parbox[b]{\dimexpr\textwidth-4.8em\relax}{\MakeUppercase{#1}}
+%  }
+%  []
+%%==================================
+%%================
+%
+%\titleformat{\section}[display]
+%  {\sffamily\large}
+%  {}
+%  {0pt}
+%  {\hrule\vspace*{0.25ex}\parbox[b]{\dimexpr\textwidth\relax}{\textcolor{darkgray}{\thesection}\quad\raggedright\bfseries\MakeUppercase{#1}}}
+%  [\hrule]
+%
+%\begin{document}
+%
+%\chapter{Modeling Event-Based Behaviour with State Machine}
+%\lipsum[3]
+%\section{Overview}
+%\lipsum[4]
+%\end{document}
+
+
+
+
+

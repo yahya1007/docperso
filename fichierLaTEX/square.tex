@@ -1,0 +1,63 @@
+\documentclass{article}
+\input{preambule/preambule.tex}
+
+
+\newcommand{\entetes}{
+\noindent
+\begin{tabularx}{\textwidth}{||r  ||||X|||| c ||}
+\toprule \toprule
+\RL{AlmdT AlzmnyT : sA`tAn}
+&
+\centering \RL{{\LARGE Al-'imt.hAn Al|m|.hly Al|m|w.hd }}
+&\multirow{3}*{
+\begin{tikzpicture}
+\node (box) {\includegraphics[scale=0.3]{images/logo.jpg}};
+\node (box1)at(0,-1.2){\RL{'akAdymyT AljhT Al^srqyT}};
+\node (box1)at(0,-1.7){\RL{nyAbT tAwryrt }};
+\node (box1)at(0,-2.2){\RL{-t . ` . Alkrym Alx.tAby Al-'i`dAdyT}};
+\end{tikzpicture}
+ }\\
+ \RL{AldwrT : $II$}& \centering   \RL{\Large{fy m|AdT AlryA.dyAt}}& \\
+ \RL{Alm`Aml : $3$} & \centering  \RL{AlsnT Al_tAl_tT 'i`dAdy } & \\
+ %\bottomrule
+\end{tabularx}
+}
+
+\begin{document}
+\entetes
+
+\vspace{2cm}
+\entete
+
+\vspace{2cm}
+\noindent
+\begin{tabularx}{\textwidth}{||r  ||||X|||| c ||}
+\toprule \toprule
+\begin{minipage}{0.2\textwidth}
+\begin{arabtext}
+AlmdT AlzmnyT : sA`tAn
+
+dwrT : ynAyr $2018$
+
+Alm`Aml : $1$
+\end{arabtext}
+\end{minipage}&
+\begin{minipage}{0.4\textwidth}
+\begin{center}
+ \RL{{\LARGE Al-'imt.hAn Alm.hly Almw.hd }}
+
+\RL{\Large{fy mAdT AlryA.dyAt}}
+
+ \RL{AlsnT Al_tAl_tT 'i`dAdy } 
+ \end{center}
+\end{minipage}&
+\begin{minipage}{0.3\textwidth}
+\centering\includegraphics[scale=0.5]{images/logo.jpg}
+
+\RL{_tAnwyT  AlrAzy Al-'i`dAdyT}
+\end{minipage}\\
+ \bottomrule  \bottomrule
+\end{tabularx}
+
+
+\end{document}

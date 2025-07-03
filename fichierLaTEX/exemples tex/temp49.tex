@@ -1,0 +1,931 @@
+\documentclass[12pt,a4paper,openany]{report}
+\usepackage[margin = 1cm, bottom = 2cm]{geometry}
+\usepackage[svgnames,dvipsnames,x11names]{xcolor}
+\usepackage{multicol}
+\usepackage{amsmath,amsfonts,amssymb,mathrsfs} 
+\usepackage{tkz-tab}
+\usepackage{concmath}
+\usepackage{fancyhdr}
+\usepackage{varwidth}
+\usepackage{tikz}
+\usepackage{fancybox}
+\usepackage[pdfstartview=FitH,colorlinks=true,urlcolor=blue,linkcolor=black]{hyperref}
+\usetikzlibrary{calc,scopes,backgrounds}
+\usetikzlibrary{decorations.footprints}
+\usetikzlibrary{shadows}
+\usetikzlibrary{shadings}
+\usetikzlibrary{shapes.symbols}
+\usetikzlibrary{shapes.misc,shadows}
+\usetikzlibrary{calc}
+\usepackage[most]{tcolorbox}
+\tcbuselibrary{skins,breakable,xparse}
+\usepackage{parnotes}
+\usepackage{polyglossia}
+\usepackage{pifont}
+\makeatletter 
+\AtBeginDocument{\bidi@isloaded[]{arabxetex}}
+\makeatother
+\setdefaultlanguage{french}
+\newfontfamily\frenchfont{Sakkal Majalla}
+\newfontfamily\frenchfontsf{Amiri}
+\newfontfamily\onfont{Amiri}
+\newfontfamily\na{Arial}
+\newfontfamily\wa{UKIJ Merdane}%{Amiri}%
+\newfontfamily\wl{UKIJ Merdane}%{Amiri}%{UKIJ Merdane}
+\newfontfamily\ma{Amiri}
+\setotherlanguage{arabic}
+\usepackage{eso-pic}
+\usepackage[novoc]{arabxetex}
+\begingroup\lccode`~=`^ \lowercase{\endgroup\let~}\sp
+\begingroup\lccode`~=`_ \lowercase{\endgroup\let~}\sb
+\AtBeginDocument{\mathcode`^=\string"8000 \mathcode`_=\string"8000 }
+\makeatletter
+% redefine the codes used in the environments for Arab script
+\def\arabtex@codes{%
+	\catcode`^=12 \lccode`^=`^
+	\catcode`_=12 \lccode`_=`_
+}
+\newcommand{\ondor}[1]{
+	\LR{\tikzpicture
+		\begin{scope}[rotate=-90,smooth cycle, line width=1.6pt, scale=0.35]
+			\draw[line join=miter, color=#1!80]  (0,0) -- ++ (-0.7,0.5) -- ++ (-0.7,-0.5);
+			\draw[line join=miter, color=#1!68]  (0,0.35) -- ++ (-0.7,0.5) -- ++ (-0.7,-0.5);
+			\draw[line join=miter, color=#1!48]  (0,0.75) -- ++ (-0.7,0.5) -- ++ (-0.7,-0.5);
+			\draw[line join=miter, color=#1!28]  (0,1.15) -- ++ (-0.7,0.5) -- ++ (-0.7,-0.5);
+		\end{scope}
+		\endtikzpicture}}
+\NewTColorBox[auto counter,number within=chapter,
+number freestyle={\noexpand\arabic{\tcbcounter}}]{exercise}{+O{}}{%
+	breakable,
+	enhanced,
+	toprule=0pt,rightrule=0mm,leftrule=0mm,
+	before skip=0.3cm,
+	after skip=0.3cm,
+	bottomrule=0mm,top=4mm,
+	arc=0pt,
+	colframe=blue!50!black,
+	colback=white,
+	fonttitle=\large\ma,
+	title={Exercice N°~},
+	attach boxed title to top left,
+	boxed title style={
+		enhanced,
+		colframe=blue!50!black,
+		colback=blue!50!black,
+		arc=0pt,
+		bottomrule=0pt,
+		leftrule=0pt
+	},
+	frame style={
+		fill=blue!50!black},
+	overlay={
+		\draw[draw=blue!80!black,line width=1.2pt,rounded corners=2mm]
+		(title.north west)--([xshift=10mm]title.north east)[sharp corners]--([xshift=10mm]title.south east)[sharp corners]--(title.south west)--(title.north west)|-
+		(interior.south east)--([yshift=0.6cm]interior.south east);
+		\node[anchor=west,text=black] at ([yshift=0mm,xshift=0mm]title.east)(M){
+			\bf\na\thetcbcounter};
+		\scoped[on background layer]{
+			\draw[blue!50!black,fill=white,line width=1.2pt,rounded corners=2mm](title.north west)--([xshift=-10mm]title.north east)[sharp corners]--([xshift=-10mm]title.south east)[sharp corners]--(title.south west)--cycle;
+			\node at ([xshift=10mm]title.east)(K){};
+			\node[anchor=west] at ([xshift=2mm]K.east)(N){\ondor{blue!80!black}};
+			\node[anchor=west,text=red!40!black] at (N.east){Solution de l'exercice dans la page
+					{\wa\pageref{solution@\thetcbcounter}} };
+	}},
+	overlay first={
+		\draw[draw=blue!80!black,line width=1.2pt,rounded corners=2mm]
+		(title.north west)--([xshift=10mm]title.north east)[sharp corners]--([xshift=10mm]title.south east)[sharp corners]--(title.south west)--(title.north west)--(interior.south west);
+	%	|--([yshift=0.6cm]interior.south east);
+		\node[anchor=west,text=black] at ([yshift=0mm,xshift=0mm]title.east)(M){
+			\bf\na\thetcbcounter};
+		\scoped[on background layer]{\draw[blue!50!black,fill=white,line width=1.2pt,rounded corners=0.5mm](title.north west)--([xshift=10mm]title.north west)[sharp corners]--([xshift=10mm]title.south west)[sharp corners]--(title.south east)--cycle;
+			\node at ([xshift=10mm]title.east)(K){};
+			\node[anchor=west] at ([xshift=0.5mm]K.east)(N){\ondor{blue!80!black}};
+			\node[anchor=west,text=red!40!black] at (N.east){Solution de l'exercice dans la page
+					{\wa\pageref{solution@\thetcbcounter}}};
+	}},overlay middle={
+\draw[draw=blue!80!black,line width=1.2pt](interior.north west)--
+(interior.south west);},
+	overlay last={
+		\draw[draw=blue!80!black,line width=1.2pt](interior.north west)|-
+		(interior.south east)--([yshift=0.6cm]interior.south east);},
+	label={exercise@\thetcbcounter},
+	lowerbox=ignored,
+	savelowerto=exercise-\thetcbcounter.tex,
+	record={\string\solution{\thetcbcounter}{exercise-\thetcbcounter.tex}},
+	#1,
+	code={\parnotereset}, % <-- parnotes
+}
+
+\NewTotalTColorBox{\solution}{mm}{%
+	breakable,
+	enhanced,
+	toprule=0pt,rightrule=0mm,leftrule=0mm,
+	bottomrule=0mm,top=4mm,
+	before skip=0.3cm,
+	after skip=0.3cm,
+	arc=0pt,
+	colframe=red!70!yellow,
+	colback=white,
+	fonttitle=\ma,
+	title={Solution de l'exercice N°:},
+	attach boxed title to top left,
+	boxed title style={
+		enhanced,
+		colframe=red!70!yellow,
+		colback=red!70!yellow,
+		arc=0pt,
+		bottomrule=0pt,
+		leftrule=0pt
+	},
+	frame style={
+		fill=red!70!yellow},
+	overlay={
+		\draw[draw=red!70!yellow,line width=1.2pt,rounded corners=2mm]
+		(title.north west)--([xshift=10mm]title.north east)[sharp corners]--([xshift=10mm]title.south east)[sharp corners]--(title.south west)--(title.north west)|-
+		(interior.south east)--([yshift=0.6cm]interior.south east);
+		\node[anchor=west,text=black] at ([yshift=0mm,xshift=0mm]title.east)(M){
+			\bf\na\ref{exercise@#1}};
+		\scoped[on background layer]{
+			\draw[red!70!yellow,fill=white,line width=1.2pt,rounded corners=2mm](title.north west)--([xshift=10mm]title.north east)[sharp corners]--([xshift=10mm]title.south east)[sharp corners]--(title.south west)--cycle;
+			\node at ([xshift=10mm]title.east)(K){};
+			\node[anchor=west] at ([xshift=0.5mm]K.east)(N){\ondor{red!70!yellow}};
+			\node[anchor=west,text=blue!40!black] at (N.east){Retour à l'exercice 
+					\bf\na\ref{exercise@#1}};
+	}} ,
+	overlay first={
+		\draw[draw=red!70!yellow,line width=1.2pt,rounded corners=2mm]
+		(title.north west)--([xshift=10mm]title.north east)[sharp corners]--([xshift=10mm]title.south east)[sharp corners]--(title.south west)--(title.north west)|-
+		(interior.south west);
+		\node[anchor=west,text=black] at ([yshift=0mm,xshift=0mm]title.east)(M){
+			\bf\na\ref{exercise@#1}};
+		\scoped[on background layer]{
+			\draw[red!70!yellow,fill=white,line width=1.2pt,rounded corners=2mm](title.north west)--([xshift=10mm]title.north east)[sharp corners]--([xshift=10mm]title.south east)[sharp corners]--(title.south west)--cycle;
+			\node at ([xshift=10mm]title.east)(K){};
+			\node[anchor=west] at ([xshift=0.5mm]K.east)(N){\ondor{red!70!yellow}};
+			\node[anchor=west,text=blue!40!black] at (N.east){Retour à l'exercice 
+					\bf\na\ref{exercise@#1}};
+	}},overlay middle={
+\draw[draw=red!70!yellow,line width=1.2pt](interior.north west)--
+(interior.south west);},
+	overlay last={
+		\draw[draw=red!70!yellow,line width=1.2pt](interior.north west)|-
+		(interior.south east)--([yshift=0.6cm]interior.south east);},
+	phantomlabel={solution@#1},
+}{\input{#2}}
+\tcbset{no solution/.style={no recording,after upper=}}
+
+\newtcolorbox{boxone}{%
+	enhanced,
+	colback=brown!10,
+	boxrule=0pt,
+	sharp corners,
+	drop lifted shadow,
+	frame hidden,
+	fontupper=\bfseries,
+	notitle,
+	overlay={%
+		\draw[circle, brown!70!black, line width=2pt](frame.north west)--(frame.south west); 
+		\draw[circle, brown!70!black, line width=2pt](frame.north east)--(frame.south east);}}
+
+\definecolor{mydarkblue}{RGB}{0,163,243}
+\AddToShipoutPictureBG{
+	\ifodd\value{page}
+	\begin{tikzpicture}[remember picture,overlay]
+		\node [fill=mydarkblue,anchor=north east,rotate=90,minimum width=29.7cm]at (current page.north west){\color{white}{\large Exercice sur les fonctions \qquad\qquad Preparation de BAC}}; 
+	\end{tikzpicture} 
+	\else
+	\begin{tikzpicture}[remember picture,overlay]
+		\node [fill=mydarkblue,anchor=south west,rotate=90,minimum width=29.7cm]at (current page.south east){\color{white}{\large Exercice sur les fonctions \qquad\qquad Preparation de BAC}}; 
+	\end{tikzpicture} \fi}
+\begin{document}
+	\begin{boxone}
+		\vspace*{-0.2cm}
+		\hspace*{6.3cm}
+		\textbf{
+			\begin{center}
+				{\Large \wl
+					Séries des exercices  
+					\hfill
+					2BAC
+				}
+			\end{center}
+			\Large\wl\hspace{4cm}
+		Filière: 2BSVT-2BSP-2BE
+		}
+	\end{boxone}
+\tcbstartrecording
+\begin{exercise}
+	maths maths
+	
+	Text text text text text text text text text text 
+	
+
+	\begin{enumerate}
+		\item 
+		
+		maths maths
+		Text text text text text text text text text text text
+		
+		text text text text text text text text text text text
+		
+		text text text text text text text text text text text
+		
+		text text text text text text text text text text text
+		
+		text text text text text text text text text text text
+		
+		text text text text text text text text text text text text text
+		\item
+		
+		maths maths
+		
+		Text text text text text text text text text text 
+		
+		text text text text text text text text text text
+	
+		\item 
+		
+		maths maths
+		
+		Text text text text text text text text text text 
+		
+		text text text text text text text text text text
+		
+	
+	\end{enumerate}
+\tcblower
+	maths maths
+
+Text text text text text text text text text text 
+
+
+\begin{enumerate}
+	\item 
+	
+	maths maths
+	Text text text text text text text text text text text
+	
+	text text text text text text text text text text text
+	
+	text text text text text text text text text text text
+	
+	text text text text text text text text text text text
+	
+	text text text text text text text text text text text
+	
+	text text text text text text text text text text text text text
+	\item
+	
+	maths maths
+	
+	Text text text text text text text text text text 
+	
+	text text text text text text text text text text
+	
+	\item 
+	
+	maths maths
+	
+	Text text text text text text text text text text 
+	
+	text text text text text text text text text text
+	
+	
+\end{enumerate}
+\end{exercise}
+\begin{exercise}
+	maths maths
+	
+	Text text text text text text text text text text 
+	
+	
+	\begin{enumerate}
+		\item 
+		
+		maths maths
+		Text text text text text text text text text text text
+		
+		text text text text text text text text text text text
+		
+		text text text text text text text text text text text
+		
+		text text text text text text text text text text text
+		
+		text text text text text text text text text text text
+		
+		text text text text text text text text text text text text text
+		\item
+		
+		maths maths
+		
+		Text text text text text text text text text text 
+		
+		text text text text text text text text text text
+		
+		\item 
+		
+		maths maths
+		
+		Text text text text text text text text text text 
+		
+		text text text text text text text text text text
+		
+		
+	\end{enumerate}
+	\tcblower
+	maths maths
+	
+	Text text text text text text text text text text 
+	
+	
+	\begin{enumerate}
+		\item 
+		
+		maths maths
+		Text text text text text text text text text text text
+		
+		text text text text text text text text text text text
+		
+		text text text text text text text text text text text
+		
+		text text text text text text text text text text text
+		
+		text text text text text text text text text text text
+		
+		text text text text text text text text text text text text text
+		\item
+		
+		maths maths
+		
+		Text text text text text text text text text text 
+		
+		text text text text text text text text text text
+		
+		\item 
+		
+		maths maths
+		
+		Text text text text text text text text text text 
+		
+		text text text text text text text text text text
+		
+		
+	\end{enumerate}
+\end{exercise}
+\begin{exercise}
+	maths maths
+	
+	Text text text text text text text text text text 
+	
+	
+	\begin{enumerate}
+		\item 
+		
+		maths maths
+		Text text text text text text text text text text text
+		
+		text text text text text text text text text text text
+		
+		text text text text text text text text text text text
+		
+		text text text text text text text text text text text
+		
+		text text text text text text text text text text text
+		
+		text text text text text text text text text text text text text
+		\item
+		
+		maths maths
+		
+		Text text text text text text text text text text 
+		
+		text text text text text text text text text text
+		
+		\item 
+		
+		maths maths
+		
+		Text text text text text text text text text text 
+		
+		text text text text text text text text text text
+		
+		
+	\end{enumerate}
+	\tcblower
+	maths maths
+	
+	Text text text text text text text text text text 
+	
+	
+	\begin{enumerate}
+		\item 
+		
+		maths maths
+		Text text text text text text text text text text text
+		
+		text text text text text text text text text text text
+		
+		text text text text text text text text text text text
+		
+		text text text text text text text text text text text
+		
+		text text text text text text text text text text text
+		
+		text text text text text text text text text text text text text
+		\item
+		
+		maths maths
+		
+		Text text text text text text text text text text 
+		
+		text text text text text text text text text text
+		
+		\item 
+		
+		maths maths
+		
+		Text text text text text text text text text text 
+		
+		text text text text text text text text text text
+		
+		
+	\end{enumerate}
+\end{exercise}
+\begin{exercise}
+	maths maths
+	
+	Text text text text text text text text text text 
+	
+	
+	\begin{enumerate}
+		\item 
+		
+		maths maths
+		Text text text text text text text text text text text
+		
+		text text text text text text text text text text text
+		
+		text text text text text text text text text text text
+		
+		text text text text text text text text text text text
+		
+		text text text text text text text text text text text
+		
+		text text text text text text text text text text text text text
+		\item
+		
+		maths maths
+		
+		Text text text text text text text text text text 
+		
+		text text text text text text text text text text
+		
+		\item 
+		
+		maths maths
+		
+		Text text text text text text text text text text 
+		
+		text text text text text text text text text text
+		
+		
+	\end{enumerate}
+	\tcblower
+	maths maths
+	
+	Text text text text text text text text text text 
+	
+	
+	\begin{enumerate}
+		\item 
+		
+		maths maths
+		Text text text text text text text text text text text
+		
+		text text text text text text text text text text text
+		
+		text text text text text text text text text text text
+		
+		text text text text text text text text text text text
+		
+		text text text text text text text text text text text
+		
+		text text text text text text text text text text text text text
+		\item
+		
+		maths maths
+		
+		Text text text text text text text text text text 
+		
+		text text text text text text text text text text
+		
+		\item 
+		
+		maths maths
+		
+		Text text text text text text text text text text 
+		
+		text text text text text text text text text text
+		
+		
+	\end{enumerate}
+\end{exercise}
+\begin{exercise}
+	maths maths
+	
+	Text text text text text text text text text text 
+	
+	
+	\begin{enumerate}
+		\item 
+		
+		maths maths
+		Text text text text text text text text text text text
+		
+		text text text text text text text text text text text
+		
+		text text text text text text text text text text text
+		
+		text text text text text text text text text text text
+		
+		text text text text text text text text text text text
+		
+		text text text text text text text text text text text text text
+		\item
+		
+		maths maths
+		
+		Text text text text text text text text text text 
+		
+		text text text text text text text text text text
+		
+		\item 
+		
+		maths maths
+		
+		Text text text text text text text text text text 
+		
+		text text text text text text text text text text
+		
+		
+	\end{enumerate}
+	\tcblower
+	maths maths
+	
+	Text text text text text text text text text text 
+	
+	
+	\begin{enumerate}
+		\item 
+		
+		maths maths
+		Text text text text text text text text text text text
+		
+		text text text text text text text text text text text
+		
+		text text text text text text text text text text text
+		
+		text text text text text text text text text text text
+		
+		text text text text text text text text text text text
+		
+		text text text text text text text text text text text text text
+		\item
+		
+		maths maths
+		
+		Text text text text text text text text text text 
+		
+		text text text text text text text text text text
+		
+		\item 
+		
+		maths maths
+		
+		Text text text text text text text text text text 
+		
+		text text text text text text text text text text
+		
+		
+	\end{enumerate}
+\end{exercise}
+\begin{exercise}
+	maths maths
+	
+	Text text text text text text text text text text 
+	
+	
+	\begin{enumerate}
+		\item 
+		
+		maths maths
+		Text text text text text text text text text text text
+		
+		text text text text text text text text text text text
+		
+		text text text text text text text text text text text
+		
+		text text text text text text text text text text text
+		
+		text text text text text text text text text text text
+		
+		text text text text text text text text text text text text text
+		\item
+		
+		maths maths
+		
+		Text text text text text text text text text text 
+		
+		text text text text text text text text text text
+		
+		\item 
+		
+		maths maths
+		
+		Text text text text text text text text text text 
+		
+		text text text text text text text text text text
+		
+		
+	\end{enumerate}
+	\tcblower
+	maths maths
+	
+	Text text text text text text text text text text 
+	
+	
+	\begin{enumerate}
+		\item 
+		
+		maths maths
+		Text text text text text text text text text text text
+		
+		text text text text text text text text text text text
+		
+		text text text text text text text text text text text
+		
+		text text text text text text text text text text text
+		
+		text text text text text text text text text text text
+		
+		text text text text text text text text text text text text text
+		\item
+		
+		maths maths
+		
+		Text text text text text text text text text text 
+		
+		text text text text text text text text text text
+		
+		\item 
+		
+		maths maths
+		
+		Text text text text text text text text text text 
+		
+		text text text text text text text text text text
+		
+		
+	\end{enumerate}
+\end{exercise}
+\begin{exercise}
+	maths maths
+	
+	Text text text text text text text text text text 
+	
+	
+	\begin{enumerate}
+		\item 
+		
+		maths maths
+		Text text text text text text text text text text text
+		
+		text text text text text text text text text text text
+		
+		text text text text text text text text text text text
+		
+		text text text text text text text text text text text
+		
+		text text text text text text text text text text text
+		
+		text text text text text text text text text text text text text
+		\item
+		
+		maths maths
+		
+		Text text text text text text text text text text 
+		
+		text text text text text text text text text text
+		
+		\item 
+		
+		maths maths
+		
+		Text text text text text text text text text text 
+		
+		text text text text text text text text text text
+		
+		
+	\end{enumerate}
+	\tcblower
+	maths maths
+	
+	Text text text text text text text text text text 
+	
+	
+	\begin{enumerate}
+		\item 
+		
+		maths maths
+		Text text text text text text text text text text text
+		
+		text text text text text text text text text text text
+		
+		text text text text text text text text text text text
+		
+		text text text text text text text text text text text
+		
+		text text text text text text text text text text text
+		
+		text text text text text text text text text text text text text
+		\item
+		
+		maths maths
+		
+		Text text text text text text text text text text 
+		
+		text text text text text text text text text text
+		
+		\item 
+		
+		maths maths
+		
+		Text text text text text text text text text text 
+		
+		text text text text text text text text text text
+		
+		
+	\end{enumerate}
+\end{exercise}
+\begin{exercise}
+	maths maths
+	
+	Text text text text text text text text text text 
+	
+	
+	\begin{enumerate}
+		\item 
+		
+		maths maths
+		Text text text text text text text text text text text
+		
+		text text text text text text text text text text text
+		
+		text text text text text text text text text text text
+		
+		text text text text text text text text text text text
+		
+		text text text text text text text text text text text
+		
+		text text text text text text text text text text text text text
+		\item
+		
+		maths maths
+		
+		Text text text text text text text text text text 
+		
+		text text text text text text text text text text
+		
+		\item 
+		
+		maths maths
+		
+		Text text text text text text text text text text 
+		
+		text text text text text text text text text text
+		
+		
+	\end{enumerate}
+	\tcblower
+	maths maths
+	
+	Text text text text text text text text text text 
+	
+	
+	\begin{enumerate}
+		\item 
+		
+		maths maths
+		Text text text text text text text text text text text
+		
+		text text text text text text text text text text text
+		
+		text text text text text text text text text text text
+		
+		text text text text text text text text text text text
+		
+		text text text text text text text text text text text
+		
+		text text text text text text text text text text text text text
+		\item
+		
+		maths maths
+		
+		Text text text text text text text text text text 
+		
+		text text text text text text text text text text
+		
+		\item 
+		
+		maths maths
+		
+		Text text text text text text text text text text 
+		
+		text text text text text text text text text text
+		
+		
+	\end{enumerate}
+\end{exercise}
+\begin{exercise}
+	maths maths
+	
+	Text text text text text text text text text text 
+	
+	
+	\begin{enumerate}
+		\item 
+		
+		maths maths
+		Text text text text text text text text text text text
+		
+		text text text text text text text text text text text
+		
+		text text text text text text text text text text text
+		
+		text text text text text text text text text text text
+		
+		text text text text text text text text text text text
+		
+		text text text text text text text text text text text text text
+		\item
+		
+		maths maths
+		
+		Text text text text text text text text text text 
+		
+		text text text text text text text text text text
+		
+		\item 
+		
+		maths maths
+		
+		Text text text text text text text text text text 
+		
+		text text text text text text text text text text
+		
+		
+	\end{enumerate}
+	\tcblower
+	maths maths
+	
+	Text text text text text text text text text text 
+	
+	
+	\begin{enumerate}
+		\item 
+		
+		maths maths
+		Text text text text text text text text text text text
+		
+		text text text text text text text text text text text
+		
+		text text text text text text text text text text text
+		
+		text text text text text text text text text text text
+		
+		text text text text text text text text text text text
+		
+		text text text text text text text text text text text text text
+		\item
+		
+		maths maths
+		
+		Text text text text text text text text text text 
+		
+		text text text text text text text text text text
+		
+		\item 
+		
+		maths maths
+		
+		Text text text text text text text text text text 
+		
+		text text text text text text text text text text
+		
+		
+	\end{enumerate}
+\end{exercise}
+\tcbstoprecording
+\tcbstoprecording
+\tcbinputrecords
+\end{document}

@@ -1,0 +1,77 @@
+\documentclass[12pt,a4paper,fleqn]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb,amsfonts,array}
+\usepackage[left=1cm,right=1cm,top=.5cm,bottom=1cm]{geometry}
+\everymath{\displaystyle}
+\usepackage[many]{tcolorbox}
+
+
+\usetikzlibrary{calc}
+
+
+
+
+\newtcolorbox[auto counter ]{Exercice}[1][]{
+breakable,
+enhanced,
+arc=2pt,
+top=3mm,
+left=3mm,
+colframe=black,
+colback=gray!20,
+attach boxed title to top left={xshift=2mm,yshift=-3mm},
+boxed title style={
+colback=cyan!25!white,
+outer arc=2pt,
+arc=2pt,
+top=1pt,
+bottom=1pt,
+left=1mm,
+right=2mm
+},
+coltitle=black,
+fonttitle=\sffamily,
+title=Exercice~\thetcbcounter
+}
+\newtcolorbox[]{entete}[1][]{
+breakable,
+enhanced,
+arc=2pt,
+top=3mm,
+left=3mm,
+colframe=black,
+colback=blue!20
+}
+\begin{document}
+
+\begin{entete}
+ \begin{tabular}{m{4.5cm}m{7.2cm}m{5cm}}
+  1$^\text{eme}$ année Bac\newline
+  Prof : Mohamed .. & Série  N:1 \newline
+  \centering Semestre 1 & Collège   \newline
+  Année scolaire :2019-2020
+ \end{tabular}
+\end{entete}
+
+\begin{Exercice}
+ Soit $x$ un nombre reel 
+\end{Exercice}
+
+\begin{Exercice}
+ contenu...
+\end{Exercice}
+
+\begin{Exercice}
+ contenu...
+\end{Exercice}
+
+\begin{Exercice}
+ contenu...
+\end{Exercice}
+
+\begin{Exercice}
+ contenu...
+\end{Exercice}
+
+\end{document}

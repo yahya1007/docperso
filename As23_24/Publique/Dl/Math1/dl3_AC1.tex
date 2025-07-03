@@ -1,0 +1,70 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{ProfModels}
+
+ 
+\begin{document}
+
+\begin{Maquette}[DM]{Prive=false, Numero=3, Niveau=1, Date=\today}
+
+
+\begin{exercice}
+\begin{enumerate}
+\item Calculer les expressions suivantes :
+$$ A= \dfrac{-42\times (-63)\times 7}{49\times (-21)\times 9}$$
+$$ B=-17+(-41)-(-29)+7+(-48)\times (-3)\div (-4)-(-6)$$
+\item Compléter par le nombre qui convient :
+$$ (-9)\times \cdots = -63 \hspace{2cm} \cdots \times (-4) = 48$$
+$$ (-3+ \cdots )\times (-54)= -108 \hspace{2cm} \dfrac{\cdots}{-7}=-6$$ 
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+\begin{minipage}{.45\linewidth}
+On considère la figure ci-contre ; tel que les points A , B et C sont alignés .
+\begin{enumerate}
+\item Calculer la mesure de tous les angles de la figure .
+\item Déduire la nature du triangle BEC
+\item les points A,B et E sont ils alignés ?
+\end{enumerate}
+\end{minipage}
+\begin{minipage}{.55\linewidth}
+\begin{tikzpicture}
+\tkzDefPoints{-2/0/A,3/0/E}
+\tkzDefMidPoint(A,E)
+\tkzGetPoint{B}
+\tkzDefPointOnCircle[through= center B angle 60 point A]
+\tkzGetPoint{C}
+\tkzDrawSegments(A,C C,E E,A B,C)
+\tkzLabelPoints(B,A,E)
+\tkzLabelPoint[above](C){C}
+\tkzMarkSegments[mark=s|](A,B B,C C,E)
+\tkzInterLC(A,C)(C,E)
+\tkzGetPoints{F}{D}
+\tkzDrawSegments(C,D E,D)
+\tkzDrawPoints(A,B,C,D,E)
+\tkzMarkSegment[mark=s|](C,D)
+\tkzLabelPoint[right](D){D}
+
+\tkzMarkRightAngle(A,C,E)
+
+\tkzMarkAngle[arc=l , size=.3 ](C,B,A)
+\tkzLabelAngle[pos=0.6](C,B,A){$120^{\circ}$}
+
+\end{tikzpicture}
+\end{minipage}
+\end{exercice}
+
+\begin{exercice}
+ABC est un triangle tel que : BC=7 cm AC=4 cm et AB=6 cm , la médiatrice $(\Delta)$  de [BC] coupe la droite (AB) en M .
+\newline
+Soit N la projection orthogonal de A sur (BC) .
+\begin{enumerate}
+\item Faire une figure 
+\item Montrer que MBC est un triangle isocèle .
+\item Montrer que : $(\Delta)$ //(AN)
+\end{enumerate}
+\end{exercice}
+
+\end{Maquette}
+\end{document}

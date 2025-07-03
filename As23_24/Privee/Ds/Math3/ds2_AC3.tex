@@ -1,0 +1,158 @@
+\documentclass[a4paper,12pt]{article}
+
+
+
+
+ 
+\usepackage{ProfModels}
+\usetikzlibrary{arrows}
+\setlength{\columnseprule}{0.4pt}
+%\setlength{\columnseprule}{1pt}
+%\setlength{\columnsep}{2em}
+%\renewcommand{\columnseprulecolor}{\color{gray}} 
+\begin{document}
+\begin{Maquette}[DS]{Numero=2, Niveau=3, Date=17/12/2024}
+
+\begin{exercice}
+$a$ et $b$ sont deux nombres réels tels que $a\leq b$
+\begin{enumerate}
+
+\begin{minipage}{.5\linewidth}
+\item Comparer $a$ et $\dfrac{a+b}{2}$ \brm{4}
+\end{minipage}%
+\begin{minipage}{.5\linewidth}
+\item Comparer $3\sqrt{8}$ et $\sqrt{73}$ 
+\end{minipage}
+\end{enumerate}
+\begin{minipage}{.5\linewidth}
+\notes[10pt]{8}{.9\linewidth}
+\end{minipage}%
+\vline
+\begin{minipage}{.5\linewidth}
+\notes[10pt]{8}{.9\linewidth}
+\end{minipage}
+\end{exercice}
+
+\begin{exercice}
+$a$ et $b$ sont deux nombres réels tels que $3\leq a\leq 7$ et $4\leq b\leq 8$.Encadrer :\brm{8}
+
+\begin{minipage}{.24\linewidth}
+$2a+3b$
+\end{minipage}
+\begin{minipage}{.24\linewidth}
+$a-b$
+\end{minipage}
+\begin{minipage}{.24\linewidth}
+$ab$ 
+\end{minipage}
+\begin{minipage}{.24\linewidth}
+$\dfrac{a}{b}$ 
+\end{minipage}%
+
+\begin{minipage}{0.24\linewidth}
+\notes[10pt]{12}{.9\linewidth}
+\end{minipage}
+\vline
+\begin{minipage}{0.24\linewidth}
+\notes[10pt]{12}{.9\linewidth}
+\end{minipage}
+\vline
+\begin{minipage}{0.24\linewidth}
+\notes[10pt]{12}{.9\linewidth}
+\end{minipage}
+\vline
+\begin{minipage}{0.24\linewidth}
+\notes[10pt]{12}{.9\linewidth}
+\end{minipage}
+\end{exercice}
+
+\begin{exercice}
+\begin{minipage}{0.4\linewidth}
+\begin{tikzpicture}
+\tkzDefPoint(3,-1){B}
+\tkzDefShiftPoint[B](1,4){C}
+\tkzDefTriangle[two angles=40 and 60](B,C)\tkzGetPoint{A}
+\tkzDefPointOnLine[pos=0.3](B,A)\tkzGetPoint{M}
+\tkzDefLine[parallel=through M](B,C)\tkzGetPoint{x}
+\tkzInterLL(M,x)(A,C)\tkzGetPoint{N}
+\tkzDefPointOnLine[pos=1.3](B,A)\tkzGetPoint{E}
+\tkzDefPointOnLine[pos=1.3](C,A)\tkzGetPoint{F}
+
+\tkzDrawLines(B,E C,F)
+\tkzDrawSegments(B,C M,N E,F)
+\tkzDrawPoints(A,B,C,M,N,E,F)
+\tkzLabelPoints(F)
+\tkzLabelPoints[above right](E,A,N,C)
+\tkzLabelPoints[below=6pt](M,B)
+
+\end{tikzpicture}
+\end{minipage}
+\begin{minipage}{0.6\linewidth}
+$ABC$ est un triangle tels que : $AB=16$ et $AC=8$ et soit  $M$ un point de  $[AB]$ tel que : $BM=4$\brm{8}
+
+La droite paralléle à $(BC)$ passant de $M$ coupe  $(AC)$ en $N$ voir la figure ci-contre
+\begin{enumerate}
+\item Montrer que : $AN=6$ puis calculer $NC$ .
+\item On considère $E$ un point de $[MA)$ et $F$ un point de $[NA)$ tel que : $AE=4$ et $AF=2$
+
+Montrer que : $(BC)//(EF)$
+\end{enumerate}
+\end{minipage}%
+
+\begin{minipage}{\linewidth}
+\notes[10pt]{23}{\linewidth}
+\end{minipage}
+
+\end{exercice}
+
+\anserpage{1}
+
+\begin{exercice}
+$ABCD$ est un trapèze isocèle ses bases $[AB]$ et $[CD]$ tels que : $AB=4$ et $CD=10$ et $BC=5$.
+
+Soit $M$ de $[BC]$ et $N$ de $[AC]$ tels que $CM=2$ et $(MN)//(CD)$
+\begin{enumerate}
+\item Calculer $MN$ puis le rapport $\dfrac{CN}{CA}$
+\item Soit $I$ de $[CD]$ et $J$ de $[AD]$ tels que $DI=8$ et $DJ=4$. Montrer que : $(IJ)//(AC)$
+\item Monter que : $IJ - 2CN=0$.
+\end{enumerate}
+\begin{tikzpicture}
+\tkzDefPoints{0/0/A,4/0/B,5/-4/C,-1/-4/D}
+\tkzDrawPolygon(A,B,C,D)
+\tkzDefPointOnLine[pos=0.3](C,B)\tkzGetPoint{N}
+\tkzDefPointOnLine[pos=0.3](C,A)\tkzGetPoint{M}
+\tkzDefPointOnLine[pos=0.4](C,D)\tkzGetPoint{I}
+\tkzDefPointOnLine[pos=0.4](A,D)\tkzGetPoint{J}
+\tkzDrawSegments(M,N I,J A,C)
+\tkzDrawPoints(A,B,C,D,M,N,I,J)
+\tkzLabelPoints(I,M)
+\tkzLabelPoints[left](A,J,D)
+\tkzLabelPoints[right](B,N,C)
+\end{tikzpicture}
+\end{exercice}
+
+\begin{exercice}
+\begin{minipage}{0.4\linewidth}
+\begin{tikzpicture}
+\tkzDefPoints{0/0/C,4/1/A,2/4/B}
+\tkzDefPointOnLine[pos=0.7](A,B)\tkzGetPoint{E}
+\tkzDefPointOnLine[pos=0.7](A,C)\tkzGetPoint{F}
+\tkzDrawLine(E,F)
+\tkzDrawPolygon(A,B,C)
+\tkzDrawPoints(A,B,C,E,F)
+
+\tkzLabelPoints(C,F,A)
+\tkzLabelPoints[right](E,B)
+\end{tikzpicture}
+\end{minipage}
+\begin{minipage}{0.6\linewidth}
+On considère la figure ci-contre tels que  $(EF) // (BC)$  et  $AF=x$ et $AE=x-1$ et $AC=9$ et $AB=7$
+
+\begin{enumerate}
+\item Calculer le nombre $x$.
+\item Déduire que : $BC=2EF$.
+\end{enumerate}
+\end{minipage}
+\end{exercice}
+\end{Maquette}
+\end{document}

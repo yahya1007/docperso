@@ -1,0 +1,90 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{ProfModels}
+
+\begin{document}
+\begin{Maquette}[DS]{Niveau=2, Numero=3, Date=19/10/2024, Semestre=1, Calculatrice=false}
+
+\begin{exercice}
+\begin{tikzpicture}
+\tkzDefPoints{0/0/A,9/0/B,3/6/C}
+\tkzDrawSegments(A,B A,C C,B)
+\tkzDefTriangleCenter[circum](A,B,C)\tkzGetPoint{O}
+\tkzDefTriangleCenter[in](A,B,C)\tkzGetPoint{I}
+\tkzDefTriangleCenter[ortho](A,B,C)\tkzGetPoint{H}
+\tkzDefTriangleCenter[centroid](A,B,C)\tkzGetPoint{G}
+\tkzDrawPoints(O,I,G,H)
+\tkzLabelPoints(O,I,G,H,A,B)
+\tkzLabelPoints[above](C)
+\tkzInterLL(A,B)(C,H)\tkzGetPoint{H_1}
+\tkzInterLL(A,C)(B,H)\tkzGetPoint{H_2}
+\tkzDrawLines(C,H_1 B,H_2)
+\tkzMarkRightAngles(B,H_1,C B,H_2,C)
+
+\tkzInterLL(A,G)(C,B)\tkzGetPoint{G_1}
+\tkzInterLL(C,G)(A,B)\tkzGetPoint{G_2}
+\tkzDrawLines[dashed](A,G_1 C,G_2)
+
+\tkzDefPointBy[projection=onto B--C](O)\tkzGetPoint{O_1}
+\tkzDrawLine[add=0.5 and 1](O,O_1)
+\tkzMarkRightAngle(C,O_1,O)
+\tkzLabelPoints[above=6pt, right=6pt](O_1)
+\tkzDrawSegment(A,I)
+\tkzMarkAngle[arc=ll , size=1 , mark=|](I,A,C) 
+\tkzMarkAngle[arc=ll , size=1.2 , mark=|](B,A,I) 
+\end{tikzpicture}
+
+Observer bien la figure et répondre aux enumerate suivantes .
+\begin{enumerate}
+\item\brm{1} Citer un médiatrice du triangle $ABC$
+\anserline[1]
+\item\brm{1} Citer un hauteur du triangle $ABC$
+\anserline[1]
+\item\brm{1} Citer un bissectrice du triangle $ABC$
+\anserline[1]
+\item\brm{1} Quel est le centre du cercle inscrit dans le triangle $ABC$?
+\anserline[1]
+\item\brm{1} Quel est le centre du cercle circonscrit au triangle $ABC$ ?
+\anserline[1]
+\item\brm{1} Quel est l'orthocentre du triangle $ABC$ ?
+\anserline[1]
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+On considère la figure ci-contre tel que $AM=3$\newline et $BM=9$ et $MN=4$ et $AN=2$ et $(MN)//(BC)$ . 
+\begin{enumerate}
+\begin{minipage}{0.6\linewidth}
+\item\brm{4} Calculer $BC$ et $NC$
+\anserline[4]
+\item\brm{2} Construire le centre de gravité du triangle $ABC$ et $I$ le milieu de $[BC]$.
+\end{minipage}
+\begin{minipage}{0.4\linewidth}
+\begin{tikzpicture}
+\tkzDefPoints{0/0/A,4/1/B,1/4/C}
+\tkzDrawSegments(A,B B,C C,A)
+\tkzDefPointOnLine[pos=.3](A,B)\tkzGetPoint{M}
+\tkzDefPointOnLine[pos=.3](A,C)\tkzGetPoint{N}
+\tkzDrawSegment(M,N)
+\tkzLabelPoints[left](A,N,C)
+\tkzLabelPoints[below](B,M)
+\end{tikzpicture}
+\end{minipage}
+\item\brm{2} Sachant que  $AI=6$ calculer $AG$.
+\end{enumerate}
+\anserline[2]
+\end{exercice}
+
+\begin{exercice}
+$ABCD$ est un trapèze de bases $[AB]$ et $[CD]$ . $M$ et $N$ sont respectivement les milieux des cotés $[AD]$ et $[AC]$ 
+\begin{enumerate}
+\item\brm{2} Montrer que $(MN)//(CD)$\newline
+\anserline[3]
+\item\brm{2} La droite $(MN)$ coupe la droite $(BC)$ en $K$ ,monter que $K$ est le milieu de $[BC]$\newline
+\anserline[3]
+\item\brm{2} Calculer la distance $MN$ sachant que $CD=100$\newline
+\anserline[3]
+\end{enumerate}
+\end{exercice}
+\end{Maquette}
+\end{document} 

@@ -1,0 +1,108 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{ProfModels}
+\usepackage{diagrammes}
+
+\usepackage[column=O]{cellspace}
+\setlength{\cellspacebottomlimit}{5pt}
+\setlength{\cellspacetoplimit}{5pt}
+
+\begin{document}
+\begin{Maquette}[DS]{Niveau=1, Numero=6, Date=22/05/2025, Semestre=1, Calculatrice=true}
+
+
+\begin{exercice}[BaremeDetaille]
+\begin{minipage}{0.6\linewidth}
+Sur la droite graduée ci-dessous, donner la distance à zéro et l’abscisse de chacun des points   :
+
+\begin{tikzpicture}
+\tkzInit[xmin = -6,xmax = 3]
+\tkzDrawX
+\tkzLabelX
+\tkzDefPoints{2/0/M,-4/0/N,-5.5/0/P,0.5/0/Q}   
+\tkzDrawPoints(M,N,P,Q)
+\tkzLabelPoints[above](M,N,P,Q)
+\end{tikzpicture}
+\end{minipage}\hfill
+\begin{minipage}{.36\linewidth}
+\begin{tabular}{|*5{Oc|}}
+\hline 
+point & M & N & P & Q \\ 
+\hline 
+Abscisse &  &  &  &  \\ 
+\hline 
+Distance à 0 &  &  &  &  \\ 
+\hline 
+\end{tabular} 
+\end{minipage}
+\begin{minipage}{.4\linewidth}
+\begin{enumerate}
+\item\brm{4} Compléter le tableau ci-contre.
+\item\brm{4} Donner les coordonnées des points $A$,$B$,$C$ et $D$.
+\par
+\anserline[2]
+\item\brm{2} Placer les points\par
+ $E(-4, 0)$, $F(-2, 2)$, $G(1, -4)$ et $H(3, 3)$.
+\end{enumerate}
+\end{minipage}\hfill
+\begin{minipage}{0.58\linewidth}
+\begin{AffRepere}
+\tkzSetUpPoint[shape=cross out,size=5]
+\coordpoints{1}{2}{A}
+\coordpoints{4}{0}{B}
+\coordpoints{0}{-2}{C}
+\coordpoints{-3}{-2}{D}
+\end{AffRepere}
+\end{minipage}
+\end{exercice}
+
+
+\begin{exercice}[BaremeDetaille]
+\begin{minipage}{0.6\linewidth}
+Voici un tableau de proportionnalité.
+\begin{enumerate}
+\item\brm{2} Remplir le tableau.
+\item\brm{2} Quel est le coefficient de proportionnalité ?
+\end{enumerate}
+\end{minipage}%
+\begin{minipage}{0.4\linewidth}
+\begin{tabular}{|Oc|Oc|Oc|Oc|}
+\hline 
+tours de pédalier & 2 & 5 &  $\cdots$ \\ 
+\hline 
+distance (m) & 64 & $\cdots$ & 12 \\ 
+\hline 
+\end{tabular} 
+\end{minipage}
+\end{exercice}
+
+\begin{exercice}[BaremeDetaille]
+\begin{minipage}{0.6\linewidth}
+On a demandé aux élèves d'une classe la somme d'argent de poche que leurs parents donnent chaque jour.
+\end{minipage}\hfill
+\begin{minipage}{0.38\linewidth}
+\begin{tabular}{|c|c|c|c|c|}
+ \hline 
+ Argent de poche & 0 & 5 & 10 & 20 \\ 
+ \hline 
+ Effectifs & 4 & 8 & 16 & 4 \\ 
+ \hline 
+ Fréquence &  &  &  &  \\ 
+ \hline
+ \end{tabular} 
+\end{minipage}
+ \begin{enumerate}
+ \item\brm{2} Combien y a-t-il d'élèves dans cette classe ?\anserline
+ \item\brm{2} Calculer la fréquence de chaque valeur.\anserline
+ \item\brm{2} Calculer le pourcentage des élèves qui reçoivent moins de 10 Dhs de leurs parents.\par\anserline
+ \end{enumerate}
+\end{exercice}
+
+
+
+
+
+
+
+\end{Maquette}
+
+\end{document}

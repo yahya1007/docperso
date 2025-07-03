@@ -1,0 +1,44 @@
+\documentclass{report}
+\usepackage[hmargin=1cm]{geometry}
+\usepackage{lipsum}
+\usepackage{tikz}
+\usetikzlibrary{scopes,backgrounds,
+shapes.geometric}
+\usepackage[most]{tcolorbox}
+\parindent=0pt
+\newcounter{exo}
+\newtcolorbox{exercicebox}[2]{breakable,enhanced,detach title,blanker,title={#1},coltitle=black,
+boxsep=3mm,top=2mm,bottom=2mm,left=2mm,right=2mm
+,before skip=1cm,after skip=1cm,
+overlay={
+\scoped[on background layer]{
+\draw[fill=white,draw=none](interior.north west)rectangle(interior.south east);
+\draw[draw=#2,line width=1.2pt](interior.north west)|-(interior.south east);}
+\node[anchor=north west,above right,font=\large\bfseries, inner xsep=5.5mm,inner ysep=2mm] (1) at (interior.north west){\tcbtitle};
+\scoped[on background layer]{
+\draw[fill=#2!10,draw=#2,line width=1.2pt](1.north west)--(1.north east)[sharp corners]--(1.south east)--(1.south west)--cycle;
+\fill[#2]([xshift=4mm]1.north west)-|([yshift=-4mm]1.north west)--cycle;
+\fill[#2](interior.north west)rectangle([yshift=3pt]1.south east);
+\fill[#2](interior.south west)rectangle([yshift=1.5mm]interior.south east);
+\fill[#2]([xshift=1.5mm]interior.south west)rectangle(interior.north west);}
+\node[diamond,minimum width=1.1cm,minimum height=1cm,draw=#2,line width=1.2pt,fill=white,rounded corners=1pt] at ([xshift=1mm]1.east) (K){};
+\node at ([xshift=-0.5mm]K.center){
+\stepcounter{exo}
+\bf\theexo};}}
+\parindent=0pt
+\begin{document}
+\begin{exercicebox}{Exercice d'application}{red!50!black}
+\lipsum[1-2]
+\end{exercicebox}
+\begin{exercicebox}{Exercice d'application}{red!50!black}
+\lipsum[1]
+\end{exercicebox}
+\setcounter{exo}{7}
+\begin{exercicebox}{Exemples}{blue!50!black}
+\lipsum[1]
+\end{exercicebox}
+\setcounter{exo}{0}
+\begin{exercicebox}{définition}{green!50!black}
+\lipsum[1]
+\end{exercicebox}
+\end{document}

@@ -1,0 +1,76 @@
+\documentclass[ 12pt]{article}
+\input{preambule.tex}
+
+
+
+\begin{document}
+\devoir[niv=3,num=2,date=2/12/2019,ds=\RL{Almnzly }]
+
+\exercice{
+\begin{arabtext}
+$a$ w $b$ `dadAn .hqyqyAn b.hy_t : $a\leq b$
+
+qArn Al`dadyn : $a$ w $\dfrac{a+b}{2}$
+\end{arabtext}
+}
+
+\exercice{
+\question{$a$ w $b$ `dadAn .hqyqyAn b.hy_t : $\sqrt{3}\leq a\leq \sqrt{5}$ w $-4\leq b \leq -3$
+
+'a.tr : $a^{2}$ _tm $b^{2}$
+
+'a.tr : $ a+b$ w $ a-b$ w $ 2a-3b$ w $ ab$ _tm $\dfrac{a}{b} $}
+
+\question{'i_dA `lmt anna : $2\leq \sqrt{6}\leq 3$ w $1.7\leq \sqrt{3}\leq 1.8$
+
+'a.tr : $\sqrt{18}$ w $\dfrac{1}{\sqrt{2}}$}
+}
+
+\exercice{
+\begin{minipage}{0.4\linewidth}
+\definecolor{cqcqcq}{rgb}{0.7529411764705882,0.7529411764705882,0.7529411764705882}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-3.8,-0.14) rectangle (3.92,5.6);
+\draw (-2.,5.)-- (2.,5.);
+\draw (2.,5.)-- (3.,1.);
+\draw (3.,1.)-- (-3.,1.);
+\draw (-3.,1.)-- (-2.,5.);
+\draw (-2.,5.)-- (3.,1.);
+\draw [domain=-3.8:3.92] plot(\x,{(-14.745365853658539-0.*\x)/-6.});
+\draw [domain=-3.8:3.92] plot(\x,{(--9.291764705882354-4.*\x)/5.});
+\begin{scriptsize}
+\draw [fill=black] (-2.,5.) circle (1.5pt);
+\draw[color=black] (-1.86,5.28) node {$A$};
+\draw [fill=black] (2.,5.) circle (1.5pt);
+\draw[color=black] (2.14,5.28) node {$B$};
+\draw [fill=black] (3.,1.) circle (1.5pt);
+\draw[color=black] (3.14,1.28) node {$C$};
+\draw [fill=black] (-3.,1.) circle (1.5pt);
+\draw[color=black] (-3.3,1.28) node {$D$};
+\draw [fill=black] (1.1780487804878046,2.4575609756097565) circle (1.5pt);
+\draw[color=black] (1.32,2.74) node {$N$};
+\draw [fill=black] (2.6356097560975607,2.4575609756097565) circle (1.5pt);
+\draw[color=black] (2.78,2.74) node {$M$};
+\draw [fill=black] (-2.3211764705882354,3.715294117647059) circle (1.5pt);
+\draw[color=black] (-2.68,3.8) node {$J$};
+\draw [fill=black] (1.0729411764705885,1.) circle (1.5pt);
+\draw[color=black] (1.02,0.7) node {$I$};
+\end{scriptsize}
+\end{tikzpicture}
+\end{minipage}
+\begin{minipage}{0.6\linewidth}
+\begin{arabtext}
+$ABCD$ ^sbh mn.hrf mtsAwy AlsAqyn qA`dtAh $[AB]$ w $[CD]$ b.hy_t : $AB=4$ w $DC=10$ w $BC=5$ .
+
+ltkn $M$ mn $[BC]$ w $N$ mn $[AC]$ .hy_t anna : $CM=2$ w $(MN)//(CD)$
+\end{arabtext}
+\question{'u.hsb $MN$ _tm $\dfrac{CN}{CA}$}
+\question{$I$ nq.tT mn $[CD]$ w $J$ nq.tT mn $[AD]$ .hy_t $DI=8$ w $DJ=4$
+
+byn anna : $(IJ)//(AC)$}
+\question{byn anna : $IJ-2CN=0$}
+\end{minipage}
+}
+
+
+\end{document}

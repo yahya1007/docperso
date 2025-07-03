@@ -1,0 +1,262 @@
+\documentclass[a4paper,12pt]{article}
+
+
+\usepackage{ProfModels}
+\usepackage{fig3d}
+ 
+\begin{document}
+
+\begin{Maquette}[Fiche]{Theme=Géométrie dans l'espace,Niveau=3}
+
+\begin{exercice}
+\begin{minipage}{0.5\linewidth}
+$ABCDEFGH$ est un parallélépipède droit tel que : $AB=8$ ; $AD=6$ et $AE=3$.
+\begin{enumerate}
+\item Calculer $EG$
+\item Montrer que $\lrp{AE}\perp\lrp{EFG}$
+\item En déduire que le triangle $AEG$ est rectangle.
+\item Calculer la distance $AG$.
+\item Calculer le volume de $ABCDEFGH$.
+\item Calculer le volume de pyramide $CADHE$.
+\end{enumerate}
+\end{minipage}%
+\begin{minipage}{0.5\linewidth}
+\begin{tikzpicture}
+\cube[45]{4}{2}
+\tkzDrawSegments[dotted](H,C C,A)
+\tkzDrawSegment[dotted](E,C)
+\end{tikzpicture}
+\end{minipage}
+\end{exercice}
+
+\begin{exercice}
+\begin{minipage}{0.6\linewidth}
+$SABCD$ est une pyramide régulière tel que $ABCD$ est carré et $\lrc{SH}$ son hauteur.
+\begin{enumerate}
+\item On donne $SH=21$ et son volume $V=847$.
+\begin{enumerate}
+\item Calculer le côté du carré $ABCD$.
+\item Calculer $AC$.
+\item Calculer la longueur des arêtes de la pyramide.
+\end{enumerate}
+\item On donne l'aire de base $S=50$ et une arête $SA=13$.
+\begin{enumerate}
+\item Calculer $AB$  puis $AC$.
+\item Calcule $HS$ puis $V$ le volume de $SABCD$.
+\end{enumerate}
+\end{enumerate}
+\end{minipage}%
+\begin{minipage}{0.4\linewidth}
+\begin{tikzpicture}
+\pyramide[30]{3}{70}{70}
+\tkzInterLL(A,C)(B,D)
+\tkzGetPoint{H}
+\tkzDrawSegments[dashed](A,C B,D)
+\tkzLabelPoint[below](H){H}
+\tkzDrawSegment[dotted](S,H)
+\end{tikzpicture}
+\end{minipage}
+\end{exercice}
+
+\begin{exercice}
+Soit $ABCDEFGH$ est un parallélépipède droit tel que $AE=4$ ; $AD=12$ et $AB=3$; $M$ est le milieu de $\lrc{EH}$.
+\begin{enumerate}
+\item Calculer $AM$.
+\item Montrer que $\lrp{AB}\perp\lrp{DAE}$; puis calculer la distance $BM$.
+\item Calculer le volume de $ABCDEFGH$.
+\item Après l'agrandissement du solide $ABCDEFGH$ par le rapport $\dfrac{3}{2}$ on obtient un solide de volume $V'$. Caculer $V'$.
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+\begin{minipage}{0.6\linewidth}
+$SABCD$ est une pyramide à base rectangulaire $ABCD$, de hauteur $\lrc{SA}$. On donne $SA=15$, $AB=8$ et $BC=11$.
+\begin{enumerate}
+\item Calculer le volume $V1$ de la pyramide $SABCD$.
+\item Montre que $SB=17$.
+\item On place sur $\lrc{SA}$ le point $E$ tel que $SE=12$ et $F$ sur $\lrc{SB}$ tel que $SF=13.6$.
+\begin{enumerate}
+\item Montrer que $\lrp{AB}//\lrp{EF}$.
+\end{enumerate}
+\item En coupant la pyramide $SABCD$ par un plan parallèle à sa base, on obtient un pyramide réduite $SEFGH$.
+\begin{enumerate}
+\item Donner le rapport de cette réduction.
+\item Calculer l'aire du quadrilatère $EFGH$.
+\item En déduire le volume $V2$ de la pyramide $SEFGH$.
+\end{enumerate}
+\end{enumerate}
+\end{minipage}%
+\begin{minipage}{0.4\linewidth}
+\begin{tikzpicture}[scale=0.8]
+\pyramide[30]{4}{90}{70}
+\tkzDefPointOnLine[pos=0.65](S,A)\tkzGetPoint{E}
+\tkzDefPointOnLine[pos=0.65](S,B)\tkzGetPoint{F}
+\tkzDefPointOnLine[pos=0.65](S,C)\tkzGetPoint{G}
+\tkzDefPointOnLine[pos=0.65](S,D)\tkzGetPoint{H}
+\tkzDrawSegments(E,F F,G)
+\tkzDrawSegments[dashed](E,H H,G)
+\tkzLabelPoints[left](E,H)
+\tkzLabelPoints[right](F,G)
+\tkzMarkRightAngle(B,A,S)
+\end{tikzpicture}
+\end{minipage}
+\end{exercice}
+
+\begin{exercice}%6
+\begin{minipage}{0.7\linewidth}
+On considère le cube $ABCDEFGH$ tel que $AB=6$.Les points $P$, $Q$ et $R$ sont situés respectivement sur $\lrc{AB}$, $\lrc{AD}$ et $\lrc{AE}$ tel que $AP=AQ=AR=2$.
+\begin{enumerate}
+\item Calculer $BD$.
+\item Montrer que $\lrp{PQ}//\lrp{BD}$.
+\item Calculer $\dfrac{PQ}{BD}$.
+\item Vérifier que le volume de la pyramide $ABDE$ est $V=36$.
+\item La pyramide $APQR$ est une réduction de la pyramide $ABDE$.
+\begin{enumerate}
+\item Vérifier que le rapport de cette réduction est $\dfrac{1}{3}$.
+\item En déduire le volume de la pyramide $APQR$.
+\end{enumerate}
+\end{enumerate}
+\end{minipage}%
+\begin{minipage}{0.3\linewidth}
+\begin{tikzpicture}[rotate=0]
+\cube[50]{3}{3}
+\tkzDefPointOnLine[pos=0.4](A,B)\tkzGetPoint{P}
+\tkzDefPointOnLine[pos=0.4](A,D)\tkzGetPoint{Q}
+\tkzDefPointOnLine[pos=0.4](A,E)\tkzGetPoint{R}
+\tkzDrawSegment(P,R)
+\tkzDrawSegments[dotted](P,Q Q,R)
+\tkzLabelPoint[below](P){P}
+\tkzLabelPoint[left](R){R}
+\tkzLabelPoint[left](Q){Q}
+\end{tikzpicture}
+\end{minipage}
+\end{exercice}
+
+\begin{exercice}
+\begin{minipage}{.5\linewidth}
+On considère le parallélépipède droit $ABCDEFGH$, $N\in \lrc{EF}$ et $M\in \lrc{FG}$.On donne $FE=15$ , $FB=5$, $FG=10$, $FN=4$, $FM=3$.
+\begin{enumerate}
+\item Montrer que l'aire du triangle $FNM$ est égale à $6$.
+\item Colculer le volume de pyramide $BFMN$.
+\item Calculer le volume du solide $ABCDEMNGH$.
+\end{enumerate}
+\end{minipage}%
+\begin{minipage}{.5\linewidth}
+\begin{tikzpicture}
+\cube[30]{5}{3}
+\tkzDefPointOnLine[pos=0.3](F,E)\tkzGetPoint{N}
+\tkzDefPointOnLine[pos=0.4](F,G)\tkzGetPoint{M}
+\tkzDrawSegments[dashed](B,N M,N)
+\tkzDrawSegment(B,M)
+\tkzLabelPoint[right](M){M}
+\tkzLabelPoint[above](N){N}
+\end{tikzpicture}
+\end{minipage}
+\end{exercice}
+
+\begin{exercice}
+La pyramide du Louvre est une pyramide régulière à base carrée de 35m de côté, sa hauteur est 22m.
+\begin{enumerate}
+\item Calculer l'aire de sa base.
+\item Calculer le volume $V$ de cette pyramide.
+\item Dans un parc de loisirs, on construit une réduction de cette pyramide, l'aire de la base carrée est $49m^{2}$.
+\begin{enumerate}
+\item Donner le rapport de cette réduction.
+\item Calculer la hauteur de la pyramide;
+\item Calculer le volume $V'$ de la pyramide réduite.
+\end{enumerate}
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+\begin{minipage}{0.5\linewidth}
+$SABCD$ est un pyramide de base rectangle $ABCD$, de centre $O$, $AB=3$ et $BD=5$.La hauteur $\lrc{SO}$ mesure $6$.
+\begin{enumerate}
+\item Montrer que $AD=4$.
+\item Calculer le volume de $SABCD$.
+\item La pyramide $SA'B'C'D'$ est une réduction de la pyramide $SABCD$ tel que $V_{SA'B'C'D'}=3$.
+\begin{enumerate}
+\item Donner le rapport de cette réduction.
+\item Calculer $SO'$.
+\item Calculer l'aire du quadrilatère $A'B'C'D'$.
+\end{enumerate}
+\end{enumerate}
+\end{minipage}%
+\begin{minipage}{0.5\linewidth}
+\begin{tikzpicture}
+\pyramide[30]{4}{65}{65}
+\tkzInterLL(A,C)(B,D)
+\tkzGetPoint{O}
+\tkzDefPointOnLine[pos=0.4](S,A)\tkzGetPoint{A'}
+\tkzDefPointOnLine[pos=0.4](S,B)\tkzGetPoint{B'}
+\tkzDefPointOnLine[pos=0.4](S,C)\tkzGetPoint{C'}
+\tkzDefPointOnLine[pos=0.4](S,D)\tkzGetPoint{D'}
+\tkzDrawSegments(A',B' B',C')
+\tkzDrawSegments[dashed](A',D' D',C')
+\tkzDrawSegments[dotted](A,C B,D)
+\tkzLabelPoints[left](A',D')
+\tkzLabelPoints[right](B',C')
+\tkzLabelPoint[below](O){O}
+\end{tikzpicture}
+\end{minipage}
+\end{exercice}
+
+\begin{exercice}
+\begin{minipage}{0.5\linewidth}
+On considère le parallélépipède $ABCDEFGH$ tel que : $AB=3$, $AD=4$ et $AE=6$.
+$A'$, $B'$, $C'$ et $D'$ sont  les milieux respectifs de $\lrc{HA}$, $\lrc{HB}$, $\lrc{HC}$ et $\lrc{HD}$.
+\begin{enumerate}
+\item Calculer le volume du parallélépipède $ABCDEFGH$.
+\item Montrer que le volume de $HABCD$ est $V=24$.
+\item Montrer que $BD=5$.
+\item Calculer $HB$ et $B'D'$.
+\item La pyramide $HA'B'C'D'$ est une réduction de la pyramide $HABCD$.
+\begin{enumerate}
+\item Donner le rapport de réduction.
+\item Calculer le volume $V'$ de la pyramide $HA'B'C'D'$.
+\item Calculer l'aire du rectangle $A'B'C'D'$.
+\end{enumerate}
+\end{enumerate}
+\end{minipage}%
+\begin{minipage}{0.5\linewidth}
+\begin{tikzpicture}
+\cube[30]{4.5}{3}
+\tkzDefPointOnLine[pos=0.5](H,A)\tkzGetPoint{A'}
+\tkzDefPointOnLine[pos=0.5](H,B)\tkzGetPoint{B'}
+\tkzDefPointOnLine[pos=0.5](H,C)\tkzGetPoint{C'}
+\tkzDefPointOnLine[pos=0.5](H,D)\tkzGetPoint{D'}
+\tkzDrawSegments(H,C D',C')
+\tkzDrawSegments[dashed](H,A H,B)
+\tkzDrawSegments[dotted](D',A' A',B' B',C')
+\tkzLabelPoint[left](D'){D'}
+\tkzLabelPoint[right](C'){C'}
+\tkzLabelPoint[left](A'){A'}
+\tkzLabelPoint[right](B'){B'}
+\end{tikzpicture}
+\end{minipage}
+\end{exercice}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{Maquette}
+\end{document}

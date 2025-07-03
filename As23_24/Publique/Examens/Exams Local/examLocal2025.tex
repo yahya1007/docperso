@@ -1,0 +1,214 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{amsmath,amssymb}
+
+\usepackage{iftex}
+\ifpdftex
+\usepackage[utf8]{inputenc} 
+\usepackage[T1]{fontenc}
+ \usepackage{lmodern}
+ \usepackage{tkz-base}
+\usepackage{tkz-euclide} 
+\else
+\usepackage{unicode-math}
+\usepackage{libertinus-otf}
+\usepackage{tkz-base}
+\usepackage[lua]{tkz-euclide}
+\fi
+
+ %----------------------------------------------
+\usepackage[a4paper,left=15mm,right=10mm,top=10mm,
+bottom=10mm,marginparwidth=1cm,marginparsep=2pt,noheadfoot]{geometry}
+%-------------------------------------------------
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usetikzlibrary{calc}
+\usepackage{changepage}
+\usepackage{multicol}
+\usepackage[a]{esvect}
+\usepackage{graphicx}
+\usepackage{systeme}
+\usepackage{ifthen}
+\usepackage{marginnote}
+
+%---------------------------------------------
+\usepackage[inline]{enumitem}
+\setlist[enumerate,1,2]{font=\bfseries,leftmargin=*}
+%----------------------------------------------
+\usepackage{tasks}
+\settasks{label-format =\bfseries, label-offset ={5pt},label-width={1.5em},item-indent ={3em}}
+%-------------------------------------------------------
+\usepackage[column=O]{cellspace}
+\setlength{\cellspacebottomlimit}{5pt}
+\setlength{\cellspacetoplimit}{5pt}
+%----------------------------------------------------
+%---------------------------------------------------
+% packages nécessaires
+\usepackage{cancel}
+\usepackage{fontawesome}
+\usepackage{siunitx}
+\usepackage{calc}
+\usepackage{xlop}
+\usepackage{varwidth}
+\usepackage{xinttools}%calculer le bareme total
+
+%--------------------------------------------------------
+%définition des clés
+\usepackage{simplekv}
+\usepackage{adjustbox}
+ 
+%\settasks{
+%% label = \theexercise.\arabic* ,
+% item-indent = 0em ,
+% label-width = 0em ,
+% label-offset = 0pt ,
+% column-sep = {10pt} 
+% }
+
+\begin{document}
+\begin{Maquette}[Exam]{Prive=false, Date=2025}
+
+\begin{exercice}[BaremeDetaille]
+\begin{enumerate}
+\item\brm{2} Calculer :\newline
+$\left(\dfrac{3}{\sqrt{2}}\right)^{2}=$\anserline[1]
+
+$\sqrt{25}\times \sqrt{16}\times\sqrt{9}=$
+\anserline[2]
+\item\brm{1} Simplifier \newline
+$A=2\sqrt{63}+\sqrt{28}-\sqrt{7}=$\anserline[2]
+\item\brm{1} Développer et simplifier\newline
+ $\left(\sqrt{7}-1\right)^{2}=$\anserline[2]
+ \item\brm{1} Factoriser :\newline
+$(3-x)(x+1)+2x+2=$\anserline[2]
+\item\brm{1}Donner l'écriture scientifique\newline
+$39000000\times 10^{-26}=$\anserline[1]
+\item\brm{0.5}\brm[0.5]{0.5} Ecrire le dénominateur sans radicale :\newline
+\begin{minipage}{0.65\linewidth}
+$\dfrac{1}{\sqrt{3}-1}=$\anserline[3]
+\end{minipage}\hfill\vrule\hfill%
+\begin{minipage}{0.33\linewidth}
+$\dfrac{2}{\sqrt{5}}=$\anserline[3]
+\end{minipage}
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}[BaremeDetaille]
+\begin{enumerate}
+\item\brm{1} Comparer $3\sqrt{5}$ et $\sqrt{47}$\newline
+\anserline[2]
+\item\brm{1}\brm[0.5]{1}\brm[1]{1} Soient $2\leq a\leq 5$ et $1\leq b\leq 7$. Encadrer :
+\end{enumerate}
+\begin{minipage}{.3\linewidth}
+$$a+b$$\newline\anserline[8]
+\end{minipage}\hfill\vrule\hfill%
+\begin{minipage}{.3\linewidth}
+$$a-b$$\newline\anserline[8]
+\end{minipage}\hfill\vrule\hfill%
+\begin{minipage}{.3\linewidth}
+$$a\times b$$\newline\anserline[8]
+\end{minipage}
+\end{exercice}
+
+\begin{exercice}[BaremeDetaille]
+On considère la figure ci-contre tel que $BH=2$, $HC=8$, $AH=4$ et $AB=2\sqrt{5}$.
+\vspace*{3mm}
+
+\begin{minipage}{.7\linewidth}
+\begin{enumerate}
+\item\brm{0.5} Montrer que $AC=4\sqrt{5}$.\newline\anserline[6]
+\end{enumerate}
+\end{minipage}%
+\begin{minipage}{.3\linewidth}
+\begin{tikzpicture}[scale=0.8]
+\tkzDefPoints{0/0/A,5/1/C}
+\tkzDefTriangle[school](C,A)
+\tkzGetPoint{B}
+\tkzDefPointBy[projection=onto B--C](A)
+\tkzGetPoint{H}
+\tkzDrawPolygon
+(A,B,C)
+\tkzDrawSegment(A,H)
+\tkzLabelPoint[above](A){A}
+\tkzLabelPoint[below](B){B}
+\tkzLabelPoint[above](C){C}
+\tkzLabelPoint[below right](H){H}
+\tkzMarkRightAngle(A,H,C)
+\tkzLabelSegment[sloped](B,H){2}
+\tkzLabelSegment[sloped](H,C){8}
+\tkzLabelSegment[sloped, above=1mm](A,H){4}
+\tkzLabelSegment[ sloped](A,B){$2\sqrt{5}$}
+\end{tikzpicture}
+\end{minipage}%
+\begin{enumerate}[start=2]
+\item\brm{1} Prouver que $ABC$ est un triangle rectangle en $A$.\newline\anserline[7]
+\item\brm{1.5} Calculer $\sin\widehat{C}$, $\cos\widehat{C}$ et $\tan\widehat{C}$\vspace{2mm}
+
+\begin{minipage}{.3\linewidth}
+$\sin\widehat{C}=$\anserline[4]
+\end{minipage}\hfill\vrule\hfill%
+\begin{minipage}{.3\linewidth}
+$\cos\widehat{C}=$\anserline[4]
+\end{minipage}\hfill\vrule\hfill%
+\begin{minipage}{.3\linewidth}
+$\tan\widehat{C}=$\anserline[4]
+\end{minipage}
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}[BaremeDetaille]
+Soit $x$ la mesure d'un angle aigu tel que : $\cos x =\dfrac{1}{2}$
+\begin{enumerate}
+\item\brm{0.5}\brm[0.5]{0.5} Calculer : $\sin x$ et $\tan x$\vspace{5mm}
+
+\begin{minipage}{0.48\linewidth}
+\anserline[6]
+\end{minipage}\hfill\vrule\hfill%
+\begin{minipage}{0.48\linewidth}
+\anserline[6]
+\end{minipage}
+\item\brm{1} Simplifier  :
+$A = 3\sin^{2}x+3\cos^{2}x-3$\newline\anserline[7]
+\item\brm{1} Montrer que : $ \dfrac{\tan^{2}a}{1+\tan^{2}a}=\sin^{2}a$
+
+\anserline[7]
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}[BaremeDetaille]
+On considère la figure ci-contre tel que $(AB)//(EF)$, $AB=24$, $OB=21$, $OE=12$, $OF=14$, $BC=7$ et $BD=8$.
+\vspace*{2mm}
+
+\begin{minipage}{.7\linewidth}
+\begin{enumerate}
+\item\brm{1}\brm[0.5]{1} Calculer $OA$ et $EF$.\newline\anserline[6]
+\end{enumerate}
+\end{minipage}%
+\begin{minipage}{.3\linewidth}
+\begin{tikzpicture}
+\tkzDefPoints{0/0/A,5/1/B,2/3/O}
+\tkzDefPointOnLine[pos=1.2](B,O)\tkzGetPoint{F}
+\tkzDefPointOnLine[pos=1.2](A,O)\tkzGetPoint{E}
+\tkzDefPointOnLine[pos=0.4](B,O)\tkzGetPoint{C}
+\tkzDefPointOnLine[pos=0.4](B,A)\tkzGetPoint{D}
+\tkzDrawSegments(A,B B,F F,E E,A)
+\tkzDrawPoints(C,D)
+\tkzDrawLine[dashed,add=0.2 and 0.3](C,D)
+\tkzLabelPoints(A,D,B)
+\tkzLabelPoints[right](O,C)
+\tkzLabelPoints[above](F,E)
+\end{tikzpicture}
+\end{minipage}\vspace{5mm}
+
+\begin{adjustbox}{minipage=0.97\linewidth, right}
+\anserline[8]
+\end{adjustbox}
+
+\begin{enumerate}[start=2]
+\item\brm{1} Montrer que $(OA)//(DC)$.\newline\anserline[12]
+\end{enumerate}
+\end{exercice}
+
+\end{Maquette}
+\end{document}
+

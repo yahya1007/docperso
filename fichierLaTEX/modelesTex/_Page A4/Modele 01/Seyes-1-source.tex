@@ -1,0 +1,167 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry} %,showframe
+\usepackage{fontspec}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tikz}
+  \usetikzlibrary{positioning}
+  \usetikzlibrary{calc}
+%\usepackage{everypage}
+\usepackage{ifthen}
+
+% Couleurs
+\definecolor{col1}{cmyk}{1, 0, 0, 0.5} 
+\definecolor{col2}{cmyk}{1, 0.5, 0, 0.6} %  
+% choix pous col2
+% 0.00, 1.00, 0.00, 0.50
+% 0.52, 0.34, 0, 0.32
+% 1, 0.33, 0, 0.28
+% 0.73, 0.47, 0, 0.51
+
+\newcommand{\PointSeyes}[2]{\coordinate (#1) at ($0.8*#2$)}
+\newcommand{\GrilleSeyes}[2]{
+   \draw[line width=0.3mm, color=col1!10, xstep=0.8, ystep=0.2] (0,0) grid (0.8*#1,0.8*#2);%
+   \draw[line width=0.3mm, color=col2!30, xstep=0.8, ystep=0.8] (0,0) grid (0.8*#1,0.8*#2);}
+
+\makeatletter
+\newcommand{\seyes@RL@I}{
+\begin{tikzpicture}[remember picture,overlay]
+ \coordinate (SW) at (current page.south west);
+ \coordinate (NE) at (current page.north east);
+ \coordinate (SE) at (current page.south east);
+ \coordinate (NW) at (current page.north west);
+ %
+ \foreach \n in{2.1,2.3,...,27.1}%
+   {\draw[line width=0.2mm, color=cyan!40]([xshift=0cm,yshift=\n cm]SW)--([xshift=0cm,yshift=\n cm]SE);}
+ \foreach \n in{2.5,3.3,...,27}%
+    {\draw[line width=0.3mm, color=col2!35]([xshift=0cm,yshift=\n cm]SW)--([xshift=0cm,yshift=\n cm]SE);}
+ \foreach \n in{4.8,5.6,...,21}
+   {\draw[line width=0.3mm, color=col2!30]([xshift=-\n cm,yshift=0cm]SE)--([xshift=-\n cm,yshift=0cm]NE);}
+ \draw[line width=0.35mm, color=red!90!black]([xshift=-4cm,yshift=0cm]SE)--([xshift=-4cm,yshift=0cm]NE);
+\end{tikzpicture}}
+%
+\newcommand{\seyes@RL@II}{
+\begin{tikzpicture}[remember picture,overlay]
+ \coordinate (SW) at (current page.south west);
+ \coordinate (NE) at (current page.north east);
+ \coordinate (SE) at (current page.south east);
+ \coordinate (NW) at (current page.north west);
+ %
+ \foreach \n in{2.1,2.3,...,27.1}%
+   {\draw[line width=0.3mm, color=col1!10]([xshift=0cm,yshift=\n cm]SW)--([xshift=0cm,yshift=\n cm]SE);}
+ \foreach \n in{2.5,3.3,...,27.1}%
+    {\draw[line width=0.3mm, color=col2!30]([xshift=0cm,yshift=\n cm]SW)--([xshift=0cm,yshift=\n cm]SE);}
+  \draw[line width=0.35mm, color=red!90!black]([xshift=-4cm,yshift=0cm]SE)--([xshift=-4cm,yshift=0cm]NE);
+\end{tikzpicture}}
+%
+\newcommand{\seyes@LR@I}{
+\begin{tikzpicture}[remember picture,overlay]
+ \coordinate (SW) at (current page.south west);
+ \coordinate (NE) at (current page.north east);
+ \coordinate (SE) at (current page.south east);
+ \coordinate (NW) at (current page.north west);
+ %
+ \foreach \n in{1.9,2.1,...,27}%
+   {\draw[line width=0.3mm, color=col1!10]([xshift=0cm,yshift=\n cm]SW)--([xshift=0cm,yshift=\n cm]SE);}
+  \foreach \n in{2.3,3.1,...,27.1}%
+    {\draw[line width=0.3mm, color=col2!30]([xshift=0cm,yshift=\n cm]SW)--([xshift=21cm,yshift=\n cm]SW);}
+ \foreach \n in{4.8,5.6,...,21}%
+   {\draw[line width=0.3mm, color=col2!30]([xshift=\n cm,yshift=0cm]SW)--([xshift=\n cm,yshift=0cm]NW);}
+ \draw[line width=0.35mm, color=red!90!black]([xshift=4cm,yshift=0cm]SW)--([xshift=4cm,yshift=0cm]NW);
+\end{tikzpicture}}
+%
+\newcommand{\seyes@LR@II}{
+\begin{tikzpicture}[remember picture,overlay]
+ \coordinate (SW) at (current page.south west);
+ \coordinate (NE) at (current page.north east);
+ \coordinate (SE) at (current page.south east);
+ \coordinate (NW) at (current page.north west);
+ %
+ \foreach \n in{1.9,2.1,...,27}%
+   {\draw[line width=0.3mm, color=col1!10]([xshift=0cm,yshift=\n cm]SW)--([xshift=0cm,yshift=\n cm]SE);}
+  \foreach \n in{2.3,3.1,...,27}%
+    {\draw[line width=0.3mm, color=col2!30]([xshift=0cm,yshift=\n cm]SW)--([xshift=21cm,yshift=\n cm]SW);}
+ \draw[line width=0.35mm, color=red!90!black]([xshift=4cm,yshift=0cm]SW)--([xshift=4cm,yshift=0cm]NW);
+\end{tikzpicture}}
+
+
+\newcommand{\seyes}[2]{
+  \ifthenelse{\equal{#1}{RL}}
+    {
+      \ifthenelse{\equal{#2}{1}}
+         {\seyes@RL@I}{}
+      \ifthenelse{\equal{#2}{2}}
+         {\seyes@RL@II}{}
+    }
+   {\ifthenelse{\equal{#1}{LR}}
+    {
+      \ifthenelse{\equal{#2}{1}}
+         {\seyes@LR@I}{}
+      \ifthenelse{\equal{#2}{2}}
+         {\seyes@LR@II}{}
+    }}
+}
+\makeatother
+
+
+%\AtBeginShipout{\AtBeginShipoutUpperLeft{\seyes{RL}{1}}}
+
+
+\begin{document}
+\pagestyle{empty}
+
+\seyes{RL}{1}
+
+\newpage
+
+\seyes{RL}{2}
+
+\newpage
+
+\seyes{LR}{1}
+
+\newpage
+
+\seyes{LR}{2}
+
+\newpage
+
+\begin{tikzpicture}%[remember picture,overlay]
+   \GrilleSeyes{17}{5}
+   \PointSeyes{A}{(1,2)};
+   \PointSeyes{B}{(10,4)};
+   \draw[line width=1pt] (A)--(B);
+   \filldraw (A) circle (1pt);
+   \filldraw (B) circle (1pt);
+   \node[below=0.2,fill=white,inner sep=0mm] at (A){$A$};
+   \node[below=0.2,fill=white,inner sep=0mm] at (B){$B$};
+ \end{tikzpicture}
+
+ \medskip
+
+\begin{tikzpicture}%[remember picture,overlay]
+  \def\r{1.2cm}
+  \GrilleSeyes{5}{5}
+  \PointSeyes{O}{(2.5,2.5)};
+  %\PointSeyes{B}{(10,4)};
+  \draw[line width=1pt] (O) circle (1.2cm);
+  \filldraw(O) circle (1pt);
+  \node[below=0.15,fill=white,inner sep=0mm] at (O){$O$};
+
+  % point A
+  \path (O)++(50:\r) coordinate (A);
+  % point B
+  \path (O)++(190:\r) coordinate (B);
+  % point C
+  \path (O)++(-50:\r) coordinate (C);
+  % triangle ABC
+  \draw[line width=1pt] (A)--(B)--(C)--cycle;
+  % marquer et dessiner les points A , B  et C
+  \filldraw[red] (A) circle (1pt);
+  \node[red,above=0.2,fill=white,inner sep=0mm] at (A){$A$};
+  \filldraw[blue] (B) circle (1pt);
+  \node[blue,left=0.2,fill=white,inner sep=0mm] at (B){$B$};
+  \filldraw[] (C) circle (1pt);
+  \node[below=0.2,fill=white,inner sep=0mm] at (C){$C$};
+\end{tikzpicture}
+
+\end{document}

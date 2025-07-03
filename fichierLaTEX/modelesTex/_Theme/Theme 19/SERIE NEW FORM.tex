@@ -1,0 +1,247 @@
+% !TEX encoding = UTF-8 Unicode
+% !TEX TS-program = XeLaTeX
+
+\documentclass[svgnames,A4paper]{Book}
+
+\usepackage{tikz}
+\usepackage{pifont}
+\usepackage{multicol}
+\usepackage{lipsum}
+\usepackage{setspace}
+\usepackage{tikzpagenodes}
+\usepackage{eso-pic}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{unicode-math}
+\usepackage[margin=0.5in]{geometry}
+
+\setmainfont{STIX-Regular}
+\setmathfont{STIXMath-Regular}
+\setsansfont{Aref Ruqaa}
+
+\usetikzlibrary{calc}
+\usetikzlibrary{shapes.multipart}
+
+\newcounter{exrc}
+
+\newcommand{\exstep}{%
+    \stepcounter{exrc}%
+    \tikz[baseline]\node[anchor=base,%
+      rectangle split,
+      rectangle split parts=2,
+      draw=blue!70!violet,
+      thick,
+      rounded corners,
+      rectangle split horizontal,
+      rectangle split part fill={blue!80!violet!70,DeepPink!80!white},
+      inner sep=3pt] (exx) at (0,0)
+      {\textcolor{white}{\bfseries \extype}\nodepart{two}\textcolor{yellow}{\large \bfseries \sffamily\theexrc}}; 
+}
+
+
+%% There are two environments, 'exci' for exercises using 'enumerate',
+%% and 'exct' for text exercises that do not use 'enumerate'.
+%% Both have an optional argument to change the name of the
+%% exercise on the fly. See the included examples.
+
+\newenvironment{exci}[2][Exercice]{%
+    \def\extype{#1}%
+    \leavevmode\exstep\par
+    \smallskip
+    #2
+    \begin{enumerate}[leftmargin=*,noitemsep,nosep]
+}{%
+    \end{enumerate}
+    \bigskip
+    \def\extype{Exercice}%
+}
+
+\newenvironment{exct}[1][Exercice]{%
+    \def\extype{#1}%
+    \leavevmode\exstep\par
+    \smallskip
+    }{%
+      \bigskip
+      \def\extype{Exercice}%
+}
+
+\setlength{\columnseprule}{0.4pt}
+\parindent0pt
+%%%
+\usetikzlibrary{through,intersections,calc} 
+\definecolor{colx1}{RGB}{173, 24, 46}
+\def\entete{
+\begin{tikzpicture}[remember picture,overlay,x=1cm,y=1cm]
+\fill[top color=blue!80!violet!70,bottom color=blue!80!violet!50,rounded corners]([yshift=-1cm,xshift=1cm]current page.north west)rectangle([yshift=-3cm,xshift=-1cm]current page.north east);
+\fill[violet!80] ([yshift=-1cm,xshift=-0.9cm]current page.north)to[out= 120,in=-20]([yshift=-0.7cm,xshift=-1.2cm]current page.north)--++(-1,0)--++(0,-0.3)--cycle;
+\fill[DeepPink!70] ([yshift=-3cm]current page.north)to[out=180,in=180]([xshift=-1.3cm,yshift=-0.7cm]current page.north)--++(-7,0)to[in=180,out=180]++(1,-2.3)--cycle;
+\node[anchor=west] at([yshift=-1.2cm,xshift=-8.1cm]current page.north){\color{white}\textbf{Nom \& Prénom : ......................................}};
+\node[anchor=west] at([yshift=-1.7cm,xshift=-7.8cm]current page.north){\color{white}\textbf{Classe : .............................}};
+\node[anchor=west] at([yshift=-2.1cm,xshift=-7.5cm]current page.north){\color{white}\textbf{Numéro : ......................}};
+\node[anchor=west] at([yshift=-2.6cm,xshift=-7.2cm]current page.north){\color{white}\textbf{Niveau : 1.A.C.P.I}};
+\node[anchor=west] at([yshift=-2.7cm,xshift=-6.5cm]current page.north east){{Année scolaire : 2020-2021}};
+\node[top color=blue!44,bottom color=blue!4,draw=colx1,line width=2pt,inner xsep=0.5cm] at([yshift=-1cm,xshift=-6cm]current page.north east){
+{\large \textbf{ \textcolor{red}{YOO}MATHS}}
+};
+\node at ([yshift=-1.7cm,xshift=-6cm]current page.north east) {
+ \Large \bfseries \sffamily \color{yellow} Devoir n$^\circ 1$  \ding{96}  Semestre I
+};
+\end{tikzpicture} }
+\usepackage{eso-pic}
+\AddToShipoutPictureBG{
+\ifnum\value{page}=1
+\entete
+\else \fi
+}
+%%%
+\usepackage{colortbl}
+%%%
+\begin{document}
+\clearpage
+%-------------
+\tikz[remember picture,overlay] {%
+ \draw [blue!80!violet!70,line width=2mm]
+ (current page.south west)
+ rectangle (current page.north east)}
+%--------------
+\pagecolor{violet!5}
+\thispagestyle{empty}
+\vspace*{1.5cm}
+\begin{multicols*}{2}
+\begin{exct}
+\textcolor{DeepPink}{\ding{96}}  Calculer les expressions suivantes :\\
+$\begin{aligned}
+A &=17,8+0,2-18 \\
+B &=15 \div 3+20,5 \div 5-1 \\
+C &=(12,5-2,5) \times(4,5-2,5)-0,2 \times 100 \\
+D &=3,8 \times 12-3,8 \times 2 \\
+E &= 16,8+[14,7 \div(10-3)] \times 2-7
+\end{aligned}$
+\end{exct}\\
+\begin{exct}[Exercice]
+\textcolor{DeepPink}{\ding{96}}  Calculer les expressions suivantes : \\
+$
+\begin{array}{rcl}
+E&=& \dfrac{5}{4}+\dfrac{1}{12} \\
+&& \\
+F&=& \dfrac{6}{2} \times \dfrac{10}{9} \times \dfrac{2}{5} \\
+&& \\
+G&=& 3+\dfrac{9}{2} \times \dfrac{16}{3}-26 \\
+&& \\
+H&=& 0,8 \div \dfrac{5}{2}
+\end{array}
+$
+\end{exct}\\
+\begin{exct}
+\textcolor{DeepPink}{\Large\ding{182}} Simplifier les deux fractions suivantes : $$x=\dfrac{27}{15} ~~ \text{ et } ~~  y=\dfrac{2 \times 10 \times 14}{21 \times 24}$$
+\textcolor{DeepPink}{\Large \ding{183}}  En déduire que: $x \times y=1$
+\end{exct}\\
+\begin{exct}
+\textcolor{DeepPink}{\ding{96}} Recopier le tableau et compléter par l'un des symboles suivants~: $>$ et $<$ ou $=$.\\ 
+\scalebox{2}{\doublespacing\begin{tabular}[t]{|c|c|c|}	
+\hline \rowcolor{DeepPink!30} $\frac{2}{7} \ldots 1$ & $\frac{7}{3} \ldots 1$ & $\frac{2}{8} \ldots \frac{5}{8}$ \\
+\hline \rowcolor{DeepPink!30} $\frac{3}{5} \ldots \frac{13}{2}$ & $\frac{4}{5} \ldots \frac{4}{13}$ & $\frac{2}{3} \ldots \frac{12}{18}$ \\
+\hline
+\end{tabular}}
+\end{exct}\\
+\begin{exct}
+\textcolor{DeepPink}{\Large \ding{182}} Compléter les égalités  suivantes :
+$$
+\dfrac{4}{11}=\dfrac{\cdots}{22} \quad \textcolor{DeepPink}{\text{\Large\ding{168}}} \quad \dfrac{60}{28}=\dfrac{15}{\ldots} \quad \textcolor{DeepPink}{\text{\Large\ding{168}}} \quad \dfrac{6}{\ldots}=\dfrac{9}{12}
+$$
+\textcolor{DeepPink}{\Large \ding{183}} Ranger les nombres suivants dans l'ordre décroissant :
+$$
+\dfrac{4}{3} \quad ;\quad 1,2 \quad ;\quad \dfrac{22}{15} \quad ;\quad \dfrac{7}{5}
+$$
+\end{exct}\\
+\begin{exct}
+\textcolor{DeepPink}{\ding{96}} Relier par une flèche ce qui est convenable : 
+$$\begin{array}{rcl}
+2 \times(x+8) \quad  &\bullet \quad \quad \quad  \bullet&   4 \times(x+2) \\
+4 x+8 \quad  &\bullet \quad \quad \quad  \bullet &  6 x-18 \\
+6 \times(x-3) \quad &\bullet  \quad \quad \quad  \bullet&     7 x \\
+5 x+3 x-x \quad  &\bullet \quad \quad \quad  \bullet &  2 x+16\\
+10 \times(x+5)  \quad  &\bullet \quad \quad \quad  \bullet &   10 x-50\\
+10 \times(x-5) \quad  &\bullet \quad \quad \quad  \bullet &  10 x+50 \\
+5 \times(x-10) \quad  &\bullet \quad \quad \quad  \bullet &  5 x-50
+\end{array}$$
+\end{exct}\\
+\begin{exct}
+\textcolor{DeepPink}{\ding{96}} Calculer $E$ et $F$  de deux manières différentes :\\[0.2cm]
+\begin{minipage}[t]{0.25\textwidth}
+$\begin{array}{rcl}
+E &=& 20 \times(7-4) \\
+  &=& ...........................  \\ 
+  &=& ...........................  \\ 
+\end{array}$
+\end{minipage}
+\hspace{2pt} \vrule \hspace{2pt}
+\begin{minipage}[t]{0.25\textwidth}
+$\begin{array}{rcl}
+E &=& 20 \times(7-4) \\
+  &=& ...........................  \\ 
+  &=& ...........................  \\ 
+\end{array}$
+\end{minipage}\\[0.5cm]
+\begin{minipage}[t]{0.25\textwidth}
+$\begin{array}{rcl}
+F &=& 7 \times 13,3+7 \times 6,7 \\
+  &=& ...........................  \\ 
+  &=& ...........................  \\ 
+\end{array}$
+\end{minipage}
+\hspace{2pt} \vrule \hspace{2pt}
+\begin{minipage}[t]{0.25\textwidth}
+$\begin{array}{rcl}
+F &=& 7 \times 13,3+7 \times 6,7 \\
+  &=& ...........................  \\ 
+  &=& ...........................  \\ 
+\end{array}$
+\end{minipage}
+\end{exct}\\
+\begin{exct}
+\textcolor{DeepPink}{\ding{96}} Simplifier les fractions suivantes :\\[0.2cm]
+$\begin{array}{rcl}
+\dfrac{8}{10} &=& \dfrac{\ldots \times \ldots}{\ldots\times \ldots} ~=~ \dfrac{\ldots}{\ldots} \\
+ & &  \\
+\dfrac{50}{75} &=& \dfrac{\ldots \times \ldots}{\ldots\times \ldots} ~=~ \dfrac{\ldots}{\ldots} \\
+ & &  \\
+\dfrac{21 \times 15}{30 \times 7} &=& \dfrac{\ldots \times \ldots}{\ldots\times \ldots} ~=~ \dfrac{\ldots}{\ldots} 
+\end{array}$
+\end{exct}\\
+\begin{exct}
+\textcolor{DeepPink}{\ding{96}} Comparer les fractions : $\dfrac{5}{3} \text { et } \dfrac{1}{7} \quad \textcolor{DeepPink}{\text{\Large\ding{168}}} \quad
+\dfrac{66}{23}\text { et } \dfrac{66}{13}
+\quad \textcolor{DeepPink}{\text{\Large\ding{168}}} \quad
+\dfrac{14}{7} \text { et } 1
+$ 
+\end{exct}\\
+\begin{exct}
+\textcolor{DeepPink}{\ding{96}} Calculer mentalement les expressions suivantes :
+$$F=42 \times 25+42 \times 75 \quad \textcolor{DeepPink}{\text{\Large\ding{168}}} \quad E=13 \times 99 \quad \textcolor{DeepPink}{\text{\Large\ding{168}}} \quad D=15 \times(100+2)$$ 
+\end{exct}\\
+\begin{exct}
+\textcolor{DeepPink}{\ding{96}} J'ai $36$ bonbons, $\dfrac{7}{12}$ d'entre eux sont à la fraise, les $\dfrac{2}{3}$ des ~~\\  bonbons restants sont au caramel.\\[0.3cm]
+\textcolor{DeepPink}{\Large \ding{182}} Combien y a-t-il de bonbons à la fraise $?$ Combien en reste-t-il$?$\\[0.3cm]
+\textcolor{DeepPink}{\Large \ding{183}} Combien y en a-t-il au caramel$?$
+\end{exct}
+\end{multicols*}
+\end{document}
+
+\begin{exct}
+Effectuer les calculs suivants : 
+\end{exct}\\
+
+
+\AddToShipoutPictureBG{%
+    \begin{tikzpicture}[remember picture,overlay]
+      \draw[thick,rounded corners]
+        ( $(current page text area.south west)+(-12pt,-12pt)$ )
+          rectangle 
+          ( $(current page text area.north east)+(12pt,12pt)$ );
+      \node[white,fill=blue!70!violet, thick,rounded corners]
+          at ( $(current page text area.north)+(0,12pt)$ ) 
+          %% Change 'Exercises' to suit
+          {\bfseries\sffamily\hspace*{2em}Exercices\hspace*{2em}};
+    \end{tikzpicture}
+}

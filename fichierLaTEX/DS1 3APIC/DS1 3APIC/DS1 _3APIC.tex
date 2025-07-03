@@ -1,0 +1,444 @@
+\documentclass[10pt,a4paper]{article}
+
+\usepackage{pgfornament}
+\usepackage{psvectorian}
+\usepackage{gensymb}
+\usepackage{setspace}
+\usepackage[object=vectorian]{pgfornament}
+\usepackage[most]{tcolorbox}
+\usepackage{listings}
+\usepackage{tablists}
+\usepackage{tcolorbox}
+\usepackage{tikz,varwidth,multicol}
+\usepackage{tablists}
+\usepackage[pdfstartview=FitH,colorlinks=true,urlcolor=blue,linkcolor=black]{hyperref}
+\usetikzlibrary{calc,intersections}
+\usetikzlibrary{calc}
+\usetikzlibrary{shadows.blur}
+\usetikzlibrary{shapes.symbols}
+\tcbuselibrary{xparse,hooks,skins,breakable}
+\tcbuselibrary{listings}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{pgffor}
+
+\usepackage[left=0.6cm,right=1.4cm,top=1.5cm,bottom=2cm]{geometry}
+%\usepackage[hmargin=1.1cm,vmargin=0.4cm]{geometry}
+\usepackage{multicol}
+\usepackage{fmultico}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{fancyhdr}
+\usepackage{fancybox}
+\setlength{\columnseprule}{0pt}
+\usepackage{array}
+\usepackage{color}
+\usepackage{pifont}
+\usepackage{tabularx}
+\usepackage{color}
+\usepackage[svgnames,dvipsnames]{xcolor}
+\xdefinecolor{limone}{named}{OrangeRed}
+\definecolor{salmon}{rgb}{1.0, 0.55, 0.41}
+\definecolor{tangelo}{rgb}{0.98, 0.3, 0.0}
+\definecolor{bg}{RGB}{240,240,0}
+\usepackage{color,colortbl}
+\usepackage{xcolor}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\usepackage{pgf,tikz}
+\usepackage{enumitem}
+\usepackage{enumerate}
+\usepackage{varwidth}
+\usetikzlibrary{arrows}
+\usepackage{graphicx}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{1,5pt}
+%\thispagestyle{empty}
+\fancypage{}{\setlength{\fboxsep}{1.2mm}
+\setlength{\fboxrule}{0.6mm}
+\fbox}
+\fancyfoot[L]{ } 
+\fancyfoot[C]{}
+ \fancyfoot[R]{ }
+
+\newcommand{\sectionline}{%
+  \noindent
+  \vspace*{-0.25cm}
+  \begin{flushleft}
+  {\color{DarkViolet}
+    \resizebox{0.5\linewidth}{1ex}
+    {{%
+    {\begin{tikzpicture}
+    \node  (C) at (0,0) {};
+    \node (D) at (9,0) {};
+    \path (C) to [ornament=85] (D);
+    \end{tikzpicture}}}}}%
+    \end{flushleft}
+  }
+\newcommand{\sectionlinetwo}[2]{%
+  \nointerlineskip \vspace{.5\baselineskip}\hspace{\fill}
+  {\color{#1}
+    \resizebox{0.5\linewidth}{2ex}
+    {{%
+    {\begin{tikzpicture}
+    \node  (C) at (0,0) {};
+    \node (D) at (9,0) {};
+    \path (C) to [ornament=#2] (D);
+    \end{tikzpicture}}}}}%
+    \hspace{\fill}
+    \par\nointerlineskip \vspace{.5\baselineskip}
+  }
+
+\tcbset{cielb/.style={enhanced,frame style image=blueshade.png,
+  opacityback=0.75,opacitybacktitle=0.25,drop large lifted shadow=black,
+  colback=blue!5!white,colframe=blue!75!black,}}
+\newtcolorbox{mybox1}[1][]{width=(\linewidth-4mm),skin=enhancedmiddle jigsaw,
+%attach boxed title to top left={xshift=4mm,yshift=-0.5mm},
+%varwidth boxed title=0.7\linewidth,
+%colback=blue!45!white,
+%colframe=red!50!black,
+interior style={top color=blue!10!white,bottom color=red!10!white},
+title={\textsc{Tema}}~\thetcbcounter,#1,
+%boxed title style={empty,arc=0pt,outer arc=0pt,boxrule=0pt},
+title code={
+%\fill[blue!45!white] (title.north east) -- (title.north west)
+%-- +(-\tcboxedtitleheight+1mm,-\tcboxedtitleheight+1mm)
+%-- ([xshift=-1.5mm,yshift=-2mm]frame.north west) -- +(0mm,-1mm)
+%-- (title.south east) -- cycle;
+%\fill[blue!45!white!50!black] ([yshift=-0.5mm]frame.north west)
+%-- +(-0.1,0) -- +(0,-0.1) -- cycle;
+\fill[blue!45!white!50!black] ([xshift=1mm,yshift=-6.5mm]frame.north east)
+-- +(0,-0.3) -- +(0.4,0) -- cycle;
+ \draw[very thick,blue!50!cyan!80!black] 
+  ([xshift=3mm] title.south east) |- 
+  ($(title.north east)!0.375!(title.north)$)--
+  ($(title.south east)!0.375!(title.south)$)--++
+  (1em,0)--++
+  (115:-2mm)--++
+  (-125:-2mm)--cycle
+  ;%
+ }}
+
+\newcommand{\mybox}[4][\textwidth-\pgfkeysvalueof{/pgf/inner xsep}-2mm]{%
+\begin{figure}[!h]
+\centering
+\begin{tikzpicture}
+\node[line width=.5mm, rounded corners, draw=#2, inner ysep=10pt, text width=#1, outer sep=0] (one) {\vspace*{15pt}\\\begin{varwidth}{\textwidth}#4\end{varwidth}};
+\node[text=white,anchor=north east,align=center, minimum height=20pt] (two) at (one.north east) {#3 \hspace*{.5mm}};
+\path[fill=#2] 
+    (one.north west|-two.west) --
+    ($(two.west)+(-1.5cm,0)$) 
+    to[out=0,in=180] (two.south west) --
+    (two.south east) [rounded corners] --
+    (one.north east) -- 
+    (one.north west) [sharp corners] -- cycle;
+\node[text=white,anchor=north east,align=center, minimum height=20pt, text height=2ex] (three) at (one.north east) {#3 \hspace*{.5mm}};
+\end{tikzpicture} 
+\end{figure}
+}
+\def\aascolorbox@singlering#1#2#3{\fill[black!30!gray] ([xshift=13pt,yshift=#1pt]$ (#2)!.5!(#3) $) -- ++ (1pt,-1.5pt) circle (4pt);
+\fill[black] ([xshift=13pt,yshift=#1pt]$ (#2)!.5!(#3) $) -- ++ (1pt,-1.5pt) circle (4pt);
+\fill[left color=black!70!white,right color=white] ([xshift=-6pt,yshift=#1pt]$ (#2)!.5!(#3) $) arc [start angle=90, end angle=180, radius=1pt] -- ++ (0pt,-1pt) arc [start angle=180, end angle=290, radius=1pt] -- ++ (10pt,0pt) -- ++ (0pt,3pt) -- cycle;
+\fill[left color=white,right color=black!70!white] ([xshift=5pt,yshift=#1pt]$ (#2)!.5!(#3) $) -- ++ (0pt,-3pt) -- ++ (10pt,0pt) arc [start angle=270, end angle=360, radius=1pt] -- ++ (0pt,1pt) arc [start angle=0, end angle=90, radius=1pt] -- cycle;}
+
+\def\ascolorbox@triplesinglering#1{\aascolorbox@singlering{12}{#1}{B}%
+       \aascolorbox@singlering{0}{#1}{B}%
+       \aascolorbox@singlering{-12}{#1}{B}}
+
+\DeclareTColorBox{ascolorbox14}{ o m O{} }%
+{enhanced, colback=white, colframe=black!30!gray,
+attach boxed title to top left={xshift=1cm,yshift=-22pt}, fonttitle=\bfseries, coltitle=black, 
+enlarge top by=2mm, top=7mm, left=7mm, 
+leftrule=3mm, rightrule=2mm, toprule=1mm, bottomrule=1mm,
+boxed title style={size=small,colback=white,colframe=white}, 
+underlay ={
+       \coordinate (A) at ([xshift=10pt] frame.north west);
+       \coordinate (B) at (frame.west);
+       \coordinate (C) at ([xshift=10pt] frame.south west);
+       \ascolorbox@triplesinglering{A}
+       \ascolorbox@triplesinglering{C};
+       \coordinate (A) at ([xshift=10pt,yshift=240pt] frame.north west);
+       \coordinate (B) at (frame.west);
+       \coordinate (C) at ([xshift=10pt,yshift=-240pt] frame.south west);
+       \ascolorbox@triplesinglering{A}
+       \ascolorbox@triplesinglering{C};
+\coordinate (A) at ([xshift=10pt,yshift=-240pt] frame.north west);
+       \coordinate (B) at (frame.west);
+       \coordinate (C) at ([xshift=10pt,yshift=240pt] frame.south west);
+       \ascolorbox@triplesinglering{A}
+       \ascolorbox@triplesinglering{C}       
+       },
+IfValueTF={#1}{title=#2 #1 {title=#2},#3}}
+
+
+
+
+\def\Mbox@centerring#1#2#3{\fill[blue!30!gray] ([xshift=-5pt,yshift=#1pt]$ (#2)!.5!(#3) $) -- ++ (1pt,-1.5pt) circle (4pt);
+\fill[black] ([xshift=-5pt,yshift=#1pt]$ (#2)!.5!(#3) $) -- ++ (1pt,-1.5pt) circle (4pt);
+\fill[black!30!gray] ([xshift=-5pt,yshift=#1pt]$ (#2)!.5!(#3) $) -- ++ (5pt,-1.5pt) circle (4pt);
+\fill[black] ([xshift=-5pt,yshift=#1pt]$ (#2)!.5!(#3) $) -- ++ (1pt,-1.5pt) circle (4pt);
+\fill[left color=red,right color=white] ([xshift=-5pt,yshift=#1pt]$ (#2)!.5!(#3) $) arc [start angle=90, end angle=180, radius=1pt] -- ++ (0pt,-1pt) arc [start angle=180, end angle=270, radius=1pt] -- ++ (10pt,0pt) -- ++ (0pt,3pt) -- cycle;
+\fill[left color=white,right color=black!70!white] ([xshift=5pt,yshift=#1pt]$ (#2)!.5!(#3) $) -- ++ (0pt,-3pt) -- ++ (10pt,0pt) arc [start angle=270, end angle=360, radius=1pt] -- ++ (0pt,1pt) arc [start angle=0, end angle=90, radius=1pt] -- cycle;}
+
+\def\Mybox@triplecenterring#1{\mybox@centerring{12}{#1}{B}%
+       \mybox@centerring{0}{#1}{B}%
+       \mybox@centerring{-12}{#1}{B}}
+
+\def\myybox@pageline#1{\draw[black,thin] ([xshift=#1pt,yshift=5pt]interior.south west) -- ([xshift=#1pt,yshift=-5pt]interior.north west) arc [start angle=180, end angle=90, radius=5pt];
+\draw[black,thin] ([xshift=#1pt,yshift=5pt]interior.south west) arc [start angle=180, end angle=270, radius=5pt];
+\draw[black,thin] ([xshift=-#1pt,yshift=5pt]interior.south east) -- ([xshift=-#1pt,yshift=-5pt]interior.north east) arc [start angle=0, end angle=90, radius=5pt];
+\draw[black,thin] ([xshift=-#1pt,yshift=5pt]interior.south east) arc [start angle=360, end angle=270, radius=5pt];}
+
+\newtcolorbox{mathbox15}[2][]{enhanced,breakable,
+%frame style image=blueshade.png,nobeforeafter,opacityback=0.65,opacitybacktitle=0.25,
+ arc=5pt, outer arc=2pt, colback=white, colframe=black!30!gray,drop large lifted shadow=black,
+attach boxed title to top left={xshift=1cm,yshift=-28pt}, fonttitle=\bfseries, coltitle=black, 
+enlarge top by=2mm, enlarge bottom by=2mm, top=8mm, left=7mm, right=7mm, bottom=5mm,
+leftrule=3mm, rightrule=3mm, toprule=1.5mm, bottomrule=1.5mm,
+boxed title style={size=small,colback=white,colframe=white}, 
+underlay ={
+\begin{tcbclipinterior}
+\shade[outer color=yellow!10!white]
+(interior.north east) circle (2cm);
+\draw[help lines,step=0.71cm,yellow!80!black,shift={(interior.north west)}]
+(interior.south west) grid (interior.north east);
+\end{tcbclipinterior};
+\draw[black!60!white,line width=3pt]([yshift=-1.5mm]frame.north) -- ([yshift=1.5mm]frame.south);
+       \draw[black!80!white,line width=2pt]([yshift=-1.5mm]frame.north) -- ([yshift=1.5mm]frame.south);
+       \draw[black,line width=1pt]([yshift=-1.5mm]frame.north) -- ([yshift=1.5mm]frame.south);
+       \draw[black,thick]([yshift=5pt]interior.south west) -- 
+       ([yshift=-5pt]interior.north west) arc [start angle=180, end angle=90, radius=5pt] -- ([xshift=-5pt]interior.north east) arc [start angle=90, end angle=0, radius=5pt] -- ([yshift=5pt]interior.south east) arc [start angle=360, end angle=270, radius=5pt] -- ([xshift=5pt]interior.south west) arc [start angle=270, end angle=180, radius=5pt] -- cycle;
+       \myybox@pageline{1.5}
+       \myybox@pageline{3}
+       \myybox@pageline{4.5}
+       \myybox@pageline{6}
+       \myybox@pageline{7.5}
+       \myybox@pageline{9}
+       \coordinate (A) at ([xshift=-5pt]frame.north);
+       \coordinate (C) at ([xshift=-5pt]frame.south);
+       \coordinate (B) at ($(A)!.2!(C)$);
+       \My@triplecenterring{A}
+       \Mybox@triplecenterring{C};
+       \coordinate (A) at ([xshift=-5pt]frame.north);
+       \coordinate (C) at ([xshift=-5pt]frame.south);
+       \coordinate (B) at ($(A)!.4!(C)$);
+       \Mybox@triplecenterring{A}
+       \Mybox@triplecenterring{C};
+       \coordinate (A) at ([xshift=-5pt]frame.north);
+       \coordinate (C) at ([xshift=-5pt]frame.south);
+       \coordinate (B) at ($(A)!.6!(C)$);
+       \Mybox@triplecenterring{A}
+       \Mybox@triplecenterring{C}},
+title={#2},#1}
+\newenvironment{Mathbox15}[2][]{%
+\begin{mathbox15}[#1]{#2}%
+\setlength{\columnseprule}{0pt}%
+\setlength{\columnsep}{1.5cm}
+\begin{multicols}{2}%
+}{%
+\end{multicols}%
+\end{amathbox15}%
+}
+\tcbset{dd/.style={enhanced,boxrule=0.75mm,attach boxed  to top left={xshift=7cm,yshift=-2mm}, colframe=white,
+borderline={0.1mm}{0mm}{green!50!black},
+borderline={0.1mm}{0.75mm}{green!50!black},
+interior style={top color=green!10!white,bottom color=green!10!white,
+middle color=green!50!white},
+drop fuzzy shadow}}
+  \tcbset{cc/.style={enhanced,boxrule=0.5mm,
+frame code={ \path[tcb fill frame] ([xshift=-4mm]frame.west)
+-- (frame.north west) -- (frame.north east) -- ([xshift=4mm]frame.east)
+-- (frame.south east) -- (frame.south west) -- cycle; },
+interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
+-- (interior.north west) -- (interior.north east)
+-- ([xshift=2mm]interior.east) -- (interior.south east) -- (interior.south west)
+-- cycle;} }}
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+\newcommand{\lr}[1]{\left(#1\right)}
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\newtcolorbox{exo}[2][]{enhanced,
+before skip=2mm,after skip=2mm,
+colback=black!1,colframe=black!50,boxrule=0.2mm,
+attach boxed title to top left={xshift=1cm,yshift*=1mm-\tcboxedtitleheight},
+varwidth boxed title*=-3cm,
+boxed title style={frame code={
+\path[fill=tcbcol@back!30!black]
+([yshift=-1mm,xshift=-1mm]frame.north west)
+arc[start angle=0,end angle=180,radius=1mm]
+([yshift=-1mm,xshift=1mm]frame.north east)
+arc[start angle=180,end angle=0,radius=1mm];
+\path[left color=tcbcol@back!60!black,right color=tcbcol@back!60!black,
+middle color=tcbcol@back!80!black]
+([xshift=-2mm]frame.north west) -- ([xshift=2mm]frame.north east)
+[rounded corners=1mm]-- ([xshift=1mm,yshift=-1mm]frame.north east)
+-- (frame.south east) -- (frame.south west)
+-- ([xshift=-1mm,yshift=-1mm]frame.north west)
+[sharp corners]-- cycle;
+},interior engine=empty,
+},
+fonttitle=\bfseries,
+title={#2},#1}
+\usepackage{enumerate}
+\usetikzlibrary{trees}
+\usetikzlibrary{shapes}
+\renewcommand{\labelenumi}{%
+\begin{tikzpicture}[baseline=(1.base)]
+\node[draw,circle,inner sep=.4mm,fill=blue!25,font=\bfseries](1){\actfont\arabic{enumi}}; %star , rectangle , circle , ellipse , diamond 
+\end{tikzpicture}}
+\renewcommand{\labelenumii}{%
+\begin{tikzpicture}[baseline=(1.base)]
+\node[draw,diamond ,inner sep=.4mm,fill=blue!25,font=\bfseries\footnotesize,minimum size=5mm](1){\alph{enumii}}; %star , rectangle , circle , ellipse , diamond 
+\end{tikzpicture}}
+\newenvironment{enum}{
+\begin{enumerate}
+   \setlength{\itemsep}{2pt}
+  \setlength{\parskip}{5pt}
+   \setlength{\rightskip}{7mm}
+}{\end{enumerate}}
+%%%%%%%%%%
+\newcommand{\twoparts}[3][0.5]{
+\par
+\begin{minipage}[t]{#1\textwidth}
+#2
+\end{minipage}
+\begin{minipage}[t]{\textwidth- #1\textwidth -3mm}
+#3
+\end{minipage}
+\par}
+\newcommand{\lr}[1]{ \left(#1\right)}
+\begin{document}
+   \setlength{\arrayrulewidth}{1.5pt}
+\vspace*{-2.1cm}
+\begin{center}
+\setlength{\arrayrulewidth}{0.4pt}
+\renewcommand{\arraystretch}{1.7}
+\doublerulesepcolor{black}
+{\renewcommand{\tabularxcolumn}[1]{%
+>{\centering \arraybackslash}m{#1}}
+\begin{tabularx}{1.001\linewidth}{|X|X|X|}
+\hline  \hline
+\textit{\Timefont Collège Sidi Ahmed Bennaji} &{\mffont Devoir surveille N$\degree$ 1} &{ \Timefont \textit{Niveau :$3^{\text{ème}}$ année collège} }  \\
+  \cline{3-3}     \cline{1-1}  
+\textit{\Timefont Année scolaire :{\Samirfont 2021/2022 }}  & $1^{\text{er}}$ semestre & \textit{\Timefont Prof : Lahcen Oukhdil}    \\
+\hline \hline 
+\end{tabularx} }  
+\\[2mm]
+%\rule{18.8cm}{0.6mm}
+\end{center}
+  \vspace*{-0.015\linewidth}  
+  \mathversion{bold}
+%  \vspace*{-0.01\linewidth}
+\begin{ascolorbox14}{}
+\vspace*{-0.045\linewidth}
+\begin{exo}[colbacktitle=blue!40 ]{\textcolor{ white}{
+{\aljfont{Exercice 1: }{\Samirfont ) 6,5 {\sfont pts }\Samirfont ( }}}}
+\begin{enumerate}   \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}
+\item Calculer   : { \Timeffont \dotfill  } { \Maghrfont ) 2 \sfont pts  \Maghrfont ( }
+\vspace{-0.3cm}
+\begin{tabenum}
+\tabenumitem[] \qquad \;
+\tabenumitem[]   $ A = \sqrt{25} $
+\tabenumitem[] **
+\tabenumitem[]  $ B = \dfrac{\sqrt{18}}{\sqrt{2}} $
+\tabenumitem[] **
+\tabenumitem[]  $ C= \sqrt{21} \times \sqrt{\dfrac{15}{35}} $ 
+\end{tabenum} \vspace{-0.3cm}
+\item Ecrire sous la forme $ a\sqrt{b} $ où $a$ et $b$ sont des entiers relatifs : { \Timeffont \dotfill  } { \Maghrfont ) 1.5 \sfont pts  \Maghrfont ( }
+\[ E = \sqrt{45}  +    3\sqrt{20} - 7\sqrt{5} \]
+\item Rendre rationnel les dénominateurs des nombres suivants  : { \Timeffont \dotfill  } { \Maghrfont ) 1.5 \sfont pts  \Maghrfont ( }
+\vspace{-0.3cm}
+\begin{tabenum}
+\tabenumitem[] \qquad \; \; \; \; 
+\tabenumitem[] \qquad \;\;
+\tabenumitem[] \qquad \;
+\tabenumitem[] $  \dfrac{2}{3\sqrt{5}} $
+\tabenumitem[] **
+\tabenumitem[]  $ \dfrac{7}{2\sqrt{5}-3}  $ 
+\end{tabenum} \vspace{-0.4cm} 
+\item  Trouver , si possible , toutes les valeurs de $x$ telles que : { \Timeffont \dotfill  } { \Maghrfont ) 1.5 \sfont pts  \Maghrfont ( }
+\begin{tabenum} 
+\tabenumitem[] \qquad \;  
+\tabenumitem[] \qquad \;
+\tabenumitem[] \qquad \;
+\tabenumitem[]  $ x^{2} =3 $
+\tabenumitem[] 
+\tabenumitem[**]
+\tabenumitem[] 
+\tabenumitem[] $ 5x^{2} + 3  = 1 $
+\end{tabenum}
+\end{enumerate}
+\end{exo}
+\vspace*{-0.008\linewidth}
+\begin{exo}[colbacktitle=blue!40 ]{\textcolor{ white}{
+{\aljfont{Exercice 2: }{\Samirfont ) 7.5 {\sfont pts }\Samirfont ( }}}}
+\vspace*{-0.008\linewidth}
+\begin{enumerate}  \setlength{\itemsep}{-10pt}
+\item Développer et réduire  : { \Timeffont \dotfill  } { \Maghrfont ) 2 \sfont pts  \Maghrfont ( } 
+\vspace*{-0.02\linewidth}
+\begin{tabenum} 
+\tabenumitem[] \qquad \;
+\tabenumitem[] \qquad \;
+\tabenumitem[] \qquad \;
+\tabenumitem[] $A=\lr{2x-3}^{2}$
+\tabenumitem[**]
+\tabenumitem[]  $B=\lr{x - \sqrt{7} } \lr{x + \sqrt{7}}$
+\end{tabenum}
+\vspace*{-0.008\linewidth}
+\item Factoriser : { \Timeffont \dotfill  } { \Maghrfont ) 3.5 \sfont pts  \Maghrfont ( }
+ \vspace*{-0.01\linewidth}
+\begin{tabenum} 
+\tabenumitem[] \qquad \;
+\tabenumitem[] \qquad \;
+\tabenumitem[] $ C = x^{2} + 10x + 25 $
+\tabenumitem[**] 
+\tabenumitem[] $ D = 5x^{2} - 6\sqrt{5}x + 9  $
+
+\tabenumitem[] \qquad \;
+\tabenumitem[] \qquad \;
+\tabenumitem[] $ E = 4x^{2}-9 + \lr{2x-3}\lr{5x-2} $
+\tabenumitem[] 
+\end{tabenum}
+\item \begin{enum}\setlength{\itemsep}{-1pt}
+\item Développer et réduire   $ I=\lr{ 3\sqrt{2} + 1 }^{2} $  { \Timeffont \dotfill  } { \Maghrfont ) 1 \sfont pts  \Maghrfont ( }
+\item  En déduire une écriture simplifiée  de  $ J = \lr{3\sqrt{2} -1}\sqrt{19 + 6\sqrt{2}} $ { \Timeffont \dotfill  } { \Maghrfont ) 1 \sfont pts  \Maghrfont ( }
+\end{enum}
+\end{enumerate} 
+\end{exo}
+\begin{exo}[colbacktitle=blue!40 ]{\textcolor{ white}{
+{\aljfont{Exercice 3: }{\Samirfont ) 4.5 {\sfont pts }\Samirfont ( }}}}
+\vspace*{-0.008\linewidth}
+\begin{enumerate} \setlength{\itemsep}{-2pt}
+\item Calculer : \; $  A = \lr{\sqrt{7}}^{5} $   \quad ** \quad   $ B = \lr{\dfrac{5}{2}}^{-3}   $ { \Timeffont \dotfill  } { \Maghrfont ) 1 \sfont pt  \Maghrfont ( }
+\vspace*{-0.008\linewidth}
+\item Ecrire sous la forme d'une seul puissance : { \Timeffont \dotfill  } { \Maghrfont ) 2 \sfont pts  \Maghrfont ( } 
+\begin{tabenum}
+\tabenumitem[] \qquad \;
+\tabenumitem[] \qquad \;
+\tabenumitem[] $ C =5^{3} \times 5^{6}  $
+\tabenumitem[**]
+\tabenumitem[] $ D = \dfrac{\lr{\sqrt{7}^{3}}^{-2}}{7} $ 
+\tabenumitem[**]
+\tabenumitem[] $ E = \lr{\dfrac{2}{3}}^{8} \times \lr{\dfrac{3}{2}}^{3} \times \lr{\dfrac{3}{7}}^{5} $ 
+\end{tabenum}
+\vspace*{-0.01\linewidth}
+\item Donner l'écriture scientifique de chacun des nombres suivants : { \Timeffont \dotfill  } { \Maghrfont ) 1.5 \sfont pts  \Maghrfont ( }
+\begin{tabenum}
+\tabenumitem[] \qquad \;
+\tabenumitem[] \qquad \;
+\tabenumitem[] $ E= 0,000235 $
+\tabenumitem[**]
+\tabenumitem[] $ F = - 257,25 \times \lr{10^{2}}^{5} $
+\end{tabenum}
+\end{enumerate}
+\end{exo}
+\begin{exo}[colbacktitle=blue!40 ]{\textcolor{ white}{
+{\aljfont{Exercice 4: }{\Samirfont ) 1,5 {\sfont pts }\Samirfont ( }}}}
+\; \;  {\Large \scalebox{-1.3}[1.3]{\Large  \ding{45} }} Montrer que : \; \;  $ \sqrt{\lr{\sqrt{50} - 7}^{2022}} \times \sqrt{\lr{5\sqrt{2} + 7}^{2022}} = 1 $ 
+\end{exo}
+\end{ascolorbox14}
+\end{document}

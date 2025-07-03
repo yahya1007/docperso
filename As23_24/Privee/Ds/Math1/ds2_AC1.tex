@@ -1,0 +1,91 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{ProfModels}
+
+  
+\begin{document}
+\begin{Maquette}[DS]{Niveau=1, Numero=2, Date=19/10/2024, Semestre=1, Calculatrice=false}
+
+\begin{exercice}
+\begin{minipage}{.5\linewidth}
+On considère la figure ci-contre :
+\begin{enumerate}
+\item\brm{5} Compléter par $\in$ ou $\notin$
+
+$A\cdotsx{3} (BC)$ ; $B\cdotsx{3} [AC]$ ; $C\cdotsx{3} [AB)$
+
+$A\cdotsx{3} (CB]$ ; $D\cdotsx{3} [EB)$ ; $E\cdotsx{3} [DB)$
+
+$E\cdotsx{3} [BD)$ ; $C\cdotsx{3} [AB]$ ; $D\cdotsx{3} [BE)$
+\end{enumerate}
+\end{minipage}%
+\begin{minipage}{.5\linewidth}
+\begin{tikzpicture}[scale=.7]
+\tkzDefPoints{-3/0/A,2/0/C,3/1/D,-4/-1/E}
+\tkzInterLL(A,C)(E,D)
+\tkzGetPoint{B}
+\tkzDrawLines(A,C D,E)
+\tkzDrawPoints(A,B,C,D,E)
+\tkzLabelPoints(B,C)
+\tkzLabelPoints[above](E,A,D)
+
+\end{tikzpicture}
+\end{minipage}
+\end{exercice}
+
+\begin{exercice}
+\begin{minipage}{.66\linewidth}
+A, B ,et C sont trois points non alignés. 
+\begin{enumerate}
+\item\brm{1} Trace la droite $(D_{1})$ perpendiculaire à $(AB)$ passant par C.
+\item\brm{1} Trace la droite $(D_{2})$ perpendiculaire à $(BA)$ passant par C.
+\item\brm{1} Trace la droite $(D_{3})$ parallèle à $(BC)$ passant par A.
+\item\brm{1} Que peut-on dire des droites $(D_{1})$ et $(D_{2})$ et $(D_{3})$ ? 
+\end{enumerate}
+\end{minipage}
+\begin{minipage}{.33\linewidth}
+\begin{tikzpicture}
+\tkzDefPoints{0/0/B,2/3/A,4/1/C}
+\tkzDrawLines(A,B B,C C,A)
+\tkzLabelPoints[above=2pt](A,B,C)
+\end{tikzpicture}
+\end{minipage}%
+
+\notes[10pt]{2}{\linewidth}
+\end{exercice}
+
+\begin{exercice}
+\begin{enumerate}
+\item\brm{7} En utilisant les règle de calculer, effectuer ce qui suit : 
+\end{enumerate}
+\begin{multicols}{2}
+$(-14)+13=$\anserline[2] 
+$(23)+(-19)$=\anserline[2]
+$-14.26+(-13.5)=$\anserline[2]
+\columnbreak
+
+$-143-134=$\anserline[2]
+$213-(-139)=$\anserline[2]  
+$-104.26-(-130.5)=$\anserline[2] 
+\end{multicols}
+$-14-(-9)+(+48)-(68)-(-51)+(-47)-(+23)-(-13)+(+68)-48=$\anserline[1]
+\anserline[1]
+
+\end{exercice}
+
+\begin{exercice}
+\begin{enumerate}
+\item\brm{4} Donner les abscisses des points $A$ , $B$ , $O$ et $I$ 
+\end{enumerate}
+\begin{tikzpicture}
+\tkzInit[xmin=-7.5, xmax=6]
+\tkzAxeX
+\tkzDefPoints{0/0/O,1/0/I,3/0/A,-4/0/B}
+\tkzLabelPoints[above](O,I,A,B)
+\end{tikzpicture}
+\notes[10pt]{5}{\linewidth}
+\end{exercice}
+
+
+\end{Maquette}
+\end{document}
